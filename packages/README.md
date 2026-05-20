@@ -1,91 +1,139 @@
-# RQBBOX OS — Platform Packages
+# RQBBOX OS — Packages & Distribution
 
-Production-ready packaging configurations for RQBBOX OS across all platforms.
+<p align="center">
+  <img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/7bd37856b_generated_image.png" width="100" alt="RQBBOX OS Logo"/>
+</p>
 
-**Base44 App:** https://app.base44.com/apps/6a0d383fda804251a27464a9
+<p align="center">
+  <img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/e8cbd346c_generated_image.png" width="700" alt="RQBBOX OS Banner"/>
+</p>
+
+<p align="center">
+  Build and distribute RQBBOX OS across every platform and package manager.
+</p>
+
+<p align="center">
+  <a href="https://inquisitive-rqbbox-core-play.base44.app"><img src="https://img.shields.io/badge/▶%20Launch%20RQBBOX%20OS-00f5ff?style=for-the-badge&logo=google-chrome&logoColor=black" alt="Launch App"/></a>
+</p>
 
 ---
 
-## Platform Support
+## 🌐 Live App
 
-| Platform | Format           | Min Version        | Arch              |
-|----------|------------------|--------------------|-------------------|
-| Android  | APK + AAB        | Android 8.0 (API 26) | arm64, x86_64   |
-| iOS      | IPA              | iOS 15.0           | arm64             |
-| Windows  | EXE + Portable   | Windows 10 64-bit  | x64, ia32         |
-| macOS    | DMG + PKG        | macOS 12 Monterey  | Universal (arm64 + x64) |
-| Linux    | AppImage + DEB + RPM + Snap | Ubuntu 20.04+ | x64, arm64  |
+> **[https://inquisitive-rqbbox-core-play.base44.app](https://inquisitive-rqbbox-core-play.base44.app)**
 
 ---
 
-## Quick Start
+## ⬇️ Download & Install
 
-### Android
+### One-click installs via Package Manager
+
 ```bash
-cd packages/android
+# 🍏 macOS — Homebrew
+brew install --cask rqbbox-os
+
+# 🪟 Windows — Winget
+winget install RTech.RQBBOXos
+
+# 🪟 Windows — Chocolatey
+choco install rqbbox-os
+
+# 🐧 Linux — Snap
+sudo snap install rqbbox-os
+
+# 🐧 Linux — Flatpak
+flatpak install flathub com.rtech.RQBBOXos
+```
+
+---
+
+### Direct Downloads
+
+| Platform | Package | Download |
+|----------|---------|----------|
+| 🪟 Windows | `.exe` Installer | [Download](https://inquisitive-rqbbox-core-play.base44.app) |
+| 🍏 macOS | `.dmg` (Universal) | [Download](https://inquisitive-rqbbox-core-play.base44.app) |
+| 🐧 Linux | `.AppImage` | [Download](https://inquisitive-rqbbox-core-play.base44.app) |
+| 🐧 Linux | `.deb` (Debian/Ubuntu) | [Download](https://inquisitive-rqbbox-core-play.base44.app) |
+| 🐧 Linux | `.rpm` (Fedora/RHEL) | [Download](https://inquisitive-rqbbox-core-play.base44.app) |
+| 📱 Android | `.apk` | [Download](https://inquisitive-rqbbox-core-play.base44.app) |
+| 📱 iOS | `.ipa` | [Download](https://inquisitive-rqbbox-core-play.base44.app) |
+| 🌐 PWA | Install from browser | [Open App](https://inquisitive-rqbbox-core-play.base44.app) |
+
+---
+
+## 🚀 Build Instructions
+
+### 🪟 Windows
+```bash
+cd windows
+npm install
+npm run build
+# Output: dist/RQBBOX OS Setup 1.0.0.exe
+```
+
+### 🍏 macOS
+```bash
+cd macos
+npm install
+npm run build
+# Output: dist/RQBBOX OS-1.0.0.dmg
+```
+
+### 🐧 Linux
+```bash
+cd linux
+npm install
+npm run build
+# Output: dist/rqbbox-os.AppImage, .deb, .rpm
+```
+
+### 📱 Android
+```bash
+cd android
 ./gradlew assembleRelease
-# APK: app/build/outputs/apk/release/app-release.apk
-# AAB: app/build/outputs/bundle/release/app-release.aab
+# Output: app/build/outputs/apk/release/app-release.apk
 ```
 
-### iOS
-```bash
-cd packages/ios
-pod install
-open RQBBOXOSLauncher.xcworkspace
-# Build → Archive → Distribute in Xcode
+### 📱 iOS
+```
+1. Open ios/RQBBOXOSLauncher.xcodeproj in Xcode
+2. Select your Team under Signing & Capabilities
+3. Product → Archive → Distribute App → Ad Hoc / App Store
 ```
 
-### Windows
-```bash
-cd packages/windows
-npm install
-npm run build       # x64 only
-npm run build:all   # x64 + ia32 + arm64
-```
-
-### macOS
-```bash
-cd packages/macos
-npm install
-npm run build:all   # Universal (Apple Silicon + Intel)
-```
-
-### Linux
-```bash
-cd packages/linux
-npm install
-npm run build:all   # AppImage + DEB + RPM + Snap
-```
+### 🌐 PWA
+The PWA is auto-served from the live app URL. Users can install it via their browser's **"Add to Home Screen"** or **"Install App"** prompt.
 
 ---
 
-## CI/CD
+## 📦 Package Manager Configs
 
-Automated builds run via GitHub Actions (`.github/workflows/build.yml`).
-
-Push a tag like `v1.0.1` to trigger a full build across all platforms and auto-publish a GitHub Release.
-
-```bash
-git tag v1.0.1
-git push origin v1.0.1
-```
-
-### Required GitHub Secrets
-
-| Secret | Description |
-|--------|-------------|
-| `WIN_CERT_PATH` | Path to Windows code signing certificate |
-| `WIN_CERT_PASSWORD` | Windows cert password |
-| `APPLE_ID` | Apple ID for notarization |
-| `APPLE_APP_SPECIFIC_PASSWORD` | App-specific password |
-| `APPLE_TEAM_ID` | Apple Developer Team ID |
-| `KEYSTORE_PATH` | Android keystore path |
-| `KEYSTORE_PASSWORD` | Android keystore password |
-| `KEY_ALIAS` | Android key alias |
-| `KEY_PASSWORD` | Android key password |
-| `RTECH_TEAM_ID` | RTech Apple Team ID |
+| Manager | Config Location |
+|---------|----------------|
+| 🍺 Homebrew | `pkg-managers/brew/rqbbox-os.rb` |
+| 🍫 Chocolatey | `pkg-managers/chocolatey/` |
+| 📦 Winget | `pkg-managers/winget/RTech.RQBBOXos.yaml` |
+| 🫙 Snap | `pkg-managers/snap/snapcraft.yaml` |
+| 📦 Flatpak | `pkg-managers/flatpak/com.rtech.RQBBOXos.yaml` |
+| 🌐 PWA | `pkg-managers/pwa/manifest.json` |
 
 ---
 
-Built with Base44 — https://base44.com
+## ⚙️ CI/CD
+
+GitHub Actions automatically builds all platform packages on every push to `main`:
+
+```
+.github/workflows/build.yml
+```
+
+Releases are published automatically to the [GitHub Releases](https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases) page.
+
+---
+
+<p align="center">
+  <img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/d7ee00918_generated_image.png" width="60" alt="RQBBOX Icon"/>
+  <br/>
+  <sub>RQBBOX OS · Powered by RTech & GOTECH AI · <a href="https://inquisitive-rqbbox-core-play.base44.app">inquisitive-rqbbox-core-play.base44.app</a></sub>
+</p>
