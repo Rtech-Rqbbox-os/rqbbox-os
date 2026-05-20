@@ -1,7 +1,7 @@
 # 💾 RQBBOX OS — USB Software
 
 <p align="center">
-  <img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/7bd37856b_generated_image.png" width="100" alt="RQBBOX OS Logo"/>
+  <img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/d7ee00918_generated_image.png" width="100" alt="RQBBOX OS Logo"/>
 </p>
 
 <p align="center">
@@ -9,86 +9,123 @@
 </p>
 
 <p align="center">
-  <strong style="color:#00f5ff;">Plug In. Play Anywhere.</strong><br/>
-  No booting. No installs. Plug in and RQBBOX OS launches instantly on any device.
+  <strong>Plug In. Play Anywhere.</strong><br/>
+  Desktop & USB = full OS experience · Mobile & Browser = RQBBOX App
 </p>
 
 <p align="center">
-  <a href="https://inquisitive-rqbbox-core-play.base44.app"><img src="https://img.shields.io/badge/▶%20Launch%20RQBBOX%20OS-00f5ff?style=for-the-badge&logo=google-chrome&logoColor=black" alt="Launch App"/></a>
+  <a href="https://inquisitive-rqbbox-core-play.base44.app">
+    <img src="https://img.shields.io/badge/▶%20RQBBOX%20App%20(Mobile%20%26%20Browser)-00f5ff?style=for-the-badge&logo=google-chrome&logoColor=black" alt="Launch App"/>
+  </a>
 </p>
 
 ---
 
-## 🌐 App
+## 🧠 Architecture
 
-> **Live URL:** [https://inquisitive-rqbbox-core-play.base44.app](https://inquisitive-rqbbox-core-play.base44.app)
+| Where you run it | What you get |
+|-----------------|--------------|
+| 💻 Windows / macOS / Linux (USB or installed) | **Full RQBBOX OS** — desktop shell, window manager, terminal, file manager, settings |
+| 📱 Android / iOS | **RQBBOX App** — mobile-optimised web app |
+| 🌐 Browser (any device) | **RQBBOX App** — instant access, no install needed |
 
-Open this link on **any device** to launch RQBBOX OS instantly in your browser — no install needed.
+> The desktop OS loads **locally** from `core/os-shell.html` via Electron — no internet required to boot.  
+> The RQBBOX App (web) is available inside the OS as a built-in browser window, and directly at the URL below.
 
 ---
 
-## ⬇️ Download by Platform
+## 🌐 RQBBOX App (Mobile & Browser)
 
-| Platform | Download | Instructions |
-|----------|----------|--------------|
-| 🪟 **Windows** | [Download Windows Launcher](https://inquisitive-rqbbox-core-play.base44.app) | [See below ↓](#-windows) |
-| 🍏 **macOS** | [Download macOS Launcher](https://inquisitive-rqbbox-core-play.base44.app) | [See below ↓](#-macos) |
-| 🐧 **Linux** | [Download Linux Launcher](https://inquisitive-rqbbox-core-play.base44.app) | [See below ↓](#-linux) |
-| 📱 **Android** | [Download APK](https://inquisitive-rqbbox-core-play.base44.app) | [See below ↓](#-android) |
-| 📱 **iOS** | [Download IPA](https://inquisitive-rqbbox-core-play.base44.app) | [See below ↓](#-ios) |
-| 🌐 **Browser (Any Device)** | [Open in Browser](https://inquisitive-rqbbox-core-play.base44.app) | Just click and play! |
+> **Live URL:** [https://inquisitive-rqbbox-core-play.base44.app](https://inquisitive-rqbbox-core-play.base44.app)
+
+Open on **any mobile or browser** to launch RQBBOX App instantly — no install needed.
+
+---
+
+## ⬇️ Downloads
+
+| Platform | Type | Download |
+|----------|------|----------|
+| 🪟 **Windows** | Full OS (EXE) | [Download ↗](https://github.com/Rtech-Rqbbox-os/rqbbox-os) |
+| 🍏 **macOS** | Full OS (DMG) | [Download ↗](https://github.com/Rtech-Rqbbox-os/rqbbox-os) |
+| 🐧 **Linux** | Full OS (AppImage/DEB/RPM) | [Download ↗](https://github.com/Rtech-Rqbbox-os/rqbbox-os) |
+| 📱 **Android** | App (APK) | [Download ↗](https://inquisitive-rqbbox-core-play.base44.app) |
+| 📱 **iOS** | App (IPA) | [Download ↗](https://inquisitive-rqbbox-core-play.base44.app) |
+| 🌐 **Browser** | App (Web) | [Open Now ↗](https://inquisitive-rqbbox-core-play.base44.app) |
 
 ---
 
 ## 🔌 Compatible Devices
 
-| Device | Connection | Status |
-|--------|------------|--------|
-| 💻 Laptop | USB-A / USB-C | ✅ Supported |
-| 📺 Smart TV | USB-A | ✅ Supported |
-| 🖥️ PC / Desktop | USB-A / USB-C | ✅ Supported |
-| 📱 Android Mobile | USB-C OTG | ✅ Supported |
-| 📱 iPhone / iPad | USB-C / Lightning | ✅ Supported |
+| Device | Connection | Experience |
+|--------|------------|-----------|
+| 💻 Laptop | USB-A / USB-C | Full OS |
+| 🖥️ PC / Desktop | USB-A / USB-C | Full OS |
+| 📺 Smart TV | USB-A | Full OS |
+| 📱 Android | USB-C OTG | App |
+| 📱 iPhone / iPad | USB-C / Lightning | App |
+| 🌐 Any browser | Internet | App |
 
 ---
 
-## 🚀 Installation Instructions
+## 🚀 Installation
 
-### 🪟 Windows
-1. Download the Windows Launcher from the link above
-2. Run `RQBBOX-OS-Setup.exe`
-3. Follow the installer — RQBBOX OS will appear in your Start Menu
-4. Launch and enjoy!
-
-> Or flash to USB:
+### 🪟 Windows — Full OS
 ```powershell
+# Flash to USB first:
 .\scripts\flash-usb.ps1 -UsbPath "E:\"
+
+# Then run the launcher:
+E:\RQBBOX-OS\launcher\windows\RQBBOXLauncher.exe
+```
+Or install directly:
+```powershell
+# Build from source:
+cd launcher/windows
+npm install
+npm run build
+# Output: dist/RQBBOX-OS-USB-1.0.0-Windows-Setup.exe
 ```
 
 ---
 
-### 🍏 macOS
-1. Download the macOS DMG from the link above
-2. Open `RQBBOX-OS.dmg`
-3. Drag **RQBBOX OS** to your Applications folder
-4. Open from Applications (right-click → Open on first launch)
-
-> Or flash to USB:
+### 🍏 macOS — Full OS
 ```bash
+# Flash to USB:
 chmod +x scripts/flash-usb.sh
 ./scripts/flash-usb.sh /Volumes/RQBBOX
+
+# Run the launcher:
+open /Volumes/RQBBOX/RQBBOX-OS/launcher/macos/RQBBOXLauncher.app
+```
+Or build from source:
+```bash
+cd launcher/macos
+npm install
+npm run build
+# Output: dist/RQBBOX-OS-USB-1.0.0-macOS.dmg
 ```
 
 ---
 
-### 🐧 Linux
-1. Download the AppImage / DEB / RPM from the link above
-2. **AppImage:** `chmod +x RQBBOX-OS.AppImage && ./RQBBOX-OS.AppImage`
-3. **DEB:** `sudo dpkg -i rqbbox-os.deb`
-4. **RPM:** `sudo rpm -i rqbbox-os.rpm`
-
-> Or install via Snap / Flatpak:
+### 🐧 Linux — Full OS
 ```bash
+# Flash to USB:
+chmod +x scripts/flash-usb.sh
+./scripts/flash-usb.sh /mnt/usb
+
+# Run the AppImage:
+chmod +x /mnt/usb/RQBBOX-OS/launcher/linux/RQBBOXLauncher.AppImage
+/mnt/usb/RQBBOX-OS/launcher/linux/RQBBOXLauncher.AppImage
+```
+Or install via package manager:
+```bash
+# DEB (Ubuntu/Debian)
+sudo dpkg -i dist/RQBBOX-OS-USB-1.0.0-Linux.deb
+
+# RPM (Fedora/RHEL)
+sudo rpm -i dist/RQBBOX-OS-USB-1.0.0-Linux.rpm
+
 # Snap
 sudo snap install rqbbox-os
 
@@ -98,36 +135,31 @@ flatpak install flathub com.rtech.RQBBOXos
 
 ---
 
-### 📱 Android
-1. Download the APK from the link above
-2. On your device: **Settings → Security → Allow Unknown Sources**
-3. Open the downloaded APK and tap **Install**
-4. Launch **RQBBOX OS** from your app drawer
+### 📱 Android — App
+1. Download the APK
+2. **Settings → Security → Allow Unknown Sources**
+3. Install APK → Launch **RQBBOX OS** from app drawer
 
-> USB OTG: Plug your RQBBOX USB into your Android device via USB-C OTG adapter — the launcher opens automatically.
+> USB OTG: Plug RQBBOX USB into Android via USB-C OTG — app launches automatically.
 
 ---
 
-### 📱 iOS
-1. Download the IPA from the link above
+### 📱 iOS — App
+1. Download the IPA
 2. Install via **AltStore** or **Sideloadly**
-3. Trust the developer certificate: **Settings → General → VPN & Device Management**
-4. Launch **RQBBOX OS** from your home screen
-
-> USB: Connect via USB-C or Lightning — RQBBOX OS launches via the Files app.
+3. Trust certificate: **Settings → General → VPN & Device Management**
+4. Launch from home screen
 
 ---
 
-### 🌐 Browser (Universal)
-No download needed. Just open:
+### 🌐 Browser — App
+No install. Just open:
 
 **[https://inquisitive-rqbbox-core-play.base44.app](https://inquisitive-rqbbox-core-play.base44.app)**
 
-Works on any browser on any device — laptop, tablet, phone, smart TV.
-
 ---
 
-## 💾 Flash Your USB (One Command)
+## 💾 Flash Your USB
 
 ### Windows
 ```powershell
@@ -140,42 +172,79 @@ chmod +x scripts/flash-usb.sh
 ./scripts/flash-usb.sh /Volumes/RQBBOX
 ```
 
+After flashing, plug into any device and run the launcher for that platform.
+
+---
+
+## 🖥️ RQBBOX OS Features (Desktop)
+
+The full OS shell (`core/os-shell.html`) includes:
+
+| Feature | Description |
+|---------|-------------|
+| 🚀 Boot Screen | Animated boot sequence with progress bar |
+| 🖥️ Desktop | Icon grid, draggable windows, wallpaper |
+| 📋 Taskbar | Start menu, open app list, clock, tray |
+| 🌐 RQBBOX App | Built-in browser window to the live app |
+| 💻 Terminal | Working command-line (help, sysinfo, echo, date, clear...) |
+| 📁 File Manager | USB file structure browser |
+| ⚙️ System Info | Live display of CPU, RAM, screen, network |
+| 🛠️ Settings | Toggles for fullscreen, kiosk, auto-launch, sound |
+| 🔄 Reboot / Shutdown | Full OS power controls |
+
+---
+
+## 🛠️ Build from Source
+
+```bash
+# Install dependencies for all platforms
+cd launcher/windows && npm install
+cd launcher/macos  && npm install
+cd launcher/linux  && npm install
+
+# Build Windows (.exe + NSIS installer)
+cd launcher/windows && npm run build
+
+# Build macOS (Universal .dmg)
+cd launcher/macos && npm run build:all
+
+# Build Linux (AppImage + DEB + RPM + Snap)
+cd launcher/linux && npm run build:all
+```
+
 ---
 
 ## 📁 Project Structure
 
 ```
 usb-software/
-├── autorun/
-│   └── autorun-config.json       # USB autolaunch config
 ├── core/
-│   └── index.html                # Splash screen + app redirect
+│   ├── os-shell.html             ← Full RQBBOX OS desktop (loads on Windows/macOS/Linux)
+│   └── index.html                ← Splash/redirect (mobile & browser fallback)
 ├── launcher/
-│   ├── windows/                  # Electron launcher (Windows)
-│   ├── macos/                    # Electron launcher (macOS)
-│   ├── linux/                    # Electron launcher (Linux)
-│   ├── android/                  # Android USB OTG launcher (Java)
-│   └── ios/                      # iOS launcher (Swift)
+│   ├── windows/
+│   │   ├── RQBBOXLauncher.js     ← Electron main (loads os-shell.html)
+│   │   ├── preload.js
+│   │   └── package.json
+│   ├── macos/
+│   │   ├── RQBBOXLauncher.js
+│   │   ├── preload.js
+│   │   └── package.json
+│   ├── linux/
+│   │   ├── RQBBOXLauncher.js
+│   │   ├── preload.js
+│   │   └── package.json
+│   ├── android/
+│   │   └── MainActivity.java     ← WebView app (loads RQBBOX App URL)
+│   └── ios/
+│       └── RQBBOXUSBLauncher.swift ← WKWebView app (loads RQBBOX App URL)
 ├── scripts/
-│   ├── flash-usb.sh              # Flash script (macOS/Linux)
-│   └── flash-usb.ps1             # Flash script (Windows)
+│   ├── flash-usb.sh              ← Flash to USB (macOS/Linux)
+│   └── flash-usb.ps1             ← Flash to USB (Windows)
+├── autorun/
+│   └── autorun-config.json
 └── docs/
     └── README.md
-```
-
----
-
-## 🛠️ Build Launchers from Source
-
-```bash
-# Windows
-cd launcher/windows && npm install && npm run build
-
-# macOS
-cd launcher/macos && npm install && npm run build
-
-# Linux
-cd launcher/linux && npm install && npm run build
 ```
 
 ---
@@ -183,5 +252,5 @@ cd launcher/linux && npm install && npm run build
 <p align="center">
   <img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/d7ee00918_generated_image.png" width="60" alt="RQBBOX Icon"/>
   <br/>
-  <sub>RQBBOX OS · Powered by RTech & GOTECH AI · <a href="https://inquisitive-rqbbox-core-play.base44.app">inquisitive-rqbbox-core-play.base44.app</a></sub>
+  <sub>RQBBOX OS · Powered by RTech & GOTECH AI</sub>
 </p>
