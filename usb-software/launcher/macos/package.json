@@ -1,0 +1,30 @@
+{
+  "name": "rqbbox-usb-launcher-macos",
+  "version": "1.0.0",
+  "description": "RQBBOX OS USB Launcher for macOS",
+  "main": "RQBBOXLauncher.js",
+  "author": "RTech <gotech@rtech.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac --x64 --arm64"
+  },
+  "dependencies": {
+    "electron": "^29.0.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.rtech.rqbbox-usb",
+    "productName": "RQBBOX OS",
+    "mac": {
+      "target": ["dmg", "zip"],
+      "icon": "../../assets/rqbbox-icon.png",
+      "category": "public.app-category.games"
+    },
+    "dmg": {
+      "artifactName": "RQBBOX-OS-USB-${version}-macOS.dmg"
+    }
+  }
+}
