@@ -1,0 +1,11 @@
+{
+  "name": "RQBBOX OS USB",
+  "version": "1.0.0",
+  "label": "RQBBOX OS",
+  "action": "Launch RQBBOX OS",
+  "launcher": "launcher/RQBBOXLauncher.exe",
+  "icon": "assets/rqbbox-icon.ico",
+  "description": "Plug in and play — no boot required",
+  "autolaunch": true,
+  "platforms": ["windows", "macos", "linux", "android", "ios"]
+}
