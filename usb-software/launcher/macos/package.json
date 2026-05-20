@@ -1,13 +1,18 @@
 {
   "name": "rqbbox-usb-launcher-macos",
   "version": "1.0.0",
-  "description": "RQBBOX OS USB Launcher for macOS",
+  "description": "RQBBOX OS USB Launcher for macOS — plug in and play",
   "main": "RQBBOXLauncher.js",
-  "author": "RTech <gotech@rtech.com>",
+  "author": "RTech <gotech@rtechemails.com>",
   "license": "MIT",
+  "homepage": "https://inquisitive-rqbbox-core-play.base44.app",
+  "repository": "https://github.com/Rtech-Rqbbox-os/rqbbox-os",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder --mac --x64 --arm64"
+    "start":       "electron .",
+    "build":       "electron-builder --mac",
+    "build:intel": "electron-builder --mac --x64",
+    "build:arm":   "electron-builder --mac --arm64",
+    "build:all":   "electron-builder --mac --universal"
   },
   "dependencies": {
     "electron": "^29.0.0"
@@ -18,10 +23,16 @@
   "build": {
     "appId": "com.rtech.rqbbox-usb",
     "productName": "RQBBOX OS",
+    "copyright": "Copyright © 2025 RTech",
+    "directories": {
+      "output": "dist"
+    },
     "mac": {
       "target": ["dmg", "zip"],
-      "icon": "../../assets/rqbbox-icon.png",
-      "category": "public.app-category.games"
+      "icon": "../../assets/rqbbox-icon.icns",
+      "category": "public.app-category.games",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
     },
     "dmg": {
       "artifactName": "RQBBOX-OS-USB-${version}-macOS.dmg"
