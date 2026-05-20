@@ -1,0 +1,33 @@
+{
+  "name": "rqbbox-usb-launcher-windows",
+  "version": "1.0.0",
+  "description": "RQBBOX OS USB Launcher for Windows — plug in and play",
+  "main": "RQBBOXLauncher.js",
+  "author": "RTech <gotech@rtech.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64",
+    "build:portable": "electron-builder --win portable"
+  },
+  "dependencies": {
+    "electron": "^29.0.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.rtech.rqbbox-usb",
+    "productName": "RQBBOX OS",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["portable", "nsis"],
+      "icon": "../../assets/rqbbox-icon.png"
+    },
+    "portable": {
+      "artifactName": "RQBBOX-OS-USB-${version}-Windows.exe"
+    }
+  }
+}
