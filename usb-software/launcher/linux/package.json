@@ -1,0 +1,27 @@
+{
+  "name": "rqbbox-usb-launcher-linux",
+  "version": "1.0.0",
+  "description": "RQBBOX OS USB Launcher for Linux",
+  "main": "RQBBOXLauncher.js",
+  "author": "RTech <gotech@rtech.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --linux"
+  },
+  "dependencies": {
+    "electron": "^29.0.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "com.rtech.rqbbox-usb",
+    "productName": "RQBBOX OS",
+    "linux": {
+      "target": ["AppImage", "deb", "rpm"],
+      "icon": "../../assets/rqbbox-icon.png",
+      "category": "Game"
+    }
+  }
+}
