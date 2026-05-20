@@ -1,13 +1,30 @@
 /**
  * RQBBOX OS USB Launcher — Linux (Electron)
- * Plug in USB → auto-launches RQBBOX OS
+ * ─────────────────────────────────────────────
+ * Plug in USB → auto-launches RQBBOX OS in fullscreen mode
+ * No boot required. No install required.
+ *
+ * App URL: https://inquisitive-rqbbox-core-play.base44.app
+ * GitHub:  https://github.com/Rtech-Rqbbox-os/rqbbox-os
+ * RTech    — GOTECH AI
  */
 
-const { app, BrowserWindow, screen } = require('electron');
+const { app, BrowserWindow, screen, shell } = require('electron');
 const path = require('path');
 
+const APP_URL = 'https://inquisitive-rqbbox-core-play.base44.app';
+
 const gotLock = app.requestSingleInstanceLock();
-if (!gotLock) app.quit();
+if (!gotLock) {
+  app.quit();
+} else {
+  app.on('second-instance', () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
+    }
+  });
+}
 
 let mainWindow;
 
@@ -29,13 +46,31 @@ function createWindow() {
     title: 'RQBBOX OS',
   });
 
-  const appUrl = process.env.RQBBOX_URL || 'https://app.base44.com/apps/6a0d64e743c742005c890c76';
+  const appUrl = process.env.RQBBOX_URL || APP_URL;
   mainWindow.loadURL(appUrl);
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    shell.openExternal(url);
+    return { action: 'deny' };
+  });
+
   mainWindow.setMenuBarVisibility(false);
 
-  mainWindow.on('closed', () => { mainWindow = null; });
+  mainWindow.webContents.on('render-process-gone', () => {
+    mainWindow.reload();
+  });
+
+  mainWindow.on('closed', () => {
+    mainWindow = null;
+  });
 }
 
 app.on('ready', createWindow);
-app.on('window-all-closed', () => app.quit());
-app.on('activate', () => { if (mainWindow === null) createWindow(); });
+
+app.on('window-all-closed', () => {
+  app.quit();
+});
+
+app.on('activate', () => {
+  if (mainWindow === null) createWindow();
+});
