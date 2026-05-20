@@ -1,45 +1,71 @@
 package com.rtech.rqbboxusb;
 
+/**
+ * RQBBOX OS USB Launcher — Android
+ * ─────────────────────────────────────────────
+ * Opens RQBBOX OS in a full-screen WebView when USB OTG is connected.
+ * Min SDK: Android 8.0 (API 26)
+ *
+ * App URL: https://inquisitive-rqbbox-core-play.base44.app
+ * GitHub:  https://github.com/Rtech-Rqbbox-os/rqbbox-os
+ * RTech    — GOTECH AI
+ */
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.WindowManager;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.view.WindowManager;
+import android.webkit.CookieManager;
 
-/**
- * RQBBOX OS USB Launcher — Android
- * Connects via USB-C OTG and launches RQBBOX OS in full-screen WebView
- */
 public class MainActivity extends Activity {
 
+    private static final String APP_URL = "https://inquisitive-rqbbox-core-play.base44.app";
     private WebView webView;
-    private static final String RQBBOX_URL = "https://app.base44.com/apps/6a0d64e743c742005c890c76";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Full screen, no status bar
-        getWindow().setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        // Fullscreen immersive mode
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().getDecorView().setSystemUiVisibility(
+            View.SYSTEM_UI_FLAG_FULLSCREEN |
+            View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+            View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         );
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         webView = new WebView(this);
         setContentView(webView);
 
+        // WebView settings
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setLoadWithOverviewMode(true);
         settings.setUseWideViewPort(true);
-        settings.setBuiltInZoomControls(false);
         settings.setMediaPlaybackRequiresUserGesture(false);
+        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl(RQBBOX_URL);
+        // Enable cookies
+        CookieManager.getInstance().setAcceptCookie(true);
+        CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
+
+        // Keep all navigation within the WebView
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                view.loadUrl(request.getUrl().toString());
+                return true;
+            }
+        });
+
+        // Load RQBBOX OS
+        webView.loadUrl(APP_URL);
     }
 
     @Override
@@ -49,5 +75,17 @@ public class MainActivity extends Activity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        webView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        webView.onPause();
     }
 }
