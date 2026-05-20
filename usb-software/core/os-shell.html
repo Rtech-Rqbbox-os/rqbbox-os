@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RQBBOX OS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cyan:  #00f5ff;
+      --purple:#9b30ff;
+      --dark:  #0a0a0a;
+      --panel: #111111;
+      --border:#1e1e1e;
+      --text:  #e0e0e0;
+      --muted: #555;
+    }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* ── BOOT SCREEN ── */
+    #boot {
+      position: fixed; inset: 0;
+      background: var(--dark);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.8s ease;
+    }
+    #boot .logo {
+      width: 110px; height: 110px;
+      border-radius: 22px;
+      border: 2px solid #00f5ff33;
+      overflow: hidden;
+      margin-bottom: 28px;
+      animation: pulse 2s ease infinite;
+    }
+    #boot .logo img { width: 100%; height: 100%; object-fit: cover; }
+    #boot h1 {
+      font-size: 38px; font-weight: 900;
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: 4px; margin-bottom: 6px;
+    }
+    #boot p { color: var(--muted); font-size: 13px; letter-spacing: 2px; margin-bottom: 48px; }
+    #boot-bar {
+      width: 260px; height: 3px;
+      background: #1a1a1a; border-radius: 4px; overflow: hidden;
+    }
+    #boot-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      width: 0%; transition: width 0.3s ease;
+    }
+    #boot-label { color: var(--muted); font-size: 11px; margin-top: 12px; letter-spacing: 1px; }
+
+    /* ── DESKTOP ── */
+    #desktop {
+      display: none;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(135deg, #0a0a18 0%, #0d0a14 50%, #0a0a0a 100%);
+    }
+
+    /* Wallpaper grid */
+    #desktop::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* ── TOPBAR ── */
+    #topbar {
+      position: relative; z-index: 100;
+      height: 36px;
+      background: rgba(10,10,10,0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 16px; gap: 12px;
+      backdrop-filter: blur(10px);
+    }
+    #topbar .logo-sm {
+      width: 22px; height: 22px; border-radius: 6px; overflow: hidden;
+    }
+    #topbar .logo-sm img { width: 100%; height: 100%; object-fit: cover; }
+    #topbar .title {
+      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    #topbar .spacer { flex: 1; }
+    #clock {
+      font-size: 12px; color: var(--muted); letter-spacing: 1px;
+      font-variant-numeric: tabular-nums;
+    }
+    #topbar .tray {
+      display: flex; gap: 8px; align-items: center;
+    }
+    #topbar .tray-btn {
+      font-size: 16px; cursor: pointer; opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    #topbar .tray-btn:hover { opacity: 1; }
+
+    /* ── DESKTOP ICONS ── */
+    #icon-grid {
+      position: absolute; top: 56px; left: 20px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .desk-icon {
+      display: flex; flex-direction: column; align-items: center;
+      width: 80px; padding: 10px 6px; border-radius: 12px;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .desk-icon:hover { background: rgba(0,245,255,0.08); }
+    .desk-icon .icon-img {
+      font-size: 32px; margin-bottom: 6px;
+    }
+    .desk-icon span {
+      font-size: 11px; color: var(--text);
+      text-align: center; line-height: 1.3;
+      text-shadow: 0 1px 4px #000;
+    }
+
+    /* ── WINDOWS ── */
+    .os-window {
+      position: absolute;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+      display: flex; flex-direction: column;
+      overflow: hidden;
+      min-width: 320px; min-height: 200px;
+      z-index: 200;
+    }
+    .win-titlebar {
+      height: 36px;
+      background: #0e0e0e;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 12px; gap: 8px;
+      cursor: move;
+    }
+    .win-controls { display: flex; gap: 6px; }
+    .win-btn {
+      width: 12px; height: 12px; border-radius: 50%;
+      cursor: pointer; border: none; outline: none;
+    }
+    .win-close  { background: #ff5f57; }
+    .win-min    { background: #febc2e; }
+    .win-max    { background: #28c840; }
+    .win-title  { flex: 1; text-align: center; font-size: 12px; color: var(--muted); letter-spacing: 1px; }
+    .win-body   { flex: 1; overflow: auto; padding: 20px; }
+
+    /* ── TASKBAR ── */
+    #taskbar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 52px;
+      background: rgba(10,10,10,0.95);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center;
+      padding: 0 16px; gap: 8px;
+      z-index: 100;
+    }
+    .task-btn {
+      height: 36px; padding: 0 16px;
+      background: #1a1a1a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text); font-size: 12px;
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .task-btn:hover { background: #222; border-color: var(--cyan); }
+    .task-btn.active { border-color: var(--cyan); background: rgba(0,245,255,0.08); }
+    #start-btn {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #0a0a0a; font-weight: 800;
+      border: none;
+    }
+    #start-btn:hover { opacity: 0.9; }
+
+    /* ── START MENU ── */
+    #start-menu {
+      position: absolute; bottom: 60px; left: 12px;
+      width: 280px;
+      background: rgba(14,14,14,0.97);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.8);
+      backdrop-filter: blur(20px);
+      padding: 16px;
+      display: none; z-index: 300;
+    }
+    #start-menu h3 {
+      font-size: 11px; color: var(--muted);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .menu-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px; border-radius: 8px;
+      cursor: pointer; transition: background 0.15s;
+      font-size: 13px;
+    }
+    .menu-item:hover { background: rgba(0,245,255,0.08); }
+    .menu-item .mi-icon { font-size: 20px; }
+
+    /* ── APPS ── */
+
+    /* System Info */
+    .sysinfo-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .si-card {
+      background: #0d0d0d; border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px;
+    }
+    .si-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .si-value { font-size: 18px; font-weight: 700; color: var(--cyan); }
+    .si-sub   { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* Terminal */
+    #term-output {
+      background: #050505; border: 1px solid #1a1a1a;
+      border-radius: 8px; padding: 14px;
+      font-family: 'Courier New', monospace; font-size: 13px;
+      color: #00f5ff; height: 220px; overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    #term-input-row { display: flex; gap: 8px; align-items: center; }
+    #term-prompt { color: var(--purple); font-family: monospace; font-size: 13px; }
+    #term-input {
+      flex: 1; background: #0d0d0d; border: 1px solid var(--border);
+      border-radius: 6px; color: var(--cyan);
+      font-family: monospace; font-size: 13px; padding: 6px 10px;
+      outline: none;
+    }
+
+    /* Browser */
+    #browser-bar { display: flex; gap: 8px; margin-bottom: 12px; }
+    #browser-url {
+      flex: 1; background: #0d0d0d; border: 1px solid var(--border);
+      border-radius: 8px; padding: 8px 12px;
+      color: var(--text); font-size: 13px; outline: none;
+    }
+    #browser-go {
+      background: linear-gradient(135deg, var(--cyan), var(--purple));
+      color: #000; font-weight: 700; border: none;
+      border-radius: 8px; padding: 8px 16px; cursor: pointer;
+    }
+    #browser-frame {
+      width: 100%; height: 340px; border: 1px solid var(--border);
+      border-radius: 8px; background: #050505;
+    }
+
+    /* Files */
+    .file-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    }
+    .file-item {
+      background: #0d0d0d; border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 8px;
+      text-align: center; cursor: pointer;
+      transition: border-color 0.15s;
+      font-size: 12px; color: var(--text);
+    }
+    .file-item:hover { border-color: var(--cyan); }
+    .file-item .fi-icon { font-size: 28px; margin-bottom: 6px; }
+
+    /* Settings */
+    .settings-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; border-bottom: 1px solid var(--border);
+    }
+    .settings-row:last-child { border-bottom: none; }
+    .s-label { font-size: 13px; color: var(--text); }
+    .s-sub   { font-size: 11px; color: var(--muted); margin-top: 2px; }
+    .toggle {
+      width: 40px; height: 22px; background: #1a1a1a;
+      border-radius: 11px; cursor: pointer; position: relative;
+      border: 1px solid var(--border); transition: background 0.2s;
+    }
+    .toggle.on { background: var(--cyan); }
+    .toggle::after {
+      content: ''; position: absolute;
+      width: 16px; height: 16px; background: #fff;
+      border-radius: 50%; top: 2px; left: 2px;
+      transition: left 0.2s;
+    }
+    .toggle.on::after { left: 20px; }
+
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(0,245,255,0.3); }
+      50%      { box-shadow: 0 0 0 16px rgba(0,245,255,0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── BOOT SCREEN ── -->
+<div id="boot">
+  <div class="logo">
+    <img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/d7ee00918_generated_image.png" alt="RQBBOX OS"/>
+  </div>
+  <h1>RQBBOX OS</h1>
+  <p>INITIALISING SYSTEM</p>
+  <div id="boot-bar"><div id="boot-fill"></div></div>
+  <div id="boot-label">Loading core modules...</div>
+</div>
+
+<!-- ── DESKTOP ── -->
+<div id="desktop">
+
+  <!-- Top bar -->
+  <div id="topbar">
+    <div class="logo-sm"><img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/d7ee00918_generated_image.png"/></div>
+    <span class="title">RQBBOX OS</span>
+    <span class="spacer"></span>
+    <span id="clock">--:--</span>
+    <div class="tray">
+      <span class="tray-btn" title="WiFi">📶</span>
+      <span class="tray-btn" title="Battery">🔋</span>
+      <span class="tray-btn" title="Sound">🔊</span>
+    </div>
+  </div>
+
+  <!-- Desktop icons -->
+  <div id="icon-grid">
+    <div class="desk-icon" onclick="openApp('browser')">
+      <div class="icon-img">🌐</div>
+      <span>RQBBOX<br/>App</span>
+    </div>
+    <div class="desk-icon" onclick="openApp('files')">
+      <div class="icon-img">📁</div>
+      <span>Files</span>
+    </div>
+    <div class="desk-icon" onclick="openApp('terminal')">
+      <div class="icon-img">💻</div>
+      <span>Terminal</span>
+    </div>
+    <div class="desk-icon" onclick="openApp('sysinfo')">
+      <div class="icon-img">⚙️</div>
+      <span>System<br/>Info</span>
+    </div>
+    <div class="desk-icon" onclick="openApp('settings')">
+      <div class="icon-img">🛠️</div>
+      <span>Settings</span>
+    </div>
+  </div>
+
+  <!-- Windows rendered here -->
+  <div id="window-layer"></div>
+
+  <!-- Start Menu -->
+  <div id="start-menu">
+    <h3>Applications</h3>
+    <div class="menu-item" onclick="openApp('browser'); toggleStart()"><span class="mi-icon">🌐</span> RQBBOX App (Web)</div>
+    <div class="menu-item" onclick="openApp('terminal'); toggleStart()"><span class="mi-icon">💻</span> Terminal</div>
+    <div class="menu-item" onclick="openApp('files'); toggleStart()"><span class="mi-icon">📁</span> File Manager</div>
+    <div class="menu-item" onclick="openApp('sysinfo'); toggleStart()"><span class="mi-icon">⚙️</span> System Info</div>
+    <div class="menu-item" onclick="openApp('settings'); toggleStart()"><span class="mi-icon">🛠️</span> Settings</div>
+    <hr style="border-color:#1e1e1e;margin:10px 0;"/>
+    <div class="menu-item" onclick="reboot()"><span class="mi-icon">🔄</span> Reboot</div>
+    <div class="menu-item" onclick="shutdown()"><span class="mi-icon">⏻</span> Shut Down</div>
+  </div>
+
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <button class="task-btn" id="start-btn" onclick="toggleStart()">⬛ Start</button>
+    <div id="taskbar-items"></div>
+  </div>
+
+</div>
+
+<script>
+// ── BOOT SEQUENCE ──
+const bootMessages = [
+  "Loading kernel modules...",
+  "Mounting file systems...",
+  "Starting RQBBOX services...",
+  "Loading user interface...",
+  "Applying RTech branding...",
+  "Ready."
+];
+let bootStep = 0;
+const fill  = document.getElementById('boot-fill');
+const label = document.getElementById('boot-label');
+
+function bootTick() {
+  if (bootStep >= bootMessages.length) {
+    document.getElementById('boot').style.opacity = '0';
+    setTimeout(() => {
+      document.getElementById('boot').style.display = 'none';
+      document.getElementById('desktop').style.display = 'flex';
+      startClock();
+    }, 800);
+    return;
+  }
+  fill.style.width = ((bootStep + 1) / bootMessages.length * 100) + '%';
+  label.textContent = bootMessages[bootStep];
+  bootStep++;
+  setTimeout(bootTick, 600);
+}
+setTimeout(bootTick, 400);
+
+// ── CLOCK ──
+function startClock() {
+  function tick() {
+    const now = new Date();
+    document.getElementById('clock').textContent =
+      now.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+// ── WINDOW MANAGER ──
+let zBase = 200;
+let winOffsets = {};
+const taskbarItems = document.getElementById('taskbar-items');
+
+const appDefs = {
+  sysinfo:  { title: 'System Info',   w: 480, h: 360, render: renderSysinfo  },
+  terminal: { title: 'Terminal',      w: 560, h: 380, render: renderTerminal },
+  browser:  { title: 'RQBBOX App',   w: 700, h: 500, render: renderBrowser  },
+  files:    { title: 'File Manager',  w: 520, h: 360, render: renderFiles    },
+  settings: { title: 'Settings',      w: 440, h: 380, render: renderSettings },
+};
+
+const openWindows = {};
+
+function openApp(id) {
+  if (openWindows[id]) {
+    bringToFront(id);
+    return;
+  }
+  const def = appDefs[id];
+  const layer = document.getElementById('window-layer');
+
+  const win = document.createElement('div');
+  win.className = 'os-window';
+  win.id = 'win-' + id;
+  win.style.width  = def.w + 'px';
+  win.style.height = def.h + 'px';
+
+  // Stagger position
+  const offset = Object.keys(openWindows).length * 28;
+  win.style.left = (160 + offset) + 'px';
+  win.style.top  = (60  + offset) + 'px';
+  win.style.zIndex = ++zBase;
+
+  win.innerHTML = `
+    <div class="win-titlebar" id="tb-${id}">
+      <div class="win-controls">
+        <button class="win-btn win-close"  onclick="closeApp('${id}')"></button>
+        <button class="win-btn win-min"    onclick="minApp('${id}')"></button>
+        <button class="win-btn win-max"    onclick="maxApp('${id}')"></button>
+      </div>
+      <div class="win-title">${def.title}</div>
+    </div>
+    <div class="win-body" id="body-${id}"></div>
+  `;
+  layer.appendChild(win);
+  def.render(document.getElementById('body-' + id));
+  makeDraggable(win, document.getElementById('tb-' + id));
+  win.addEventListener('mousedown', () => bringToFront(id));
+
+  openWindows[id] = win;
+  addTaskbarBtn(id, def.title);
+}
+
+function bringToFront(id) {
+  if (openWindows[id]) {
+    openWindows[id].style.zIndex = ++zBase;
+    document.querySelectorAll('.task-btn-app').forEach(b => b.classList.remove('active'));
+    const tb = document.getElementById('tbtn-' + id);
+    if (tb) tb.classList.add('active');
+  }
+}
+
+function closeApp(id) {
+  if (openWindows[id]) {
+    openWindows[id].remove();
+    delete openWindows[id];
+    const tb = document.getElementById('tbtn-' + id);
+    if (tb) tb.remove();
+  }
+}
+
+function minApp(id) {
+  if (openWindows[id]) {
+    openWindows[id].style.display =
+      openWindows[id].style.display === 'none' ? 'flex' : 'none';
+  }
+}
+
+function maxApp(id) {
+  const win = openWindows[id];
+  if (!win) return;
+  if (win.dataset.maximised === '1') {
+    win.style.left   = win.dataset.ox;
+    win.style.top    = win.dataset.ot;
+    win.style.width  = win.dataset.ow;
+    win.style.height = win.dataset.oh;
+    win.dataset.maximised = '0';
+  } else {
+    win.dataset.ox = win.style.left;
+    win.dataset.ot = win.style.top;
+    win.dataset.ow = win.style.width;
+    win.dataset.oh = win.style.height;
+    win.style.left   = '0px';
+    win.style.top    = '36px';
+    win.style.width  = '100vw';
+    win.style.height = 'calc(100vh - 88px)';
+    win.dataset.maximised = '1';
+  }
+}
+
+function addTaskbarBtn(id, title) {
+  const btn = document.createElement('button');
+  btn.className = 'task-btn task-btn-app active';
+  btn.id = 'tbtn-' + id;
+  btn.textContent = title;
+  btn.onclick = () => {
+    minApp(id);
+    bringToFront(id);
+  };
+  taskbarItems.appendChild(btn);
+}
+
+// ── DRAG ──
+function makeDraggable(win, handle) {
+  let dragging = false, ox, oy, wx, wy;
+  handle.addEventListener('mousedown', e => {
+    if (e.target.classList.contains('win-btn')) return;
+    dragging = true;
+    ox = e.clientX; oy = e.clientY;
+    wx = win.offsetLeft; wy = win.offsetTop;
+    bringToFront(win.id.replace('win-', ''));
+  });
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    win.style.left = (wx + e.clientX - ox) + 'px';
+    win.style.top  = (wy + e.clientY - oy) + 'px';
+  });
+  document.addEventListener('mouseup', () => { dragging = false; });
+}
+
+// ── START MENU ──
+function toggleStart() {
+  const m = document.getElementById('start-menu');
+  m.style.display = m.style.display === 'block' ? 'none' : 'block';
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('#start-menu') && !e.target.closest('#start-btn')) {
+    document.getElementById('start-menu').style.display = 'none';
+  }
+});
+
+// ── APP RENDERERS ──
+
+function renderSysinfo(body) {
+  body.innerHTML = `
+    <div class="sysinfo-grid">
+      <div class="si-card">
+        <div class="si-label">OS</div>
+        <div class="si-value">RQBBOX OS</div>
+        <div class="si-sub">v1.0.0 · RTech</div>
+      </div>
+      <div class="si-card">
+        <div class="si-label">Platform</div>
+        <div class="si-value" id="si-platform">—</div>
+        <div class="si-sub" id="si-ua">—</div>
+      </div>
+      <div class="si-card">
+        <div class="si-label">Screen</div>
+        <div class="si-value" id="si-res">—</div>
+        <div class="si-sub">Display resolution</div>
+      </div>
+      <div class="si-card">
+        <div class="si-label">Memory</div>
+        <div class="si-value" id="si-mem">—</div>
+        <div class="si-sub">Device RAM (approx)</div>
+      </div>
+      <div class="si-card">
+        <div class="si-label">CPU Cores</div>
+        <div class="si-value" id="si-cpu">—</div>
+        <div class="si-sub">Logical processors</div>
+      </div>
+      <div class="si-card">
+        <div class="si-label">Connection</div>
+        <div class="si-value" id="si-net">—</div>
+        <div class="si-sub" id="si-net-sub">—</div>
+      </div>
+    </div>`;
+  document.getElementById('si-platform').textContent = navigator.platform || 'Unknown';
+  document.getElementById('si-ua').textContent = navigator.userAgent.split(')')[0].split('(')[1] || '';
+  document.getElementById('si-res').textContent = screen.width + '×' + screen.height;
+  document.getElementById('si-mem').textContent = (navigator.deviceMemory || '?') + ' GB';
+  document.getElementById('si-cpu').textContent = navigator.hardwareConcurrency || '?';
+  const conn = navigator.connection;
+  if (conn) {
+    document.getElementById('si-net').textContent     = conn.effectiveType?.toUpperCase() || 'Online';
+    document.getElementById('si-net-sub').textContent = (conn.downlink ? conn.downlink + ' Mbps' : '—');
+  } else {
+    document.getElementById('si-net').textContent     = navigator.onLine ? 'Online' : 'Offline';
+    document.getElementById('si-net-sub').textContent = 'Network status';
+  }
+}
+
+function renderTerminal(body) {
+  body.innerHTML = `
+    <div id="term-output"></div>
+    <div id="term-input-row">
+      <span id="term-prompt">rqbbox@os:~$</span>
+      <input id="term-input" type="text" placeholder="type a command..." autocomplete="off" spellcheck="false"/>
+    </div>`;
+  const out   = document.getElementById('term-output');
+  const input = document.getElementById('term-input');
+  const print = (txt, color) => {
+    const line = document.createElement('div');
+    line.style.color = color || '#00f5ff';
+    line.style.marginBottom = '2px';
+    line.textContent = txt;
+    out.appendChild(line);
+    out.scrollTop = out.scrollHeight;
+  };
+  print('RQBBOX OS Terminal v1.0.0');
+  print('Type "help" for available commands.', '#9b30ff');
+  print('');
+  const cmds = {
+    help:    () => { print('Commands: help, version, date, time, clear, whoami, uname, echo <text>, sysinfo'); },
+    version: () => { print('RQBBOX OS v1.0.0 — RTech · GOTECH AI'); },
+    date:    () => { print(new Date().toDateString()); },
+    time:    () => { print(new Date().toLocaleTimeString()); },
+    whoami:  () => { print('rqbbox-user'); },
+    uname:   () => { print('RQBBOX OS v1.0.0 ' + (navigator.platform || 'Unknown')); },
+    clear:   () => { out.innerHTML = ''; },
+    sysinfo: () => {
+      print('OS: RQBBOX OS v1.0.0');
+      print('Platform: ' + (navigator.platform || 'Unknown'));
+      print('CPU cores: ' + (navigator.hardwareConcurrency || '?'));
+      print('RAM: ' + (navigator.deviceMemory || '?') + ' GB');
+      print('Screen: ' + screen.width + '×' + screen.height);
+    },
+  };
+  input.addEventListener('keydown', e => {
+    if (e.key !== 'Enter') return;
+    const raw = input.value.trim();
+    input.value = '';
+    print('rqbbox@os:~$ ' + raw, '#e0e0e0');
+    if (!raw) return;
+    const [cmd, ...args] = raw.split(' ');
+    if (cmd === 'echo') { print(args.join(' ')); }
+    else if (cmds[cmd]) { cmds[cmd](); }
+    else { print('Command not found: ' + cmd, '#ff5555'); }
+  });
+  input.focus();
+}
+
+function renderBrowser(body) {
+  body.style.padding = '12px';
+  body.innerHTML = `
+    <div id="browser-bar">
+      <input id="browser-url" type="text" value="https://inquisitive-rqbbox-core-play.base44.app" placeholder="Enter URL..."/>
+      <button id="browser-go" onclick="loadBrowser()">Go</button>
+    </div>
+    <iframe id="browser-frame" src="https://inquisitive-rqbbox-core-play.base44.app" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>`;
+  document.getElementById('browser-url').addEventListener('keydown', e => {
+    if (e.key === 'Enter') loadBrowser();
+  });
+}
+function loadBrowser() {
+  const url = document.getElementById('browser-url').value;
+  document.getElementById('browser-frame').src = url;
+}
+
+function renderFiles(body) {
+  const files = [
+    { icon:'📁', name:'Launcher' },
+    { icon:'📁', name:'Core' },
+    { icon:'📁', name:'Assets' },
+    { icon:'📁', name:'Scripts' },
+    { icon:'📄', name:'VERSION' },
+    { icon:'🔗', name:'APP_URL.txt' },
+    { icon:'⚙️', name:'autorun-config.json' },
+    { icon:'🌐', name:'index.html' },
+  ];
+  body.innerHTML = `
+    <div style="font-size:12px;color:var(--muted);margin-bottom:14px;letter-spacing:1px;">
+      📍 RQBBOX-OS / <span style="color:var(--cyan)">Home</span>
+    </div>
+    <div class="file-grid">
+      ${files.map(f => `
+        <div class="file-item">
+          <div class="fi-icon">${f.icon}</div>
+          <div>${f.name}</div>
+        </div>`).join('')}
+    </div>`;
+}
+
+function renderSettings(body) {
+  const settings = [
+    { label:'Full Screen Mode',   sub:'Launch apps in fullscreen',       id:'s1' },
+    { label:'Auto-Launch on USB', sub:'Open RQBBOX OS on USB insert',    id:'s2', on:true },
+    { label:'Dark Mode',          sub:'Always-on dark theme',            id:'s3', on:true },
+    { label:'Kiosk Mode',         sub:'Lock UI to RQBBOX OS only',       id:'s4' },
+    { label:'Sound Effects',      sub:'Enable UI sound effects',         id:'s5', on:true },
+  ];
+  body.innerHTML = `
+    <div style="font-size:12px;color:var(--muted);letter-spacing:1px;margin-bottom:16px;">SYSTEM SETTINGS</div>
+    ${settings.map(s => `
+      <div class="settings-row">
+        <div>
+          <div class="s-label">${s.label}</div>
+          <div class="s-sub">${s.sub}</div>
+        </div>
+        <div class="toggle ${s.on?'on':''}" id="${s.id}" onclick="this.classList.toggle('on')"></div>
+      </div>`).join('')}
+    <div style="margin-top:20px;font-size:11px;color:var(--muted);text-align:center;">
+      RQBBOX OS v1.0.0 · RTech · GOTECH AI
+    </div>`;
+}
+
+// ── POWER ──
+function reboot() {
+  document.getElementById('desktop').style.display = 'none';
+  const boot = document.getElementById('boot');
+  boot.style.opacity = '1';
+  boot.style.display = 'flex';
+  bootStep = 0;
+  document.getElementById('boot-fill').style.width = '0%';
+  document.getElementById('boot-label').textContent = 'Rebooting...';
+  // Clear windows
+  document.getElementById('window-layer').innerHTML = '';
+  document.getElementById('taskbar-items').innerHTML = '';
+  Object.keys(openWindows).forEach(k => delete openWindows[k]);
+  setTimeout(bootTick, 500);
+}
+
+function shutdown() {
+  document.getElementById('desktop').style.display = 'none';
+  const boot = document.getElementById('boot');
+  boot.style.opacity = '1';
+  boot.style.display = 'flex';
+  document.getElementById('boot-label').textContent = 'Shutting down...';
+  document.getElementById('boot-fill').style.width = '100%';
+  document.querySelector('#boot h1').textContent = 'Goodbye';
+  document.querySelector('#boot p').textContent = 'RQBBOX OS — Powered by RTech';
+}
+</script>
+</body>
+</html>
