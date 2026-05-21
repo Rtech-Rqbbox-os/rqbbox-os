@@ -1,122 +1,108 @@
-# Build Guide
-
-How to build RQBBOX OS from source for each platform.
+# 🔨 Build Guide — RQBBOX OS v2.6.0.4
 
 ---
 
 ## Prerequisites
 
-| Tool | Version | Required For |
-|------|---------|-------------|
-| Node.js | 20+ | Windows, macOS, Linux |
-| npm | 10+ | Windows, macOS, Linux |
-| JDK | 17 | Android |
-| Android Studio / SDK | Latest | Android |
-| Xcode | 15+ | iOS, macOS |
-| CocoaPods | Latest | iOS |
-| Python | 3.8+ | Build scripts |
+- Node.js v18+
+- npm v9+
+- QEMU (for QCOW2 testing)
+- Git
 
 ---
 
-## Android
+## Clone the Repo
 
 ```bash
-cd packages/android
-
-# Debug build
-./gradlew assembleDebug
-
-# Release APK
-./gradlew assembleRelease
-
-# Release AAB (Google Play)
-./gradlew bundleRelease
+git clone https://github.com/Rtech-Rqbbox-os/rqbbox-os.git
+cd rqbbox-os
 ```
-
-**Signing:** Set environment variables before building:
-```bash
-export KEYSTORE_PATH=/path/to/rqbboxos.jks
-export KEYSTORE_PASSWORD=yourpassword
-export KEY_ALIAS=rqbboxos
-export KEY_PASSWORD=yourkeypassword
-```
-
-**Output:**
-- APK: `app/build/outputs/apk/release/app-release.apk`
-- AAB: `app/build/outputs/bundle/release/app-release.aab`
 
 ---
 
-## iOS
+## Run the OS Shell (No Build Needed)
 
 ```bash
-cd packages/ios
-pod install
+# Open directly in browser
+open usb-software/core/os-shell-v2.html
 ```
-
-Then in Xcode:
-1. Open `RQBBOXOSLauncher.xcworkspace`
-2. Set your Apple Developer Team
-3. **Product → Archive**
-4. **Distribute App → App Store Connect** or **Ad Hoc**
 
 ---
 
-## Windows
+## Build Desktop App (Electron)
 
-```bash
-cd packages/windows
+### Windows
+```powershell
+cd launchers\windows
 npm install
-
-# Development
-npm run dev
-
-# Production (x64)
 npm run build
-
-# All architectures (x64, ia32, arm64)
-npm run build:all
+# Output: dist\RQBBOX-OS-Setup.exe
 ```
 
-**Output:** `dist/RQBBOX OS Setup x.x.x.exe`
+### macOS
+```bash
+cd launchers/macos
+npm install
+npm run build
+# Output: dist/RQBBOX-OS.dmg
+```
+
+### Linux
+```bash
+cd launchers/linux
+npm install
+npm run build
+# Output: dist/RQBBOX-OS.AppImage
+```
 
 ---
 
-## macOS
+## Build Mobile
 
+### Android
 ```bash
-cd packages/macos
-npm install
-
-# Development
-npm run dev
-
-# Production Universal DMG
-npm run build:all
+cd launchers/android
+./gradlew assembleRelease
+# Output: app/build/outputs/apk/release/app-release.apk
 ```
 
-**Notarization:** Set before building:
+### iOS
 ```bash
-export APPLE_ID=your@apple.id
-export APPLE_APP_SPECIFIC_PASSWORD=xxxx-xxxx-xxxx-xxxx
-export APPLE_TEAM_ID=XXXXXXXXXX
+cd launchers/ios
+pod install
+xcodebuild -scheme RQBBOXOSLauncher -configuration Release archive
 ```
-
-**Output:** `dist/RQBBOX OS-x.x.x.dmg`
 
 ---
 
-## Linux
+## Build QCOW2 Image
 
 ```bash
-cd packages/linux
-npm install
-
-# All formats (AppImage + DEB + RPM + Snap)
-npm run build:all
+# Requires qemu-img
+qemu-img create -f qcow2 RQBBOX-OS-v2.6.0.4.qcow2 512M
+# Then use ez-install scripts to populate the filesystem
 ```
 
-**Output:**
-- `dist/RQBBOX OS-x.x.x.AppImage`
-- `dist/rqbbox-os_x.x.x_amd64.deb`
-- `dist/rqbbox-os-x.x.x.x86_64.rpm`
+---
+
+## EZ Installers
+
+```bash
+# Test Windows installer (in PowerShell)
+powershell -ExecutionPolicy Bypass -File usb-software\scripts\ez-install-qcow2.ps1
+
+# Test macOS/Linux installer
+./usb-software/scripts/ez-install-qcow2.sh
+```
+
+---
+
+## Tag a Release
+
+```bash
+git tag v2.6.0.4
+git push origin v2.6.0.4
+# Triggers GitHub Actions CI/CD for all platforms
+```
+
+> RQBBOX OS v2.6.0.4 · RTech · GOTECH AI
