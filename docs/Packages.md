@@ -1,69 +1,81 @@
-# Packages
+# 📦 Packages — RQBBOX OS v2.6.0.4
 
-Production-ready packaging configurations for all platforms.
-
-**Source:** [`packages/`](https://github.com/Rtech-Rqbbox-os/rqbbox-os/tree/main/packages)
+All package manager configs are in `packages/`. They install RQBBOX OS v2.6.0.4.
 
 ---
 
-## Native Platform Packages
+## Homebrew (macOS)
 
-| Platform | Output | Location |
-|----------|--------|----------|
-| Android  | APK + AAB | `packages/android/` |
-| iOS      | IPA | `packages/ios/` |
-| Windows  | EXE + Portable + ZIP | `packages/windows/` |
-| macOS    | DMG + PKG + ZIP | `packages/macos/` |
-| Linux    | AppImage + DEB + RPM + Snap | `packages/linux/` |
-
----
-
-## Package Manager Configs
-
-### 🍺 Homebrew (macOS)
 ```bash
 brew install --cask rqbbox-os
 ```
-Config: [`packages/brew/rqbbox-os.rb`](https://github.com/Rtech-Rqbbox-os/rqbbox-os/tree/main/packages/brew)
+Config: `packages/brew/rqbbox-os.rb`
 
 ---
 
-### 🪟 Winget (Windows)
+## Winget (Windows)
+
 ```powershell
 winget install RTech.RQBBOXos
 ```
-Config: [`packages/winget/RTech.RQBBOXos.yaml`](https://github.com/Rtech-Rqbbox-os/rqbbox-os/tree/main/packages/winget)
+Config: `packages/winget/RTech.RQBBOXos.yaml`
 
 ---
 
-### 🍫 Chocolatey (Windows)
+## Chocolatey (Windows)
+
 ```powershell
 choco install rqbbox-os
 ```
-Config: [`packages/chocolatey/`](https://github.com/Rtech-Rqbbox-os/rqbbox-os/tree/main/packages/chocolatey)
+Config: `packages/chocolatey/rqbbox-os.nuspec`
 
 ---
 
-### 🐧 Snap (Linux)
+## Snap (Linux)
+
 ```bash
 sudo snap install rqbbox-os
 ```
-Config: [`packages/snap/snapcraft.yaml`](https://github.com/Rtech-Rqbbox-os/rqbbox-os/tree/main/packages/snap)
+Config: `packages/snap/snapcraft.yaml`
 
 ---
 
-### 📦 Flatpak (Linux)
+## Flatpak (Linux)
+
 ```bash
 flatpak install flathub com.rtech.RQBBOXos
 ```
-Config: [`packages/flatpak/`](https://github.com/Rtech-Rqbbox-os/rqbbox-os/tree/main/packages/flatpak)
+Config: `packages/flatpak/com.rtech.RQBBOXos.yaml`
 
 ---
 
-### 🌐 PWA
-Config: [`packages/pwa/manifest.json`](https://github.com/Rtech-Rqbbox-os/rqbbox-os/tree/main/packages/pwa)
+## PWA (All Browsers)
 
-Includes:
-- `manifest.json` — installable web app manifest
-- `sw.js` — service worker with offline caching
-- `offline.html` — offline fallback page
+Install via browser prompt or visit:  
+**[https://inquisitive-rqbbox-core-play.base44.app](https://inquisitive-rqbbox-core-play.base44.app)**
+
+Config: `packages/pwa/manifest.json`
+
+---
+
+## EZ Install Scripts (No Package Manager Needed)
+
+```powershell
+# Windows — installs OS + QCOW2 VM
+powershell -ExecutionPolicy Bypass -File usb-software\scripts\ez-install-qcow2.ps1
+```
+
+```bash
+# macOS / Linux — installs OS + QCOW2 VM
+./usb-software/scripts/ez-install-qcow2.sh
+```
+
+---
+
+## QCOW2 Virtual Disk
+
+Download: `limbo-rqbbox/RQBBOX-OS-v2.6.0.4.qcow2`
+
+Works with: **Limbo PC (Android)**, **QEMU**, **VirtualBox**, **UTM (macOS)**, **virt-manager (Linux)**
+
+> RQBBOX OS v2.6.0.4 · RTech · GOTECH AI
