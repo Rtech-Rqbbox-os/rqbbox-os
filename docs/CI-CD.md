@@ -1,56 +1,53 @@
-# CI/CD
+# ⚙️ CI/CD — RQBBOX OS v2.6.0.4
 
-RQBBOX OS uses GitHub Actions to automatically build and release all platforms.
-
-**Workflow:** [`.github/workflows/build.yml`](https://github.com/Rtech-Rqbbox-os/rqbbox-os/blob/main/packages/.github/workflows/build.yml)
+GitHub Actions automatically builds all platforms on every version tag.
 
 ---
 
-## Triggering a Release
-
-Push a version tag to trigger a full build + release:
+## Trigger a Build
 
 ```bash
-git tag v1.0.1
-git push origin v1.0.1
+git tag v2.6.0.4
+git push origin v2.6.0.4
 ```
 
-This will:
-1. Build Android (APK + AAB)
-2. Build iOS (IPA)
-3. Build Windows (EXE x64 + ia32)
-4. Build macOS (DMG Universal)
-5. Build Linux (AppImage + DEB + RPM)
-6. Create a GitHub Release with all artifacts attached
+---
+
+## What Gets Built
+
+| Platform | Output | Tool |
+|----------|--------|------|
+| 🪟 Windows | `.exe` installer | Electron Builder |
+| 🍏 macOS | `.dmg` | Electron Builder |
+| 🐧 Linux | `.AppImage` | Electron Builder |
+| 📱 Android | `.apk` | Gradle |
+| 🍎 iOS | `.ipa` | Xcode |
+| 💾 QCOW2 | `.qcow2` virtual disk | Python/QEMU |
+| 🌐 PWA | `manifest.json` + SW | Static deploy |
 
 ---
 
-## Jobs
+## Workflow File
 
-| Job | Runner | Output |
-|-----|--------|--------|
-| `build-android` | `ubuntu-latest` | `.apk`, `.aab` |
-| `build-ios` | `macos-latest` | `.ipa` |
-| `build-windows` | `windows-latest` | `.exe` |
-| `build-macos` | `macos-latest` | `.dmg` |
-| `build-linux` | `ubuntu-latest` | `.AppImage`, `.deb`, `.rpm` |
-| `release` | `ubuntu-latest` | GitHub Release |
+`.github/workflows/build.yml` (in `packages/`)
 
 ---
 
-## Required Secrets
+## EZ Install Artifacts
 
-Go to **Settings → Secrets and variables → Actions** and add:
+The CI pipeline also validates:
+- `usb-software/scripts/ez-install-qcow2.ps1`
+- `usb-software/scripts/ez-install-qcow2.sh`
+- `limbo-rqbbox/RQBBOX-OS-v2.6.0.4.qcow2`
 
-| Secret | Description |
-|--------|-------------|
-| `WIN_CERT_PATH` | Path to Windows code-signing certificate (.pfx) |
-| `WIN_CERT_PASSWORD` | Windows certificate password |
-| `APPLE_ID` | Apple ID email for notarization |
-| `APPLE_APP_SPECIFIC_PASSWORD` | App-specific password from appleid.apple.com |
-| `APPLE_TEAM_ID` | 10-character Apple Developer Team ID |
-| `KEYSTORE_PATH` | Path to Android keystore (.jks) |
-| `KEYSTORE_PASSWORD` | Android keystore password |
-| `KEY_ALIAS` | Android signing key alias |
-| `KEY_PASSWORD` | Android signing key password |
-| `RTECH_TEAM_ID` | RTech Apple Team ID for iOS builds |
+---
+
+## Release URLs
+
+After a successful build, releases appear at:  
+`https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases`
+
+Live app always available at:  
+**[https://inquisitive-rqbbox-core-play.base44.app](https://inquisitive-rqbbox-core-play.base44.app)**
+
+> RQBBOX OS v2.6.0.4 · RTech · GOTECH AI
