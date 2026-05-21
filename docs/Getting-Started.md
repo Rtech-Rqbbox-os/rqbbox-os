@@ -1,98 +1,104 @@
-# Getting Started
+# 🚀 Getting Started — RQBBOX OS v2.6.0.4
 
-Get RQBBOX OS up and running on your device.
+<p align="center">
+  <img src="https://media.base44.com/images/public/6a0d64e743c742005c890c76/16da7f339_generated_image.png" width="80"/>
+</p>
 
----
-
-## Install Options
-
-### 🌐 Web (Fastest)
-No install needed — just open in your browser:
-**[https://app.base44.com/apps/6a0d383fda804251a27464a9](https://app.base44.com/apps/6a0d383fda804251a27464a9)**
+Get RQBBOX OS v2.6.0.4 running in under 2 minutes. No bootable USB required.
 
 ---
 
-### 📱 Android
-1. Download the latest `.apk` from [Releases](https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases)
-2. Enable **Install from unknown sources** in Settings → Security
-3. Open the APK and follow the prompts
-4. Launch **RQBBOX OS** from your app drawer
+## Option 1 — EZ Install (Fastest)
 
-**Requirements:** Android 8.0+ (API 26), 100MB free storage
-
----
-
-### 🍎 iOS
-1. Download the latest `.ipa` from [Releases](https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases)
-2. Install via **AltStore** or **TestFlight**
-3. Go to Settings → General → VPN & Device Management → Trust the developer
-4. Launch **RQBBOX OS** from your home screen
-
-**Requirements:** iOS 15.0+
-
----
-
-### 🪟 Windows
-1. Download `RQBBOX-OS-Setup-x.x.x.exe` from [Releases](https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases)
-2. Run the installer and follow the setup wizard
-3. Launch **RQBBOX OS** from the Start Menu or Desktop
-
-**Requirements:** Windows 10 64-bit
-
-Or install via package manager:
+### Windows
 ```powershell
-winget install RTech.RQBBOXos
-# or
-choco install rqbbox-os
+powershell -ExecutionPolicy Bypass -File usb-software\scripts\ez-install-qcow2.ps1
+```
+- Installs RQBBOX OS desktop shell
+- Installs QCOW2 virtual machine (QEMU)
+- Creates Desktop + Start Menu shortcuts for both modes
+- Asks to launch at the end
+
+### macOS / Linux
+```bash
+chmod +x usb-software/scripts/ez-install-qcow2.sh
+./usb-software/scripts/ez-install-qcow2.sh
+```
+- Auto-installs Node.js + QEMU if missing
+- Creates `.command` / `.desktop` shortcuts
+
+---
+
+## Option 2 — QCOW2 Virtual Machine
+
+Run RQBBOX OS as a full VM on any device.
+
+### Desktop (QEMU)
+```bash
+qemu-system-x86_64 \
+  -m 512 \
+  -hda limbo-rqbbox/RQBBOX-OS-v2.6.0.4.qcow2 \
+  -vga std \
+  -netdev user,id=n0 -device e1000,netdev=n0 \
+  -boot c -full-screen
+```
+
+### Android (Limbo PC)
+1. Install **Limbo PC Emulator** from Google Play
+2. Copy `RQBBOX-OS-v2.6.0.4.qcow2` to `/sdcard/limbo/`
+3. Configure: CPU=Core Duo, RAM=512MB, HDD=qcow2, Network=User
+4. Tap ▶ Start
+
+### VirtualBox
+1. New VM → Other/Unknown (32-bit)
+2. RAM: 512MB
+3. Use existing disk → select `RQBBOX-OS-v2.6.0.4.qcow2`
+4. Start
+
+---
+
+## Option 3 — Flash USB
+
+```powershell
+# Windows
+.\usb-software\scripts\flash-usb.ps1 -UsbPath "E:\"
+```
+```bash
+# macOS / Linux
+./usb-software/scripts/flash-usb.sh /Volumes/RQBBOX
+```
+Plug into any laptop/PC/TV and it launches automatically.
+
+---
+
+## Option 4 — Package Managers
+
+```bash
+brew install --cask rqbbox-os          # macOS (Homebrew)
+winget install RTech.RQBBOXos          # Windows
+choco install rqbbox-os                # Windows (Chocolatey)
+sudo snap install rqbbox-os            # Linux
+flatpak install flathub com.rtech.RQBBOXos  # Linux
 ```
 
 ---
 
-### 🍏 macOS
-1. Download `RQBBOX-OS-x.x.x-macOS.dmg` from [Releases](https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases)
-2. Open the DMG and drag **RQBBOX OS** to Applications
-3. On first launch: right-click → **Open** to bypass Gatekeeper
+## Option 5 — Browser / Mobile (No Install)
 
-**Requirements:** macOS 12 Monterey+ (Universal — Apple Silicon & Intel)
+Open directly in any browser or mobile device:
 
-Or via Homebrew:
-```bash
-brew install --cask rqbbox-os
-```
+**[https://inquisitive-rqbbox-core-play.base44.app](https://inquisitive-rqbbox-core-play.base44.app)**
 
 ---
 
-### 🐧 Linux
+## What Happens When You Launch
 
-**AppImage:**
-```bash
-chmod +x RQBBOX-OS-x.x.x.AppImage
-./RQBBOX-OS-x.x.x.AppImage
-```
-
-**Debian / Ubuntu:**
-```bash
-sudo dpkg -i rqbbox-os_x.x.x_amd64.deb
-```
-
-**Fedora / RHEL:**
-```bash
-sudo rpm -i rqbbox-os-x.x.x.x86_64.rpm
-```
-
-**Snap:**
-```bash
-sudo snap install rqbbox-os
-```
-
-**Flatpak:**
-```bash
-flatpak install flathub com.rtech.RQBBOXos
-```
+1. Boot screen animates through v2.6.0.4 startup sequence
+2. Desktop loads with icon grid + taskbar + clock
+3. Double-click any app to open it in a draggable window
+4. RQBBOX App opens the live Base44 app in-OS
+5. Terminal, File Manager, System Info, Settings all work
 
 ---
 
-### 🌐 PWA (Progressive Web App)
-1. Open RQBBOX OS in Chrome, Edge, or Safari
-2. Click **Install** in the browser address bar (or Share → Add to Home Screen on iOS)
-3. RQBBOX OS will appear as a standalone app on your device
+> RQBBOX OS v2.6.0.4 · RTech · GOTECH AI
