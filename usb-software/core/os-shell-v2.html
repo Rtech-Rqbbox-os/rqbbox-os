@@ -577,15 +577,20 @@ function loadBrowser() {
 
 function renderFiles(body) {
   const items=[
-    {icon:'📁',name:'launcher/'},{icon:'📁',name:'core/'},{icon:'📁',name:'assets/'},
-    {icon:'📁',name:'scripts/'},{icon:'📄',name:'VERSION'},{icon:'🔗',name:'APP_URL.txt'},
-    {icon:'⚙️',name:'autorun-config.json'},{icon:'🌐',name:'os-shell.html'},
+    {icon:'💾',name:'RQBBOX-OS-v2.6.0.4.qcow2',href:'https://github.com/Rtech-Rqbbox-os/rqbbox-os/raw/main/limbo-rqbbox/RQBBOX-OS-v2.6.0.4.qcow2'},
+    {icon:'📦',name:'RQBBOX-OS-v2.6.0.4-Limbo.zip',href:'https://github.com/Rtech-Rqbbox-os/rqbbox-os/raw/main/rqbbox-releases/RQBBOX-OS-v2.6.0.4-Limbo.zip'},
+    {icon:'🌐',name:'RQBBOX App',href:'https://inquisitive-rqbbox-core-play.base44.app'},
+    {icon:'🗂️',name:'All files (main.zip)',href:'https://github.com/Rtech-Rqbbox-os/rqbbox-os/archive/refs/heads/main.zip'},
+    {icon:'⚙️',name:'autorun-config.json',href:'https://github.com/Rtech-Rqbbox-os/rqbbox-os/raw/main/usb-software/autorun/autorun-config.json'},
+    {icon:'📜',name:'ez-install.sh',href:'https://github.com/Rtech-Rqbbox-os/rqbbox-os/raw/main/usb-software/scripts/ez-install.sh'},
+    {icon:'📜',name:'ez-install.ps1',href:'https://github.com/Rtech-Rqbbox-os/rqbbox-os/raw/main/usb-software/scripts/ez-install.ps1'},
+    {icon:'🧠',name:'README.md',href:'https://github.com/Rtech-Rqbbox-os/rqbbox-os/blob/main/README.md'},
   ];
   body.innerHTML=`<div style="font-size:12px;color:var(--muted);margin-bottom:14px;letter-spacing:1px;">
-    📍 RQBBOX-OS v2.6.0.4 / <span style="color:var(--cyan)">USB Root</span>
+    📍 RQBBOX-OS v2.6.0.4 / <span style="color:var(--cyan)">Downloadable Files</span>
   </div>
   <div class="file-grid">${items.map(f=>`
-    <div class="file-item"><div class="fi-icon">${f.icon}</div><div>${f.name}</div></div>`).join('')}
+    <a class="file-item" href="${f.href}" target="_blank"><div class="fi-icon">${f.icon}</div><div>${f.name}</div></a>`).join('')}
   </div>`;
 }
 
