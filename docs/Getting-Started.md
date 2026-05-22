@@ -96,7 +96,7 @@ Open directly in any browser or mobile device:
 1. Boot screen animates through v2.6.0.4 startup sequence
 2. Desktop loads with icon grid + taskbar + clock
 3. Double-click any app to open it in a draggable window
-4. RQBBOX App opens the live Base44 app in-OS
+4. RQBBOX App opens the live rtech team / rtech studios app in-OS
 5. Terminal, File Manager, System Info, Settings all work
 
 ---
