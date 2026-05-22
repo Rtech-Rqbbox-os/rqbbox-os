@@ -104,7 +104,7 @@ qemu-system-x86_64 -m 512 -hda limbo-rqbbox/RQBBOX-OS-v2.6.0.4.qcow2 -vga std -n
 | 🚀 Boot Screen | Animated v2.6.0.4 boot sequence |
 | 🖥️ Desktop | Draggable windows, icon grid |
 | 📋 Taskbar | Start menu, clock, system tray |
-| 🌐 RQBBOX App | Built-in browser → live Base44 app |
+| 🌐 RQBBOX App | Built-in browser → live rtech team / rtech studios app |
 | 💻 Terminal | CLI: help, sysinfo, ls, echo, date... |
 | 📁 File Manager | USB/virtual file browser |
 | 📊 System Info | Live CPU, RAM, screen, network |
