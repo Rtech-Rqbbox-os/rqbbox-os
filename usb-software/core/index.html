@@ -63,7 +63,19 @@
       border-radius: 12px;
       text-decoration: none;
       letter-spacing: 0.5px;
+      margin-bottom: 10px;
     }
+    .download-panel{
+      margin-top: 12px;
+      text-align: left;
+      background:#101010;
+      border:1px solid #1f1f1f;
+      border-radius:12px;
+      padding:14px;
+    }
+    .download-panel h2{font-size:12px;color:#00f5ff;letter-spacing:1.2px;margin-bottom:8px}
+    .download-panel a{display:block;color:#cfd8ff;font-size:12px;text-decoration:none;padding:4px 0}
+    .download-panel a:hover{color:#00f5ff}
     @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
@@ -77,6 +89,13 @@
     <p>PLUG IN · PLAY ANYWHERE</p>
     <div class="spinner"></div>
     <a class="btn" href="https://inquisitive-rqbbox-core-play.base44.app">Launch RQBBOX OS ▶</a>
+    <div class="download-panel">
+      <h2>DOWNLOAD CENTER</h2>
+      <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/raw/main/limbo-rqbbox/RQBBOX-OS-v2.6.0.4.qcow2" download>💾 Download RQBBOX OS image (.qcow2)</a>
+      <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/raw/main/rqbbox-releases/RQBBOX-OS-v2.6.0.4-Limbo.zip" download>📦 Download RQBBOX OS package (.zip)</a>
+      <a href="https://inquisitive-rqbbox-core-play.base44.app" target="_blank">🌐 Open/Download RQBBOX App</a>
+      <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/archive/refs/heads/main.zip" download>🗂️ Download all project files</a>
+    </div>
   </div>
   <script>
     setTimeout(() => {
