@@ -1,0 +1,48 @@
+{
+  "rqbbox_os": {
+    "version": "2.6.0.4",
+    "build_date": "2026-05-21",
+    "developer": "RTech",
+    "ai": "GOTECH AI",
+    "app_url": "https://inquisitive-rqbbox-core-play.base44.app",
+    "github": "https://github.com/Rtech-Rqbbox-os/rqbbox-os",
+    "release_id": "RQBBOX-2604-LIMBO",
+    "image_file": "RQBBOX-OS-v2.6.0.4.qcow2",
+    "image_format": "qcow2",
+    "virtual_size_mb": 512
+  },
+  "limbo_pc_settings": {
+    "machine": "pc",
+    "arch": "i386",
+    "cpu": "coreduo",
+    "cpu_cores": 1,
+    "ram_mb": 512,
+    "vga": "std",
+    "network": "user",
+    "boot": "c",
+    "disk_interface": "ide",
+    "sound": "ac97",
+    "ui": "sdl",
+    "hdd_image": "RQBBOX-OS-v2.6.0.4.qcow2",
+    "notes": "Enable Network/User mode so RQBBOX App browser works"
+  },
+  "features": [
+    "Boot screen v2.6.0.4",
+    "Full desktop + window manager",
+    "Taskbar + Start menu + clock",
+    "RQBBOX App browser (live)",
+    "Working terminal (ls, sysinfo, echo, date...)",
+    "File manager",
+    "System info panel",
+    "Settings panel with toggles",
+    "About app with build info",
+    "Notification tray",
+    "Reboot + Shutdown"
+  ],
+  "compatible_platforms": [
+    {"device": "Android", "app": "Limbo PC Emulator", "connection": "APK/Play Store"},
+    {"device": "Windows", "app": "QEMU / VirtualBox", "connection": "Native QCOW2"},
+    {"device": "macOS", "app": "QEMU / UTM", "connection": "Native QCOW2"},
+    {"device": "Linux", "app": "QEMU / virt-manager", "connection": "Native QCOW2"}
+  ]
+}

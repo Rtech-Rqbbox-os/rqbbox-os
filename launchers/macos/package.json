@@ -1,0 +1,30 @@
+{
+  "name": "rqbbox-os",
+  "version": "1.0.0",
+  "description": "RQBBOX OS — macOS Launcher",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.rtech.rqbboxos",
+    "productName": "RQBBOX OS",
+    "mac": {
+      "target": "dmg",
+      "icon": "icon.icns",
+      "category": "public.app-category.games",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "title": "RQBBOX OS",
+      "background": "background.png",
+      "window": { "width": 540, "height": 380 }
+    }
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}

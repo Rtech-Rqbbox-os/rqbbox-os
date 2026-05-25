@@ -1,0 +1,56 @@
+{
+  "name": "RQBBOX OS USB",
+  "version": "1.0.0",
+  "label": "RQBBOX OS",
+  "description": "Plug In. Play Anywhere. No boot required.",
+  "app_url": "https://inquisitive-rqbbox-core-play.base44.app",
+  "github": "https://github.com/Rtech-Rqbbox-os/rqbbox-os",
+  "author": "RTech — GOTECH AI",
+  "autolaunch": true,
+  "splash": "core/index.html",
+  "icon": "assets/rqbbox-icon.ico",
+  "platforms": {
+    "windows": {
+      "launcher": "launcher/windows/RQBBOXLauncher.exe",
+      "build_cmd": "cd launcher/windows && npm install && npm run build",
+      "output": "launcher/windows/dist/RQBBOX-OS-USB-1.0.0-Windows.exe"
+    },
+    "macos": {
+      "launcher": "launcher/macos/RQBBOXLauncher.app",
+      "build_cmd": "cd launcher/macos && npm install && npm run build",
+      "output": "launcher/macos/dist/RQBBOX-OS-USB-1.0.0-macOS.dmg"
+    },
+    "linux": {
+      "launcher": "launcher/linux/RQBBOXLauncher.AppImage",
+      "build_cmd": "cd launcher/linux && npm install && npm run build",
+      "output": "launcher/linux/dist/RQBBOX-OS-USB-1.0.0.AppImage"
+    },
+    "android": {
+      "launcher": "launcher/android/",
+      "build_cmd": "cd launcher/android && ./gradlew assembleRelease",
+      "output": "launcher/android/app/build/outputs/apk/release/app-release.apk",
+      "notes": "Sideload APK — enable Unknown Sources in Settings first"
+    },
+    "ios": {
+      "launcher": "launcher/ios/",
+      "build_cmd": "Open in Xcode → Product → Archive → Distribute App",
+      "notes": "Sideload IPA via AltStore or Sideloadly"
+    },
+    "browser": {
+      "launcher": "core/index.html",
+      "notes": "Open in any browser — redirects to live app automatically"
+    }
+  },
+  "flash_commands": {
+    "windows": ".\\scripts\\flash-usb.ps1 -UsbPath \"E:\\\"",
+    "macos": "./scripts/flash-usb.sh /Volumes/RQBBOX",
+    "linux": "./scripts/flash-usb.sh /mnt/usb"
+  },
+  "compatible_devices": [
+    { "device": "Laptop",         "connection": "USB-A / USB-C",   "status": "supported" },
+    { "device": "Smart TV",       "connection": "USB-A",           "status": "supported" },
+    { "device": "PC / Desktop",   "connection": "USB-A / USB-C",   "status": "supported" },
+    { "device": "Android Mobile", "connection": "USB-C OTG",       "status": "supported" },
+    { "device": "iPhone / iPad",  "connection": "USB-C/Lightning", "status": "supported" }
+  ]
+}

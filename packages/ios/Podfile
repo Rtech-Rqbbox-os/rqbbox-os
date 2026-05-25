@@ -1,0 +1,9 @@
+platform :ios, '15.0'
+use_frameworks!
+
+target 'RQBBOXOSLauncher' do
+  # WebKit is bundled — no extra pods needed for the base launcher
+  # Add optional pods below:
+  # pod 'Firebase/Analytics'
+  # pod 'Firebase/Crashlytics'
+end

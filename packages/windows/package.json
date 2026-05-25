@@ -1,0 +1,70 @@
+{
+  "name": "rqbbox-os",
+  "version": "1.0.0",
+  "description": "RQBBOX OS — A high-performance, immersive gaming console OS",
+  "main": "src/main.js",
+  "author": {
+    "name": "RTech",
+    "email": "dev@rtech.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder --win --x64",
+    "build:all": "electron-builder --win --x64 --ia32 --arm64",
+    "dist": "npm run build",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.rtech.rqbboxos",
+    "productName": "RQBBOX OS",
+    "copyright": "Copyright © 2026 RTech",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        { "target": "nsis",    "arch": ["x64", "ia32"] },
+        { "target": "portable","arch": ["x64"] },
+        { "target": "zip",     "arch": ["x64"] }
+      ],
+      "icon": "assets/icon.ico",
+      "publisherName": "RTech",
+      "signingHashAlgorithms": ["sha256"],
+      "certificateFile": "${env.WIN_CERT_PATH}",
+      "certificatePassword": "${env.WIN_CERT_PASSWORD}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "RQBBOX OS",
+      "include": "installer.nsh"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "Rtech-Rqbbox-os",
+      "repo": "rqbbox-os"
+    }
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}

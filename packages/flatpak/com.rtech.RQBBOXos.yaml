@@ -1,0 +1,30 @@
+id: com.rtech.RQBBOXos
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+command: rqbbox-os
+separate-locales: false
+
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --device=dri
+  - --filesystem=home
+  - --env=ELECTRON_OZONE_PLATFORM_HINT=auto
+
+modules:
+  - name: rqbbox-os
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 rqbbox-os /app/bin/rqbbox-os
+      - install -Dm644 com.rtech.RQBBOXos.desktop /app/share/applications/com.rtech.RQBBOXos.desktop
+      - install -Dm644 com.rtech.RQBBOXos.metainfo.xml /app/share/metainfo/com.rtech.RQBBOXos.metainfo.xml
+      - install -Dm644 icon.png /app/share/icons/hicolor/512x512/apps/com.rtech.RQBBOXos.png
+    sources:
+      - type: file
+        url: https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases/download/v1.0.0/RQBBOX-OS-1.0.0-linux-x64.AppImage
+        dest-filename: rqbbox-os
+        sha256: UPDATE_AFTER_BUILD
