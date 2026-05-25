@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Support — RQBBOX OS by RhysTech</title>
+<meta name="description" content="RQBBOX OS customer support. Email rqbbox.support@groups.outlook.com for help with your portable gaming USB operating system.">
+<link rel="icon" href="../Branding/rqbbox-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.support-card {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,212,255,0.1);
+  border-radius: 20px;
+  padding: 48px 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  text-align: center;
+}
+.support-card .email-big {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--neon-blue);
+  display: block;
+  margin: 24px 0 12px;
+  word-break: break-all;
+}
+.support-card .response-time {
+  display: inline-block;
+  padding: 6px 18px;
+  background: rgba(0,212,255,0.08);
+  border-radius: 20px;
+  font-size: .85rem;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 32px 0;
+}
+.support-item {
+  background: rgba(0,0,0,0.2);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid rgba(0,212,255,0.05);
+}
+.support-item .icon { font-size: 2rem; margin-bottom: 8px; }
+.support-item h4 { font-size: .95rem; margin-bottom: 6px; }
+.support-item p { font-size: .8rem; color: var(--text-secondary); }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="scrollToTop()">
+      <svg viewBox="0 0 36 36"><rect width="36" height="36" rx="8" fill="#12182a"/><rect x="4" y="4" width="28" height="28" rx="6" fill="none" stroke="url(#nGrad)" stroke-width="2"/><text x="18" y="23" text-anchor="middle" font-size="14" font-weight="800" fill="url(#nGrad)" font-family="Segoe UI">R</text><defs><linearGradient id="nGrad"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+      RQBBOX <span style="font-size:.7rem;color:var(--text-muted);font-weight:400;margin-left:4px;">Support</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">← Home</a>
+      <a href="dev.html">Developers</a>
+      <a href="index.html#download">Download</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:120px;">
+  <div class="section-header reveal">
+    <div class="badge">Support</div>
+    <h2>Get in touch</h2>
+    <p>We're here to help with your RQBBOX experience.</p>
+  </div>
+  <div class="support-card reveal">
+    <div style="font-size:3rem;margin-bottom:8px;">📬</div>
+    <h3>Email Support</h3>
+    <a href="mailto:rqbbox.support@groups.outlook.com" class="email-big">rqbbox.support@groups.outlook.com</a>
+    <div class="response-time">⏱️ We aim to respond within 24 hours</div>
+    <p style="font-size:.85rem;color:var(--text-secondary);">For questions about installation, features, editions, bug reports, or general inquiries — send us an email and we'll get back to you.</p>
+    <div class="support-grid">
+      <div class="support-item"><div class="icon">🔧</div><h4>Technical Issues</h4><p>Installation, setup, server problems</p></div>
+      <div class="support-item"><div class="icon">💡</div><h4>Feature Requests</h4><p>Suggestions for new features or improvements</p></div>
+      <div class="support-item"><div class="icon">🐛</div><h4>Bug Reports</h4><p>Report crashes, glitches, or unexpected behavior</p></div>
+      <div class="support-item"><div class="icon">❓</div><h4>General Questions</h4><p>Editions, compatibility, USB setup</p></div>
+    </div>
+    <p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">You can also find help on our <a href="index.html#faq" style="color:var(--neon-blue);">FAQ page</a> or join the community discussions on <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/discussions" target="_blank" style="color:var(--neon-blue);">GitHub Discussions</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 36 36" width="36" height="36"><rect width="36" height="36" rx="8" fill="#12182a"/><rect x="4" y="4" width="28" height="28" rx="6" fill="none" stroke="url(#fGrad)" stroke-width="2"/><text x="18" y="23" text-anchor="middle" font-size="14" font-weight="800" fill="url(#fGrad)" font-family="Segoe UI">R</text><defs><linearGradient id="fGrad"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+        RQBBOX Support
+      </div>
+      <p>Portable USB gaming operating system by RhysTech. Plug Into Gaming. ®</p>
+      <p style="margin-top:12px;color:var(--text-muted);font-size:.8rem;">© 2026 RhysTech. RQBBOX® is a trademark of RhysTech. All rights reserved.</p>
+    </div>
+    <div class="footer-col"><h4>Links</h4><a href="index.html">Home</a><a href="index.html#download">Download</a><a href="index.html#editions">Editions</a><a href="dev.html">Developers</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="mailto:rqbbox.support@groups.outlook.com">📧 Email Support</a><a href="https://www.youtube.com/@RQBBOX-REAL" target="_blank">▶ YouTube</a><a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os" target="_blank">⌂ GitHub</a></div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    obs.observe(el);
+  });
+});
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function toggleMobileMenu() {
+  const links = document.getElementById('navLinks');
+  const isVis = links.style.display === 'flex';
+  links.style.display = isVis ? 'none' : 'flex';
+  if (!isVis) {
+    Object.assign(links.style, { position:'absolute', top:'64px', left:'0', right:'0', flexDirection:'column', background:'rgba(5,8,16,0.98)', padding:'16px', borderBottom:'1px solid var(--border)', zIndex:'999' });
+  }
+}
+</script>
+</body>
+</html>

@@ -128,7 +128,12 @@ const SettingsPage = {
         </div>
         <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);font-size:.75rem;color:var(--text-muted);text-align:center;">
           © 2026 RhysTech. RQBBOX® is a trademark of RhysTech. All rights reserved. <br>
-          Plug Into Gaming. ® Portable Power Anywhere. Your USB Gaming World.
+          Plug Into Gaming. ® Portable Power Anywhere. Your USB Gaming World. <br>
+          <span style="margin-top:8px;display:inline-block;">
+            <a href="mailto:rqbbox.support@groups.outlook.com" style="color:var(--neon-blue);text-decoration:none;">📧 Email Support</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.youtube.com/@RQBBOX-REAL" target="_blank" style="color:var(--neon-blue);text-decoration:none;">▶ YouTube</a>
+          </span>
         </div>`,
 
       device: `

@@ -26,6 +26,8 @@ RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it i
 **Website:** [rtech-rqbbox-os.github.io/rqbbox-os](https://rtech-rqbbox-os.github.io/rqbbox-os/)
 **GitHub:** [github.com/Rtech-Rqbbox-os/rqbbox-os](https://github.com/Rtech-Rqbbox-os/rqbbox-os)
 **Packages:** [github.com/Rtech-Rqbbox-os/rqbbox-os/packages](https://github.com/Rtech-Rqbbox-os/rqbbox-os/packages)
+**Support:** 📧 [rqbbox.support@groups.outlook.com](mailto:rqbbox.support@groups.outlook.com)
+**YouTube:** ▶ [@RQBBOX-REAL](https://www.youtube.com/@RQBBOX-REAL)
 
 © 2026 RhysTech. RQBBOX® is a trademark of RhysTech. All rights reserved.
 
@@ -182,7 +184,9 @@ MIT License
   <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os">GitHub</a> ·
   <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/packages">Packages</a> ·
   <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/issues">Issues</a> ·
-  <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/discussions">Discussions</a>
+  <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/discussions">Discussions</a> ·
+  <a href="support.html">Support</a> ·
+  <a href="https://www.youtube.com/@RQBBOX-REAL">YouTube</a>
 </p>
 
 <p align="center" style="color:#5a6a8a;font-size:0.8rem;">
