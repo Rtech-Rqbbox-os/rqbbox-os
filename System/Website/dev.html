@@ -23,6 +23,7 @@
       <a href="#tutorials">Tutorials</a>
       <a href="#projects">Projects</a>
       <a href="#plugin-api">Plugin API</a>
+      <a href="#packages">Packages</a>
     </div>
     <div class="nav-right">
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
@@ -318,6 +319,43 @@
   </div>
 </div>
 
+<!-- GitHub Packages -->
+<div class="section" id="packages" style="background:rgba(10,15,30,0.5);border-radius:var(--radius-xl) 0 0 var(--radius-xl)">
+  <div class="section-header reveal">
+    <div class="badge">Packages</div>
+    <h2>GitHub Packages</h2>
+    <p>Install RQBBOX components via npm from GitHub Packages.</p>
+  </div>
+  <div class="dev-content reveal" style="max-width:800px;margin:0 auto;">
+    <div style="background:rgba(0,0,0,0.3);border-radius:16px;padding:24px;margin-bottom:20px;">
+      <h4 style="margin-bottom:12px;">🔧 Setup</h4>
+      <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px;">Authenticate with your GitHub token:</p>
+      <pre style="background:#0a0e1a;padding:14px 18px;border-radius:12px;font-size:.8rem;color:#00d4ff;border:1px solid rgba(0,212,255,0.12);overflow-x:auto;">npm login --registry=https://npm.pkg.github.com/ --scope=@rtech-rqbbox-os</pre>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+      <div style="background:rgba(0,0,0,0.3);border-radius:16px;padding:20px;border:1px solid rgba(0,212,255,0.08);">
+        <h4 style="margin-bottom:8px;">📦 rqbbox-os</h4>
+        <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:12px;">Root metapackage</p>
+        <pre style="background:#0a0e1a;padding:10px 14px;border-radius:8px;font-size:.75rem;color:#9d4edd;">npm i @rtech-rqbbox-os/rqbbox-os</pre>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);border-radius:16px;padding:20px;border:1px solid rgba(0,212,255,0.08);">
+        <h4 style="margin-bottom:8px;">⚡ rqbbox-server</h4>
+        <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:12px;">USB HTTP server</p>
+        <pre style="background:#0a0e1a;padding:10px 14px;border-radius:8px;font-size:.75rem;color:#9d4edd;">npm i @rtech-rqbbox-os/rqbbox-server</pre>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);border-radius:16px;padding:20px;border:1px solid rgba(0,212,255,0.08);">
+        <h4 style="margin-bottom:8px;">🧪 rqbbox-sdk</h4>
+        <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:12px;">Developer SDK docs</p>
+        <pre style="background:#0a0e1a;padding:10px 14px;border-radius:8px;font-size:.75rem;color:#9d4edd;">npm i @rtech-rqbbox-os/rqbbox-sdk</pre>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:.8rem;color:var(--text-muted);">
+      Auto-published from GitHub Actions on every release.
+      <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/packages" target="_blank" style="color:var(--neon-blue);">View all packages →</a>
+    </p>
+  </div>
+</div>
+
 <footer>
   <div class="footer-inner" style="grid-template-columns:2fr 1fr 1fr;">
     <div class="footer-brand">
@@ -328,7 +366,7 @@
       <p>Build for RQBBOX OS. SDK tools, API docs, and open-code projects.</p>
       <p style="margin-top:12px;color:var(--text-muted);font-size:.8rem;">© 2026 RhysTech. RQBBOX® is a trademark of RhysTech. All rights reserved.</p>
     </div>
-    <div class="footer-col"><h4>Resources</h4><a href="#sdk">SDK Downloads</a><a href="#api">API Reference</a><a href="#tutorials">Tutorials</a><a href="#projects">Open-Code</a><a href="#plugin-api">Plugin API</a></div>
+    <div class="footer-col"><h4>Resources</h4><a href="#sdk">SDK Downloads</a><a href="#api">API Reference</a><a href="#tutorials">Tutorials</a><a href="#projects">Open-Code</a><a href="#plugin-api">Plugin API</a><a href="#packages">Packages</a></div>
     <div class="footer-col"><h4>RQBBOX</h4><a href="index.html">Home</a><a href="index.html#editions">Editions</a><a href="index.html#download">Download</a><a href="index.html#store">Store</a><a href="index.html#community">Community</a></div>
   </div>
 </footer>

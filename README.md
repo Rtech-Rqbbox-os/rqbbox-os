@@ -10,10 +10,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-00d4ff?style=flat-square"/>
+  <img src="https://img.shields.io/badge/version-1.1.0-00d4ff?style=flat-square"/>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-9d4edd?style=flat-square"/>
   <img src="https://img.shields.io/badge/license-MIT-00d4ff?style=flat-square"/>
   <img src="https://img.shields.io/badge/PWA-ready-00ffc8?style=flat-square"/>
+  <img src="https://img.shields.io/badge/GitHub_Packages-npm-00d4ff?style=flat-square&logo=npm"/>
 </p>
 
 ---
@@ -24,6 +25,7 @@ RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it i
 
 **Website:** [rtech-rqbbox-os.github.io/rqbbox-os](https://rtech-rqbbox-os.github.io/rqbbox-os/)
 **GitHub:** [github.com/Rtech-Rqbbox-os/rqbbox-os](https://github.com/Rtech-Rqbbox-os/rqbbox-os)
+**Packages:** [github.com/Rtech-Rqbbox-os/rqbbox-os/packages](https://github.com/Rtech-Rqbbox-os/rqbbox-os/packages)
 
 © 2026 RhysTech. RQBBOX® is a trademark of RhysTech. All rights reserved.
 
@@ -143,6 +145,26 @@ Full API reference at `/sdk/` or `System/SDK/index.html`.
 
 ---
 
+## 📦 GitHub Packages
+
+RQBBOX OS publishes npm packages to GitHub Packages. Authenticate with your GitHub token:
+
+```sh
+npm login --registry=https://npm.pkg.github.com/ --scope=@rtech-rqbbox-os
+```
+
+### Available Packages
+
+| Package | Description | Install |
+|---------|-------------|---------|
+| `@rtech-rqbbox-os/rqbbox-os` | Root metapackage | `npm install @rtech-rqbbox-os/rqbbox-os` |
+| `@rtech-rqbbox-os/rqbbox-server` | USB HTTP server | `npm install @rtech-rqbbox-os/rqbbox-server` |
+| `@rtech-rqbbox-os/rqbbox-sdk` | Developer SDK docs | `npm install @rtech-rqbbox-os/rqbbox-sdk` |
+
+Packages auto-publish on every GitHub Release via [GitHub Actions](.github/workflows/publish-packages.yml).
+
+---
+
 ## 🔧 Plugin & Theme System
 
 Plugins go in `Plugins/`, themes in `Themes/` on your USB. Each plugin needs a `plugin.json` manifest. See the [Plugin API docs](System/SDK/index.html) for details.
@@ -158,6 +180,7 @@ MIT License
 <p align="center">
   <a href="https://rtech-rqbbox-os.github.io/rqbbox-os/">Website</a> ·
   <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os">GitHub</a> ·
+  <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/packages">Packages</a> ·
   <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/issues">Issues</a> ·
   <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/discussions">Discussions</a>
 </p>

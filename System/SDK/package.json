@@ -1,0 +1,22 @@
+{
+  "name": "@rtech-rqbbox-os/rqbbox-sdk",
+  "version": "1.1.0",
+  "description": "RQBBOX OS Developer SDK — API reference, plugin docs, theme editor docs, and tutorials for building on RQBBOX.",
+  "main": "index.html",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rtech-Rqbbox-os/rqbbox-os.git",
+    "directory": "System/SDK"
+  },
+  "keywords": ["rqbbox", "sdk", "gaming", "plugin", "theme", "api"],
+  "author": "RhysTech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Rtech-Rqbbox-os/rqbbox-os/issues"
+  },
+  "homepage": "https://github.com/Rtech-Rqbbox-os/rqbbox-os/tree/main/System/SDK"
+}
