@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000800"/>
+      <stop offset="50%" stop-color="#001a00"/>
+      <stop offset="100%" stop-color="#000500"/>
+    </linearGradient>
+    <linearGradient id="codeFade" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00ff41" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#00ff41" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#00ff41" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#00ff41" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#00ff41"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <!-- Matrix rain columns -->
+  <g font-family="Consolas, monospace" font-size="18" opacity="0.35" fill="url(#codeFade)">
+    <text x="40" y="200">1010010010100101</text>
+    <text x="40" y="300">0101001001010001</text>
+    <text x="40" y="400">1100101010010100</text>
+    <text x="40" y="500">0010100101001010</text>
+    <text x="180" y="150">0110100101001010</text>
+    <text x="180" y="250">1001011010010100</text>
+    <text x="180" y="350">0100101100101001</text>
+    <text x="180" y="450">1010010100100101</text>
+    <text x="180" y="550">1101001010010100</text>
+    <text x="360" y="250">0010110100100101</text>
+    <text x="360" y="350">1001001011010010</text>
+    <text x="360" y="450">0100101001011010</text>
+    <text x="360" y="550">1010010010100101</text>
+    <text x="540" y="180">1001001011010010</text>
+    <text x="540" y="280">0100101001011010</text>
+    <text x="540" y="380">1010010010100101</text>
+    <text x="540" y="480">1101001010010100</text>
+    <text x="540" y="580">0010110100100101</text>
+    <text x="720" y="220">0101001001010001</text>
+    <text x="720" y="320">1100101010010100</text>
+    <text x="720" y="420">0010100101001010</text>
+    <text x="720" y="520">0110100101001010</text>
+    <text x="900" y="160">1011010010100100</text>
+    <text x="900" y="260">0100101100101001</text>
+    <text x="900" y="360">1010010100100101</text>
+    <text x="900" y="460">1101001010010100</text>
+    <text x="900" y="560">0010110100100101</text>
+    <text x="1080" y="200">1001001011010010</text>
+    <text x="1080" y="300">0100101001011010</text>
+    <text x="1080" y="400">1010010010100101</text>
+    <text x="1080" y="500">0101001001010001</text>
+    <text x="1260" y="170">0010100101001010</text>
+    <text x="1260" y="270">0110100101001010</text>
+    <text x="1260" y="370">10010110100101</text>
+    <text x="1260" y="470">0100101100101001</text>
+    <text x="1260" y="570">1010010100100101</text>
+    <text x="1440" y="230">1100101010010100</text>
+    <text x="1440" y="330">0010100101001010</text>
+    <text x="1440" y="430">0110100101001010</text>
+    <text x="1440" y="530">1001011010010100</text>
+    <text x="1620" y="190">0100101100101001</text>
+    <text x="1620" y="290">1010010100100101</text>
+    <text x="1620" y="390">1101001010010100</text>
+    <text x="1620" y="490">0010110100100101</text>
+    <text x="1800" y="150">1001001011010010</text>
+    <text x="1800" y="250">0100101001011010</text>
+    <text x="1800" y="350">1010010010100101</text>
+    <text x="1800" y="450">0101001001010001</text>
+  </g>
+  <!-- Bright green characters -->
+  <g font-family="Consolas, monospace" font-size="20" fill="#00ff41" opacity="0.7">
+    <text x="40" y="220">1</text><text x="180" y="170">0</text><text x="360" y="270">1</text><text x="540" y="200">0</text>
+    <text x="720" y="240">1</text><text x="900" y="180">0</text><text x="1080" y="220">1</text><text x="1260" y="190">0</text>
+    <text x="1440" y="250">1</text><text x="1620" y="210">0</text><text x="1800" y="170">1</text>
+  </g>
+  <text x="960" y="500" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="160" font-weight="800" fill="#00ff41" opacity="0.04" letter-spacing="30">MATRIX</text>
+  <text x="960" y="990" text-anchor="middle" font-family="Consolas, monospace" font-size="26" fill="url(#accent)" opacity="0.4" letter-spacing="10">VOID MATRIX · RQBBOX 0</text>
+</svg>

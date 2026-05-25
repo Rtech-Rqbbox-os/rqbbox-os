@@ -1,0 +1,734 @@
+{
+  "users": [
+    {
+      "id": "default",
+      "name": "Player One",
+      "username": "playerone",
+      "email": "",
+      "avatar": "P",
+      "role": "Owner",
+      "pin": null,
+      "token": "1e4ce775e4a6d4bab6fcf123aae21fb624c2e247a359cc8cc0a9e7ec7e2e43de",
+      "theme": "neon-dark",
+      "recentApps": [
+        "void-craft",
+        "pixel-quest",
+        "neon-drift"
+      ],
+      "achievements": 5,
+      "playTime": "13m",
+      "stats": {
+        "sessions": 12,
+        "minutesActive": 13,
+        "gamesLaunched": 7,
+        "appsLaunched": 0,
+        "achievements": 5,
+        "storeInstalls": 4,
+        "screenshots": 3,
+        "aiImages": 1,
+        "_achNames": [
+          "First Boot",
+          "First Game",
+          "AI Artist",
+          "Collector",
+          "Gamer"
+        ]
+      }
+    },
+    {
+      "id": "guest",
+      "name": "Guest",
+      "username": "guest",
+      "email": "",
+      "avatar": "G",
+      "role": "Guest",
+      "pin": null,
+      "token": null,
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "1m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 1,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0
+      }
+    },
+    {
+      "id": "gamer2",
+      "name": "NeonRider",
+      "username": "neonrider",
+      "email": "",
+      "avatar": "N",
+      "role": "Gamer",
+      "pin": "1234",
+      "token": null,
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "0m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 0,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0
+      }
+    },
+    {
+      "id": "user-rhystech",
+      "name": "RHYSTECH",
+      "username": "rhystech",
+      "email": "admin@rhystech.com",
+      "avatar": "R",
+      "role": "Admin",
+      "pin": "RHYSTECH.COM",
+      "token": "3c90c7dfe979844a94b882c904ad6ba66862c0897914d94fae74a3487b126b7f",
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "0m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 0,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": []
+      }
+    },
+    {
+      "id": "user-sdd8cpmu",
+      "name": "RhysTest",
+      "username": "rhystest",
+      "email": "rhyscotton20@gmail.com",
+      "avatar": "R",
+      "role": "Member",
+      "pin": "test1234",
+      "token": null,
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "0m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 0,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": []
+      }
+    },
+    {
+      "id": "user-50apt7ll",
+      "name": "RHYSTECH_77",
+      "username": "RHYSTECH",
+      "email": "RHYSTECH@RHYSTECHEMAILS.COM",
+      "avatar": "R",
+      "role": "Member",
+      "pin": "HIRHYSTECH",
+      "token": null,
+      "theme": "neon-dark",
+      "recentApps": [
+        "youtube"
+      ],
+      "achievements": 3,
+      "playTime": "1h 2m",
+      "stats": {
+        "sessions": 3,
+        "minutesActive": 62,
+        "gamesLaunched": 0,
+        "appsLaunched": 2,
+        "achievements": 3,
+        "storeInstalls": 3,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": [
+          "First Boot",
+          "Collector",
+          "App Explorer"
+        ]
+      },
+      "friendRequests": [
+        {
+          "from": "user-99r7dqj8",
+          "name": "RQBBOX_RHYSTECH",
+          "avatar": "R",
+          "sentAt": "2026-05-25T08:31:20.469Z"
+        }
+      ],
+      "friends": []
+    },
+    {
+      "id": "user-99r7dqj8",
+      "name": "RQBBOX_RHYSTECH",
+      "username": "RHYSTECH_00",
+      "email": "RHYSTECH290@RHYSTECHEMAILS.COM",
+      "avatar": "R",
+      "role": "Member",
+      "pin": "HIRQBBOXRHYSTECH",
+      "token": "428fb34f9da90c2ed56b61186e16723eba9a49cce5b409ff323383126cfbb994",
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "0m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 0,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": []
+      }
+    },
+    {
+      "id": "user-1779620821415",
+      "name": "RQBBOX_RHYSTECH",
+      "username": "RQBBOX_RHYSTECH090",
+      "avatar": "N",
+      "role": "Owner",
+      "pin": "HIRQBBOXRHYSTECH",
+      "token": null,
+      "theme": "neon-dark",
+      "recentApps": [
+        "neon-drift",
+        "youtube"
+      ],
+      "achievements": 3,
+      "playTime": "16m",
+      "stats": {
+        "sessions": 4,
+        "minutesActive": 16,
+        "gamesLaunched": 1,
+        "appsLaunched": 1,
+        "achievements": 3,
+        "storeInstalls": 0,
+        "screenshots": 1,
+        "aiImages": 0,
+        "_achNames": [
+          "First Boot",
+          "App Explorer",
+          "First Game"
+        ]
+      },
+      "friends": [],
+      "friendRequests": []
+    },
+    {
+      "id": "user-n1ffdm8j",
+      "name": "TestGamer",
+      "username": "testgamer",
+      "email": "test@example.com",
+      "avatar": "T",
+      "role": "Member",
+      "pin": "test123",
+      "token": null,
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "0m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 0,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": []
+      }
+    },
+    {
+      "id": "user-159qfqwy",
+      "name": "AuthTest",
+      "username": "authtest",
+      "email": "",
+      "avatar": "A",
+      "role": "Member",
+      "pin": "pass123",
+      "token": "51b8d254d2436d206745903e900c6e0f760b3d298362895215096bfd726e47d2",
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "0m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 0,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": []
+      }
+    },
+    {
+      "id": "user-r83k7r5d",
+      "name": "AuthTest2",
+      "username": "authtest2",
+      "email": "",
+      "avatar": "A",
+      "role": "Member",
+      "pin": "pass456",
+      "token": "74fbd4dda004b148f9865a58117348a1a25008e882e5ad0ae82e06e5721485b1",
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "0m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 0,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": []
+      }
+    },
+    {
+      "id": "user-esw2gtpq",
+      "name": "SignOutTest",
+      "username": "signouttest",
+      "email": "",
+      "avatar": "S",
+      "role": "Member",
+      "pin": "test99",
+      "token": null,
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "0m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 0,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": []
+      }
+    },
+    {
+      "id": "user-d2pe8fjg",
+      "name": "RQBBOX_RHYSTECH000",
+      "username": "RQBBOX_RHYSTECH111",
+      "email": "",
+      "avatar": "R",
+      "role": "Member",
+      "pin": "555",
+      "token": "ee9d700c31b95e64850873fa2cc61dafe02caa71972c7793191f4361c1f1a142",
+      "theme": "neon-dark",
+      "recentApps": [],
+      "achievements": 0,
+      "playTime": "2m",
+      "stats": {
+        "sessions": 0,
+        "minutesActive": 2,
+        "gamesLaunched": 0,
+        "appsLaunched": 0,
+        "achievements": 0,
+        "storeInstalls": 0,
+        "screenshots": 0,
+        "aiImages": 0,
+        "_achNames": []
+      }
+    }
+  ],
+  "installed": {
+    "games": [
+      "neon-drift",
+      "void-craft",
+      "pixel-quest"
+    ],
+    "apps": [
+      "music-wave",
+      "gmail",
+      "google-drive",
+      "youtube"
+    ]
+  },
+  "downloads": [
+    {
+      "title": "Neon Drift Racing",
+      "completedAt": "2026-05-24T13:55:44.5167794+08:00",
+      "path": "Games/neon-drift",
+      "id": "neon-drift",
+      "type": "game"
+    },
+    {
+      "title": "Void Craft Sandbox",
+      "completedAt": "2026-05-24T15:07:52.1495986+08:00",
+      "path": "Games/void-craft",
+      "id": "void-craft",
+      "type": "game"
+    },
+    {
+      "id": "music-wave",
+      "type": "app",
+      "title": "🎵 Music Wave",
+      "completedAt": "2026-05-24T09:51:51.406Z",
+      "path": "Apps/music-wave"
+    },
+    {
+      "id": "pixel-quest",
+      "type": "game",
+      "title": "Pixel Quest Adventures",
+      "completedAt": "2026-05-24T09:52:02.291Z",
+      "path": "Games/pixel-quest"
+    },
+    {
+      "id": "gmail",
+      "type": "app",
+      "title": "Gmail",
+      "completedAt": "2026-05-25T09:05:09.452Z",
+      "path": "Apps/gmail"
+    },
+    {
+      "id": "google-drive",
+      "type": "app",
+      "title": "Google Drive",
+      "completedAt": "2026-05-25T09:05:17.044Z",
+      "path": "Apps/google-drive"
+    },
+    {
+      "id": "youtube",
+      "type": "app",
+      "title": "YouTube",
+      "completedAt": "2026-05-25T09:05:23.759Z",
+      "path": "Apps/youtube"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1779699923785,
+      "title": "Install Complete",
+      "message": "YouTube is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779699923759,
+      "title": "Install Complete",
+      "message": "YouTube installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779699917093,
+      "title": "Install Complete",
+      "message": "Google Drive is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779699917044,
+      "title": "Install Complete",
+      "message": "Google Drive installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779699909758,
+      "title": "Install Complete",
+      "message": "Gmail is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779699909452,
+      "title": "Install Complete",
+      "message": "Gmail installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779616322317,
+      "title": "Install Complete",
+      "message": "Pixel Quest Adventures is ready to launch.",
+      "time": "Just now",
+      "read": true
+    },
+    {
+      "id": 1779616322291,
+      "title": "Install Complete",
+      "message": "Pixel Quest Adventures installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779616311692,
+      "title": "Install Complete",
+      "message": "🎵 Music Wave is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779616311406,
+      "title": "Install Complete",
+      "message": "🎵 Music Wave installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779606502207,
+      "title": "AI Image Saved",
+      "message": "AI/generated/img-1779606501866.png",
+      "time": "May 24, 2026",
+      "read": true
+    },
+    {
+      "id": 1779606473595,
+      "title": "Install Complete",
+      "message": "Void Craft Sandbox is ready to launch.",
+      "time": "May 24, 2026",
+      "read": true
+    },
+    {
+      "time": "May 24, 2026",
+      "title": "Install Complete",
+      "message": "Neon Drift Racing is ready to launch.",
+      "id": 2,
+      "read": true
+    },
+    {
+      "id": 1,
+      "title": "Welcome to RQBBOX OS",
+      "message": "All stats start at zero and grow as you play. Double-click RQBBOX.exe to launch!",
+      "time": "May 24, 2026",
+      "read": true
+    }
+  ],
+  "sessions": [
+    {
+      "token": "337819b6236aa12503491a7d23491e59ccec56121c5f460ca328a7f50c403459",
+      "userId": "user-esw2gtpq",
+      "createdAt": "2026-05-25T08:07:05.104Z",
+      "device": "Website"
+    },
+    {
+      "token": "74fbd4dda004b148f9865a58117348a1a25008e882e5ad0ae82e06e5721485b1",
+      "userId": "user-r83k7r5d",
+      "createdAt": "2026-05-25T08:06:58.483Z",
+      "device": "Website"
+    },
+    {
+      "token": "51b8d254d2436d206745903e900c6e0f760b3d298362895215096bfd726e47d2",
+      "userId": "user-159qfqwy",
+      "createdAt": "2026-05-25T08:06:51.699Z",
+      "device": "Website"
+    },
+    {
+      "token": "858b7ad50c479bc3d598429a7a30d8654cfb975fbfa99682cacfd39d38b3b305",
+      "userId": "user-n1ffdm8j",
+      "createdAt": "2026-05-25T08:05:21.874Z",
+      "device": "Unknown"
+    },
+    {
+      "token": "e2716aa941591521959dce5d11d88ff1947aa2cda4ce5befd15b3bb42fca39ca",
+      "userId": "user-n1ffdm8j",
+      "createdAt": "2026-05-25T08:05:08.695Z",
+      "device": "Unknown"
+    },
+    {
+      "token": "428fb34f9da90c2ed56b61186e16723eba9a49cce5b409ff323383126cfbb994",
+      "userId": "user-99r7dqj8",
+      "createdAt": "2026-05-24T11:04:28.249Z",
+      "device": "Unknown"
+    },
+    {
+      "token": "1e4ce775e4a6d4bab6fcf123aae21fb624c2e247a359cc8cc0a9e7ec7e2e43de",
+      "userId": "default",
+      "createdAt": "2026-05-24T10:57:39.781Z",
+      "device": "Unknown"
+    },
+    {
+      "token": "be7077a8f7d978a3b03220f93ba71bae833558f393d9a77b18ed72ce20b41536",
+      "userId": "default",
+      "createdAt": "2026-05-24T10:55:50.253Z",
+      "device": "Unknown"
+    },
+    {
+      "token": "f56736821526105e4963368be2d9e99896760ab2ba88f6fa5d9b9978180363f0",
+      "userId": "default",
+      "createdAt": "2026-05-24T10:52:08.690Z",
+      "device": "Unknown"
+    },
+    {
+      "token": "77ab7b417e02442c8cb17c611cbe4508ab101c803b8a6bfa5825a68eca7bb3d5",
+      "userId": "default",
+      "createdAt": "2026-05-24T10:49:35.790Z",
+      "device": "Unknown"
+    },
+    {
+      "token": "17a4c8b61e048b5b8d34eedd2731bd78caa7176253a73809dcc05f01bde73354",
+      "userId": "default",
+      "createdAt": "2026-05-24T09:59:16.090Z",
+      "device": "Setup Test"
+    },
+    {
+      "token": "3c90c7dfe979844a94b882c904ad6ba66862c0897914d94fae74a3487b126b7f",
+      "userId": "user-rhystech",
+      "createdAt": "2026-05-24T09:16:23.493Z"
+    }
+  ],
+  "devices": [
+    {
+      "0": "{",
+      "1": "i",
+      "2": "d",
+      "3": ":",
+      "4": "d",
+      "5": "e",
+      "6": "v",
+      "7": "-",
+      "8": "t",
+      "9": "e",
+      "10": "s",
+      "11": "t",
+      "12": "1",
+      "13": "2",
+      "14": "3",
+      "15": ",",
+      "16": "n",
+      "17": "a",
+      "18": "m",
+      "19": "e",
+      "20": ":",
+      "21": "R",
+      "22": "Q",
+      "23": "B",
+      "24": "B",
+      "25": "O",
+      "26": "X",
+      "27": " ",
+      "28": "0",
+      "29": " ",
+      "30": "T",
+      "31": "e",
+      "32": "s",
+      "33": "t",
+      "34": ",",
+      "35": "t",
+      "36": "y",
+      "37": "p",
+      "38": "e",
+      "39": ":",
+      "40": "U",
+      "41": "S",
+      "42": "B",
+      "43": " ",
+      "44": "3",
+      "45": ".",
+      "46": "0",
+      "47": ",",
+      "48": "t",
+      "49": "o",
+      "50": "t",
+      "51": "a",
+      "52": "l",
+      "53": "G",
+      "54": "B",
+      "55": ":",
+      "56": "1",
+      "57": "2",
+      "58": "8",
+      "59": ",",
+      "60": "f",
+      "61": "r",
+      "62": "e",
+      "63": "e",
+      "64": "G",
+      "65": "B",
+      "66": ":",
+      "67": "6",
+      "68": "4",
+      "69": ",",
+      "70": "p",
+      "71": "l",
+      "72": "a",
+      "73": "t",
+      "74": "f",
+      "75": "o",
+      "76": "r",
+      "77": "m",
+      "78": ":",
+      "79": "W",
+      "80": "i",
+      "81": "n",
+      "82": "d",
+      "83": "o",
+      "84": "w",
+      "85": "s",
+      "86": ",",
+      "87": "l",
+      "88": "a",
+      "89": "b",
+      "90": "e",
+      "91": "l",
+      "92": ":",
+      "93": "R",
+      "94": "Q",
+      "95": "B",
+      "96": "B",
+      "97": "O",
+      "98": "X",
+      "99": " ",
+      "100": "0",
+      "101": ",",
+      "102": "t",
+      "103": "o",
+      "104": "k",
+      "105": "e",
+      "106": "n",
+      "107": ":",
+      "108": "t",
+      "109": "e",
+      "110": "s",
+      "111": "t",
+      "112": "1",
+      "113": "2",
+      "114": "3",
+      "115": "}",
+      "firstSeen": "2026-05-24T10:35:34.349Z",
+      "lastSeen": "2026-05-24T10:35:34.349Z"
+    },
+    {
+      "id": "dev-wauuew34-mpjoak3k",
+      "userId": "user-1779620821415",
+      "name": "RQBBOX 0 (RQBBOX_RHYSTECH)",
+      "type": "USB Drive",
+      "label": "RQBBOX 0",
+      "totalGB": 0,
+      "freeGB": 0,
+      "platform": "Win32",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Sa",
+      "screen": "1536x864",
+      "token": "dev-wauuew34-mpjoak3k",
+      "firstSeen": "2026-05-24T11:07:36.466Z",
+      "lastSeen": "2026-05-24T11:07:39.430Z"
+    }
+  ]
+}

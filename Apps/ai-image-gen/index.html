@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Image Studio</title>
+<style>
+body{margin:0;background:#0a0e1a;color:#e8f0ff;font-family:Segoe UI,sans-serif;padding:16px;height:100vh;display:flex;flex-direction:column}
+input{width:100%;padding:10px;background:#050810;border:1px solid rgba(0,212,255,.3);border-radius:8px;color:#fff;margin:8px 0}
+button{padding:10px 20px;background:linear-gradient(135deg,#00d4ff,#9d4edd);border:none;border-radius:8px;color:#fff;font-weight:600;cursor:pointer;margin-right:8px}
+canvas{flex:1;width:100%;border-radius:12px;border:1px solid rgba(0,212,255,.2);margin-top:12px;min-height:200px}
+</style>
+</head>
+<body>
+<h3>🎨 AI Image Studio</h3>
+<input id="prompt" placeholder="Describe image (e.g. neon cyberpunk city)">
+<button id="gen">Generate</button>
+<button id="save">Save to USB</button>
+<canvas id="c"></canvas>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+function resize(){cv.width=cv.clientWidth;cv.height=Math.max(300,cv.clientHeight)}resize();
+function hash(s){let h=0;for(let i=0;i<s.length;i++)h=((h<<5)-h)+s.charCodeAt(i);return Math.abs(h)}
+function generate(prompt){
+  const h=hash(prompt||'neon');
+  const g=x.createLinearGradient(0,0,cv.width,cv.height);
+  g.addColorStop(0,`hsl(${h%360},80%,15%)`);g.addColorStop(0.5,`hsl(${(h+120)%360},70%,25%)`);g.addColorStop(1,`hsl(${(h+240)%360},80%,12%)`);
+  x.fillStyle=g;x.fillRect(0,0,cv.width,cv.height);
+  for(let i=0;i<40;i++){x.fillStyle=`hsla(${(h+i*17)%360},90%,60%,${.1+Math.random()*.3})`;x.beginPath();x.arc(Math.random()*cv.width,Math.random()*cv.height,Math.random()*80+10,0,Math.PI*2);x.fill()}
+  x.fillStyle='rgba(0,212,255,.8)';x.font='bold 24px Segoe UI';x.fillText(prompt||'Neon Art',20,cv.height-30);
+  for(let i=0;i<8;i++){x.strokeStyle=`hsla(${(h+i*45)%360},100%,70%,.6)`;x.lineWidth=2;x.beginPath();x.moveTo(0,cv.height*i/8);x.lineTo(cv.width,cv.height*(i+1)/8);x.stroke()}
+}
+document.getElementById('gen').onclick=()=>generate(document.getElementById('prompt').value);
+document.getElementById('save').onclick=async()=>{
+  const data=cv.toDataURL('image/png').split(',')[1];
+  const name='AI/generated/img-'+Date.now()+'.png';
+  await fetch('http://127.0.0.1:19777/api/file/write',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path:name,base64:data})});
+  parent.postMessage({type:'rqbbox-toast',message:'Saved to '+name},'*');
+};
+generate('RQBBOX neon');
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs>
+  <rect width="128" height="128" rx="20" fill="#12182a" stroke="url(#a)" stroke-width="3"/>
+  <circle cx="64" cy="64" r="30" fill="none" stroke="url(#a)" stroke-width="4"/>
+  <circle cx="64" cy="64" r="12" fill="url(#a)"/>
+  <line x1="64" y1="30" x2="64" y2="16" stroke="url(#a)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="64" y1="98" x2="64" y2="112" stroke="url(#a)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="30" y1="64" x2="16" y2="64" stroke="url(#a)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="98" y1="64" x2="112" y2="64" stroke="url(#a)" stroke-width="4" stroke-linecap="round"/>
+  <text x="64" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#8b9dc3" letter-spacing="2">SETTINGS</text>
+</svg>

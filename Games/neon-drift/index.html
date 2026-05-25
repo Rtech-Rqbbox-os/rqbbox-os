@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Neon Drift Racing</title>
+<style>
+body{margin:0;background:#050810;overflow:hidden;font-family:Segoe UI,sans-serif}
+canvas{display:block;width:100vw;height:100vh}
+#hud{position:fixed;top:12px;left:12px;color:#00d4ff;font-size:14px;text-shadow:0 0 8px #00d4ff}
+</style>
+</head>
+<body>
+<div id="hud">Speed: <span id="spd">0</span> · Score: <span id="sc">0</span> · ← → steer · Avoid red cars</div>
+<canvas id="c"></canvas>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+function resize(){cv.width=innerWidth;cv.height=innerHeight}resize();addEventListener('resize',resize);
+let px,cars=[],score=0,speed=0,keys={},frame=0;
+function init(){px=cv.width/2-20;cars=[];score=0;speed=0}
+init();
+document.addEventListener('keydown',e=>keys[e.code]=true);
+document.addEventListener('keyup',e=>keys[e.code]=false);
+function loop(){
+  speed=Math.min(12,speed+0.02);frame++;
+  if(keys['ArrowLeft']||keys['KeyA'])px-=6;
+  if(keys['ArrowRight']||keys['KeyD'])px+=6;
+  px=Math.max(40,Math.min(cv.width-80,px));
+  if(frame%40===0)cars.push({x:Math.random()*(cv.width-60)+30,y:-80,w:40,h:70});
+  cars.forEach(c=>{c.y+=speed+4});
+  cars=cars.filter(c=>c.y<cv.height+100);
+  cars.forEach(c=>{if(px+35>c.x&&px<c.x+c.w&&cv.height-100<c.y+c.h&&cv.height-60>c.y){score=Math.max(0,score-50);cars=cars.filter(o=>o!==c);parent.postMessage({type:'rqbbox-toast',message:'Crash! -50'},'*')}});
+  score+=Math.floor(speed);
+  x.fillStyle='#0a1020';x.fillRect(0,0,cv.width,cv.height);
+  for(let i=0;i<cv.height;i+=40){x.fillStyle=i%80===0?'#1a2040':'#12182a';x.fillRect(cv.width/2-60,i,120,40)}
+  x.fillStyle='#333';x.fillRect(cv.width/2-2,0,4,cv.height);
+  cars.forEach(c=>{x.fillStyle='#ff0044';x.fillRect(c.x,c.y,c.w,c.h);x.fillStyle='#ff6688';x.fillRect(c.x+5,c.y+10,c.w-10,20)});
+  x.fillStyle='#00d4ff';x.fillRect(px,cv.height-90,35,60);x.fillStyle='#9d4edd';x.fillRect(px+5,cv.height-85,25,15);
+  document.getElementById('spd').textContent=Math.floor(speed*10);
+  document.getElementById('sc').textContent=score;
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>

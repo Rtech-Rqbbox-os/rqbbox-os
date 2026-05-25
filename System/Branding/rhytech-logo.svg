@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="none">
+  <defs>
+    <linearGradient id="rtGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#9d4edd"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="120" rx="16" fill="#0a0e1a"/>
+  <!-- R monogram -->
+  <path d="M32 24 L32 96 L56 96 L56 68 L72 96 L100 96 L76 60 L96 24 L68 24 L56 52 L56 24 Z" fill="url(#rtGrad)"/>
+  <circle cx="56" cy="60" r="36" stroke="url(#rtGrad)" stroke-width="2" fill="none" opacity="0.3"/>
+  <text x="120" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700" fill="#ffffff">Rhys</text>
+  <text x="120" y="88" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700" fill="url(#rtGrad)">Tech</text>
+  <text x="280" y="78" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#6b7a99" letter-spacing="2">INNOVATION</text>
+</svg>

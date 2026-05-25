@@ -1,0 +1,9 @@
+[AutoRun]
+label=RQBBOX OS Portable USB
+open=RQBBOX.exe
+action=Launch RQBBOX OS by RhysTech
+UseAutoPlay=1
+
+[AutoRun.Amd64]
+open=RQBBOX.exe
+label=Launch RQBBOX OS

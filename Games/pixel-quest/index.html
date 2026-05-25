@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pixel Quest</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0e1a;color:#e8f0ff;font-family:Segoe UI,sans-serif;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh}
+canvas{border:2px solid #00d4ff;border-radius:8px;box-shadow:0 0 30px rgba(0,212,255,.3);background:#12182a}
+.info{margin-top:12px;font-size:.85rem;color:#8b9dc3}
+.score{color:#00d4ff;font-weight:700}
+</style>
+</head>
+<body>
+<canvas id="c" width="640" height="400"></canvas>
+<div class="info">Arrow keys / WASD move · Space jump · Collect gems · Avoid spikes</div>
+<div class="info">Score: <span class="score" id="score">0</span> · Lives: <span id="lives">3</span></div>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+let score=0,lives=3,frame=0;
+const keys={};
+const player={x:40,y:300,w:24,h:24,vy:0,onGround:false};
+const gems=[{x:200,y:280,c:1},{x:350,y:220,c:1},{x:500,y:280,c:1},{x:600,y:180,c:1}];
+const spikes=[{x:280,y:368,w:40},{x:450,y:368,w:60}];
+const platforms=[{x:0,y:368,w:640,h:32},{x:150,y:280,w:100,h:12},{x:320,y:220,w:120,h:12},{x:520,y:160,w:100,h:12}];
+document.addEventListener('keydown',e=>keys[e.code]=true);
+document.addEventListener('keyup',e=>keys[e.code]=false);
+function update(){
+  if(keys['ArrowLeft']||keys['KeyA'])player.x-=4;
+  if(keys['ArrowRight']||keys['KeyD'])player.x+=4;
+  if((keys['Space']||keys['ArrowUp']||keys['KeyW'])&&player.onGround){player.vy=-11;player.onGround=false}
+  player.vy+=0.5;player.y+=player.vy;player.onGround=false;
+  platforms.forEach(p=>{if(player.x+player.w>p.x&&player.x<p.x+p.w&&player.y+player.h>=p.y&&player.y+player.h<=p.y+player.vy+4){player.y=p.y-player.h;player.vy=0;player.onGround=true}});
+  if(player.y>400){lives--;player.x=40;player.y=300;player.vy=0;if(lives<=0){score=0;lives=3;gems.forEach(g=>g.c=1)}}
+  gems.forEach(g=>{if(g.c&&Math.hypot(player.x+12-g.x,player.y+12-g.y)<24){g.c=0;score+=100;parent.postMessage({type:'rqbbox-toast',message:'Gem +100!'},'*')}});
+  spikes.forEach(s=>{if(player.x+player.w>s.x&&player.x<s.x+s.w&&player.y+player.h>352){lives--;player.x=40;player.y=300;player.vy=0}});
+  player.x=Math.max(0,Math.min(616,player.x));
+  document.getElementById('score').textContent=score;
+  document.getElementById('lives').textContent=lives;
+}
+function draw(){
+  x.fillStyle='#12182a';x.fillRect(0,0,640,400);
+  platforms.forEach(p=>{x.fillStyle='#1e2a4a';x.fillRect(p.x,p.y,p.w,p.h);x.fillStyle='#00d4ff';x.fillRect(p.x,p.y,p.w,3)});
+  spikes.forEach(s=>{x.fillStyle='#ff00aa';x.beginPath();for(let i=0;i<s.w;i+=10){x.lineTo(s.x+i,368);x.lineTo(s.x+i+5,352)}x.fill()});
+  gems.forEach(g=>{if(!g.c)return;x.fillStyle='#00ffc8';x.beginPath();x.arc(g.x,g.y,8,0,Math.PI*2);x.fill()});
+  x.fillStyle='#9d4edd';x.fillRect(player.x,player.y,player.w,player.h);
+  x.fillStyle='#00d4ff';x.fillRect(player.x+4,player.y+4,8,8);
+}
+(function loop(){update();draw();frame++;requestAnimationFrame(loop)})();
+</script>
+</body>
+</html>

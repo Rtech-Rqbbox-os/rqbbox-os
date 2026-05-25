@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Music Wave</title>
+<style>
+body{margin:0;background:#0a0e1a;color:#e8f0ff;font-family:Segoe UI,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh}
+canvas{border-radius:12px;background:#12182a;margin:12px}
+audio{width:80%;margin-top:12px}
+</style>
+</head>
+<body>
+<h3>🎵 Music Wave Visualizer</h3>
+<canvas id="c" width="500" height="120"></canvas>
+<audio id="a" controls loop src="http://127.0.0.1:19777/assets/sounds/startup.wav"></audio>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),a=document.getElementById('a');
+let ctx,analyser,data;
+try{ctx=new AudioContext();const s=ctx.createMediaElementSource(a);analyser=ctx.createAnalyser();analyser.fftSize=128;s.connect(analyser);analyser.connect(ctx.destination);data=new Uint8Array(analyser.frequencyBinCount)}catch(e){}
+function draw(){
+  requestAnimationFrame(draw);
+  x.fillStyle='#12182a';x.fillRect(0,0,500,120);
+  if(analyser){analyser.getByteFrequencyData(data);const w=500/data.length;data.forEach((v,i)=>{x.fillStyle=`hsl(${180+i*2},80%,${30+v/4}%)`;x.fillRect(i*w,120-v/2,w-1,v/2)})}
+  else{for(let i=0;i<32;i++){x.fillStyle='#00d4ff';x.fillRect(i*16,60+Math.sin(Date.now()/200+i)*30,12,4)}}
+}
+a.onplay=()=>ctx&&ctx.resume();
+draw();
+</script>
+</body>
+</html>

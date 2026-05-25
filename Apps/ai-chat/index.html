@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RQB Assistant</title>
+<style>
+body{margin:0;background:#0a0e1a;color:#e8f0ff;font-family:Segoe UI,sans-serif;height:100vh;display:flex;flex-direction:column}
+#msgs{flex:1;overflow-y:auto;padding:16px}
+.msg{max-width:80%;padding:10px 14px;margin-bottom:10px;border-radius:12px;line-height:1.5;font-size:14px}
+.user{margin-left:auto;background:rgba(0,212,255,.15);border:1px solid rgba(0,212,255,.2)}
+.bot{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.bar{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.06)}
+input{flex:1;padding:10px;background:#050810;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#fff;outline:none}
+button{padding:10px 16px;background:linear-gradient(135deg,#00d4ff,#9d4edd);border:none;border-radius:8px;color:#fff;cursor:pointer}
+</style>
+</head>
+<body>
+<div id="msgs"><motion.div class="msg bot">Hi! I'm RQB Assistant. Ask about games, storage, settings, or say "help".</motion.div></div>
+<div class="bar"><input id="in" placeholder="Ask anything..."><button id="send">Send</button><button id="mic">🎤</button></div>
+<script>
+const msgs=document.getElementById('msgs');
+function add(text,user){const d=document.createElement('div');d.className='msg '+(user?'user':'bot');d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight}
+async function reply(q){
+  const m=q.toLowerCase();
+  if(m.includes('storage')||m.includes('usb')||m.includes('space')){try{const r=await fetch('http://127.0.0.1:19777/api/storage');const d=await r.json();add(`RQBBOX USB: ${d.freeGB} GB free (${d.usedPct}% used)`,false);return}catch(e){}}
+  if(m.includes('game')||m.includes('play'))return add('Try Pixel Quest, Neon Drift, Retro Zone Pong, or Cube Runner 3D from your Games library!',false);
+  if(m.includes('install')||m.includes('store'))return add('Open RhysTech Store to install games and apps to your USB.',false);
+  if(m.includes('help'))return add('Commands: games, storage, install, notes, browser, screenshot, settings, achievements',false);
+  if(m.includes('achievement'))return add('Earn achievements by playing Pixel Quest and collecting gems!',false);
+  add('I can help with games, storage, installs, and navigation. Try "help" for topics.',false);
+}
+function send(){const v=document.getElementById('in').value.trim();if(!v)return;add(v,true);document.getElementById('in').value='';setTimeout(()=>reply(v),400)}
+document.getElementById('send').onclick=send;
+document.getElementById('in').onkeydown=e=>{if(e.key==='Enter')send()};
+document.getElementById('mic').onclick=()=>{if('webkitSpeechRecognition' in window){const r=new webkitSpeechRecognition();r.onresult=e=>{document.getElementById('in').value=e.results[0][0].transcript;send()};r.start()}else add('Voice not supported in this browser',false)};
+msgs.innerHTML='<div class="msg bot">Hi! I\'m RQB Assistant. Ask about games, storage, settings, or say "help".</div>';
+</script>
+</body>
+</html>

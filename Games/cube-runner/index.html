@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cube Runner 3D</title>
+<style>
+body{margin:0;background:#050810;overflow:hidden}
+canvas{display:block;width:100vw;height:100vh}
+#hud{position:fixed;top:10px;left:50%;transform:translateX(-50%);color:#00ffc8;font-family:monospace}
+</style>
+</head>
+<body>
+<div id="hud">SPACE jump · Score: <span id="sc">0</span></div>
+<canvas id="c"></canvas>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+function resize(){cv.width=innerWidth;cv.height=innerHeight}resize();addEventListener('resize',resize);
+let py=cv.height*0.65,vY=0,onG=true,obs=[],score=0,frame=0,sp=5;
+document.addEventListener('keydown',e=>{if(e.code==='Space'&&onG){vY=-14;onG=false}});
+function loop(){
+  frame++;score++;sp=5+Math.floor(score/500);
+  py+=vY;vY+=0.7;
+  if(py>cv.height*0.65){py=cv.height*0.65;vY=0;onG=true}
+  if(frame%50===0)obs.push({x:cv.width,h:40+Math.random()*60,w:30+Math.random()*20});
+  obs.forEach(o=>o.x-=sp);
+  obs=obs.filter(o=>o.x>-100);
+  obs.forEach(o=>{if(o.x<80&&o.x+o.w>20&&py+30>cv.height*0.65-o.h){obs=obs.filter(q=>q!==o);score=Math.max(0,score-100)}});
+  const g=cv.height*0.65;
+  x.fillStyle='#0a0e1a';x.fillRect(0,0,cv.width,cv.height);
+  x.fillStyle='#12182a';x.fillRect(0,g,cv.width,cv.height-g);
+  x.strokeStyle='#00d4ff';x.lineWidth=2;x.beginPath();x.moveTo(0,g);x.lineTo(cv.width,g);x.stroke();
+  obs.forEach(o=>{x.fillStyle='#9d4edd';x.fillRect(o.x,g-o.h,o.w,o.h);x.fillStyle='#00d4ff';x.fillRect(o.x,g-o.h,o.w,4)});
+  x.fillStyle='#00d4ff';x.fillRect(30,py,30,30);
+  x.fillStyle='#ff00aa';x.fillRect(35,py+5,20,10);
+  document.getElementById('sc').textContent=score;
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>

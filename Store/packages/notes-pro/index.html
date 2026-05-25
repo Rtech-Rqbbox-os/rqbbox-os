@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Notes Pro</title>
+<style>
+body{margin:0;background:#0a0e1a;color:#e8f0ff;font-family:Segoe UI,sans-serif;height:100vh;display:flex;flex-direction:column}
+.toolbar{display:flex;gap:8px;padding:10px;background:#12182a;border-bottom:1px solid rgba(0,212,255,.2)}
+.toolbar button,.toolbar select{padding:8px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#e8f0ff;cursor:pointer}
+textarea{flex:1;margin:12px;padding:16px;background:#050810;border:1px solid rgba(0,212,255,.2);border-radius:8px;color:#e8f0ff;font-size:15px;line-height:1.6;resize:none;outline:none}
+.status{padding:8px 12px;font-size:12px;color:#8b9dc3;background:#12182a}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <select id="notes-list"></select>
+  <button id="new">+ New</button>
+  <button id="save">💾 Save to USB</button>
+  <button id="del">Delete</button>
+</div>
+<textarea id="editor" placeholder="Start typing your notes..."></textarea>
+<div class="status" id="status">Saved on USB at Profiles/default/notes/</div>
+<script>
+const API='http://127.0.0.1:19777';
+let notes=[{id:'welcome',title:'Welcome',content:'Welcome to Notes Pro on RQBBOX OS!\n\nYour notes are saved on the USB drive.'}];
+let current='welcome';
+async function api(path,body){const r=await fetch(API+path,{method:body?'POST':'GET',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):null});return r.json()}
+async function load(){
+  try{const r=await api('/api/file/read?path='+encodeURIComponent('Profiles/default/notes.json'));
+  if(r.ok&&r.content){notes=JSON.parse(r.content)}catch(e){}
+  renderList();loadNote(current);
+}
+function renderList(){const s=document.getElementById('notes-list');s.innerHTML='';notes.forEach(n=>{const o=document.createElement('option');o.value=n.id;o.textContent=n.title;s.appendChild(o)});s.value=current}
+function loadNote(id){current=id;const n=notes.find(x=>x.id===id);document.getElementById('editor').value=n?n.content:'';renderList()}
+document.getElementById('notes-list').onchange=e=>loadNote(e.target.value);
+document.getElementById('new').onclick=()=>{const id='note-'+Date.now();notes.push({id,title:'New Note',content:''});current=id;renderList();loadNote(id)};
+document.getElementById('save').onclick=async()=>{
+  const n=notes.find(x=>x.id===current);if(!n)return;
+  n.content=document.getElementById('editor').value;n.title=n.content.split('\n')[0].slice(0,30)||'Untitled';
+  await api('/api/file/write',{path:'Profiles/default/notes.json',content:JSON.stringify(notes,null,2)});
+  document.getElementById('status').textContent='Saved to USB · '+new Date().toLocaleTimeString();
+  parent.postMessage({type:'rqbbox-toast',message:'Notes saved to USB'},'*');renderList();
+};
+document.getElementById('del').onclick=async()=>{if(notes.length<2)return;notes=notes.filter(n=>n.id!==current);current=notes[0].id;await document.getElementById('save').click();loadNote(current)};
+load();
+</script>
+</body>
+</html>

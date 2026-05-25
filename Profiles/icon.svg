@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#9d4edd"/><stop offset="100%" stop-color="#ff00aa"/></linearGradient></defs>
+  <rect width="128" height="128" rx="20" fill="#12182a" stroke="url(#a)" stroke-width="3"/>
+  <circle cx="64" cy="46" r="22" fill="#0d1220" stroke="url(#a)" stroke-width="3"/>
+  <path d="M28 104 Q28 70 64 70 Q100 70 100 104" fill="none" stroke="url(#a)" stroke-width="4" stroke-linecap="round"/>
+  <text x="64" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#8b9dc3" letter-spacing="2">PROFILES</text>
+</svg>

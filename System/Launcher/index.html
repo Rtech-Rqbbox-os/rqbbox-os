@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>RQBBOX OS Portable USB — RhysTech</title>
+  <link rel="icon" href="../Branding/rqbbox-logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="RQBBOX">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Boot Splash -->
+    <div id="boot-screen" class="boot-screen">
+      <div class="boot-scanline"></div>
+      <div class="boot-logo"><img src="../Branding/rqbbox-logo.svg" alt="RQBBOX"></div>
+      <div class="boot-title">RQBBOX</div>
+      <div class="boot-tagline">Plug In. Play Anywhere.</div>
+      <div class="boot-loader"><div id="boot-bar" class="boot-loader-bar"></div></div>
+      <div id="boot-status" class="boot-status">Initializing system...</div>
+    </div>
+
+    <!-- Welcome -->
+    <div id="welcome-screen" class="auth-screen">
+      <div class="auth-panel">
+        <img src="../Branding/rhytech-logo.svg" alt="RhysTech" style="height:48px;margin:0 auto 24px;display:block;">
+        <h2>Welcome to RQBBOX OS</h2>
+        <p class="subtitle">Portable USB Gaming Platform by RhysTech</p>
+        <button class="btn btn-primary" id="btn-get-started">Get Started</button>
+        <div class="auth-links"><a id="link-signin">Sign In</a> · <a id="link-signup">Create Account</a></div>
+      </div>
+    </div>
+
+    <!-- Sign In -->
+    <div id="signin-screen" class="auth-screen">
+      <div class="auth-panel">
+        <h2>Sign In</h2>
+        <p class="subtitle">Access your RQBBOX profile</p>
+        <form id="signin-form">
+          <div class="form-group"><label>Username</label><input type="text" id="signin-user" placeholder="Enter username" required></div>
+          <div class="form-group"><label>Password</label><input type="password" id="signin-pass" placeholder="Enter password"></div>
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+        <div class="auth-links"><a id="link-back-welcome">← Back</a> · <a id="link-to-signup">Sign Up</a></div>
+      </div>
+    </div>
+
+    <!-- Sign Up -->
+    <div id="signup-screen" class="auth-screen">
+      <div class="auth-panel">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join the RQBBOX community</p>
+        <form id="signup-form">
+          <div class="form-group"><label>Display Name</label><input type="text" id="signup-name" placeholder="Your gamer tag" required></div>
+          <div class="form-group"><label>Username</label><input type="text" id="signup-user" placeholder="Username" required></div>
+          <div class="form-group"><label>Password</label><input type="password" id="signup-pass" placeholder="Create password"></div>
+          <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
+        <div class="auth-links"><a id="link-back-signin">← Sign In</a></div>
+      </div>
+    </div>
+
+    <!-- Profile Select -->
+    <div id="profile-screen" class="auth-screen">
+      <div class="auth-panel" style="width:560px;">
+        <h2>Who's Playing?</h2>
+        <p class="subtitle">Select your profile</p>
+        <div id="profile-grid" class="profile-grid"></div>
+        <button class="btn btn-primary" id="btn-continue-profile" disabled>Continue</button>
+        <div class="auth-links" style="margin-top:12px;"><a id="link-run-setup">🎮 First time? Run Setup</a></div>
+      </div>
+    </div>
+
+    <!-- Setup Screen -->
+    <div id="setup-screen" class="auth-screen">
+      <div id="setup-content"></div>
+    </div>
+
+    <!-- Main Shell -->
+    <div id="main-shell">
+      <div class="bg-layer" id="bg-layer"></div>
+      <div class="bg-animated"><div class="bg-orb"></div><div class="bg-orb"></div><div class="bg-orb"></div></div>
+
+      <nav class="sidebar">
+        <div class="sidebar-logo" id="sidebar-logo"><img src="../Branding/rqbbox-logo.svg" alt="RQBBOX"></div>
+        <div class="nav-items" id="nav-items"></div>
+        <div class="sidebar-footer">
+          <button class="nav-item" id="btn-power" title="Exit RQBBOX"><span class="nav-icon">⏻</span>Exit</button>
+        </div>
+      </nav>
+
+      <main class="main-area">
+        <header class="top-bar">
+          <h1 id="page-title">Home</h1>
+          <div class="top-bar-spacer"></div>
+          <div class="search-box">
+            <span>🔍</span>
+            <input type="text" id="global-search" placeholder="Smart search games, apps, files...">
+          </div>
+          <div class="top-icons">
+            <div class="storage-indicator" id="storage-indicator">
+              <span>💾</span><span id="storage-text">USB</span>
+              <div class="storage-bar"><div class="storage-bar-fill" id="storage-fill" style="width:9%"></div></div>
+            </div>
+            <button class="icon-btn" id="btn-qr" title="Share QR Code">📱</button>
+            <button class="icon-btn" id="btn-screenshot" title="Screenshot">📷</button>
+            <button class="icon-btn" id="btn-recorder" title="Screen Recorder">⏺</button>
+            <button class="icon-btn" id="btn-notifications" title="Notifications">🔔<span class="badge" id="notif-badge"></span></button>
+          </div>
+          <div class="user-pill" id="user-pill">
+            <div class="user-pill-avatar" id="user-avatar">P</div>
+            <span class="user-pill-name" id="user-name">Player</span>
+          </div>
+        </header>
+
+        <div class="page-content" id="page-content">
+          <section class="page active" id="page-home"></section>
+          <section class="page" id="page-games"></section>
+          <section class="page" id="page-apps"></section>
+          <section class="page" id="page-store"></section>
+          <section class="page" id="page-files"></section>
+          <section class="page" id="page-ai"></section>
+          <section class="page" id="page-settings"></section>
+          <section class="page" id="page-profile"></section>
+          <section class="page" id="page-friends"></section>
+          <section class="page" id="page-downloads"></section>
+          <section class="page" id="page-browser"></section>
+          <section class="page" id="page-media"></section>
+        </div>
+      </main>
+
+      <aside class="notif-panel" id="notif-panel">
+        <h3 style="margin-bottom:16px;">Notifications</h3>
+        <div id="notif-list"></div>
+      </aside>
+    </div>
+
+    <div class="fps-monitor" id="fps-monitor">FPS: 60</div>
+    <div class="toast-container" id="toast-container"></div>
+
+    <div id="runtime-overlay" class="runtime-overlay">
+      <div class="runtime-bar">
+        <button class="btn btn-ghost btn-sm" id="runtime-back">← Back</button>
+        <span id="runtime-title">Running</span>
+        <button class="btn btn-ghost btn-sm" id="runtime-home">🏠 Home</button>
+      </div>
+      <iframe id="runtime-frame" allow="autoplay; microphone"></iframe>
+    </div>
+  </div>
+
+  <audio id="startup-sound" preload="auto">
+    <source src="assets/sounds/startup.wav" type="audio/wav">
+  </audio>
+  <audio id="ui-click" preload="auto">
+    <source src="assets/sounds/click.wav" type="audio/wav">
+  </audio>
+
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/stats.js"></script>
+  <script src="js/sysbar.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/guide.js"></script>
+  <script src="js/runtime.js"></script>
+  <script src="js/setup.js"></script>
+  <script src="js/boot.js"></script>
+  <script src="js/pages/home.js"></script>
+  <script src="js/pages/games.js"></script>
+  <script src="js/pages/apps.js"></script>
+  <script src="js/pages/store.js"></script>
+  <script src="js/pages/files.js"></script>
+  <script src="js/pages/ai.js"></script>
+  <script src="js/pages/settings.js"></script>
+  <script src="js/pages/profile.js"></script>
+  <script src="js/pages/friends.js"></script>
+  <script src="js/pages/downloads.js"></script>
+  <script src="js/pages/media.js"></script>
+  <script src="js/pages/browser.js"></script>
+  <script src="js/qrcode.js"></script>
+  <script src="js/pluginLoader.js"></script>
+  <script src="js/editions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

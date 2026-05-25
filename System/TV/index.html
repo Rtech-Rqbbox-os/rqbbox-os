@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>RQBBOX TV — RhysTech</title>
+<link rel="icon" href="../Branding/rqbbox-logo.svg" type="image/svg+xml">
+<style>
+  :root {
+    --neon-blue: #00d4ff; --neon-purple: #9d4edd; --neon-pink: #ff00aa;
+    --bg: #050810; --text: #e8f0ff; --text2: #8b9dc3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--text);
+    overflow: hidden; height: 100vh; width: 100vw;
+    user-select: none;
+  }
+  #app {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    background: radial-gradient(ellipse at 50% 30%, #0a1530 0%, var(--bg) 70%);
+  }
+  .header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 32px; background: rgba(8,12,24,0.8);
+    border-bottom: 1px solid rgba(0,212,255,0.1);
+  }
+  .header h1 {
+    font-size: 1.5rem; font-weight: 700;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; letter-spacing: 4px;
+  }
+  .content { flex: 1; overflow-y: auto; padding: 24px 32px; }
+  .row { display: flex; gap: 20px; margin-bottom: 24px; }
+  .card {
+    flex: 1; min-width: 0;
+    background: rgba(18,26,48,0.85); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 24px; cursor: pointer;
+    transition: all 0.2s; text-align: center;
+  }
+  .card:focus, .card:hover, .card:active {
+    border-color: var(--neon-blue); box-shadow: 0 0 30px rgba(0,212,255,0.3);
+    transform: translateY(-4px); outline: none;
+  }
+  .card-icon { font-size: 3rem; margin-bottom: 12px; }
+  .card-title { font-size: 1.1rem; font-weight: 600; }
+  .card-desc { font-size: 0.8rem; color: var(--text2); margin-top: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+  .grid .card { padding: 16px; }
+  .grid .card-icon { font-size: 2rem; }
+  .section-title {
+    font-size: 1.2rem; font-weight: 700; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before { content: ''; width: 4px; height: 20px; background: linear-gradient(180deg, var(--neon-blue), var(--neon-purple)); border-radius: 2px; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-thumb { background: var(--neon-purple); border-radius: 3px; }
+  .footer {
+    text-align: center; padding: 12px; font-size: 0.75rem;
+    color: var(--text2); border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  @media (max-width: 600px) {
+    .header { padding: 12px 16px; }
+    .content { padding: 16px; }
+    .row { flex-direction: column; }
+    .card-icon { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="header">
+    <h1>RQBBOX TV</h1>
+    <span style="font-size:0.8rem;color:var(--text2);letter-spacing:2px;">RQBBOX 0</span>
+  </div>
+  <div class="content" id="content">
+    <div class="section-title">Quick Launch</div>
+    <div class="row" id="quick-row"></div>
+    <div class="section-title">Games</div>
+    <div class="grid" id="games-grid"></div>
+  </div>
+  <div class="footer">RQBBOX OS Portable USB by RhysTech · Plug In. Play Anywhere.</div>
+</div>
+<script>
+const HOST = 'http://127.0.0.1:19777';
+const API = HOST + '/api';
+
+async function loadData() {
+  try {
+    const [storeRes, profRes, cfgRes] = await Promise.all([
+      fetch(API + '/store').then(r => r.json()),
+      fetch(API + '/profiles').then(r => r.json()),
+      fetch(API + '/config').then(r => r.json()),
+    ]);
+    const store = storeRes.data || { games: [], apps: [] };
+    const prof = profRes.data || { installed: { games: [], apps: [] } };
+    const cfg = cfgRes.data || { display: {} };
+    render(store, prof, cfg);
+  } catch {
+    document.getElementById('content').innerHTML = '<p style="text-align:center;padding:40px;color:var(--text2);">Connect to RQBBOX Server first.<br>Run: node System/Server/server.js</p>';
+  }
+}
+
+function render(store, prof, cfg) {
+  const installed = prof.installed || { games: [], apps: [] };
+  const installedGames = (store.games || []).filter(g => installed.games.includes(g.id));
+  const featured = store.featured || store.games?.slice(0, 3) || [];
+  const quickRow = document.getElementById('quick-row');
+  quickRow.innerHTML = featured.map(g => `
+    <div class="card" tabindex="0" onclick="openItem('${g.id}','game')" onkeydown="if(event.key==='Enter')openItem('${g.id}','game')">
+      <div class="card-icon">${g.banner || '🎮'}</div>
+      <div class="card-title">${g.title}</div>
+      <div class="card-desc">${g.category || ''}</div>
+    </div>
+  `).join('') + `
+    <div class="card" tabindex="0" onclick="openPage('store')" onkeydown="if(event.key==='Enter')openPage('store')">
+      <div class="card-icon">🛒</div>
+      <div class="card-title">Store</div>
+      <div class="card-desc">Browse & install</div>
+    </div>
+    <div class="card" tabindex="0" onclick="openPage('ai')" onkeydown="if(event.key==='Enter')openPage('ai')">
+      <div class="card-icon">🤖</div>
+      <div class="card-title">AI Studio</div>
+      <div class="card-desc">Generate images</div>
+    </div>`;
+  const gamesGrid = document.getElementById('games-grid');
+  gamesGrid.innerHTML = (installedGames.length ? installedGames : (store.games || []).slice(0, 6)).map(g => `
+    <div class="card" tabindex="0" onclick="openItem('${g.id}','game')" onkeydown="if(event.key==='Enter')openItem('${g.id}','game')">
+      <div class="card-icon">${g.banner || '🎮'}</div>
+      <div class="card-title">${g.title}</div>
+      <div class="card-desc">${g.installed ? '● Installed' : 'Not installed'}</div>
+    </div>
+  `).join('') + `
+    <div class="card" tabindex="0" onclick="openPage('store')" onkeydown="if(event.key==='Enter')openPage('store')">
+      <div class="card-icon">➕</div>
+      <div class="card-title">More Games</div>
+      <div class="card-desc">Open Store</div>
+    </div>`;
+}
+
+function openItem(id, type) {
+  window.open(`${HOST}/${type === 'game' ? 'games' : 'apps'}/${id}/index.html`, '_blank');
+}
+
+function openPage(page) {
+  window.open(`${HOST}/`, '_blank');
+}
+
+// Remote control / TV remote support
+document.addEventListener('keydown', e => {
+  const cards = document.querySelectorAll('.card[tabindex]');
+  const idx = Array.from(cards).indexOf(document.activeElement);
+  if (e.key === 'ArrowRight' && idx < cards.length - 1) { cards[idx + 1]?.focus(); e.preventDefault(); }
+  if (e.key === 'ArrowLeft' && idx > 0) { cards[idx - 1]?.focus(); e.preventDefault(); }
+  if (e.key === 'ArrowDown') {
+    const next = idx + (window.innerWidth < 600 ? 1 : 4);
+    if (next < cards.length) { cards[next]?.focus(); e.preventDefault(); }
+  }
+  if (e.key === 'ArrowUp') {
+    const prev = idx - (window.innerWidth < 600 ? 1 : 4);
+    if (prev >= 0) { cards[prev]?.focus(); e.preventDefault(); }
+  }
+  if (e.key === 'Enter' || e.key === ' ') {
+    document.activeElement?.click(); e.preventDefault();
+  }
+  if (e.key === 'Backspace' || e.key === 'Escape') {
+    window.close();
+  }
+  // Media remote buttons
+  if (e.key === 'MediaPlayPause' || e.key === 'MediaTrackNext' || e.key === 'MediaTrackPrevious') {
+    e.preventDefault();
+  }
+});
+
+loadData();
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# RQBBOX OS - Git Ignore
+
+# Server secrets (API keys, config)
+System/Server/server.config.json
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Node
+node_modules/
+
+# Logs
+System/rqbbox-server.log
+
+# Screenshots & generated media
+Media/Screenshots/
+Media/Recordings/
+
+# Downloads cache
+Downloads/

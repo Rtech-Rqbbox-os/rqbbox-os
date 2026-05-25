@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RQBBOX OS — Plug Into Gaming. by RhysTech</title>
+<meta name="description" content="RQBBOX OS Portable USB — A portable gaming operating system by RhysTech. Native games, portable apps, speed, privacy, open-code customization.">
+<meta name="theme-color" content="#050810">
+<link rel="icon" href="../Branding/rqbbox-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="scrollToTop()">
+      <svg viewBox="0 0 36 36"><rect width="36" height="36" rx="8" fill="#12182a"/><rect x="4" y="4" width="28" height="28" rx="6" fill="none" stroke="url(#nGrad)" stroke-width="2"/><text x="18" y="23" text-anchor="middle" font-size="14" font-weight="800" fill="url(#nGrad)" font-family="Segoe UI">R</text><defs><linearGradient id="nGrad"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+      RQBBOX
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#editions">Editions</a>
+      <a href="#games">Games</a>
+      <a href="#webapps">Web Apps</a>
+      <a href="#store">Store</a>
+      <a href="#download">Download</a>
+      <a href="dev.html">Developers</a>
+      <a href="#community">Community</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <span class="status" style="font-size:.7rem;color:var(--text-muted);margin-right:8px;">Checking...</span>
+      <button class="btn-nav" onclick="showQR(window.location.origin + '/','RQBBOX OS')" style="font-size:1rem;padding:6px 10px;" title="Share QR">📱</button>
+      <button class="btn-nav" onclick="openModal('signin')">Sign In</button>
+      <button class="btn-nav-primary" onclick="openModal('signup')">Get Started Free</button>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orbs">
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="badge">⚡ RQBBOX OS v1.1 — Portable Gaming OS</div>
+      <h1>Plug Into<br>Gaming.</h1>
+      <p>A portable USB gaming operating system by RhysTech. Native games, portable apps, speed, privacy, and open-code customization. No emulators. No retro support. Just pure gaming on any device.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="scrollToSection('download')">Download Free →</button>
+        <button class="btn-secondary" onclick="scrollToSection('editions')">View Editions</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-value">10+</div><div class="hero-stat-label">Native Games</div></div>
+        <div class="hero-stat"><div class="hero-stat-value">18+</div><div class="hero-stat-label">Apps & Tools</div></div>
+        <div class="hero-stat"><div class="hero-stat-value">12</div><div class="hero-stat-label">Web Apps</div></div>
+        <div class="hero-stat"><div class="hero-stat-value">3</div><div class="hero-stat-label">Editions</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="hero-console-svg" viewBox="0 0 520 420" fill="none">
+        <defs>
+          <linearGradient id="cGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="50%" stop-color="#7b2fff"/><stop offset="100%" stop-color="#ff00aa"/></linearGradient>
+          <filter id="cGlow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <rect x="60" y="20" width="400" height="300" rx="32" fill="#12182a" stroke="url(#cGrad)" stroke-width="4" filter="url(#cGlow)"/>
+        <rect x="88" y="50" width="344" height="180" rx="14" fill="#0d1220"/>
+        <text x="260" y="150" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="56" font-weight="800" fill="url(#cGrad)" letter-spacing="6">RQB</text>
+        <text x="260" y="180" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#5a6a8a" letter-spacing="4">PLUG INTO GAMING.</text>
+        <rect x="80" y="254" width="60" height="18" rx="5" fill="#1e2a4a"/>
+        <rect x="101" y="233" width="18" height="60" rx="5" fill="#1e2a4a"/>
+        <circle cx="372" cy="260" r="18" fill="#00d4ff" opacity="0.9"/>
+        <circle cx="418" cy="240" r="18" fill="#7b2fff" opacity="0.9"/>
+        <circle cx="390" cy="300" r="18" fill="#ff00aa" opacity="0.9"/>
+        <rect x="200" y="330" width="120" height="40" rx="10" fill="url(#cGrad)" opacity="0.8"/>
+        <text x="260" y="356" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#fff" letter-spacing="2">USB</text>
+        <text x="260" y="390" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#8b9dc3" letter-spacing="3">FPS · RACING · SANDBOX · ADVENTURE · SURVIVAL</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Banner -->
+<div class="section" style="padding-top:0;padding-bottom:0">
+  <div class="stats-banner reveal">
+    <div class="stat-block"><div class="stat-value">100%</div><div class="stat-label">Portable — No Install</div></div>
+    <div class="stat-block"><div class="stat-value">0MB</div><div class="stat-label">Cloud Storage Required</div></div>
+    <div class="stat-block"><div class="stat-value">12</div><div class="stat-label">Web Apps Included</div></div>
+    <div class="stat-block"><div class="stat-value">Free</div><div class="stat-label">Always Free</div></div>
+  </div>
+</div>
+
+<!-- Editions -->
+<section class="section" id="editions">
+  <div class="section-header reveal">
+    <div class="badge">Editions</div>
+    <h2>Choose your RQBBOX</h2>
+    <p>Three editions. One USB. Pick the experience that fits you.</p>
+  </div>
+  <div class="editions-grid">
+    <div class="edition-card reveal">
+      <div class="edition-badge lite">Lite</div>
+      <div class="edition-icon">⚡</div>
+      <h3>RQBBOX Lite</h3>
+      <p class="edition-desc">Lightweight mode for fast USB performance with the basic launcher.</p>
+      <ul class="edition-features">
+        <li>✓ Fast USB performance</li>
+        <li>✓ Basic game launcher</li>
+        <li>✓ Game library</li>
+        <li>✓ File manager</li>
+        <li>— Cloud sync</li>
+        <li>— Advanced tools</li>
+      </ul>
+      <span class="edition-price">Free</span>
+      <button class="btn-primary" onclick="scrollToSection('download')">Get Started</button>
+    </div>
+    <div class="edition-card featured reveal">
+      <div class="edition-badge pro">Pro</div>
+      <div class="edition-icon">🚀</div>
+      <h3>RQBBOX Pro</h3>
+      <p class="edition-desc">Full gaming experience with cloud sync, customization, and performance tools.</p>
+      <div class="edition-popular">Most Popular</div>
+      <ul class="edition-features">
+        <li>✓ Everything in Lite</li>
+        <li>✓ Cloud sync & backups</li>
+        <li>✓ Advanced customization</li>
+        <li>✓ Performance tools</li>
+        <li>✓ RAM cleaner & FPS boost</li>
+        <li>✓ Cross-device settings</li>
+      </ul>
+      <span class="edition-price">Free</span>
+      <button class="btn-primary" onclick="scrollToSection('download')">Get Pro</button>
+    </div>
+    <div class="edition-card reveal">
+      <div class="edition-badge creator">Creator</div>
+      <div class="edition-icon">🔧</div>
+      <h3>RQBBOX Creator</h3>
+      <p class="edition-desc">Everything in Pro plus SDK tools, plugin creator, and theme editor.</p>
+      <ul class="edition-features">
+        <li>✓ Everything in Pro</li>
+        <li>✓ SDK & developer tools</li>
+        <li>✓ Plugin creator</li>
+        <li>✓ Theme editor</li>
+        <li>✓ Build & publish tools</li>
+        <li>✓ Open-code projects</li>
+      </ul>
+      <span class="edition-price">Free</span>
+      <button class="btn-primary" onclick="window.location='dev.html'">Start Creating</button>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="section" id="features" style="background:rgba(10,15,30,0.5);border-radius:var(--radius-xl) 0 0 var(--radius-xl)">
+  <div class="section-header reveal">
+    <div class="badge">Features</div>
+    <h2>Built for gamers</h2>
+    <p>A portable USB gaming OS focused on native games, speed, and open-code customization.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal"><div class="feature-icon">🎮</div><h3>Native Gaming Platform</h3><p>FPS, Racing, Sandbox, Adventure, Survival, Puzzle, Simulation — install and play native games directly from your USB. No emulators. No retro support.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">📦</div><h3>Portable Storage</h3><p>Games, saves, profiles, and settings all stored on the USB. Portable save files with optional cloud backups and device sync.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🔓</div><h3>Open Code System</h3><p>Developers can build games, create apps, make themes, build plugins, and customize the UI. Supported languages: Rust, C++, JavaScript, Python.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🧩</div><h3>Plugin & Theme Engine</h3><p>Community-created themes, widgets, performance overlays, audio packs, and UI layouts. Extend RQBBOX without modifying core files.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">⚡</div><h3>Performance Tools</h3><p>RAM cleaner, FPS boost mode, background limiter, fast-launch mode. Optimize your USB for gaming performance.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🔒</div><h3>Security & Privacy</h3><p>Encrypted storage, secure launcher, privacy mode, sandboxed apps. Your data stays on your USB.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">☁️</div><h3>RhysTech Cloud</h3><p>Account sync, save backups, profiles, cross-device settings. Take your gaming identity anywhere.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🛒</div><h3>RQBBOX Store</h3><p>Download native games, apps, themes, plugins, and community tools. One-click install to your USB.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">📱</div><h3>Multi-Profile</h3><p>Each user gets their own profile, saves, achievements, and theme. PIN-protected accounts with cloud sync.</p></div>
+  </div>
+</section>
+
+<!-- Games Categories -->
+<section class="section" id="games">
+  <div class="section-header reveal">
+    <div class="badge">Games</div>
+    <h2>Game categories</h2>
+    <p>Native games built for RQBBOX. No emulators. No retro support. Just pure gaming.</p>
+  </div>
+  <div class="game-categories-grid">
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🎯</div><h3>FPS</h3><p>First-person shooters. Fast-paced action. Competitive multiplayer.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🏎️</div><h3>Racing</h3><p>High-speed racing games. Drift, boost, and compete.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🏗️</div><h3>Sandbox</h3><p>Build, create, and explore open worlds with no limits.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">⚔️</div><h3>Adventure</h3><p>Story-driven adventures. Explore, solve, and discover.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🧟</div><h3>Survival</h3><p>Survive harsh environments. Craft, build, and endure.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🧩</div><h3>Puzzle</h3><p>Brain-teasing puzzles. Logic, strategy, and problem-solving.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🎡</div><h3>Simulation</h3><p>Life, building, and management sims. Create your world.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🌐</div><h3>Multiplayer</h3><p>Lightweight multiplayer games. Play with friends on LAN.</p></div>
+  </div>
+</section>
+
+<!-- Web Apps Section (NEW) -->
+<section class="section" id="webapps" style="position:relative;overflow:hidden;">
+  <div class="section-header reveal">
+    <div class="badge">Web Apps</div>
+    <h2>Real web apps, one click away</h2>
+    <p>YouTube, Netflix, Spotify, Discord, GitHub, and more — all accessible directly from the RQBBOX launcher. No extra downloads. No configuration.</p>
+  </div>
+  <div class="game-categories-grid">
+    <div class="game-cat-card reveal"><div class="game-cat-icon">📺</div><h3>YouTube</h3><p>Watch, stream, and discover videos from the world's largest platform.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🎬</div><h3>Netflix</h3><p>Movies, TV shows, and exclusive originals in stunning quality.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🎵</div><h3>Spotify</h3><p>Millions of songs, podcasts, and curated playlists.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">📡</div><h3>Twitch</h3><p>Live streams, gaming content, and interactive chat.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">💬</div><h3>Reddit</h3><p>Communities, discussions, and trending topics.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">💎</div><h3>Discord</h3><p>Voice, video, and text chat for gaming communities.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">📚</div><h3>Wikipedia</h3><p>The free encyclopedia with millions of articles.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">💻</div><h3>GitHub</h3><p>Code hosting, collaboration, and developer tools.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">📧</div><h3>Gmail</h3><p>Secure email with Google's smart organization.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">☁️</div><h3>Google Drive</h3><p>Cloud storage, docs, and file sharing built in.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">🐦</div><h3>X / Twitter</h3><p>Breaking news, trends, and conversations in real time.</p></div>
+    <div class="game-cat-card reveal"><div class="game-cat-icon">📋</div><h3>Stack Overflow</h3><p>Q&A for programmers and developers of all levels.</p></div>
+  </div>
+</section>
+
+<!-- Store -->
+<section class="section" id="store" style="background:rgba(10,15,30,0.5);border-radius:var(--radius-xl) 0 0 var(--radius-xl)">
+  <div class="section-header reveal">
+    <div class="badge">Store</div>
+    <h2>RQBBOX Store</h2>
+    <p>Browse and download directly to your USB. All free. Always.</p>
+  </div>
+  <div class="store-showcase">
+    <div class="store-tabs">
+      <button class="store-tab active" onclick="switchStoreTab('games',this)">🎮 Games</button>
+      <button class="store-tab" onclick="switchStoreTab('apps',this)">📱 Apps</button>
+      <button class="store-tab" onclick="switchStoreTab('webapps',this)">🌐 Web Apps</button>
+      <button class="store-tab" onclick="switchStoreTab('themes',this)">🎨 Themes</button>
+      <button class="store-tab" onclick="switchStoreTab('plugins',this)">🧩 Plugins</button>
+    </div>
+    <div class="store-grid" id="store-grid">
+      <div class="store-item"><div class="store-item-banner">🎯</div><div class="store-item-body"><h4>Neon Drift</h4><p class="store-item-desc">High-speed racing game</p><span class="store-item-tag">Racing</span></div></div>
+      <div class="store-item"><div class="store-item-banner">⚔️</div><div class="store-item-body"><h4>Pixel Quest</h4><p class="store-item-desc">Retro adventure</p><span class="store-item-tag">Adventure</span></div></div>
+      <div class="store-item"><div class="store-item-banner">🧟</div><div class="store-item-body"><h4>Survival Zone</h4><p class="store-item-desc">Survival crafting</p><span class="store-item-tag">Survival</span></div></div>
+      <div class="store-item"><div class="store-item-banner">🎯</div><div class="store-item-body"><h4>Cyber Strike</h4><p class="store-item-desc">Competitive FPS</p><span class="store-item-tag">FPS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Community -->
+<section class="section" id="community">
+  <div class="section-header reveal">
+    <div class="badge">Community</div>
+    <h2>Join the RQBBOX community</h2>
+    <p>Connect with gamers, developers, and creators building on RQBBOX.</p>
+  </div>
+  <div class="community-grid">
+    <div class="community-card reveal">
+      <div class="community-icon">📋</div>
+      <h3>Forums</h3>
+      <p>Discuss games, share tips, and get help from the community.</p>
+    </div>
+    <div class="community-card reveal">
+      <div class="community-icon">👤</div>
+      <h3>Profiles</h3>
+      <p>Show your game library, achievements, and creations.</p>
+    </div>
+    <div class="community-card reveal">
+      <div class="community-icon">🎨</div>
+      <h3>Showcase</h3>
+      <p>Share your custom themes, plugins, and mods.</p>
+    </div>
+    <div class="community-card reveal">
+      <div class="community-icon">📤</div>
+      <h3>Mod Uploads</h3>
+      <p>Upload and share your community-created content.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Showcase / Featured -->
+<section class="section" id="showcase" style="background:rgba(10,15,30,0.5);border-radius:var(--radius-xl) 0 0 var(--radius-xl)">
+  <div class="section-header reveal">
+    <div class="badge">Showcase</div>
+    <h2>Featured creations</h2>
+    <p>What the community is building with RQBBOX.</p>
+  </div>
+  <div class="showcase-grid">
+    <div class="showcase-card reveal">
+      <div class="showcase-preview" style="background:linear-gradient(135deg,#0a2040,#2a0a40)"><span>🎯</span></div>
+      <div class="showcase-body"><h4>Neon Drift</h4><p>Racing game by RhysTech</p><span class="showcase-tag">Featured Game</span></div>
+    </div>
+    <div class="showcase-card reveal">
+      <div class="showcase-preview" style="background:linear-gradient(135deg,#0a3010,#0a2040)"><span>🎨</span></div>
+      <div class="showcase-body"><h4>Cyber Dark Theme</h4><p>Dark theme by Community</p><span class="showcase-tag">Theme</span></div>
+    </div>
+    <div class="showcase-card reveal">
+      <div class="showcase-preview" style="background:linear-gradient(135deg,#200a30,#0a1530)"><span>🧩</span></div>
+      <div class="showcase-body"><h4>FPS Overlay</h4><p>Performance plugin by Dev</p><span class="showcase-tag">Plugin</span></div>
+    </div>
+    <div class="showcase-card reveal">
+      <div class="showcase-preview" style="background:linear-gradient(135deg,#0a2040,#300a20)"><span>🔊</span></div>
+      <div class="showcase-body"><h4>Neon Audio Pack</h4><p>Sound pack by Creator</p><span class="showcase-tag">Audio</span></div>
+    </div>
+    <div class="showcase-card reveal">
+      <div class="showcase-preview" style="background:linear-gradient(135deg,#1a0a20,#0a2040)"><span>📺</span></div>
+      <div class="showcase-body"><h4>YouTube on RQBBOX</h4><p>Web app integration</p><span class="showcase-tag web">Web App</span></div>
+    </div>
+    <div class="showcase-card reveal">
+      <div class="showcase-preview" style="background:linear-gradient(135deg,#0a2030,#200a20)"><span>💎</span></div>
+      <div class="showcase-body"><h4>Discord Integration</h4><p>Web app integration</p><span class="showcase-tag web">Web App</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Developer CTA -->
+<section class="section" id="developers" style="text-align:center;">
+  <div class="section-header reveal">
+    <div class="badge">Developers</div>
+    <h2>Build for RQBBOX</h2>
+    <p>SDK tools, API documentation, tutorials, and open-code projects. Create games, apps, themes, and plugins.</p>
+  </div>
+  <div class="dev-cta reveal">
+    <a href="dev.html" class="btn-primary" style="display:inline-flex;width:auto;padding:16px 48px;font-size:1.1rem;">🧪 Go to Developer Hub →</a>
+  </div>
+  <div class="lang-pills reveal" style="margin-top:32px;">
+    <span class="lang-pill">🦀 Rust</span>
+    <span class="lang-pill">⚡ C++</span>
+    <span class="lang-pill">🌐 JavaScript</span>
+    <span class="lang-pill">🐍 Python</span>
+  </div>
+</section>
+
+<!-- Download -->
+<section class="download-section" id="download">
+  <div class="download-inner">
+    <div class="section-header reveal">
+      <div class="badge">Download Free</div>
+      <h2>Get RQBBOX OS</h2>
+      <p>Lite, Pro, and Creator — all free. Pick your edition on setup.</p>
+    </div>
+    <div class="download-grid">
+      <div class="download-card reveal"><div class="download-os-icon">🪟</div><h3>Windows</h3><div class="os-version">v1.1.0 — Windows 10/11</div><button class="download-btn" onclick="downloadOS('windows')">⬇ Download RQBBOX.exe</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Portable — no install needed. Run from USB. Requires Node.js.</p></div>
+      <div class="download-card reveal"><div class="download-os-icon">🍎</div><h3>macOS</h3><div class="os-version">v1.1.0 — Intel & Apple Silicon</div><button class="download-btn" onclick="downloadOS('macos')">⬇ Download .tar.gz</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Extract to USB. Run: <code>node System/Server/server.js</code></p></div>
+      <div class="download-card reveal"><div class="download-os-icon">🐧</div><h3>Linux</h3><div class="os-version">v1.1.0 — Ubuntu, Debian, Fedora</div><button class="download-btn" onclick="downloadOS('linux')">⬇ Download .tar.gz</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Extract to USB. Run via terminal. Requires Node.js.</p></div>
+      <div class="download-card reveal"><div class="download-os-icon">🌐</div><h3>ChromeOS</h3><div class="os-version">v1.1.0 — Linux container</div><button class="download-btn" onclick="downloadOS('chromeos')">⬇ Download .tar.gz</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Enable Linux, extract to USB, run via terminal.</p></div>
+      <div class="download-card reveal"><div class="download-os-icon">🤖</div><h3>Android</h3><div class="os-version">v1.1.0 — Phones & Tablets</div><button class="download-btn" onclick="downloadOS('android')">⬇ Download APK</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Install Termux, run: <code>bash launch-android.sh</code></p></div>
+      <div class="download-card reveal"><div class="download-os-icon">📱</div><h3>iOS / iPadOS</h3><div class="os-version">v1.1.0 — Safari PWA</div><button class="download-btn" onclick="downloadOS('ios')">⬇ PWA Guide</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Open in Safari → Share → Add to Home Screen.</p></div>
+      <div class="download-card reveal"><div class="download-os-icon">📺</div><h3>Android TV</h3><div class="os-version">v1.1.0 — TV UI</div><button class="download-btn" onclick="downloadOS('androidtv')">⬇ Download APK</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Sideload APK. TV-optimized at /tv/</p></div>
+      <div class="download-card reveal"><div class="download-os-icon">📡</div><h3>Apple TV</h3><div class="os-version">v1.1.0 — tvOS</div><button class="download-btn" onclick="downloadOS('appletv')">⬇ Open TV Mode</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Open Safari → navigate to server IP.</p></div>
+      <div class="download-card reveal"><div class="download-os-icon">💻</div><h3>Any Browser</h3><div class="os-version">v1.1.0 — Web App</div><button class="download-btn" onclick="downloadOS('browser')">🌐 Open Web App</button><p style="font-size:.8rem;color:var(--text-muted);margin-top:12px;">Access from any browser on your LAN.</p></div>
+    </div>
+    <p class="download-note reveal">⚡ RQBBOX is NOT a bootable OS. It runs on top of your existing OS. No ISO, no partitions, no risk. Just plug in and play.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="background:rgba(10,15,30,0.5);border-radius:var(--radius-xl) 0 0 var(--radius-xl)">
+  <div class="section-header reveal">
+    <div class="badge">FAQ</div>
+    <h2>Frequently asked questions</h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is RQBBOX a bootable operating system?<span class="arrow">▼</span></div><div class="faq-answer"><strong>No.</strong> RQBBOX runs on top of your existing OS (Windows, macOS, Linux). No partitioning, no ISO, no boot config. Just plug in and launch like any app.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Does it support emulators or retro games?<span class="arrow">▼</span></div><div class="faq-answer">No. RQBBOX is focused on native games, portable apps, and open-code development. We do not support emulators or retro console games.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What's the difference between Lite, Pro, and Creator?<span class="arrow">▼</span></div><div class="faq-answer">Lite is the lightweight launcher with basic features. Pro adds cloud sync, advanced customization, and performance tools. Creator includes everything in Pro plus the SDK, plugin creator, and theme editor. All three are free.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I develop games and plugins for RQBBOX?<span class="arrow">▼</span></div><div class="faq-answer">Yes. RQBBOX has an open-code system. You can build games, create plugins, design themes, and customize the UI. Supported languages: Rust, C++, JavaScript, Python. Visit our Developer Hub.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What platforms are supported?<span class="arrow">▼</span></div><div class="faq-answer">Windows 10/11, macOS (Intel & Apple Silicon), Linux (Ubuntu, Debian, Fedora), ChromeOS, Android (Termux), iOS/iPadOS (PWA), Android TV, Apple TV — and any browser over LAN.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How does the Plugin Engine work?<span class="arrow">▼</span></div><div class="faq-answer">Plugins are JavaScript/HTML packages placed in the Plugins folder on your USB. The engine loads them at startup. Themes modify CSS variables. Audio packs replace UI sounds. All open-code and community-driven.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is my data secure?<span class="arrow">▼</span></div><div class="faq-answer">Yes. All data stays on your USB drive. Profiles, saves, and settings are never sent to external servers unless you opt into cloud sync. Privacy mode disables all network access.</div></div>
+    <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is it really free?<span class="arrow">▼</span></div><div class="faq-answer">Yes. RQBBOX OS is completely free. All editions, all features, all games and apps. No subscriptions, no ads, no in-app purchases. Always.</div></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<!-- Sign In Modal -->
+<div class="modal-overlay" id="signin-modal">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal('signin')" style="position:absolute;top:12px;right:16px;background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;">✕</button>
+    <h2>Sign In</h2>
+    <p class="subtitle">Access your RQBBOX profile</p>
+    <div class="modal-error" id="signin-error"></div>
+    <form onsubmit="signIn(event)">
+      <div class="form-group"><label>Username / Email</label><input type="text" id="signin-user" placeholder="Enter username or email" required></div>
+      <div class="form-group"><label>Password</label><input type="password" id="signin-pass" placeholder="Enter password"></div>
+      <button type="submit" class="btn-primary">Sign In</button>
+    </form>
+    <div class="auth-links" style="margin-top:16px;font-size:.85rem;color:var(--text-secondary);text-align:center;">
+      Don't have an account? <a onclick="switchModal('signup')" style="color:var(--neon-blue);cursor:pointer;">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div class="modal-overlay" id="signup-modal">
+  <div class="modal" style="position:relative;">
+    <button class="modal-close" onclick="closeModal('signup')" style="position:absolute;top:12px;right:16px;background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;">✕</button>
+    <h2>Create Account</h2>
+    <p class="subtitle">Join the RQBBOX community</p>
+    <div class="modal-error" id="signup-error"></div>
+    <form onsubmit="signUp(event)">
+      <div class="form-group"><label>Display Name</label><input type="text" id="signup-name" placeholder="Your gamer tag" required></div>
+      <div class="form-group"><label>Username</label><input type="text" id="signup-user" placeholder="Choose a username" required></div>
+      <div class="form-group"><label>Email (optional)</label><input type="email" id="signup-email" placeholder="you@example.com"></div>
+      <div class="form-group"><label>Password</label><input type="password" id="signup-pass" placeholder="Create a password"></div>
+      <button type="submit" class="btn-primary">Create Account</button>
+    </form>
+    <div class="auth-links" style="margin-top:16px;font-size:.85rem;color:var(--text-secondary);text-align:center;">
+      Already have an account? <a onclick="switchModal('signin')" style="color:var(--neon-blue);cursor:pointer;">Sign In</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 36 36" width="36" height="36"><rect width="36" height="36" rx="8" fill="#12182a"/><rect x="4" y="4" width="28" height="28" rx="6" fill="none" stroke="url(#fGrad)" stroke-width="2"/><text x="18" y="23" text-anchor="middle" font-size="14" font-weight="800" fill="url(#fGrad)" font-family="Segoe UI">R</text><defs><linearGradient id="fGrad"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+        RQBBOX
+      </div>
+      <p>A portable USB gaming operating system by RhysTech. Plug Into Gaming.</p>
+      <p style="margin-top:12px;color:var(--text-muted);font-size:.8rem;">© 2026 RhysTech. All rights reserved.</p>
+    </div>
+    <div class="footer-col"><h4>Product</h4><a href="#features">Features</a><a href="#editions">Editions</a><a href="#games">Games</a><a href="#store">Store</a><a href="#download">Download</a><a href="#community">Community</a><a href="#faq">FAQ</a></div>
+    <div class="footer-col"><h4>Developers</h4><a href="dev.html">Developer Hub</a><a href="dev.html#sdk">SDK Downloads</a><a href="dev.html#api">API Docs</a><a href="dev.html#tutorials">Tutorials</a><a href="dev.html#projects">Open-Code Projects</a></div>
+    <div class="footer-col"><h4>Platforms</h4><a href="#download">Windows</a><a href="#download">macOS</a><a href="#download">Linux</a><a href="#download">Android</a><a href="#download">iOS</a><a href="#download">TV</a></div>
+    <div class="footer-col"><h4>RhysTech</h4><a href="#">About</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a><a href="#">Brand</a></div>
+  </div>
+  <div class="footer-inner" style="margin-top:24px">
+    <div class="footer-bottom" style="grid-column:1/-1">
+      <p>RQBBOX OS — Plug Into Gaming. ® RhysTech</p>
+      <div class="footer-social">
+        <a href="#" title="GitHub">⌂</a>
+        <a href="#" title="Twitter">𝕏</a>
+        <a href="#" title="Discord">◆</a>
+        <a href="#" title="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

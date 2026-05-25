@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#ff00aa"/></linearGradient></defs>
+  <rect width="128" height="128" rx="20" fill="#12182a" stroke="url(#a)" stroke-width="3"/>
+  <path d="M24 32 L36 32 L48 96 L96 96 L108 40 L40 40" fill="none" stroke="url(#a)" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="56" cy="104" r="7" fill="#00d4ff"/>
+  <circle cx="88" cy="104" r="7" fill="#00d4ff"/>
+  <text x="64" y="68" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="20" fill="url(#a)" font-weight="700">STORE</text>
+</svg>

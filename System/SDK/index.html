@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RQBBOX SDK — Developer Documentation</title>
+<style>
+:root{--neon-blue:#00d4ff;--neon-purple:#9d4edd;--bg:#050810;--bg-card:rgba(18,26,48,0.85);--text:#e8f0ff;--text-sec:#8b9dc3;--text-muted:#5a6a8a;--border:rgba(255,255,255,0.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:32px;max-width:960px;margin:0 auto}
+h1{font-size:2.2rem;margin-bottom:8px;background:linear-gradient(135deg,#fff,var(--neon-blue),var(--neon-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h2{font-size:1.4rem;margin:32px 0 16px;color:var(--neon-blue);border-bottom:1px solid var(--border);padding-bottom:8px}
+h3{font-size:1.1rem;margin:24px 0 12px;color:var(--text)}
+p{color:var(--text-sec);margin-bottom:12px;font-size:.9rem}
+code{background:rgba(0,0,0,0.4);padding:2px 6px;border-radius:4px;font-size:.85rem;color:var(--neon-blue)}
+pre{background:rgba(0,0,0,0.5);padding:16px;border-radius:8px;overflow-x:auto;font-size:.8rem;color:var(--text-sec);margin-bottom:16px;border:1px solid var(--border)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px}
+.card h4{font-size:1rem;margin-bottom:8px}
+.card p{font-size:.85rem;color:var(--text-sec)}
+.tag{display:inline-block;padding:2px 8px;border-radius:6px;font-size:.65rem;font-weight:600;margin-right:4px}
+.tag.rs{background:rgba(255,69,0,0.1);color:#ff4500;border:1px solid rgba(255,69,0,0.2)}
+.tag.cpp{background:rgba(0,150,255,0.1);color:#0096ff;border:1px solid rgba(0,150,255,0.2)}
+.tag.js{background:rgba(255,217,0,0.1);color:#ffd700;border:1px solid rgba(255,217,0,0.2)}
+.tag.py{background:rgba(255,193,7,0.1);color:#ffc107;border:1px solid rgba(255,193,7,0.2)}
+.endpoint{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.85rem}
+.endpoint .meth{display:inline-block;padding:1px 6px;border-radius:4px;font-size:.65rem;font-weight:700;text-transform:uppercase}
+.endpoint .meth.get{background:rgba(0,212,255,0.15);color:var(--neon-blue)}
+.endpoint .meth.post{background:rgba(0,255,200,0.15);color:#00ffc8}
+.endpoint .path{font-family:monospace;color:var(--text);flex:1}
+.endpoint .desc{font-size:.75rem;color:var(--text-muted);width:100%}
+.nav{margin-bottom:32px;display:flex;gap:8px;flex-wrap:wrap}
+.nav a{color:var(--text-sec);text-decoration:none;font-size:.85rem;padding:6px 14px;border:1px solid var(--border);border-radius:6px;transition:all .2s}
+.nav a:hover{border-color:var(--neon-blue);color:var(--text)}
+.badge{display:inline-block;padding:4px 12px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);border-radius:12px;font-size:.7rem;color:var(--neon-blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+@media(max-width:768px){body{padding:16px}h1{font-size:1.6rem}}
+</style>
+</head>
+<body>
+
+<div class="badge">SDK v1.0</div>
+<h1>RQBBOX SDK Documentation</h1>
+<p>Build native games, apps, themes, and plugins for RQBBOX OS Portable USB. Supported languages: Rust, C++, JavaScript, Python.</p>
+
+<div class="nav">
+  <a href="#getting-started">Getting Started</a>
+  <a href="#sdk-downloads">SDK Downloads</a>
+  <a href="#api-reference">API Reference</a>
+  <a href="#plugin-api">Plugin API</a>
+  <a href="#theme-api">Theme API</a>
+  <a href="#examples">Examples</a>
+  <a href="../website/dev.html" target="_blank">Developer Hub →</a>
+</div>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>RQBBOX SDK lets you build software for the RQBBOX platform. Your app runs inside the launcher runtime or as a standalone process on the USB system.</p>
+
+<div class="card">
+  <h4>📁 Project Structure</h4>
+  <p>Your RQBBOX app should follow this structure:</p>
+  <pre>my-app/
+├── manifest.json    # App manifest (name, version, icon, type)
+├── index.html       # Main entry point (for web-based apps)
+├── main.js          # App logic
+├── style.css        # Styles
+└── assets/          # Images, sounds, data files</pre>
+</div>
+
+<div class="card">
+  <h4>📄 Manifest Format</h4>
+  <p>Every RQBBOX app needs a manifest.json:</p>
+  <pre>{
+  "name": "my-app",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "description": "My awesome RQBBOX app",
+  "type": "app",
+  "main": "index.html",
+  "icon": "📱",
+  "category": "Utility",
+  "permissions": ["storage", "notifications"],
+  "window": { "width": 800, "height": 600, "resizable": true }
+}</pre>
+</div>
+
+<h2 id="sdk-downloads">📦 SDK Downloads</h2>
+<p>Choose your language and download the SDK:</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:24px;">
+  <a href="#" class="card" style="display:block;text-decoration:none;text-align:center;padding:20px;">
+    <div style="font-size:2rem;margin-bottom:8px;">🦀</div>
+    <h4>Rust SDK</h4>
+    <span class="tag rs">Rust</span>
+    <p style="font-size:.75rem;margin-top:8px;">Crate + bindings + examples</p>
+  </a>
+  <a href="#" class="card" style="display:block;text-decoration:none;text-align:center;padding:20px;">
+    <div style="font-size:2rem;margin-bottom:8px;">⚡</div>
+    <h4>C++ SDK</h4>
+    <span class="tag cpp">C++</span>
+    <p style="font-size:.75rem;margin-top:8px;">Headers + libraries + templates</p>
+  </a>
+  <a href="#" class="card" style="display:block;text-decoration:none;text-align:center;padding:20px;">
+    <div style="font-size:2rem;margin-bottom:8px;">🌐</div>
+    <h4>JavaScript SDK</h4>
+    <span class="tag js">JS</span>
+    <p style="font-size:.75rem;margin-top:8px;">Framework + examples + plugins</p>
+  </a>
+  <a href="#" class="card" style="display:block;text-decoration:none;text-align:center;padding:20px;">
+    <div style="font-size:2rem;margin-bottom:8px;">🐍</div>
+    <h4>Python SDK</h4>
+    <span class="tag py">Python</span>
+    <p style="font-size:.75rem;margin-top:8px;">Bindings + tools + docs</p>
+  </a>
+</div>
+
+<h2 id="api-reference">📡 API Reference</h2>
+<p>The RQBBOX runtime provides a JavaScript API for your apps and the backend serves REST endpoints.</p>
+
+<h3>Runtime API (in-app)</h3>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">RQB.toast(msg)</span><span class="desc">Show a toast notification</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">RQB.navigate(page)</span><span class="desc">Navigate to a launcher page</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">RQB.playSound(id)</span><span class="desc">Play a UI sound effect</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">RQB.state</span><span class="desc">Access runtime state (currentUser, currentPage, etc.)</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">RQBApi.get(path)</span><span class="desc">Make GET request to backend</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">RQBApi.post(path, data)</span><span class="desc">Make POST request to backend</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">RQBApi.mediaUrl(path)</span><span class="desc">Get URL for a media file on USB</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">RQBApi.runtimeUrl(type, id)</span><span class="desc">Get URL for a game/app runtime</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">Stats.track(action)</span><span class="desc">Track a user action</span></div>
+
+<h3>Backend API (REST)</h3>
+<p>All endpoints at <code>http://[server]:19777/api/</code></p>
+
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/storage</span><span class="desc">USB storage info</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/config</span><span class="desc">System configuration</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/config</span><span class="desc">Save configuration</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/profiles</span><span class="desc">User profiles</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/profiles</span><span class="desc">Save profiles</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/store</span><span class="desc">Store catalog</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/files?path=</span><span class="desc">List files at path</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/file/read?path=</span><span class="desc">Read file contents</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/file/write</span><span class="desc">Write file</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/file/delete</span><span class="desc">Delete file</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/battery</span><span class="desc">Battery/power status</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/network</span><span class="desc">WiFi/network info</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/bluetooth</span><span class="desc">Bluetooth status</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/controller</span><span class="desc">Controller/gamepad status</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/status/all</span><span class="desc">Combined system status</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/auth</span><span class="desc">Sign in</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/register</span><span class="desc">Create account</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/me?token=</span><span class="desc">Get user profile</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/install</span><span class="desc">Install game/app from store</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/device</span><span class="desc">List registered devices</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/device</span><span class="desc">Register device</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/db/backup</span><span class="desc">Backup database</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/db/restore</span><span class="desc">Restore database</span></div>
+<div class="endpoint"><span class="meth post">POST</span><span class="path">/api/db/validate</span><span class="desc">Validate database</span></div>
+<div class="endpoint"><span class="meth get">GET</span><span class="path">/api/cdn/file?path=</span><span class="desc">CDN-cached file with ETag</span></div>
+
+<h2 id="plugin-api">🧩 Plugin API</h2>
+<p>Build plugins that extend RQBBOX using the Plugin Engine.</p>
+
+<div class="card">
+  <h4>Plugin Manifest (plugin.json)</h4>
+  <pre>{
+  "name": "my-plugin",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "description": "My plugin",
+  "type": "plugin",
+  "main": "index.js",
+  "icon": "🧩",
+  "permissions": ["storage", "notifications"]
+}</pre>
+</div>
+
+<div class="card">
+  <h4>Lifecycle Methods</h4>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">onLoad()</span><span class="desc">Called when plugin is detected</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">onEnable()</span><span class="desc">Called when plugin is enabled</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">onDisable()</span><span class="desc">Called when plugin is disabled</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">onUnload()</span><span class="desc">Called when plugin is unloaded</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">onSettings()</span><span class="desc">Returns HTML string for settings UI</span></div>
+</div>
+
+<div class="card">
+  <h4>Plugin Runtime API</h4>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.toast(msg)</span><span class="desc">Show a toast</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.getConfig(key)</span><span class="desc">Get a config value</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.setConfig(key, val)</span><span class="desc">Set a config value</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.fetch(path)</span><span class="desc">Make an API request</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.addWidget(html)</span><span class="desc">Add a UI widget to the launcher</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.emit(event, data)</span><span class="desc">Emit a custom event</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.on(event, cb)</span><span class="desc">Listen for a custom event</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.navigate(page)</span><span class="desc">Navigate to a launcher page</span></div>
+  <div class="endpoint"><span class="meth get">GET</span><span class="path">PluginAPI.getPlugins()</span><span class="desc">Get list of loaded plugins</span></div>
+</div>
+
+<div class="card">
+  <h4>Example Plugin (index.js)</h4>
+  <pre>// Minimal RQBBOX plugin
+function onLoad() {
+  PluginAPI.toast('Hello from my plugin!');
+}
+
+function onEnable() {
+  PluginAPI.addWidget('&lt;div&gt;My Plugin Widget&lt;/div&gt;');
+}
+
+function onSettings() {
+  return '&lt;h4&gt;My Plugin Settings&lt;/h4&gt;&lt;p&gt;Configure me!&lt;/p&gt;';
+}</pre>
+</div>
+
+<h2 id="theme-api">🎨 Theme API</h2>
+<p>Create custom themes by overriding CSS custom properties.</p>
+
+<div class="card">
+  <h4>Theme Manifest (theme.json)</h4>
+  <pre>{
+  "name": "cyber-dark",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "description": "Dark cyberpunk theme",
+  "type": "theme",
+  "main": "theme.css",
+  "icon": "🌙"
+}</pre>
+</div>
+
+<div class="card">
+  <h4>Example Theme CSS (theme.css)</h4>
+  <pre>:root {
+  --neon-blue: #00e5ff;
+  --neon-purple: #aa66ff;
+  --neon-pink: #ff00aa;
+  --bg-primary: #050a15;
+  --bg-card: rgba(15, 25, 50, 0.9);
+  --text-primary: #e0f0ff;
+}</pre>
+</div>
+
+<h2 id="examples">💡 Examples</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;">
+  <div class="card">
+    <h4>🎯 FPS Game</h4>
+    <p>Build a first-person shooter using the C++ SDK with WASD controls, mouse look, and gamepad support.</p>
+    <span class="tag cpp">C++</span>
+  </div>
+  <div class="card">
+    <h4>🌐 Web Browser</h4>
+    <p>Portable web browser using the JavaScript SDK with tabs, bookmarks, and history.</p>
+    <span class="tag js">JS</span>
+  </div>
+  <div class="card">
+    <h4>📊 FPS Overlay Plugin</h4>
+    <p>Real-time FPS counter using the Plugin Engine with configurable position and style.</p>
+    <span class="tag js">Plugin</span>
+  </div>
+  <div class="card">
+    <h4>🛠️ Developer Toolkit</h4>
+    <p>Build and publish tools for RQBBOX using the Python SDK.</p>
+    <span class="tag py">Python</span>
+  </div>
+</div>
+
+<p style="margin-top:48px;color:var(--text-muted);font-size:.8rem;text-align:center;">RQBBOX SDK v1.0 — RhysTech © 2026 · <a href="../website/dev.html" style="color:var(--neon-blue);">Full Developer Hub →</a></p>
+
+</body>
+</html>

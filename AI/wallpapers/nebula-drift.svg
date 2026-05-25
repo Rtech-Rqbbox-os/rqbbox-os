@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050510"/>
+      <stop offset="30%" stop-color="#0a0520"/>
+      <stop offset="70%" stop-color="#10051a"/>
+      <stop offset="100%" stop-color="#050515"/>
+    </linearGradient>
+    <radialGradient id="nebula1" cx="25%" cy="35%">
+      <stop offset="0%" stop-color="#ff00aa" stop-opacity="0.35"/>
+      <stop offset="40%" stop-color="#9d4edd" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebula2" cx="75%" cy="60%">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#00ffc8" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="star" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#nebula1)"/>
+  <rect width="1920" height="1080" fill="url(#nebula2)"/>
+  <!-- Stars -->
+  <g fill="#fff" opacity="0.6">
+    <circle cx="120" cy="80" r="1.5"/><circle cx="340" cy="190" r="1"/><circle cx="560" cy="50" r="2"/><circle cx="780" cy="230" r="1"/>
+    <circle cx="1000" cy="90" r="1.5"/><circle cx="1220" cy="170" r="1"/><circle cx="1440" cy="40" r="2"/><circle cx="1660" cy="210" r="1"/>
+    <circle cx="200" cy="350" r="1"/><circle cx="450" cy="420" r="1.5"/><circle cx="680" cy="300" r="2" filter="url(#glow)"/><circle cx="900" cy="480" r="1"/>
+    <circle cx="1150" cy="340" r="1.5" filter="url(#glow)"/><circle cx="1380" cy="460" r="1"/><circle cx="1600" cy="320" r="1"/><circle cx="1820" cy="400" r="2" filter="url(#glow)"/>
+    <circle cx="100" cy="600" r="1.5"/><circle cx="500" cy="700" r="1"/><circle cx="850" cy="550" r="1"/><circle cx="1280" cy="680" r="1.5"/>
+    <circle cx="1700" cy="580" r="1"/><circle cx="300" cy="850" r="1"/><circle cx="700" cy="900" r="1.5"/><circle cx="1100" cy="820" r="1"/>
+    <circle cx="1500" cy="880" r="2" filter="url(#glow)"/><circle cx="1900" cy="750" r="1"/>
+  </g>
+  <!-- Nebula swirl lines -->
+  <g fill="none" stroke-width="2" opacity="0.15">
+    <path d="M0 500 Q300 400 500 550 T1000 500 T1500 600 T1920 500" stroke="#00d4ff"/>
+    <path d="M0 600 Q400 700 700 550 T1200 650 T1920 580" stroke="#9d4edd"/>
+    <path d="M0 450 Q250 350 600 450 T1100 400 T1600 500 T1920 450" stroke="#ff00aa"/>
+  </g>
+  <text x="960" y="500" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="160" font-weight="800" fill="#ffffff" opacity="0.04" letter-spacing="30">NEBULA</text>
+  <text x="960" y="990" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#9d4edd" opacity="0.35" letter-spacing="10">AI DEEP SPACE · RQBBOX 0</text>
+</svg>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RQB Browser</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0e1a;height:100vh;display:flex;flex-direction:column;font-family:Segoe UI,sans-serif}
+.bar{display:flex;gap:8px;padding:8px;background:#12182a;border-bottom:1px solid rgba(0,212,255,.2)}
+.bar input{flex:1;padding:8px 12px;background:#050810;border:1px solid rgba(0,212,255,.3);border-radius:6px;color:#e8f0ff}
+.bar button{padding:8px 16px;background:linear-gradient(135deg,#00d4ff,#9d4edd);border:none;border-radius:6px;color:#fff;cursor:pointer;font-weight:600}
+iframe{flex:1;border:none;background:#fff}
+.quick{display:flex;gap:6px;padding:6px 8px;background:#0a0e1a;flex-wrap:wrap}
+.quick button{padding:4px 10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:4px;color:#8b9dc3;cursor:pointer;font-size:12px}
+.quick button:hover{border-color:#00d4ff;color:#00d4ff}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button id="back">←</button>
+  <button id="fwd">→</button>
+  <button id="reload">↻</button>
+  <input id="url" value="https://www.wikipedia.org" placeholder="Enter URL...">
+  <button id="go">Go</button>
+</div>
+<div class="quick">
+  <button data-u="https://www.wikipedia.org">Wikipedia</button>
+  <button data-u="https://archive.org">Archive.org</button>
+  <button data-u="https://developer.mozilla.org">MDN Docs</button>
+  <button data-u="about:blank">Blank</button>
+</div>
+<iframe id="frame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+<script>
+const frame=document.getElementById('frame'),url=document.getElementById('url');
+function nav(u){if(!u.startsWith('http')&&!u.startsWith('about:'))u='https://'+u;url.value=u;frame.src=u}
+document.getElementById('go').onclick=()=>nav(url.value);
+url.addEventListener('keydown',e=>{if(e.key==='Enter')nav(url.value)});
+document.getElementById('reload').onclick=()=>frame.src=url.value;
+document.getElementById('back').onclick=()=>{try{frame.contentWindow.history.back()}catch(e){}};
+document.getElementById('fwd').onclick=()=>{try{frame.contentWindow.history.forward()}catch(e){}};
+document.querySelectorAll('.quick button').forEach(b=>b.onclick=()=>nav(b.dataset.u));
+nav('https://www.wikipedia.org');
+</script>
+</body>
+</html>

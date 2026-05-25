@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Developer Hub — RQBBOX OS by RhysTech</title>
+<meta name="description" content="RQBBOX OS Developer Hub. SDK downloads, API documentation, tutorials, open-code projects. Build games, apps, themes, and plugins.">
+<link rel="icon" href="../Branding/rqbbox-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="scrollToTop()">
+      <svg viewBox="0 0 36 36"><rect width="36" height="36" rx="8" fill="#12182a"/><rect x="4" y="4" width="28" height="28" rx="6" fill="none" stroke="url(#nGrad)" stroke-width="2"/><text x="18" y="23" text-anchor="middle" font-size="14" font-weight="800" fill="url(#nGrad)" font-family="Segoe UI">R</text><defs><linearGradient id="nGrad"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+      RQBBOX <span style="font-size:.7rem;color:var(--text-muted);font-weight:400;margin-left:4px;">Dev Hub</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">← Back to RQBBOX</a>
+      <a href="#sdk">SDK</a>
+      <a href="#api">API Docs</a>
+      <a href="#tutorials">Tutorials</a>
+      <a href="#projects">Projects</a>
+      <a href="#plugin-api">Plugin API</a>
+    </div>
+    <div class="nav-right">
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<section class="dev-hero">
+  <div class="hero-bg">
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orbs">
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
+    </div>
+  </div>
+  <div style="position:relative;z-index:1;max-width:800px;">
+    <div class="badge" style="display:inline-block;padding:6px 16px;background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.3);border-radius:20px;font-size:.75rem;color:var(--neon-blue);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;">Developer Hub</div>
+    <h1>Build for RQBBOX</h1>
+    <p>SDK tools, API documentation, tutorials, and open-code projects. Create games, apps, themes, and plugins for RQBBOX OS. Supported languages: Rust, C++, JavaScript, Python.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <span class="lang-pill">🦀 Rust</span>
+      <span class="lang-pill">⚡ C++</span>
+      <span class="lang-pill">🌐 JavaScript</span>
+      <span class="lang-pill">🐍 Python</span>
+    </div>
+  </div>
+</section>
+
+<div class="section" style="padding-top:0;">
+  <div class="dev-tabs">
+    <button class="dev-tab active" onclick="switchDevTab('sdk',this)">📦 SDK Downloads</button>
+    <button class="dev-tab" onclick="switchDevTab('api',this)">📡 API Reference</button>
+    <button class="dev-tab" onclick="switchDevTab('tutorials',this)">📚 Tutorials</button>
+    <button class="dev-tab" onclick="switchDevTab('projects',this)">🔓 Open-Code Projects</button>
+    <button class="dev-tab" onclick="switchDevTab('plugin-api',this)">🧩 Plugin API</button>
+  </div>
+
+  <div class="dev-section active" id="dev-sdk">
+    <div class="section-header reveal">
+      <h2>SDK Downloads</h2>
+      <p>Download the RQBBOX SDK for your language of choice.</p>
+    </div>
+    <div class="sdk-grid">
+      <div class="sdk-card reveal">
+        <div class="sdk-icon">🦀</div>
+        <h3>Rust SDK</h3>
+        <span class="sdk-tag rs">Rust</span>
+        <p>Build native RQBBOX applications with Rust. Includes crate, bindings, and examples.</p>
+        <button class="download-btn small">⬇ Download Rust SDK v1.0</button>
+      </div>
+      <div class="sdk-card reveal">
+        <div class="sdk-icon">⚡</div>
+        <h3>C++ SDK</h3>
+        <span class="sdk-tag cpp">C++</span>
+        <p>Create high-performance games and tools with C++. Headers, libraries, and templates included.</p>
+        <button class="download-btn small">⬇ Download C++ SDK v1.0</button>
+      </div>
+      <div class="sdk-card reveal">
+        <div class="sdk-icon">🌐</div>
+        <h3>JavaScript SDK</h3>
+        <span class="sdk-tag js">JavaScript</span>
+        <p>Build plugins, apps, and themes using web technologies. Includes framework and examples.</p>
+        <button class="download-btn small">⬇ Download JS SDK v1.0</button>
+      </div>
+      <div class="sdk-card reveal">
+        <div class="sdk-icon">🐍</div>
+        <h3>Python SDK</h3>
+        <span class="sdk-tag py">Python</span>
+        <p>Rapidly prototype tools and scripts. Python bindings, helpers, and documentation.</p>
+        <button class="download-btn small">⬇ Download Python SDK v1.0</button>
+      </div>
+      <div class="sdk-card reveal">
+        <div class="sdk-icon">📘</div>
+        <h3>Theme SDK</h3>
+        <span class="sdk-tag doc">Theme</span>
+        <p>Create custom themes with CSS variables. JSON-based theme packaging and preview tools.</p>
+        <button class="download-btn small">⬇ Download Theme SDK v1.0</button>
+      </div>
+      <div class="sdk-card reveal">
+        <div class="sdk-icon">🧩</div>
+        <h3>Plugin SDK</h3>
+        <span class="sdk-tag doc">Plugin</span>
+        <p>Build plugins with the Plugin Engine. JavaScript API, manifest system, and distribution.</p>
+        <button class="download-btn small">⬇ Download Plugin SDK v1.0</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dev-section" id="dev-api">
+    <div class="section-header reveal">
+      <h2>API Reference</h2>
+      <p>Full API documentation for RQBBOX OS backend and runtime APIs.</p>
+    </div>
+
+    <div class="section-header" style="margin-bottom:24px;">
+      <h3 style="font-size:1.4rem;">Backend API</h3>
+      <p style="font-size:.85rem;">The RQBBOX server runs on port 19777. All endpoints prefixed with /api/.</p>
+    </div>
+
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/storage</span><span class="desc">Get USB storage info (total, free, used)</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/config</span><span class="desc">Get system configuration</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/config</span><span class="desc">Save system configuration</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/profiles</span><span class="desc">Get all user profiles</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/profiles</span><span class="desc">Save profiles data</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/store</span><span class="desc">Get store catalog (games + apps)</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/files?path=</span><span class="desc">List files at path on USB</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/file/read?path=</span><span class="desc">Read file contents</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/file/write</span><span class="desc">Write content or base64 to file</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/file/delete</span><span class="desc">Delete a file</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/file/copy</span><span class="desc">Copy file from path to path</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/file/move</span><span class="desc">Move/rename file</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/battery</span><span class="desc">Get battery/power status</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/network</span><span class="desc">Get network/WiFi info</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/bluetooth</span><span class="desc">Get Bluetooth status</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/controller</span><span class="desc">Get gamepad/controller status</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/status/all</span><span class="desc">Combined system status (all above + storage)</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/device</span><span class="desc">Get registered USB devices</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/device</span><span class="desc">Register or update a device</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/auth</span><span class="desc">Sign in with username/password</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/register</span><span class="desc">Create new account</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/me?token=</span><span class="desc">Get current user profile</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/auth/refresh</span><span class="desc">Refresh auth token</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/auth/2fa</span><span class="desc">Enable/disable 2FA PIN</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/install</span><span class="desc">Install a game or app from store</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/screenshots</span><span class="desc">List saved screenshots</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/screenshot</span><span class="desc">Save a screenshot</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/notify</span><span class="desc">Send notification</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/db/backup</span><span class="desc">Backup profiles database</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/db/restore</span><span class="desc">Restore profiles from backup</span></div>
+    <div class="api-endpoint"><span class="method post">POST</span><span class="path">/api/db/validate</span><span class="desc">Validate profiles database</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">/api/cdn/file?path=</span><span class="desc">CDN-cached file with ETag</span></div>
+
+    <div class="section-header" style="margin-bottom:24px;margin-top:40px;">
+      <h3 style="font-size:1.4rem;">Runtime API</h3>
+      <p style="font-size:.85rem;">Available inside RQBBOX runtime apps and plugins.</p>
+    </div>
+
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">RQB.toast(msg)</span><span class="desc">Show a toast notification</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">RQB.navigate(page)</span><span class="desc">Navigate to a launcher page</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">RQB.playSound(id)</span><span class="desc">Play a UI sound effect</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">RQBApi.get(path)</span><span class="desc">Make GET request to backend</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">RQBApi.post(path, data)</span><span class="desc">Make POST request to backend</span></div>
+    <div class="api-endpoint"><span class="method get">GET</span><span class="path">Stats.track(action)</span><span class="desc">Track a user action for analytics</span></div>
+  </div>
+
+  <div class="dev-section" id="dev-tutorials">
+    <div class="section-header reveal">
+      <h2>Tutorials</h2>
+      <p>Get started building for RQBBOX with step-by-step tutorials.</p>
+    </div>
+    <div class="tutorial-grid">
+      <div class="tutorial-card reveal">
+        <span class="tutorial-tag beg">Beginner</span>
+        <h4>Your First RQBBOX App</h4>
+        <p>Build a simple app using the JavaScript SDK. Learn manifest format, runtime API, and deployment.</p>
+        <span style="font-size:.75rem;color:var(--text-muted);">🌐 JavaScript — 20 min</span>
+      </div>
+      <div class="tutorial-card reveal">
+        <span class="tutorial-tag beg">Beginner</span>
+        <h4>Creating a Custom Theme</h4>
+        <p>Design and package a custom theme using CSS variables. Preview in real-time and share with the community.</p>
+        <span style="font-size:.75rem;color:var(--text-muted);">🎨 CSS — 15 min</span>
+      </div>
+      <div class="tutorial-card reveal">
+        <span class="tutorial-tag int">Intermediate</span>
+        <h4>Building a Plugin</h4>
+        <p>Create a plugin with the Plugin Engine. Learn the lifecycle, manifest, and runtime API.</p>
+        <span style="font-size:.75rem;color:var(--text-muted);">🧩 JavaScript — 30 min</span>
+      </div>
+      <div class="tutorial-card reveal">
+        <span class="tutorial-tag int">Intermediate</span>
+        <h4>Native Game in C++</h4>
+        <p>Port a C++ game to RQBBOX using the C++ SDK. Window creation, input handling, and file I/O.</p>
+        <span style="font-size:.75rem;color:var(--text-muted);">⚡ C++ — 45 min</span>
+      </div>
+      <div class="tutorial-card reveal">
+        <span class="tutorial-tag adv">Advanced</span>
+        <h4>Rust Game Engine Integration</h4>
+        <p>Integrate a Rust game engine with RQBBOX. Bindings, performance optimization, and packaging.</p>
+        <span style="font-size:.75rem;color:var(--text-muted);">🦀 Rust — 60 min</span>
+      </div>
+      <div class="tutorial-card reveal">
+        <span class="tutorial-tag beg">Beginner</span>
+        <h4>Publishing to the Store</h4>
+        <p>Submit your game, app, theme, or plugin to the RQBBOX Store. Format, metadata, and review process.</p>
+        <span style="font-size:.75rem;color:var(--text-muted);">📦 General — 10 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dev-section" id="dev-projects">
+    <div class="section-header reveal">
+      <h2>Open-Code Projects</h2>
+      <p>Explore open-source projects built for RQBBOX. Fork, contribute, and learn.</p>
+    </div>
+    <div class="showcase-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr));">
+      <div class="project-card reveal">
+        <h4>🎯 Neon Drift</h4>
+        <p>High-speed racing game. C++ with RQBBOX SDK. Features: drift mechanics, track editor, leaderboards.</p>
+        <span class="sdk-tag cpp">C++</span>
+        <span class="store-item-tag">⭐ Featured</span>
+      </div>
+      <div class="project-card reveal">
+        <h4>🌐 RQB Browser</h4>
+        <p>Portable web browser built with the JavaScript SDK. Tabbed browsing, bookmarks, history.</p>
+        <span class="sdk-tag js">JavaScript</span>
+      </div>
+      <div class="project-card reveal">
+        <h4>🏗️ RQBBOX Toolkit</h4>
+        <p>Developer utility suite in Python. Build, package, and publish tools. Theme validator included.</p>
+        <span class="sdk-tag py">Python</span>
+      </div>
+      <div class="project-card reveal">
+        <h4>📊 FPS Overlay Plugin</h4>
+        <p>Real-time FPS counter plugin. Uses the Plugin Engine runtime API. Configurable position and style.</p>
+        <span class="sdk-tag js">JavaScript</span>
+        <span class="store-item-tag">Plugin</span>
+      </div>
+      <div class="project-card reveal">
+        <h4>⚡ RQBBOX Performance Tools</h4>
+        <p>RAM cleaner, FPS boost, background limiter. Rust native performance tools for gaming.</p>
+        <span class="sdk-tag rs">Rust</span>
+      </div>
+      <div class="project-card reveal">
+        <h4>🎨 Cyber Dark Theme</h4>
+        <p>Dark cyberpunk theme. CSS variables, custom fonts, and animated backgrounds.</p>
+        <span class="sdk-tag doc">Theme</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dev-section" id="dev-plugin-api">
+    <div class="section-header reveal">
+      <h2>Plugin API</h2>
+      <p>Build plugins for RQBBOX using the Plugin & Theme Engine.</p>
+    </div>
+
+    <div class="reveal" style="max-width:800px;margin:0 auto;">
+      <div class="sdk-card" style="margin-bottom:24px;">
+        <h3>Plugin Manifest</h3>
+        <p style="font-size:.85rem;color:var(--text-secondary);">Every plugin needs a <code>plugin.json</code> manifest in its root directory:</p>
+        <pre style="background:rgba(0,0,0,0.4);padding:16px;border-radius:8px;margin-top:12px;font-size:.8rem;color:var(--text-secondary);overflow-x:auto;">{
+  "name": "my-plugin",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "description": "My awesome plugin",
+  "type": "plugin",
+  "main": "index.js",
+  "icon": "🧩",
+  "permissions": ["storage", "notifications"]
+}</pre>
+      </div>
+
+      <div class="sdk-card" style="margin-bottom:24px;">
+        <h3>Plugin Lifecycle</h3>
+        <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px;">The Plugin Engine calls the following lifecycle methods on your plugin:</p>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">onLoad()</span><span class="desc">Called when the plugin is loaded</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">onEnable()</span><span class="desc">Called when the plugin is enabled</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">onDisable()</span><span class="desc">Called when the plugin is disabled</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">onUnload()</span><span class="desc">Called when the plugin is unloaded</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">onSettings()</span><span class="desc">Returns HTML for plugin settings UI</span></div>
+      </div>
+
+      <div class="sdk-card">
+        <h3>Plugin Runtime API</h3>
+        <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px;">Plugins have access to the full RQBBOX runtime API:</p>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">PluginAPI.toast(msg)</span><span class="desc">Show a toast</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">PluginAPI.getConfig(key)</span><span class="desc">Get a config value</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">PluginAPI.setConfig(key, val)</span><span class="desc">Set a config value</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">PluginAPI.fetch(path)</span><span class="desc">Make an API request</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">PluginAPI.addWidget(html)</span><span class="desc">Add a UI widget</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">PluginAPI.emit(event, data)</span><span class="desc">Emit a custom event</span></div>
+        <div class="api-endpoint"><span class="method get">GET</span><span class="path">PluginAPI.on(event, cb)</span><span class="desc">Listen for a custom event</span></div>
+      </div>
+
+      <div class="sdk-card" style="margin-top:24px;">
+        <h3>Theme Format</h3>
+        <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px;">Themes are CSS variable overrides packaged in a manifest:</p>
+        <pre style="background:rgba(0,0,0,0.4);padding:16px;border-radius:8px;margin-top:12px;font-size:.8rem;color:var(--text-secondary);overflow-x:auto;">{
+  "name": "cyber-dark",
+  "version": "1.0.0",
+  "author": "Your Name",
+  "description": "Dark cyberpunk theme",
+  "type": "theme",
+  "main": "theme.css",
+  "icon": "🌙"
+}</pre>
+        <p style="font-size:.85rem;color:var(--text-secondary);margin-top:12px;">Theme CSS files override CSS custom properties (--neon-blue, --bg-primary, etc.) to customize the entire RQBBOX look and feel.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner" style="grid-template-columns:2fr 1fr 1fr;">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 36 36" width="36" height="36"><rect width="36" height="36" rx="8" fill="#12182a"/><rect x="4" y="4" width="28" height="28" rx="6" fill="none" stroke="url(#fGrad)" stroke-width="2"/><text x="18" y="23" text-anchor="middle" font-size="14" font-weight="800" fill="url(#fGrad)" font-family="Segoe UI">R</text><defs><linearGradient id="fGrad"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+        RQBBOX Dev Hub
+      </div>
+      <p>Build for RQBBOX OS. SDK tools, API docs, and open-code projects.</p>
+      <p style="margin-top:12px;color:var(--text-muted);font-size:.8rem;">© 2026 RhysTech. All rights reserved.</p>
+    </div>
+    <div class="footer-col"><h4>Resources</h4><a href="#sdk">SDK Downloads</a><a href="#api">API Reference</a><a href="#tutorials">Tutorials</a><a href="#projects">Open-Code</a><a href="#plugin-api">Plugin API</a></div>
+    <div class="footer-col"><h4>RQBBOX</h4><a href="index.html">Home</a><a href="index.html#editions">Editions</a><a href="index.html#download">Download</a><a href="index.html#store">Store</a><a href="index.html#community">Community</a></div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    obs.observe(el);
+  });
+  // Check server status
+  const status = document.createElement('span');
+  status.style.cssText = 'font-size:.7rem;color:var(--text-muted);';
+  const navRight = document.querySelector('.nav-right');
+  if (navRight) { navRight.prepend(status); }
+  fetch('/api/storage', { signal: AbortSignal.timeout(3000) })
+    .then(r => r.ok ? status.textContent = '🟢 Online' : status.textContent = '🔴 Offline')
+    .catch(() => status.textContent = '🔴 Offline');
+});
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function toggleMobileMenu() {
+  const links = document.getElementById('navLinks');
+  const isVis = links.style.display === 'flex';
+  links.style.display = isVis ? 'none' : 'flex';
+  if (!isVis) {
+    Object.assign(links.style, { position:'absolute', top:'64px', left:'0', right:'0', flexDirection:'column', background:'rgba(5,8,16,0.98)', padding:'16px', borderBottom:'1px solid var(--border)', zIndex:'999' });
+  }
+}
+function switchDevTab(tab, btn) {
+  document.querySelectorAll('.dev-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.dev-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('dev-' + tab)?.classList.add('active');
+  window.scrollTo({ top: document.querySelector('.dev-tabs').offsetTop - 80, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

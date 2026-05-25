@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs><linearGradient id="a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs>
+  <rect width="128" height="128" rx="20" fill="#12182a" stroke="url(#a)" stroke-width="3"/>
+  <path d="M24 44 L104 44 L112 56 L112 90 Q112 98 104 98 L96 98 Q88 98 88 90 L88 82 L40 82 L40 90 Q40 98 32 98 L24 98 Q16 98 16 90 L16 56 Z" fill="none" stroke="url(#a)" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="28" y="60" width="12" height="6" rx="3" fill="#00d4ff"/>
+  <rect x="86" y="60" width="12" height="6" rx="3" fill="#00d4ff"/>
+  <text x="64" y="108" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#8b9dc3" letter-spacing="2">GAMES</text>
+</svg>

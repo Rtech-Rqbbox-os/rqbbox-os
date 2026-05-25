@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050810"/>
+      <stop offset="40%" stop-color="#0a1530"/>
+      <stop offset="100%" stop-color="#1a0828"/>
+    </linearGradient>
+    <linearGradient id="rqbGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="50%" stop-color="#9d4edd"/>
+      <stop offset="100%" stop-color="#ff00aa"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="30%" cy="30%">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="70%" cy="70%">
+      <stop offset="0%" stop-color="#9d4edd" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#9d4edd" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow1)"/>
+  <rect width="1920" height="1080" fill="url(#glow2)"/>
+  <!-- Geometric accent shapes -->
+  <g opacity="0.08">
+    <polygon points="960,100 1000,200 920,200" fill="#00d4ff"/>
+    <polygon points="960,980 1000,880 920,880" fill="#ff00aa"/>
+    <rect x="0" y="540" width="1920" height="1" fill="#00d4ff"/>
+    <rect x="960" y="0" width="1" height="1080" fill="#9d4edd"/>
+  </g>
+  <!-- Hex grid pattern -->
+  <g stroke="#00d4ff" stroke-width="0.5" fill="none" opacity="0.04">
+    <polygon points="200,300 250,270 300,300 300,360 250,390 200,360"/>
+    <polygon points="300,300 350,270 400,300 400,360 350,390 300,360"/>
+    <polygon points="400,300 450,270 500,300 500,360 450,390 400,360"/>
+    <polygon points="1500,700 1550,670 1600,700 1600,760 1550,790 1500,760"/>
+    <polygon points="1600,700 1650,670 1700,700 1700,760 1650,790 1600,760"/>
+    <polygon points="1700,700 1750,670 1800,700 1800,760 1750,790 1700,760"/>
+  </g>
+  <!-- Logo RQBBOX -->
+  <g transform="translate(960,440)">
+    <!-- Outer box -->
+    <rect x="-160" y="-80" width="320" height="160" rx="24" fill="#12182a" stroke="url(#rqbGrad)" stroke-width="4" filter="url(#softGlow)"/>
+    <!-- Inner screen -->
+    <rect x="-130" y="-55" width="260" height="90" rx="10" fill="#0d1220"/>
+    <text x="0" y="12" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="800" fill="url(#rqbGrad)" letter-spacing="6" filter="url(#softGlow)">RQB</text>
+    <!-- D-pad -->
+    <rect x="-120" y="30" width="40" height="14" rx="3" fill="#1e2a4a"/>
+    <rect x="-106" y="16" width="14" height="42" rx="3" fill="#1e2a4a"/>
+    <!-- Buttons -->
+    <circle cx="100" cy="38" r="12" fill="#00d4ff" opacity="0.8"/>
+    <circle cx="126" cy="24" r="12" fill="#9d4edd" opacity="0.8"/>
+  </g>
+  <text x="960" y="550" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600" fill="url(#rqbGrad)" letter-spacing="12" opacity="0.7">PLUG IN. PLAY ANYWHERE.</text>
+  <text x="960" y="590" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" fill="#5a6a8a" letter-spacing="6">RQBBOX 0 · AI ENHANCED</text>
+  <!-- Decorative lines -->
+  <line x1="300" y1="550" x2="700" y2="550" stroke="url(#rqbGrad)" stroke-width="1" opacity="0.3"/>
+  <line x1="1220" y1="550" x2="1620" y2="550" stroke="url(#rqbGrad)" stroke-width="1" opacity="0.3"/>
+  <!-- Bottom tag -->
+  <text x="960" y="980" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#5a6a8a" letter-spacing="4">AI GENERATED · RQB ASSISTANT STUDIO</text>
+</svg>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Void Craft Sandbox</title>
+<style>
+body{margin:0;background:#0a0e1a;color:#e8f0ff;font-family:monospace;overflow:hidden}
+canvas{display:block;margin:0 auto;background:#12182a;cursor:crosshair}
+p{text-align:center;color:#8b9dc3;font-size:13px}
+</style>
+</head>
+<body>
+<p>Click to place blocks · R=random color · C=clear · Sandbox builder</p>
+<canvas id="c" width="640" height="400"></canvas>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),S=16;
+const grid={};
+function key(gx,gy){return gx+','+gy}
+function draw(){
+  x.fillStyle='#12182a';x.fillRect(0,0,640,400);
+  Object.entries(grid).forEach(([k,c])=>{const [gx,gy]=k.split(',').map(Number);x.fillStyle=c;x.fillRect(gx*S,gy*S,S-1,S-1)});
+  x.strokeStyle='rgba(0,212,255,.1)';for(let i=0;i<640;i+=S){x.beginPath();x.moveTo(i,0);x.lineTo(i,400);x.stroke()}for(let j=0;j<400;j+=S){x.beginPath();x.moveTo(0,j);x.lineTo(640,j);x.stroke()}
+}
+const colors=['#00d4ff','#9d4edd','#ff00aa','#00ffc8','#ffd700'];
+cv.onclick=e=>{const r=cv.getBoundingClientRect();const gx=Math.floor((e.clientX-r.left)/S),gy=Math.floor((e.clientY-r.top)/S);grid[key(gx,gy)]=colors[Math.floor(Math.random()*colors.length)];draw()};
+document.onkeydown=e=>{if(e.code==='KeyR'){Object.keys(grid).forEach(k=>grid[k]=colors[Math.floor(Math.random()*colors.length)]);draw()}if(e.code==='KeyC'){Object.keys(grid).forEach(k=>delete grid[k]);draw()}};
+draw();
+</script>
+</body>
+</html>

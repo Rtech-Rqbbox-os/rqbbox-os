@@ -1,0 +1,309 @@
+{
+  "featured": [
+    {
+      "id": "neon-drift",
+      "title": "Neon Drift Racing",
+      "type": "game",
+      "category": "Racing",
+      "description": "High-speed neon racing through cyberpunk cityscapes. Full controller support with vibration.",
+      "rating": 4.8,
+      "reviews": 1240,
+      "size": "1.2 GB",
+      "price": "Free",
+      "banner": "🏎️",
+      "featured": true,
+      "tags": ["3D", "Racing", "Controller"]
+    },
+    {
+      "id": "void-craft",
+      "title": "Void Craft Sandbox",
+      "type": "game",
+      "category": "Sandbox",
+      "description": "Build, explore, and survive in an infinite procedural universe.",
+      "rating": 4.6,
+      "reviews": 890,
+      "size": "800 MB",
+      "price": "Free",
+      "banner": "🌍",
+      "featured": true,
+      "tags": ["Sandbox", "3D", "Indie"]
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "type": "app",
+      "category": "Streaming",
+      "description": "Watch, stream, and discover videos from the world's largest video platform.",
+      "rating": 4.7,
+      "reviews": 50000,
+      "size": "Web App",
+      "price": "Free",
+      "banner": "📺",
+      "featured": true,
+      "tags": ["Streaming", "Video", "Social"]
+    }
+  ],
+  "games": [
+    {
+      "id": "neon-drift",
+      "title": "Neon Drift Racing",
+      "category": "Racing",
+      "description": "High-speed neon racing through cyberpunk cityscapes.",
+      "rating": 4.8,
+      "size": "1.2 GB",
+      "banner": "🏎️",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "void-craft",
+      "title": "Void Craft Sandbox",
+      "category": "Sandbox",
+      "description": "Build and explore infinite procedural worlds.",
+      "rating": 4.6,
+      "size": "800 MB",
+      "banner": "🌍",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": false
+    },
+    {
+      "id": "pixel-quest",
+      "title": "Pixel Quest Adventures",
+      "category": "Indie",
+      "description": "Retro-inspired indie adventure with modern mechanics.",
+      "rating": 4.9,
+      "size": "250 MB",
+      "banner": "⚔️",
+      "installed": true,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "star-fighter",
+      "title": "Star Fighter X",
+      "category": "3D",
+      "description": "Epic space combat with stunning 3D graphics.",
+      "rating": 4.5,
+      "size": "2.1 GB",
+      "banner": "🚀",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "retro-zone",
+      "title": "Retro Zone Emulator",
+      "category": "Emulator",
+      "description": "Classic console emulator with USB save support.",
+      "rating": 4.7,
+      "size": "150 MB",
+      "banner": "🕹️",
+      "installed": true,
+      "achievements": false,
+      "controller": true,
+      "vibration": false
+    },
+    {
+      "id": "cube-runner",
+      "title": "Cube Runner 3D",
+      "category": "3D",
+      "description": "Fast-paced 3D platformer with neon aesthetics.",
+      "rating": 4.4,
+      "size": "450 MB",
+      "banner": "🎮",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    }
+  ],
+  "apps": [
+    {
+      "id": "rqb-browser",
+      "title": "RQB Browser",
+      "category": "Utility",
+      "description": "Fast portable web browser optimized for RQBBOX.",
+      "rating": 4.5,
+      "size": "45 MB",
+      "banner": "🌐",
+      "installed": true
+    },
+    {
+      "id": "media-hub",
+      "title": "Media Hub Player",
+      "category": "Media",
+      "description": "All-in-one video and music player.",
+      "rating": 4.6,
+      "size": "30 MB",
+      "banner": "🎬",
+      "installed": true
+    },
+    {
+      "id": "music-wave",
+      "title": "Music Wave",
+      "category": "Media",
+      "description": "Beautiful music player with visualizer.",
+      "rating": 4.7,
+      "size": "25 MB",
+      "banner": "🎵",
+      "installed": false
+    },
+    {
+      "id": "notes-pro",
+      "title": "Notes Pro",
+      "category": "Productivity",
+      "description": "Quick notes with cloud sync to USB profile.",
+      "rating": 4.3,
+      "size": "8 MB",
+      "banner": "📝",
+      "installed": false
+    },
+    {
+      "id": "ai-image-gen",
+      "title": "AI Image Studio",
+      "category": "AI",
+      "description": "Generate stunning AI images and wallpapers offline.",
+      "rating": 4.9,
+      "size": "120 MB",
+      "banner": "🎨",
+      "installed": true
+    },
+    {
+      "id": "ai-chat",
+      "title": "RQB Assistant",
+      "category": "AI",
+      "description": "Smart AI chat assistant with voice support.",
+      "rating": 4.8,
+      "size": "80 MB",
+      "banner": "🤖",
+      "installed": true
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "category": "Streaming",
+      "description": "Watch, stream, and discover videos from the world's largest video platform.",
+      "rating": 4.7,
+      "size": "Web App",
+      "banner": "📺",
+      "installed": true
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "category": "Streaming",
+      "description": "Stream movies, TV shows, and exclusive originals in stunning quality.",
+      "rating": 4.6,
+      "size": "Web App",
+      "banner": "🎬",
+      "installed": true
+    },
+    {
+      "id": "spotify",
+      "title": "Spotify",
+      "category": "Streaming",
+      "description": "Millions of songs, podcasts, and playlists at your fingertips.",
+      "rating": 4.8,
+      "size": "Web App",
+      "banner": "🎵",
+      "installed": true
+    },
+    {
+      "id": "twitch",
+      "title": "Twitch",
+      "category": "Streaming",
+      "description": "Live game streams, creative content, and community chat.",
+      "rating": 4.4,
+      "size": "Web App",
+      "banner": "📡",
+      "installed": true
+    },
+    {
+      "id": "reddit",
+      "title": "Reddit",
+      "category": "Social",
+      "description": "Join millions of communities with discussions on every topic.",
+      "rating": 4.5,
+      "size": "Web App",
+      "banner": "💬",
+      "installed": true
+    },
+    {
+      "id": "x-social",
+      "title": "X / Twitter",
+      "category": "Social",
+      "description": "Stay connected with breaking news, trends, and conversations.",
+      "rating": 4.3,
+      "size": "Web App",
+      "banner": "🐦",
+      "installed": true
+    },
+    {
+      "id": "discord",
+      "title": "Discord",
+      "category": "Social",
+      "description": "Voice, video, and text chat for gaming communities.",
+      "rating": 4.7,
+      "size": "Web App",
+      "banner": "💎",
+      "installed": true
+    },
+    {
+      "id": "wikipedia",
+      "title": "Wikipedia",
+      "category": "Reference",
+      "description": "The free encyclopedia with millions of articles in every language.",
+      "rating": 4.9,
+      "size": "Web App",
+      "banner": "📚",
+      "installed": true
+    },
+    {
+      "id": "gmail",
+      "title": "Gmail",
+      "category": "Productivity",
+      "description": "Secure email with smart organization and Google integration.",
+      "rating": 4.6,
+      "size": "Web App",
+      "banner": "📧",
+      "installed": true
+    },
+    {
+      "id": "google-drive",
+      "title": "Google Drive",
+      "category": "Productivity",
+      "description": "Cloud storage with docs, sheets, slides, and file sharing.",
+      "rating": 4.5,
+      "size": "Web App",
+      "banner": "☁️",
+      "installed": true
+    },
+    {
+      "id": "github",
+      "title": "GitHub",
+      "category": "Developer",
+      "description": "Code hosting, version control, and developer collaboration platform.",
+      "rating": 4.8,
+      "size": "Web App",
+      "banner": "💻",
+      "installed": true
+    },
+    {
+      "id": "stack-overflow",
+      "title": "Stack Overflow",
+      "category": "Developer",
+      "description": "Q&A community for programmers and developers of all skill levels.",
+      "rating": 4.7,
+      "size": "Web App",
+      "banner": "📋",
+      "installed": true
+    }
+  ],
+  "categories": ["All", "3D Games", "Indie", "Racing", "Sandbox", "Emulator", "Apps", "AI", "Media", "Streaming", "Social", "Developer", "Reference", "Productivity", "Utility"]
+}

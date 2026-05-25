@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Retro Zone</title>
+<style>
+body{margin:0;background:#0a0e1a;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;color:#e8f0ff;font-family:monospace}
+canvas{border:2px solid #9d4edd;border-radius:4px;box-shadow:0 0 20px rgba(157,78,221,.4)}
+p{margin-top:10px;color:#8b9dc3;font-size:13px}
+</style>
+</head>
+<body>
+<canvas id="c" width="600" height="400"></canvas>
+<p>PONG — Player: W/S · CPU opponent · First to 5 wins</p>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+let py=180,cy=180,by=200,bx=300,bdx=4,bdy=3,ps=0,cs=0,keys={};
+document.addEventListener('keydown',e=>keys[e.code]=true);
+document.addEventListener('keyup',e=>keys[e.code]=false);
+function resetBall(toPlayer){bx=300;by=200;bdy=3;bdx=toPlayer?-4:4}
+function loop(){
+  if(keys['KeyW'])py=Math.max(0,py-5);
+  if(keys['KeyS'])py=Math.min(320,py+5);
+  cy+=(by+200-cy)*0.08;
+  bx+=bdx;by+=bdy;
+  if(by<0||by>380)bdy*=-1;
+  if(bx<30&&by>py&&by<py+80){bdx=Math.abs(bdx)+0.2;bdx=Math.min(bdx,8)}
+  if(bx>560&&by>cy&&by<cy+80){bdx=-Math.abs(bdx)-0.2;bdx=Math.max(bdx,-8)}
+  if(bx<0){cs++;resetBall(true);parent.postMessage({type:'rqbbox-toast',message:'CPU scores!'},'*')}
+  if(bx>600){ps++;resetBall(false);parent.postMessage({type:'rqbbox-toast',message:'You score!'},'*')}
+  if(ps>=5||cs>=5){ps=0;cs=0;parent.postMessage({type:'rqbbox-toast',message:'Game reset — play again!'},'*')}
+  x.fillStyle='#0a0e1a';x.fillRect(0,0,600,400);
+  x.setLineDash([4,8]);x.strokeStyle='#333';x.beginPath();x.moveTo(300,0);x.lineTo(300,400);x.stroke();x.setLineDash([]);
+  x.fillStyle='#00d4ff';x.fillRect(10,py,12,80);
+  x.fillStyle='#ff00aa';x.fillRect(578,cy,12,80);
+  x.fillStyle='#fff';x.beginPath();x.arc(bx,by,8,0,Math.PI*2);x.fill();
+  x.fillStyle='#8b9dc3';x.font='20px monospace';x.fillText(ps+' : '+cs,280,30);
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>

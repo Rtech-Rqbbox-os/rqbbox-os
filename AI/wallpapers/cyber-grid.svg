@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020510"/>
+      <stop offset="50%" stop-color="#0a1530"/>
+      <stop offset="100%" stop-color="#150828"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00d4ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ff00aa" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="40%">
+      <stop offset="0%" stop-color="#9d4edd" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#00d4ff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#sun)"/>
+  <!-- City skyline -->
+  <g fill="#0d1a30" opacity="0.9">
+    <rect x="0" y="680" width="120" height="400"/>
+    <rect x="100" y="640" width="80" height="440"/>
+    <rect x="160" y="700" width="100" height="380"/>
+    <rect x="240" y="620" width="60" height="460"/>
+    <rect x="290" y="660" width="90" height="420"/>
+    <rect x="360" y="580" width="70" height="500"/>
+    <rect x="420" y="650" width="110" height="430"/>
+    <rect x="510" y="600" width="60" height="480"/>
+    <rect x="560" y="670" width="130" height="410"/>
+    <rect x="670" y="610" width="80" height="470"/>
+    <rect x="730" y="560" width="100" height="520"/>
+    <rect x="810" y="640" width="70" height="440"/>
+    <rect x="860" y="690" width="120" height="390"/>
+    <rect x="960" y="600" width="90" height="480"/>
+    <rect x="1030" y="650" width="80" height="430"/>
+    <rect x="1090" y="620" width="110" height="460"/>
+    <rect x="1180" y="680" width="70" height="400"/>
+    <rect x="1230" y="590" width="130" height="490"/>
+    <rect x="1340" y="640" width="90" height="440"/>
+    <rect x="1410" y="610" width="100" height="470"/>
+    <rect x="1490" y="670" width="80" height="410"/>
+    <rect x="1550" y="630" width="120" height="450"/>
+    <rect x="1650" y="590" width="90" height="490"/>
+    <rect x="1720" y="660" width="80" height="420"/>
+    <rect x="1780" y="700" width="140" height="380"/>
+  </g>
+  <!-- Windows on buildings -->
+  <g fill="#00d4ff" opacity="0.15">
+    <rect x="110" y="650" width="4" height="4"/><rect x="120" y="660" width="4" height="4"/><rect x="130" y="645" width="4" height="4"/><rect x="140" y="670" width="4" height="4"/>
+    <rect x="370" y="600" width="4" height="4"/><rect x="380" y="615" width="4" height="4"/><rect x="390" y="590" width="4" height="4"/><rect x="400" y="610" width="4" height="4"/>
+    <rect x="740" y="580" width="4" height="4"/><rect x="760" y="595" width="4" height="4"/><rect x="780" y="570" width="4" height="4"/><rect x="750" y="610" width="4" height="4"/>
+    <rect x="1240" y="610" width="4" height="4"/><rect x="1260" y="625" width="4" height="4"/><rect x="1280" y="600" width="4" height="4"/><rect x="1300" y="620" width="4" height="4"/>
+    <rect x="1660" y="610" width="4" height="4"/><rect x="1680" y="625" width="4" height="4"/><rect x="1690" y="600" width="4" height="4"/><rect x="1700" y="620" width="4" height="4"/>
+  </g>
+  <!-- Grid lines -->
+  <g opacity="0.06" stroke="#00d4ff" stroke-width="1">
+    <line x1="0" y1="270" x2="1920" y2="270"/><line x1="0" y1="540" x2="1920" y2="540"/>
+    <line x1="0" y1="810" x2="1920" y2="810"/><line x1="480" y1="0" x2="480" y2="1080"/>
+    <line x1="960" y1="0" x2="960" y2="1080"/><line x1="1440" y1="0" x2="1440" y2="1080"/>
+  </g>
+  <!-- Horizontal neon scan lines -->
+  <g opacity="0.04" stroke="#00d4ff" stroke-width="0.5">
+    <line x1="0" y1="100" x2="1920" y2="100"/><line x1="0" y1="200" x2="1920" y2="200"/>
+    <line x1="0" y1="300" x2="1920" y2="300"/><line x1="0" y1="400" x2="1920" y2="400"/>
+    <line x1="0" y1="500" x2="1920" y2="500"/><line x1="0" y1="600" x2="1920" y2="600"/>
+    <line x1="0" y1="700" x2="1920" y2="700"/><line x1="0" y1="800" x2="1920" y2="800"/>
+    <line x1="0" y1="900" x2="1920" y2="900"/><line x1="0" y1="1000" x2="1920" y2="1000"/>
+  </g>
+  <line x1="0" y1="940" x2="1920" y2="940" stroke="url(#line)" stroke-width="2"/>
+  <text x="960" y="460" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="140" font-weight="800" fill="#ffffff" opacity="0.05" letter-spacing="24">CYBER</text>
+  <text x="960" y="990" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="26" fill="#00d4ff" opacity="0.35" letter-spacing="10">AI GENERATED · RQBBOX 0</text>
+</svg>
