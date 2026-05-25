@@ -110,7 +110,7 @@ const SettingsPage = {
 
       system: `
         <h3 style="margin-bottom:20px;">System</h3>
-        <div class="setting-row"><div><div class="setting-label">Version</div><div class="setting-desc">RQBBOX OS Portable USB</div></div><span>v1.0.0</span></div>
+        <div class="setting-row"><div><div class="setting-label">Version</div><div class="setting-desc">RQBBOX OS Portable USB</div></div><span>v1.1.0</span></div>
         <div class="setting-row"><div><div class="setting-label">API Server</div><div class="setting-desc">Local USB backend</div></div><span>${RQBApi.online ? '🟢 Online' : '🔴 Offline'}</span></div>
         <div class="setting-row"><div><div class="setting-label">USB Label</div></div><span style="font-size:0.85rem;color:var(--text-muted);">RQBBOX 0</span></div>
         <div class="setting-row"><div><div class="setting-label">Updates</div></div><button class="btn btn-primary btn-sm" onclick="SettingsPage.checkUpdate()">Check</button></div>
@@ -125,6 +125,10 @@ const SettingsPage = {
         <div class="setting-row">
           <div><div class="setting-label">Database Validate</div><div class="setting-desc">Repair and validate user database</div></div>
           <button class="btn btn-ghost btn-sm" onclick="SettingsPage.validateDB()">🔧 Validate</button>
+        </div>
+        <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);font-size:.75rem;color:var(--text-muted);text-align:center;">
+          © 2026 RhysTech. RQBBOX® is a trademark of RhysTech. All rights reserved. <br>
+          Plug Into Gaming. ® Portable Power Anywhere. Your USB Gaming World.
         </div>`,
 
       device: `

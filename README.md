@@ -2,11 +2,11 @@
   <img src="https://raw.githubusercontent.com/Rtech-Rqbbox-os/rqbbox-os/main/System/Branding/rqbbox-logo.svg" alt="RQBBOX OS Logo" width="120"/>
 </p>
 
-<h1 align="center">RQBBOX OS</h1>
+<h1 align="center">RQBBOX OS ®</h1>
 
 <p align="center">
-  <strong>Plug Into Gaming. Portable Power Anywhere.</strong><br/>
-  A portable USB gaming operating system — no installation, no emulators, no boot required.
+  <strong>Plug Into Gaming. ® Portable Power Anywhere.</strong><br/>
+  A portable USB gaming operating system by RhysTech — no installation, no emulators, no boot required.
 </p>
 
 <p align="center">
@@ -23,6 +23,9 @@
 RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it into any PC, start the server, and instantly access your games, apps, settings, and saves — no installation required.
 
 **Website:** [rtech-rqbbox-os.github.io/rqbbox-os](https://rtech-rqbbox-os.github.io/rqbbox-os/)
+**GitHub:** [github.com/Rtech-Rqbbox-os/rqbbox-os](https://github.com/Rtech-Rqbbox-os/rqbbox-os)
+
+© 2026 RhysTech. RQBBOX® is a trademark of RhysTech. All rights reserved.
 
 ---
 
@@ -154,6 +157,11 @@ MIT License
 
 <p align="center">
   <a href="https://rtech-rqbbox-os.github.io/rqbbox-os/">Website</a> ·
+  <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os">GitHub</a> ·
   <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/issues">Issues</a> ·
   <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/discussions">Discussions</a>
+</p>
+
+<p align="center" style="color:#5a6a8a;font-size:0.8rem;">
+  © 2026 RhysTech. RQBBOX® is a trademark of RhysTech. All rights reserved.
 </p>
