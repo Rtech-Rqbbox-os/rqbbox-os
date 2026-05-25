@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=RQBBOX OS
-Comment=Immersive Gaming Console OS
-Exec=rqbbox-os
-Icon=com.rtech.RQBBOXos
-Terminal=false
-Type=Application
-Categories=Game;Entertainment;
-StartupWMClass=rqbbox-os
