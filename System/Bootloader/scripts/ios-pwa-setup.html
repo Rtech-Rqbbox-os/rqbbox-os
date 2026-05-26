@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>RQBBOX iOS PWA Setup</title>
+  <style>
+    :root {
+      --bg: #0a0e1a; --surface: rgba(255,255,255,0.04);
+      --primary: #00d4ff; --text: #e0e8f0; --text-secondary: #8899b0;
+      --radius: 16px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      padding: 20px; line-height: 1.6;
+    }
+    .container { max-width: 600px; margin: 0 auto; }
+    h1 { color: var(--primary); font-size: 1.3rem; margin-bottom: 24px; text-align: center; }
+    h2 { color: var(--primary); font-size: 1rem; margin: 20px 0 10px; }
+    .step {
+      background: var(--surface); border-radius: var(--radius);
+      padding: 16px; margin-bottom: 12px;
+      border: 1px solid rgba(0,212,255,0.1);
+    }
+    .step-num {
+      display: inline-block; width: 24px; height: 24px; border-radius: 50%;
+      background: var(--primary); color: #000; text-align: center; line-height: 24px;
+      font-weight: 700; font-size: .8rem; margin-right: 8px;
+    }
+    p { font-size: .85rem; color: var(--text-secondary); margin: 8px 0; }
+    img { max-width: 100%; border-radius: 10px; margin: 12px 0; border: 1px solid rgba(255,255,255,0.08); }
+    .tip {
+      background: rgba(0,212,255,0.06); border-left: 3px solid var(--primary);
+      padding: 12px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: .82rem;
+    }
+    code {
+      background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;
+      font-family: 'SF Mono','Menlo',monospace; font-size: .8rem;
+    }
+    @media (prefers-color-scheme: light) {
+      :root { --bg: #f0f4f8; --surface: rgba(255,255,255,0.8); --text: #1a1e2a; --text-secondary: #555; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📱 RQBBOX — iOS / iPadOS PWA Setup</h1>
+
+    <div class="tip">
+      No App Store needed. RQBBOX runs as a Progressive Web App on any iPhone or iPad running iOS 14.5+.
+    </div>
+
+    <h2>Prerequisites</h2>
+    <div class="step">
+      <p>1. RQBBOX server must be running on another device (PC, Android via Termux, or a Raspberry Pi)</p>
+      <p>2. Both devices must be on the same Wi-Fi network</p>
+      <p>3. iOS 14.5 or later recommended for full PWA features</p>
+    </div>
+
+    <h2>Step-by-Step Setup</h2>
+
+    <div class="step">
+      <p><span class="step-num">1</span> <strong>Find your server IP</strong></p>
+      <p>On the device running RQBBOX server, note the IP address shown when the server starts (e.g., <code>http://192.168.1.100:19777</code>)</p>
+    </div>
+
+    <div class="step">
+      <p><span class="step-num">2</span> <strong>Open Safari</strong></p>
+      <p>Open Safari on your iPhone/iPad (Chrome/Firefox cannot install PWAs on iOS)</p>
+    </div>
+
+    <div class="step">
+      <p><span class="step-num">3</span> <strong>Navigate to RQBBOX</strong></p>
+      <p>Type your server's IP address in the address bar:<br>
+      <code>http://192.168.1.100:19777</code></p>
+      <p>The RQBBOX Phone Bootloader page will load.</p>
+    </div>
+
+    <div class="step">
+      <p><span class="step-num">4</span> <strong>Add to Home Screen</strong></p>
+      <p>Tap the <strong>Share</strong> button (square with arrow at the bottom of the screen)</p>
+      <p>Scroll down and tap <strong>Add to Home Screen</strong></p>
+      <p>Customize the name (default: "RQBBOX Phone Bootloader")</p>
+      <p>Tap <strong>Add</strong> in the top-right corner</p>
+    </div>
+
+    <div class="step">
+      <p><span class="step-num">5</span> <strong>Launch RQBBOX</strong></p>
+      <p>RQBBOX icon appears on your home screen — tap to launch</p>
+      <p>It opens in full-screen mode (no Safari address bar)</p>
+      <p><strong>Pro tip:</strong> Use the share sheet to send game links to friends</p>
+    </div>
+
+    <h2>Additional Setup</h2>
+
+    <div class="step">
+      <p><span class="step-num">+</span> <strong>Enable Notifications (iOS 16.4+)</strong></p>
+      <p>Settings → Safari → Advanced → Web Notifications → Toggle ON</p>
+      <p>RQBBOX can send game invites and updates</p>
+    </div>
+
+    <div class="step">
+      <p><span class="step-num">+</span> <strong>Badge Numbers</strong></p>
+      <p>Settings → Notifications → RQBBOX → Badges → ON</p>
+    </div>
+
+    <div class="step">
+      <p><span class="step-num">+</span> <strong>Background Audio</strong></p>
+      <p>RQBBOX audio continues when phone is locked — enable in Settings → RQBBOX → Background Audio</p>
+    </div>
+
+    <h2>Troubleshooting</h2>
+
+    <div class="step">
+      <p><strong>❌ "Cannot connect to server"</strong></p>
+      <p>• Ensure both devices are on the same Wi-Fi network</p>
+      <p>• Check the server is running (<code>node System/Server/server.js</code>)</p>
+      <p>• Try the IP <code>127.0.0.1:19777</code> if running server on the same device via iSH (iOS terminal)</p>
+    </div>
+
+    <div class="step">
+      <p><strong>❌ "PWA not installing"</strong></p>
+      <p>• You MUST use Safari — Chrome/Firefox don't support iOS PWA installs</p>
+      <p>• iOS 14.5+ required</p>
+      <p>• Server must serve HTTPS or localhost — for HTTP on local network, ensure proper network config</p>
+    </div>
+
+    <div class="step">
+      <p><strong>❌ "App crashes on launch"</strong></p>
+      <p>• Clear Safari cache: Settings → Safari → Clear History and Website Data</p>
+      <p>• Remove and re-add to Home Screen</p>
+      <p>• Update RQBBOX to the latest version</p>
+    </div>
+
+    <div class="tip">
+      💡 <strong>Running server ON your iPhone?</strong> Install <strong>iSH</strong> from the App Store, then:
+      <code style="display:block;margin:8px 0;padding:8px;background:rgba(0,0,0,0.3);border-radius:6px;">
+apk update && apk add nodejs npm git<br>
+git clone https://github.com/Rtech-Rqbbox-os/rqbbox-os.git<br>
+cd rqbbox-os && node System/Server/server.js
+      </code>
+      Then access RQBBOX at <code>http://127.0.0.1:19777</code> in Safari.
+    </div>
+
+    <div style="text-align:center;padding:20px;font-size:.7rem;color:var(--text-secondary);opacity:.6">
+      RQBBOX © 2026 RhysTech — Plug Into Gaming.
+    </div>
+  </div>
+</body>
+</html>

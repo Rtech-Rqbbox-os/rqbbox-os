@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>RQBBOX Phone Bootloader</title>
+  <link rel="manifest" href="System/Bootloader/manifest.json">
+  <link rel="icon" type="image/png" href="System/Branding/favicon.png">
+  <style>
+    :root {
+      --bg: #0a0e1a;
+      --surface: rgba(255,255,255,0.04);
+      --surface-hover: rgba(255,255,255,0.08);
+      --border: rgba(0,212,255,0.15);
+      --primary: #00d4ff;
+      --primary-dim: rgba(0,212,255,0.1);
+      --text: #e0e8f0;
+      --text-secondary: #8899b0;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 16px;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.06) 0%, transparent 70%);
+    }
+    .container { max-width: 480px; margin: 0 auto; }
+    .header { text-align: center; padding: 32px 0 24px; }
+    .header .logo {
+      width: 64px; height: 64px; border-radius: 18px;
+      background: linear-gradient(135deg,#00d4ff,#0066ff);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-size: 28px; font-weight: 800;
+      box-shadow: 0 8px 32px rgba(0,212,255,0.25);
+    }
+    .header h1 { font-size: 1.2rem; letter-spacing: .3em; color: var(--primary); }
+    .header p { font-size: .75rem; color: var(--text-secondary); margin-top: 4px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 12px;
+      backdrop-filter: blur(12px);
+    }
+    .card-title { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; color: var(--primary); margin-bottom: 12px; }
+    .device-info { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .device-info .item {
+      background: var(--primary-dim); border-radius: var(--radius-sm); padding: 12px;
+      text-align: center;
+    }
+    .device-info .item .label { font-size: .6rem; text-transform: uppercase; color: var(--text-secondary); }
+    .device-info .item .value { font-size: .85rem; margin-top: 4px; color: #fff; font-weight: 600; }
+    .method-card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .method-card:active { transform: scale(.97); background: var(--surface-hover); }
+    .method-card .badge {
+      display: inline-block; font-size: .6rem; padding: 2px 8px; border-radius: 20px;
+      background: var(--primary); color: #000; font-weight: 700; margin-bottom: 6px;
+    }
+    .method-card h3 { font-size: .9rem; margin-bottom: 4px; }
+    .method-card p { font-size: .75rem; color: var(--text-secondary); }
+    .btn {
+      display: block; width: 100%; border: none; border-radius: var(--radius-sm);
+      padding: 14px; font-size: .9rem; font-weight: 700; cursor: pointer;
+      transition: all .2s; text-align: center; text-decoration: none;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: linear-gradient(135deg,#00d4ff,#0066ff); color: #000; }
+    .btn-secondary { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+    .brand-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .brand-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 10px 12px; font-size: .75rem; cursor: pointer; transition: all .2s;
+      text-decoration: none; color: var(--text);
+    }
+    .brand-chip:active { background: var(--surface-hover); transform: scale(.97); }
+    .brand-chip .icon { font-size: 1.1rem; }
+    .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+    .status-dot.online { background: #00ff88; box-shadow: 0 0 8px rgba(0,255,136,0.4); }
+    .status-dot.offline { background: #ff4444; }
+    .toast {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.9); color: #fff; padding: 12px 24px; border-radius: 10px;
+      font-size: .8rem; z-index: 999; transition: all .3s; opacity: 0; pointer-events: none;
+      max-width: 90%; text-align: center;
+    }
+    .toast.show { opacity: 1; }
+    .steps { list-style: none; padding: 0; }
+    .steps li {
+      position: relative; padding: 8px 0 8px 28px; font-size: .8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .steps li::before {
+      content: counter(step-counter); counter-increment: step-counter;
+      position: absolute; left: 0; top: 8px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--primary); color: #000; font-size: .65rem;
+      display: flex; align-items: center; justify-content: center; font-weight: 700;
+    }
+    .steps { counter-reset: step-counter; }
+    .hidden { display: none !important; }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f0f4f8;
+        --surface: rgba(255,255,255,0.8);
+        --text: #1a1e2a;
+        --text-secondary: #555;
+        --border: rgba(0,0,0,0.1);
+        --surface-hover: rgba(0,0,0,0.04);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">R</div>
+      <h1>RQBBOX BOOTLOADER</h1>
+      <p>Phone Edition — Plug Into Gaming.</p>
+    </div>
+
+    <div class="card" id="status-card">
+      <div class="card-title">
+        <span class="status-dot offline" id="status-dot"></span>
+        <span id="status-text">Checking connection...</span>
+      </div>
+      <div class="device-info">
+        <div class="item"><div class="label">Phone</div><div class="value" id="detected-phone">—</div></div>
+        <div class="item"><div class="label">OS</div><div class="value" id="detected-os">—</div></div>
+      </div>
+      <button class="btn btn-primary" id="btn-launch" style="margin-top:16px" onclick="launchRQBBOX()">
+        Launch RQBBOX
+      </button>
+      <button class="btn btn-secondary" id="btn-retry" style="margin-top:8px;display:none" onclick="checkConnection()">
+        Retry Connection
+      </button>
+    </div>
+
+    <div id="auto-method"></div>
+
+    <div class="card">
+      <div class="card-title">📱 Phone Brands</div>
+      <div class="brand-list" id="brand-list"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📋 Boot Methods</div>
+      <div id="methods-list"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔗 Quick Links</div>
+      <a class="method-card" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os" target="_blank">
+        <h3>GitHub Repository</h3>
+        <p>Source code, issues, releases</p>
+      </a>
+      <a class="method-card" href="https://rtech-rqbbox-os.github.io/rqbbox-os/website/" target="_blank">
+        <h3>RQBBOX Website</h3>
+        <p>Full website with store, docs, SDK</p>
+      </a>
+      <a class="method-card" href="mailto:rqbbox.support@groups.outlook.com">
+        <h3>Support</h3>
+        <p>rqbbox.support@groups.outlook.com</p>
+      </a>
+    </div>
+
+    <div style="text-align:center;padding:20px;font-size:.65rem;color:var(--text-secondary);opacity:.6">
+      RQBBOX © 2026 RhysTech. All rights reserved.<br>
+      Not affiliated with phone manufacturers.<br>
+      Brand logos and names are trademarks of their respective owners.
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="scripts/boot-helper.js"></script>
+  <script>
+    const phone = RQBBoot.detectPhone();
+    const osInfo = RQBBoot.detectOS();
+
+    document.getElementById('detected-phone').textContent = phone.name;
+    document.getElementById('detected-os').textContent = osInfo.label;
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      clearTimeout(t._timer); t._timer = setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    async function checkConnection() {
+      const dot = document.getElementById('status-dot');
+      const text = document.getElementById('status-text');
+      const btn = document.getElementById('btn-launch');
+      const retry = document.getElementById('retry');
+      text.textContent = 'Checking connection...';
+      dot.className = 'status-dot offline';
+      btn.disabled = true;
+      btn.style.opacity = '.5';
+
+      const online = await RQBBoot.testConnection();
+      if (online) {
+        dot.className = 'status-dot online';
+        text.textContent = `Connected to RQBBOX at ${RQBBoot.getServerURL()}`;
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        document.getElementById('btn-launch').textContent = 'Launch RQBBOX';
+        document.getElementById('btn-retry').style.display = 'none';
+        showToast('RQBBOX server is running!');
+      } else {
+        dot.className = 'status-dot offline';
+        text.textContent = 'Server offline — follow boot methods below';
+        btn.disabled = true;
+        btn.style.opacity = '.5';
+        document.getElementById('btn-launch').textContent = 'Start RQBBOX Server First';
+        document.getElementById('btn-retry').style.display = 'block';
+        showToast('Server not found. Install on this phone using Termux.');
+      }
+    }
+
+    function launchRQBBOX() {
+      if (document.getElementById('btn-launch').disabled) return;
+      RQBBoot.launch();
+    }
+
+    function renderBrands() {
+      const brands = [
+        { icon:'🅿️', name:'Google Pixel', file:'google' },
+        { icon:'📱', name:'Samsung', file:'samsung' },
+        { icon:'1️⃣', name:'OnePlus', file:'oneplus' },
+        { icon:'📱', name:'Xiaomi', file:'xiaomi' },
+        { icon:'🔷', name:'Nokia', file:'nokia' },
+        { icon:'🪟', name:'Microsoft', file:'microsoft' },
+        { icon:'🤖', name:'Other Android', file:'universal' },
+      ];
+      const container = document.getElementById('brand-list');
+      container.innerHTML = brands.map(b =>
+        `<a class="brand-chip" href="brands/${b.file}.md" target="_blank">
+          <span class="icon">${b.icon}</span> ${b.name}
+        </a>`
+      ).join('');
+    }
+
+    function renderMethods() {
+      const method = RQBBoot.getBootMethod(osInfo.os);
+      const container = document.getElementById('methods-list');
+      const methodIcons = { app: '📦', pwa: '🌐', web: '🌍' };
+      container.innerHTML = `
+        <div class="method-card" onclick="showToast('${method.label}')">
+          <div class="badge">${methodIcons[method.type] || '📋'} ${method.label}</div>
+          <h3>Recommended for ${osInfo.label}</h3>
+          <ol class="steps" style="margin-top:8px">
+            ${method.steps.map(s => `<li>${s}</li>`).join('')}
+          </ol>
+        </div>
+      `;
+    }
+
+    document.getElementById('btn-retry').addEventListener('click', checkConnection);
+    renderBrands();
+    renderMethods();
+    setTimeout(checkConnection, 500);
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('System/Launcher/sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>

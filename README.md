@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.1.0-00d4ff?style=flat-square"/>
-  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-9d4edd?style=flat-square"/>
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Android%20%7C%20iOS-9d4edd?style=flat-square"/>
   <img src="https://img.shields.io/badge/license-MIT-00d4ff?style=flat-square"/>
   <img src="https://img.shields.io/badge/PWA-ready-00ffc8?style=flat-square"/>
   <img src="https://img.shields.io/badge/GitHub_Packages-npm-00d4ff?style=flat-square&logo=npm"/>
@@ -63,6 +63,15 @@ RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it i
 3. The server starts at http://127.0.0.1:19777/
 4. Open in your browser
 ```
+
+### Phone Bootloader (Android / iOS / KaiOS)
+```sh
+# Open in-browser → boots RQBBOX on any brand phone
+# Android: Install Termux → pkg install nodejs → run server
+# iOS: Open in Safari → "Add to Home Screen" as PWA
+# Full guides at: http://<server>:19777/bootloader/
+```
+Supported brands: Google Pixel, Samsung Galaxy, OnePlus, Xiaomi, Nokia, Microsoft Lumia, and more.
 
 ### macOS / Linux
 ```sh

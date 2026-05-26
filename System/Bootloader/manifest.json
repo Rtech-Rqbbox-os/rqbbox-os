@@ -1,0 +1,17 @@
+{
+  "name": "RQBBOX Phone Bootloader",
+  "short_name": "RQBBOX Phone",
+  "description": "Boot RQBBOX gaming OS on any phone brand",
+  "start_url": "/System/Bootloader/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "scope": "/",
+  "icons": [
+    { "src": "/System/Branding/favicon.png", "sizes": "196x196", "type": "image/png" }
+  ],
+  "categories": ["games", "utilities", "productivity"],
+  "screenshots": [],
+  "prefer_related_applications": false
+}

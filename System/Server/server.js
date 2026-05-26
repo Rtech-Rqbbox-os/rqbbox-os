@@ -876,6 +876,10 @@ const server = http.createServer(async (req, res) => {
         const tvRel = relLower.startsWith('tv/') ? rel.slice(3) : '';
         filePath = path.join(ROOT, 'System', 'TV', tvRel || 'index.html');
       }
+      else if (relLower.startsWith('bootloader/') || relLower === 'bootloader') {
+        const bootRel = relLower.startsWith('bootloader/') ? rel.slice(11) : '';
+        filePath = path.join(ROOT, 'System', 'Bootloader', bootRel || 'index.html');
+      }
       else if (relLower.startsWith('branding/')) filePath = path.join(BRANDING, rel.slice(9));
       else if (relLower.startsWith('sdk/') || relLower === 'sdk') {
         const sdkRel = relLower.startsWith('sdk/') ? rel.slice(4) : '';
@@ -899,7 +903,7 @@ const server = http.createServer(async (req, res) => {
       }
 
       filePath = path.resolve(filePath);
-      const allowed = [path.resolve(ROOT), path.resolve(LAUNCHER), path.resolve(WEBSITE), path.resolve(ROOT, 'System', 'SDK')];
+      const allowed = [path.resolve(ROOT), path.resolve(LAUNCHER), path.resolve(WEBSITE), path.resolve(ROOT, 'System', 'SDK'), path.resolve(ROOT, 'System', 'Bootloader')];
       if (!allowed.some(a => filePath.startsWith(a))) {
         send(403, '{"ok":false}'); return;
       }
