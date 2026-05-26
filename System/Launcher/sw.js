@@ -15,6 +15,8 @@ const ASSETS = [
   '/js/audio.js',
   '/js/editions.js',
   '/js/pluginLoader.js',
+  '/js/qrcode.js',
+  '/js/setup.js',
   '/js/pages/home.js',
   '/js/pages/games.js',
   '/js/pages/apps.js',
@@ -25,6 +27,8 @@ const ASSETS = [
   '/js/pages/profile.js',
   '/js/pages/downloads.js',
   '/js/pages/media.js',
+  '/js/pages/browser.js',
+  '/js/pages/friends.js',
   '/branding/rqbbox-logo.svg',
 ];
 
