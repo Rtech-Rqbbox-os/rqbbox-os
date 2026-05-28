@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "RQBBOX OS — Portable USB Gaming OS",
+  "short_name": "RQBBOX OS",
+  "version": "1.2.0",
+  "description": "Launch RQBBOX OS — a portable USB gaming operating system with PS5 UI, pro audio, 43+ packages, and phone bootloader. By RhysTech.",
+  "author": "RhysTech",
+  "homepage_url": "https://github.com/Rtech-Rqbbox-os/rqbbox-os",
+  "minimum_chrome_version": "88",
+
+  "icons": {
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  },
+
+  "action": {
+    "default_title": "Open RQBBOX OS",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.svg",
+      "128": "icons/icon-128.svg"
+    }
+  },
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "http://localhost:19777/*",
+    "https://rtech-rqbbox-os.github.io/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
+  "offline_enabled": true,
+
+  "keywords": ["gaming", "USB", "portable OS", "game launcher", "RhysTech"]
+}

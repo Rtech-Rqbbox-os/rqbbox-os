@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=420">
+  <title>RQBBOX OS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 420px; min-height: 500px; background: #0a0a0f; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .wrap { padding: 16px; }
+    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .logo { width: 44px; height: 44px; flex-shrink: 0; }
+    .title { font-size: 1.1rem; font-weight: 700; }
+    .sub { font-size: .7rem; color: rgba(255,255,255,.4); }
+    .badge { display: inline-block; background: rgba(0,212,255,.08); border: 1px solid rgba(0,212,255,.1); padding: 2px 8px; border-radius: 100px; font-size: .6rem; color: #00d4ff; text-transform: uppercase; letter-spacing: .3px; margin: 0 2px 4px 0; }
+    .desc { font-size: .78rem; line-height: 1.5; color: rgba(255,255,255,.5); margin-bottom: 12px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 12px; }
+    .g { padding: 6px 8px; border-radius: 6px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.04); font-size: .68rem; color: rgba(255,255,255,.5); }
+    .g strong { color: rgba(255,255,255,.7); }
+    .actions { display: flex; flex-direction: column; gap: 4px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; font-size: .75rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all .2s; }
+    .btn-primary { background: linear-gradient(135deg, #007bff, #00d4ff); color: #fff; }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-ghost { background: rgba(255,255,255,.04); color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.06); }
+    .btn-ghost:hover { background: rgba(255,255,255,.08); }
+    .footer { margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.04); font-size: .6rem; color: rgba(255,255,255,.2); display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+    .status-dot.online { background: #4cff88; }
+    .status-dot.offline { background: #ff4444; }
+    .tabs { display: flex; gap: 4px; margin-bottom: 12px; }
+    .tab { padding: 6px 14px; border-radius: 100px; font-size: .7rem; cursor: pointer; border: 1px solid rgba(255,255,255,.06); background: transparent; color: rgba(255,255,255,.4); font-family: inherit; transition: all .2s; }
+    .tab.active { background: rgba(0,212,255,.1); border-color: rgba(0,212,255,.2); color: #00d4ff; }
+    .tab:hover { background: rgba(255,255,255,.05); }
+    .page { display: none; }
+    .page.active { display: block; }
+    .launch-row { display: flex; gap: 4px; }
+    .launch-row .btn { flex: 1; }
+    .info-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: .7rem; border-bottom: 1px solid rgba(255,255,255,.03); }
+    .info-row .l { color: rgba(255,255,255,.3); }
+    .info-row .v { color: rgba(255,255,255,.5); }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <svg class="logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0a0e1a" stroke="url(#lg)" stroke-width="2"/><text x="50" y="66" text-anchor="middle" font-size="52" font-weight="800" fill="url(#lg)" font-family="Segoe UI">R</text><defs><linearGradient id="lg"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+    <div>
+      <div class="title">RQBBOX OS</div>
+      <div class="sub">Portable USB Gaming OS by RhysTech</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('launch',this)">Launch</button>
+    <button class="tab" onclick="switchTab('info',this)">Info Card</button>
+    <button class="tab" onclick="switchTab('status',this)">Status</button>
+  </div>
+
+  <!-- Launch Tab -->
+  <div class="page active" id="page-launch">
+    <div class="desc">Launch RQBBOX OS on your local machine or view the full info card online.</div>
+    <div class="launch-row">
+      <a class="btn btn-primary" href="http://localhost:19777/" target="_blank">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="5 9 2 12 5 15"/><polyline points="9 5 12 2 15 5"/><polyline points="15 19 12 22 9 19"/><polyline points="19 9 22 12 19 15"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+        Launch OS (localhost:19777)
+      </a>
+    </div>
+    <div style="margin-top:6px;">
+      <a class="btn btn-ghost" href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html" target="_blank">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        View Full Info Card Online
+      </a>
+    </div>
+    <div style="margin-top:6px;">
+      <a class="btn btn-ghost" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases" target="_blank">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download RQBBOX OS
+      </a>
+    </div>
+  </div>
+
+  <!-- Info Tab -->
+  <div class="page" id="page-info">
+    <div>
+      <span class="badge">v1.2.0</span>
+      <span class="badge">Open Source</span>
+      <span class="badge">Free</span>
+      <span class="badge">PS5 UI</span>
+    </div>
+    <div class="desc" style="margin-top:6px;">
+      A portable USB-based gaming OS that runs entirely from a USB drive without installation. PS5-inspired UI, pro audio engine, 43+ store packages, phone bootloader. Works on Windows, macOS, Linux, Android, iOS, and KaiOS.
+    </div>
+    <div class="grid">
+      <div class="g"><strong>🎮 6 Games</strong> &bull; Native HTML5</div>
+      <div class="g"><strong>🛒 43+ Packages</strong> &bull; Store + Google Play</div>
+      <div class="g"><strong>🎨 PS5 UI</strong> &bull; Dark minimal, glass</div>
+      <div class="g"><strong>🔊 Pro Audio</strong> &bull; 40+ synth sounds</div>
+      <div class="g"><strong>📱 Phone Boot</strong> &bull; Auto-detect + PWA</div>
+      <div class="g"><strong>👤 Multi-User</strong> &bull; Auth, cloud sync</div>
+      <div class="g"><strong>🔌 Plugin Engine</strong> &bull; JS plugins, themes</div>
+      <div class="g"><strong>📊 Hardware Monitor</strong> &bull; Battery, WiFi, storage</div>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases" target="_blank">⬇ Download RQBBOX OS</a>
+      <a class="btn btn-ghost" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os" target="_blank">GitHub Repository</a>
+    </div>
+  </div>
+
+  <!-- Status Tab -->
+  <div class="page" id="page-status">
+    <div class="desc">System status and quick links.</div>
+    <div id="status-content">
+      <div class="info-row"><span class="l">Server (localhost:19777)</span><span class="v" id="server-status"><span class="status-dot offline"></span>Checking...</span></div>
+      <div class="info-row"><span class="l">GitHub Pages</span><span class="v"><span class="status-dot online"></span>Live</span></div>
+      <div class="info-row"><span class="l">Latest Version</span><span class="v">1.2.0</span></div>
+      <div class="info-row"><span class="l">Platforms</span><span class="v">7 supported</span></div>
+      <div class="info-row"><span class="l">Store Packages</span><span class="v">43+</span></div>
+      <div class="actions" style="margin-top:8px;">
+        <a class="btn btn-ghost" href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/support.html" target="_blank">Support</a>
+        <a class="btn btn-ghost" href="https://www.youtube.com/@RQBBOX-REAL" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>&copy; 2026 RhysTech &bull; MIT License</span>
+    <span><a href="mailto:rqbbox.support@groups.outlook.com" style="color:rgba(0,212,255,.4);text-decoration:none;font-size:.6rem;">Support</a></span>
+  </div>
+</div>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('page-' + name).classList.add('active');
+}
+
+// Check local server status
+fetch('http://localhost:19777/', { mode: 'no-cors', signal: AbortSignal.timeout(3000) })
+  .then(() => { document.getElementById('server-status').innerHTML = '<span class="status-dot online"></span>Online'; })
+  .catch(() => { document.getElementById('server-status').innerHTML = '<span class="status-dot offline"></span>Offline (start server)'; });
+</script>
+</body>
+</html>

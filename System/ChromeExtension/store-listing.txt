@@ -1,0 +1,42 @@
+RQBBOX OS — Portable USB Gaming Operating System
+=================================================
+
+Short Description (132 chars):
+Launch RQBBOX OS — a portable USB gaming OS with PS5 UI, pro audio engine, 43+ store packages, and phone bootloader. Runs on any computer from a USB drive.
+
+Detailed Description:
+-------------------
+RQBBOX OS is a portable USB-based gaming operating system developed by RhysTech. It runs entirely from a USB drive without requiring installation, emulation, or rebooting the host machine.
+
+This Chrome Extension gives you quick access to:
+• Launch the RQBBOX OS server on your local machine
+• View the full OS info card with features and specifications
+• Check server status and system information
+• Quick links to download, GitHub, and support
+
+OS FEATURES:
+🎮 6 Native Games — HTML5 Canvas games (racing, platformer, shooter, sandbox, indie, emulator)
+🛒 43+ Store Packages — Games + web apps with full Google Play Store integration
+🎨 PS5-Inspired UI — Dark minimal design, horizontal scroll rows, glassmorphism panels
+🔊 Pro Audio Engine — 40+ synthesized sounds, 5 sound profiles, DSP effects, ambient music
+📱 Phone Bootloader — Auto-detect phone brand, PWA setup guides for all major brands
+👤 Multi-User Profiles — Authentication, friends, achievements, play time tracking, cloud sync
+🔌 Plugin & Theme Engine — JavaScript plugins, CSS themes, SDK & developer tools
+📊 Hardware Monitoring — Battery, WiFi, Bluetooth, controller, storage, system stats
+
+EDITIONS:
+• Lite — Free, lightweight, max 10 games + 5 apps
+• Pro — Cloud sync, unlimited library, performance tools
+• Creator — SDK, plugin/theme creator, developer tools
+
+Platforms: Windows, macOS, Linux, Android, iOS, KaiOS
+License: MIT Open Source
+
+Screenshots:
+1. Extension popup — Launch tab with local server and online links
+2. Info Card tab — Full feature overview and download button
+3. Status tab — Server status check and quick links
+
+Categories: Gaming, Developer Tools, Productivity
+Homepage: https://github.com/Rtech-Rqbbox-os/rqbbox-os
+Support: rqbbox.support@groups.outlook.com

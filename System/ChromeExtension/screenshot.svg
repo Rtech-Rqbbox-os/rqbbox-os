@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+  <rect width="1280" height="800" fill="#0a0a0f"/>
+  <defs><linearGradient id="bg"><stop offset="0%" stop-color="#0a0a0f"/><stop offset="100%" stop-color="#0d1117"/></linearGradient></defs>
+  <rect width="1280" height="800" fill="url(#bg)"/>
+  <rect x="60" y="60" width="420" height="680" rx="16" fill="rgba(20,22,28,.95)" stroke="rgba(255,255,255,.06)"/>
+  <text x="80" y="100" font-family="Segoe UI,sans-serif" font-size="18" font-weight="700" fill="#fff">RQBBOX OS</text>
+  <text x="80" y="118" font-family="Segoe UI,sans-serif" font-size="12" fill="rgba(255,255,255,.4)">Portable USB Gaming OS by RhysTech</text>
+  <rect x="80" y="135" width="380" height="34" rx="100" fill="rgba(0,212,255,.08)" stroke="rgba(0,212,255,.1)"/>
+  <text x="170" y="157" font-family="Segoe UI,sans-serif" font-size="13" fill="#00d4ff" text-anchor="middle">Launch</text>
+  <text x="300" y="157" font-family="Segoe UI,sans-serif" font-size="13" fill="rgba(255,255,255,.4)" text-anchor="middle">Info Card</text>
+  <text x="400" y="157" font-family="Segoe UI,sans-serif" font-size="13" fill="rgba(255,255,255,.4)" text-anchor="middle">Status</text>
+  <text x="80" y="195" font-family="Segoe UI,sans-serif" font-size="12" fill="rgba(255,255,255,.5)">Launch RQBBOX OS on your local machine or view online.</text>
+  <rect x="80" y="215" width="380" height="42" rx="10" fill="url(#btn)"/>
+  <defs><linearGradient id="btn"><stop offset="0%" stop-color="#007bff"/><stop offset="100%" stop-color="#00d4ff"/></linearGradient></defs>
+  <text x="270" y="241" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600" fill="#fff" text-anchor="middle">Launch OS (localhost:19777)</text>
+  <rect x="80" y="265" width="380" height="36" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)"/>
+  <text x="270" y="288" font-family="Segoe UI,sans-serif" font-size="12" font-weight="600" fill="rgba(255,255,255,.6)" text-anchor="middle">View Full Info Card Online</text>
+  <rect x="80" y="309" width="380" height="36" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)"/>
+  <text x="270" y="332" font-family="Segoe UI,sans-serif" font-size="12" font-weight="600" fill="rgba(255,255,255,.6)" text-anchor="middle">Download RQBBOX OS</text>
+  <!-- Right side: preview of info card -->
+  <rect x="540" y="60" width="680" height="460" rx="16" fill="rgba(20,22,28,.85)" stroke="rgba(255,255,255,.06)"/>
+  <text x="570" y="100" font-family="Segoe UI,sans-serif" font-size="22" font-weight="700" fill="#fff">RQBBOX OS</text>
+  <text x="570" y="120" font-family="Segoe UI,sans-serif" font-size="12" fill="rgba(255,255,255,.4)">Portable USB Gaming Operating System by RhysTech</text>
+  <rect x="570" y="135" width="80" height="22" rx="100" fill="rgba(0,212,255,.08)" stroke="rgba(0,212,255,.1)"/>
+  <text x="610" y="151" font-family="Segoe UI,sans-serif" font-size="10" fill="#00d4ff" text-anchor="middle">v1.2.0</text>
+  <rect x="656" y="135" width="80" height="22" rx="100" fill="rgba(0,212,255,.08)" stroke="rgba(0,212,255,.1)"/>
+  <text x="696" y="151" font-family="Segoe UI,sans-serif" font-size="10" fill="#00d4ff" text-anchor="middle">Open Source</text>
+  <rect x="742" y="135" width="54" height="22" rx="100" fill="rgba(0,212,255,.08)" stroke="rgba(0,212,255,.1)"/>
+  <text x="769" y="151" font-family="Segoe UI,sans-serif" font-size="10" fill="#00d4ff" text-anchor="middle">Free</text>
+  <text x="570" y="180" font-family="Segoe UI,sans-serif" font-size="11" fill="rgba(255,255,255,.5)">A portable USB-based gaming OS that runs entirely from a USB drive.</text>
+  <text x="570" y="196" font-family="Segoe UI,sans-serif" font-size="11" fill="rgba(255,255,255,.5)">PS5-inspired UI, pro audio, 43+ packages, phone bootloader.</text>
+  <!-- Feature grid -->
+  <rect x="570" y="215" width="310" height="30" rx="6" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.04)"/>
+  <text x="580" y="235" font-family="Segoe UI,sans-serif" font-size="10" fill="rgba(255,255,255,.5)"><tspan font-weight="700" fill="rgba(255,255,255,.7)">?? 6 Games</tspan> • Native HTML5</text>
+  <rect x="890" y="215" width="310" height="30" rx="6" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.04)"/>
+  <text x="900" y="235" font-family="Segoe UI,sans-serif" font-size="10" fill="rgba(255,255,255,.5)"><tspan font-weight="700" fill="rgba(255,255,255,.7)">?? 43+ Packages</tspan> • Store</text>
+  <rect x="570" y="249" width="310" height="30" rx="6" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.04)"/>
+  <text x="580" y="269" font-family="Segoe UI,sans-serif" font-size="10" fill="rgba(255,255,255,.5)"><tspan font-weight="700" fill="rgba(255,255,255,.7)">?? PS5 UI</tspan> • Dark minimal</text>
+  <rect x="890" y="249" width="310" height="30" rx="6" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.04)"/>
+  <text x="900" y="269" font-family="Segoe UI,sans-serif" font-size="10" fill="rgba(255,255,255,.5)"><tspan font-weight="700" fill="rgba(255,255,255,.7)">?? Pro Audio</tspan> • 40+ synth</text>
+  <rect x="570" y="283" width="310" height="30" rx="6" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.04)"/>
+  <text x="580" y="303" font-family="Segoe UI,sans-serif" font-size="10" fill="rgba(255,255,255,.5)"><tspan font-weight="700" fill="rgba(255,255,255,.7)">?? Phone Boot</tspan> • Auto-detect</text>
+  <rect x="890" y="283" width="310" height="30" rx="6" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.04)"/>
+  <text x="900" y="303" font-family="Segoe UI,sans-serif" font-size="10" fill="rgba(255,255,255,.5)"><tspan font-weight="700" fill="rgba(255,255,255,.7)">?? Multi-User</tspan> • Auth, sync</text>
+  <!-- Download button -->
+  <rect x="570" y="330" width="630" height="36" rx="10" fill="url(#btn)"/>
+  <text x="885" y="354" font-family="Segoe UI,sans-serif" font-size="13" font-weight="600" fill="#fff" text-anchor="middle">? Download RQBBOX OS</text>
+  <!-- Editions table -->
+  <text x="570" y="400" font-family="Segoe UI,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,.6)">EDITIONS</text>
+  <rect x="570" y="410" width="630" height="20" fill="rgba(255,255,255,.02)"/>
+  <text x="580" y="425" font-family="Segoe UI,sans-serif" font-size="9" fill="rgba(255,255,255,.5)">Feature</text>
+  <text x="720" y="425" font-family="Segoe UI,sans-serif" font-size="9" fill="rgba(255,255,255,.5)">Lite</text>
+  <text x="820" y="425" font-family="Segoe UI,sans-serif" font-size="9" fill="rgba(255,255,255,.5)">Pro</text>
+  <text x="920" y="425" font-family="Segoe UI,sans-serif" font-size="9" fill="rgba(255,255,255,.5)">Creator</text>
+  <text x="580" y="440" font-family="Segoe UI,sans-serif" font-size="9" fill="rgba(255,255,255,.5)">Game library</text>
+  <text x="720" y="440" font-family="Segoe UI,sans-serif" font-size="9" fill="#fff">10 max</text>
+  <text x="820" y="440" font-family="Segoe UI,sans-serif" font-size="9" fill="#00d4ff">Unlimited</text>
+  <text x="920" y="440" font-family="Segoe UI,sans-serif" font-size="9" fill="#00d4ff">Unlimited</text>
+  <!-- Status panel -->
+  <rect x="540" y="540" width="680" height="200" rx="16" fill="rgba(20,22,28,.85)" stroke="rgba(255,255,255,.06)"/>
+  <text x="570" y="575" font-family="Segoe UI,sans-serif" font-size="16" font-weight="700" fill="#fff">System Status</text>
+  <text x="570" y="600" font-family="Segoe UI,sans-serif" font-size="11" fill="rgba(255,255,255,.5)">Server (localhost:19777)</text>
+  <circle cx="570" cy="620" r="3" fill="#4cff88"/>
+  <text x="580" y="624" font-family="Segoe UI,sans-serif" font-size="10" fill="#4cff88">Online</text>
+  <text x="570" y="645" font-family="Segoe UI,sans-serif" font-size="11" fill="rgba(255,255,255,.5)">GitHub Pages</text>
+  <circle cx="570" cy="665" r="3" fill="#4cff88"/>
+  <text x="580" y="669" font-family="Segoe UI,sans-serif" font-size="10" fill="#4cff88">Live</text>
+</svg>
