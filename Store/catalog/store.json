@@ -1,6 +1,120 @@
 {
   "featured": [
     {
+      "id": "call-of-duty-mobile",
+      "title": "Call of Duty Mobile",
+      "category": "FPS",
+      "description": "First-person shooter with multiplayer, battle royale, and zombie modes. 100+ million downloads on Google Play.",
+      "rating": 4.5,
+      "size": "2.5 GB",
+      "banner": "🎯",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true,
+      "type": "game",
+      "price": "Free",
+      "featured": true,
+      "tags": [
+        "FPS",
+        "3D",
+        "Multiplayer"
+      ]
+    },
+    {
+      "id": "genshin-impact",
+      "title": "Genshin Impact",
+      "category": "RPG",
+      "description": "Open-world action RPG set in the fantasy world of Teyvat. Stunning visuals, elemental combat, and co-op play.",
+      "rating": 4.6,
+      "size": "20 GB",
+      "banner": "⚔️",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true,
+      "type": "game",
+      "price": "Free",
+      "featured": true,
+      "tags": [
+        "RPG",
+        "3D",
+        "Multiplayer"
+      ]
+    },
+    {
+      "id": "minecraft",
+      "title": "Minecraft",
+      "category": "Sandbox",
+      "description": "Build, explore, and survive in an infinite block world. Creative mode, survival mode, and multiplayer servers.",
+      "rating": 4.6,
+      "size": "500 MB",
+      "banner": "⛏️",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true,
+      "type": "game",
+      "price": "Free",
+      "featured": true,
+      "tags": [
+        "Sandbox",
+        "3D",
+        "Multiplayer"
+      ]
+    },
+    {
+      "id": "google-chrome",
+      "title": "Google Chrome",
+      "category": "Browser",
+      "description": "Fast, secure web browser with tab sync, incognito mode, and Google integration. 10B+ installs on Google Play.",
+      "rating": 4.5,
+      "size": "200 MB",
+      "banner": "🌐",
+      "installed": false,
+      "type": "app",
+      "price": "Free",
+      "featured": true,
+      "tags": [
+        "Browser",
+        "Tool"
+      ]
+    },
+    {
+      "id": "termux",
+      "title": "Termux",
+      "category": "Tool",
+      "description": "Powerful terminal emulator with Linux package manager. Essential for running RQBBOX server on Android.",
+      "rating": 4.6,
+      "size": "50 MB",
+      "banner": "📟",
+      "installed": false,
+      "type": "app",
+      "price": "Free",
+      "featured": true,
+      "tags": [
+        "Tool",
+        "Tool"
+      ]
+    },
+    {
+      "id": "vlc-android",
+      "title": "VLC for Android",
+      "category": "Media",
+      "description": "Universal media player supporting all audio/video formats. No codec packs needed. Open source and free.",
+      "rating": 4.6,
+      "size": "50 MB",
+      "banner": "📺",
+      "installed": false,
+      "type": "app",
+      "price": "Free",
+      "featured": true,
+      "tags": [
+        "Media",
+        "Tool"
+      ]
+    },
+    {
       "id": "neon-drift",
       "title": "Neon Drift Racing",
       "type": "game",
@@ -12,7 +126,11 @@
       "price": "Free",
       "banner": "🏎️",
       "featured": true,
-      "tags": ["3D", "Racing", "Controller"]
+      "tags": [
+        "3D",
+        "Racing",
+        "Controller"
+      ]
     },
     {
       "id": "void-craft",
@@ -26,7 +144,11 @@
       "price": "Free",
       "banner": "🌍",
       "featured": true,
-      "tags": ["Sandbox", "3D", "Indie"]
+      "tags": [
+        "Sandbox",
+        "3D",
+        "Indie"
+      ]
     },
     {
       "id": "youtube",
@@ -40,10 +162,170 @@
       "price": "Free",
       "banner": "📺",
       "featured": true,
-      "tags": ["Streaming", "Video", "Social"]
+      "tags": [
+        "Streaming",
+        "Video",
+        "Social"
+      ]
     }
   ],
   "games": [
+    {
+      "id": "call-of-duty-mobile",
+      "title": "Call of Duty Mobile",
+      "category": "FPS",
+      "description": "First-person shooter with multiplayer, battle royale, and zombie modes. 100+ million downloads on Google Play.",
+      "rating": 4.5,
+      "size": "2.5 GB",
+      "banner": "🎯",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "genshin-impact",
+      "title": "Genshin Impact",
+      "category": "RPG",
+      "description": "Open-world action RPG set in the fantasy world of Teyvat. Stunning visuals, elemental combat, and co-op play.",
+      "rating": 4.6,
+      "size": "20 GB",
+      "banner": "⚔️",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "pubg-mobile",
+      "title": "PUBG Mobile",
+      "category": "FPS",
+      "description": "Battle royale game with realistic weapons, vehicles, and 100-player matches. Team up and be the last one standing.",
+      "rating": 4.4,
+      "size": "2.8 GB",
+      "banner": "🪂",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "minecraft",
+      "title": "Minecraft",
+      "category": "Sandbox",
+      "description": "Build, explore, and survive in an infinite block world. Creative mode, survival mode, and multiplayer servers.",
+      "rating": 4.6,
+      "size": "500 MB",
+      "banner": "⛏️",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "asphalt-9",
+      "title": "Asphalt 9 Legends",
+      "category": "Racing",
+      "description": "High-octane arcade racing with licensed cars, stunning graphics, and nitro-powered drifts.",
+      "rating": 4.6,
+      "size": "2.5 GB",
+      "banner": "🏎️",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "roblox",
+      "title": "Roblox",
+      "category": "Sandbox",
+      "description": "Millions of user-created games and experiences. Play, create, and socialize in an infinite virtual universe.",
+      "rating": 4.4,
+      "size": "300 MB",
+      "banner": "🔶",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "mobile-legends",
+      "title": "Mobile Legends Bang Bang",
+      "category": "MOBA",
+      "description": "Classic MOBA with 10-second matchmaking and 10-minute battles. 100+ heroes with unique abilities.",
+      "rating": 4.4,
+      "size": "1.5 GB",
+      "banner": "⚡",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "clash-royale",
+      "title": "Clash Royale",
+      "category": "Strategy",
+      "description": "Real-time PvP strategy game featuring Clash of Clans characters. Collect cards, build decks, and battle.",
+      "rating": 4.5,
+      "size": "400 MB",
+      "banner": "👑",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "among-us",
+      "title": "Among Us",
+      "category": "Party",
+      "description": "Multiplayer social deduction game. Work together to complete tasks, but watch out for impostors!",
+      "rating": 4.5,
+      "size": "250 MB",
+      "banner": "🔪",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "fortnite",
+      "title": "Fortnite",
+      "category": "FPS",
+      "description": "Battle royale, creative, and save the world modes. Build, fight, and express yourself with unique cosmetics.",
+      "rating": 4.3,
+      "size": "5 GB",
+      "banner": "🦸",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "wild-rift",
+      "title": "League of Legends Wild Rift",
+      "category": "MOBA",
+      "description": "5v5 MOBA from the League of Legends franchise. Quick matches, dual-stick controls, console-quality graphics.",
+      "rating": 4.6,
+      "size": "2 GB",
+      "banner": "⚔️",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
+    {
+      "id": "subway-surfers",
+      "title": "Subway Surfers",
+      "category": "Arcade",
+      "description": "Endless runner game. Dodge trains, collect coins, and surf through subway tunnels with colorful characters.",
+      "rating": 4.5,
+      "size": "200 MB",
+      "banner": "🏃",
+      "installed": false,
+      "achievements": true,
+      "controller": true,
+      "vibration": true
+    },
     {
       "id": "neon-drift",
       "title": "Neon Drift Racing",
@@ -124,6 +406,196 @@
     }
   ],
   "apps": [
+    {
+      "id": "google-chrome",
+      "title": "Google Chrome",
+      "category": "Browser",
+      "description": "Fast, secure web browser with tab sync, incognito mode, and Google integration. 10B+ installs on Google Play.",
+      "rating": 4.5,
+      "size": "200 MB",
+      "banner": "🌐",
+      "installed": false
+    },
+    {
+      "id": "termux",
+      "title": "Termux",
+      "category": "Tool",
+      "description": "Powerful terminal emulator with Linux package manager. Essential for running RQBBOX server on Android.",
+      "rating": 4.6,
+      "size": "50 MB",
+      "banner": "📟",
+      "installed": false
+    },
+    {
+      "id": "vlc-android",
+      "title": "VLC for Android",
+      "category": "Media",
+      "description": "Universal media player supporting all audio/video formats. No codec packs needed. Open source and free.",
+      "rating": 4.6,
+      "size": "50 MB",
+      "banner": "📺",
+      "installed": false
+    },
+    {
+      "id": "fdroid",
+      "title": "F-Droid",
+      "category": "Tool",
+      "description": "Free and open-source Android app repository. Install Termux, Firefox, and hundreds of FOSS apps without Google.",
+      "rating": 4.7,
+      "size": "10 MB",
+      "banner": "🤖",
+      "installed": false
+    },
+    {
+      "id": "steam-link",
+      "title": "Steam Link",
+      "category": "Gaming",
+      "description": "Stream your entire Steam PC library to your phone. Play on your device with touch controls, keyboard, or gamepad.",
+      "rating": 4.4,
+      "size": "150 MB",
+      "banner": "🎮",
+      "installed": false
+    },
+    {
+      "id": "moonlight",
+      "title": "Moonlight Game Streaming",
+      "category": "Gaming",
+      "description": "Stream PC games from your NVIDIA GameStream-enabled computer to your Android device with low latency.",
+      "rating": 4.5,
+      "size": "30 MB",
+      "banner": "📡",
+      "installed": false
+    },
+    {
+      "id": "zarchiver",
+      "title": "ZArchiver",
+      "category": "Tool",
+      "description": "File archiver for ZIP, RAR, 7z, TAR, GZ, and more. Essential for extracting game files and assets on Android.",
+      "rating": 4.7,
+      "size": "10 MB",
+      "banner": "📦",
+      "installed": false
+    },
+    {
+      "id": "tasker",
+      "title": "Tasker",
+      "category": "Tool",
+      "description": "Automate everything on your Android device. Create profiles, tasks, and scenes triggered by any condition.",
+      "rating": 4.6,
+      "size": "20 MB",
+      "banner": "⚙️",
+      "installed": false
+    },
+    {
+      "id": "google-maps",
+      "title": "Google Maps",
+      "category": "Navigation",
+      "description": "Navigate your world with turn-by-turn GPS navigation, real-time traffic updates, and detailed place info.",
+      "rating": 4.5,
+      "size": "80 MB",
+      "banner": "🗺️",
+      "installed": false
+    },
+    {
+      "id": "whatsapp",
+      "title": "WhatsApp Messenger",
+      "category": "Social",
+      "description": "Simple, secure messaging with end-to-end encryption. Text, voice, video calls, and group chats worldwide.",
+      "rating": 4.5,
+      "size": "80 MB",
+      "banner": "💬",
+      "installed": false
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "category": "Social",
+      "description": "Share photos, videos, and stories with friends. Reels, DMs, and explore trending content from around the world.",
+      "rating": 4.4,
+      "size": "100 MB",
+      "banner": "📸",
+      "installed": false
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "category": "Social",
+      "description": "Short-form video platform. Discover, create, and share viral videos with music, effects, and filters.",
+      "rating": 4.5,
+      "size": "150 MB",
+      "banner": "🎵",
+      "installed": false
+    },
+    {
+      "id": "snapchat",
+      "title": "Snapchat",
+      "category": "Social",
+      "description": "Quick photo and video messaging with filters, lenses, and stories that disappear after 24 hours.",
+      "rating": 4.3,
+      "size": "200 MB",
+      "banner": "👻",
+      "installed": false
+    },
+    {
+      "id": "telegram",
+      "title": "Telegram",
+      "category": "Social",
+      "description": "Fast, secure messaging with cloud sync. Channels, bots, groups up to 200K members, and secret chats.",
+      "rating": 4.6,
+      "size": "80 MB",
+      "banner": "✈️",
+      "installed": false
+    },
+    {
+      "id": "microsoft-outlook",
+      "title": "Microsoft Outlook",
+      "category": "Productivity",
+      "description": "Email, calendar, and contacts in one app. Supports Exchange, Office 365, Gmail, and more.",
+      "rating": 4.6,
+      "size": "100 MB",
+      "banner": "📧",
+      "installed": false
+    },
+    {
+      "id": "google-keep",
+      "title": "Google Keep",
+      "category": "Productivity",
+      "description": "Quick notes, lists, and reminders that sync across all your devices. Voice notes and image capture.",
+      "rating": 4.6,
+      "size": "30 MB",
+      "banner": "📝",
+      "installed": false
+    },
+    {
+      "id": "microsoft-365",
+      "title": "Microsoft 365",
+      "category": "Productivity",
+      "description": "Word, Excel, PowerPoint on mobile. Create, edit, and collaborate on documents from your phone.",
+      "rating": 4.6,
+      "size": "150 MB",
+      "banner": "📄",
+      "installed": false
+    },
+    {
+      "id": "adobe-reader",
+      "title": "Adobe Acrobat Reader",
+      "category": "Productivity",
+      "description": "View, sign, and annotate PDF files. Fill forms, share documents, and store files in the cloud.",
+      "rating": 4.6,
+      "size": "50 MB",
+      "banner": "📕",
+      "installed": false
+    },
+    {
+      "id": "google-photos",
+      "title": "Google Photos",
+      "category": "Media",
+      "description": "Free unlimited photo storage with smart search, automatic organization, and AI-powered editing tools.",
+      "rating": 4.7,
+      "size": "100 MB",
+      "banner": "🖼️",
+      "installed": false
+    },
     {
       "id": "rqb-browser",
       "title": "RQB Browser",
@@ -305,5 +777,31 @@
       "installed": true
     }
   ],
-  "categories": ["All", "3D Games", "Indie", "Racing", "Sandbox", "Emulator", "Apps", "AI", "Media", "Streaming", "Social", "Developer", "Reference", "Productivity", "Utility"]
+  "categories": [
+    "All",
+    "3D Games",
+    "FPS",
+    "RPG",
+    "Racing",
+    "Sandbox",
+    "MOBA",
+    "Strategy",
+    "Party",
+    "Arcade",
+    "Indie",
+    "Emulator",
+    "Apps",
+    "Browser",
+    "Tool",
+    "Gaming",
+    "Media",
+    "Streaming",
+    "Social",
+    "Developer",
+    "Reference",
+    "Productivity",
+    "Utility",
+    "Navigation",
+    "AI"
+  ]
 }
