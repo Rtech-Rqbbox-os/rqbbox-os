@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embed RQBBOX OS Info Card — Any Website</title>
+  <meta name="description" content="Add the RQBBOX OS info card to any website with a simple embed code. Works on WordPress, Shopify, Wix, Squarespace, and any HTML site.">
+  <link rel="canonical" href="https://rtech-rqbbox-os.github.io/rqbbox-os/website/embed.html">
+  <meta property="og:title" content="Embed RQBBOX OS Info Card">
+  <meta property="og:description" content="Add RQBBOX OS info to any site with one line of code.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0f;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,.04) 0%, transparent 60%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #fff; min-height: 100vh; padding: 24px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .container { max-width: 820px; width: 100%; }
+    h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -.3px; }
+    .sub { color: rgba(255,255,255,.4); margin-bottom: 32px; font-size: .9rem; }
+    h2 { font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,.7); margin: 28px 0 12px; text-transform: uppercase; letter-spacing: .4px; }
+    .card {
+      background: rgba(20,22,28,.85);
+      backdrop-filter: blur(24px) saturate(1.3);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px; padding: 20px 24px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.5);
+      margin-bottom: 20px;
+    }
+    .code {
+      background: rgba(0,0,0,.5);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px; padding: 16px;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: .82rem; line-height: 1.6;
+      color: #a0d8ff; overflow-x: auto;
+      white-space: pre-wrap; word-break: break-all;
+      position: relative;
+    }
+    .code-copy {
+      position: absolute; top: 8px; right: 8px;
+      background: rgba(0,212,255,.1); border: 1px solid rgba(0,212,255,.15);
+      color: #00d4ff; padding: 4px 12px; border-radius: 6px;
+      font-size: .7rem; cursor: pointer; font-family: inherit;
+      transition: all .2s ease;
+    }
+    .code-copy:hover { background: rgba(0,212,255,.2); }
+    .code-copy.copied { background: rgba(0,255,100,.15); border-color: rgba(0,255,100,.2); color: #4cff88; }
+    .method { margin-bottom: 24px; }
+    .method-label {
+      display: inline-block;
+      background: rgba(0,212,255,.08); border: 1px solid rgba(0,212,255,.1);
+      padding: 2px 10px; border-radius: 100px;
+      font-size: .65rem; color: #00d4ff; text-transform: uppercase;
+      letter-spacing: .4px; margin-bottom: 10px;
+    }
+    .tip {
+      background: rgba(255,193,7,.06); border: 1px solid rgba(255,193,7,.1);
+      border-radius: 8px; padding: 12px 16px; font-size: .8rem;
+      color: rgba(255,255,255,.55); margin-top: 12px;
+    }
+    .tip strong { color: rgba(255,255,255,.7); }
+    a { color: #66b5ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    th { text-align: left; padding: 8px; font-weight: 600; color: rgba(255,255,255,.5); border-bottom: 1px solid rgba(255,255,255,.06); }
+    td { padding: 8px; border-bottom: 1px solid rgba(255,255,255,.04); color: rgba(255,255,255,.55); }
+    td:first-child { color: rgba(255,255,255,.7); font-weight: 500; }
+    .live-preview {
+      margin-top: 20px;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px; overflow: hidden;
+    }
+    .live-preview iframe { width: 100%; border: none; display: block; }
+    .back { display: inline-flex; align-items: center; gap: 4px; color: rgba(255,255,255,.3); font-size: .8rem; margin-bottom: 20px; }
+    .back:hover { color: rgba(255,255,255,.6); text-decoration: none; }
+    @media (max-width: 600px) {
+      body { padding: 12px; }
+      .card { padding: 14px; }
+      h1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <a class="back" href="index.html">&larr; Back to Website</a>
+  <h1>Embed RQBBOX OS Info Card</h1>
+  <div class="sub">Add the RQBBOX OS information card to any website, blog, or landing page.</div>
+
+  <!-- Method 1: Script Tag -->
+  <div class="card method">
+    <div class="method-label">Method 1 — One-line Script Embed (Recommended)</div>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:12px;line-height:1.6;">
+      Works on any HTML site including WordPress (Custom HTML block), Shopify, Squarespace, Wix, Weebly, and static sites.
+      Just paste this one line anywhere in your page:
+    </p>
+    <div class="code" id="code-script">
+      &lt;script src="https://rtech-rqbbox-os.github.io/rqbbox-os/website/embed-card.js"&gt;&lt;/script&gt;
+      <button class="code-copy" onclick="copyCode('code-script')">Copy</button>
+    </div>
+  </div>
+
+  <!-- Method 2: iframe -->
+  <div class="card method">
+    <div class="method-label">Method 2 — iframe Embed (All Platforms)</div>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:12px;line-height:1.6;">
+      Works everywhere — Medium, Notion, WordPress.org self-hosted, Ghost, Jekyll, Hugo, and any site that supports iframes:
+    </p>
+    <div class="code" id="code-iframe">
+      &lt;iframe src="https://rtech-rqbbox-os.github.io/rqbbox-os/website/embed-card.html"
+        width="100%" height="480" frameborder="0"
+        style="border-radius:16px;max-width:600px;margin:0 auto;display:block;"
+        allowfullscreen&gt;&lt;/iframe&gt;
+      <button class="code-copy" onclick="copyCode('code-iframe')">Copy</button>
+    </div>
+  </div>
+
+  <!-- Method 3: Markdown -->
+  <div class="card method">
+    <div class="method-label">Method 3 — Markdown / README</div>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:12px;line-height:1.6;">
+      For GitHub README, GitLab, Gitea, or any Markdown document:
+    </p>
+    <div class="code" id="code-md">
+      [![RQBBOX OS](https://rtech-rqbbox-os.github.io/rqbbox-os/System/Branding/rqbbox-logo.svg)](https://rtech-rqbbox-os.github.io/rqbbox-os/website/os-info-card.html)
+      <br><br>
+      **RQBBOX OS** — Portable USB Gaming Operating System<br>
+      PS5-inspired UI &bull; Pro Audio &bull; 43+ Packages &bull; Phone Bootloader<br>
+      [Download](https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases) |
+      [GitHub](https://github.com/Rtech-Rqbbox-os/rqbbox-os) |
+      [Info Card](https://rtech-rqbbox-os.github.io/rqbbox-os/website/os-info-card.html)
+      <button class="code-copy" onclick="copyCode('code-md')">Copy</button>
+    </div>
+  </div>
+
+  <!-- Platform Compatibility -->
+  <div class="card">
+    <h2>Platform Support</h2>
+    <table>
+      <thead><tr><th>Platform</th><th>Script Embed</th><th>iframe</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>WordPress.com</td><td style="color:#00d4ff;">✓</td><td style="color:#00d4ff;">✓</td><td>Use Custom HTML block</td></tr>
+        <tr><td>WordPress.org</td><td style="color:#00d4ff;">✓</td><td style="color:#00d4ff;">✓</td><td>Add to post/page or theme</td></tr>
+        <tr><td>Shopify</td><td style="color:#00d4ff;">✓</td><td style="color:#00d4ff;">✓</td><td>Liquid &lt;script&gt; or iframe</td></tr>
+        <tr><td>Wix</td><td style="color:#00d4ff;">✓</td><td style="color:#00d4ff;">✓</td><td>HTML iframe element</td></tr>
+        <tr><td>Squarespace</td><td style="color:#ffc107;">Limited</td><td style="color:#00d4ff;">✓</td><td>Embed Block → &lt;/&gt;</td></tr>
+        <tr><td>Weebly</td><td style="color:#00d4ff;">✓</td><td style="color:#00d4ff;">✓</td><td>Embed Code element</td></tr>
+        <tr><td>Medium</td><td style="color:#ff4444;">✗</td><td style="color:#ffc107;">Limited</td><td>Use link card instead</td></tr>
+        <tr><td>Notion</td><td style="color:#444;">✗</td><td style="color:#00d4ff;">✓</td><td>/embed command</td></tr>
+        <tr><td>GitHub README</td><td style="color:#444;">✗</td><td style="color:#444;">✗</td><td>Use Markdown method</td></tr>
+        <tr><td>Jekyll / Hugo</td><td style="color:#00d4ff;">✓</td><td style="color:#00d4ff;">✓</td><td>Add to layout or post</td></tr>
+        <tr><td>Ghost</td><td style="color:#00d4ff;">✓</td><td style="color:#00d4ff;">✓</td><td>HTML card</td></tr>
+        <tr><td>Any HTML site</td><td style="color:#00d4ff;">✓</td><td style="color:#00d4ff;">✓</td><td>Just paste and go</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Live Preview -->
+  <div class="card">
+    <h2>Live Preview</h2>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:12px;">
+      This is what the embed looks like on any site:
+    </p>
+    <div class="live-preview">
+      <iframe src="embed-card.html" height="480" title="RQBBOX OS Embed Preview"></iframe>
+    </div>
+  </div>
+
+  <div class="card" style="text-align:center;padding:16px;">
+    <p style="font-size:.8rem;color:rgba(255,255,255,.3);">
+      Questions? <a href="support.html">Contact Support</a> &bull;
+      <a href="os-info-card.html">Full Info Card</a> &bull;
+      <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os">GitHub</a>
+    </p>
+  </div>
+</div>
+
+<script>
+function copyCode(id) {
+  var el = document.getElementById(id);
+  var text = el.innerText.replace('Copy', '').trim();
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() {
+      var btn = el.querySelector('.code-copy');
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+}
+</script>
+</body>
+</html>
