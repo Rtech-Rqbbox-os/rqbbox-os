@@ -28,7 +28,20 @@
 
   "host_permissions": [
     "http://localhost:19777/*",
-    "https://rtech-rqbbox-os.github.io/*"
+    "https://rtech-rqbbox-os.github.io/*",
+    "https://www.google.com/*",
+    "https://google.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/search*",
+        "https://google.com/search*"
+      ],
+      "js": ["content-script.js"],
+      "run_at": "document_end"
+    }
   ],
 
   "background": {
