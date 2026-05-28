@@ -39,7 +39,7 @@ const StorePage = {
     el.querySelector('#featured-main')?.addEventListener('click', () => StorePage.install(featured?.id || 'neon-drift', 'game', featured?.title));
 
     el.querySelectorAll('.mini-feature').forEach(m => {
-      m.onclick = () => StorePage.install(m.dataset.id, m.dataset.type, m.querySelector('h4').textContent.replace(/^.\s/, ''));
+      m.onclick = () => StorePage.install(m.dataset.id, m.dataset.type, m.querySelector('h4').textContent.replace(/^.\s+/u, ''));
     });
 
     const gamesGrid = el.querySelector('#store-games');

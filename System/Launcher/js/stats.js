@@ -92,10 +92,12 @@ const Stats = {
     const s = Stats.getUser();
     if (!s) return;
 
-    Stats.animateEl(RQB.$('#stat-games'), s.gamesLaunched);
-    Stats.animateEl(RQB.$('#stat-apps'), s.appsLaunched);
-    Stats.animateEl(RQB.$('#stat-achievements'), s.achievements);
-    Stats.animateEl(RQB.$('#stat-minutes'), s.minutesActive, 'm');
+    const page = RQB.state.currentPage;
+    const pfx = page === 'profile' ? 'profile-' : '';
+    Stats.animateEl(document.querySelector(`#page-${page} #${pfx}stat-games`), s.gamesLaunched);
+    Stats.animateEl(document.querySelector(`#page-${page} #${pfx}stat-apps`), s.appsLaunched);
+    Stats.animateEl(document.querySelector(`#page-${page} #${pfx}stat-achievements`), s.achievements);
+    Stats.animateEl(document.querySelector(`#page-${page} #${pfx}stat-minutes`), s.minutesActive, 'm');
 
     const hero = RQB.$('#hero-stats');
     if (hero) hero.textContent = `${s.gamesLaunched} games · ${s.appsLaunched} apps · ${Stats.formatTime(s.minutesActive)} active`;

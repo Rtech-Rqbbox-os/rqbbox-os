@@ -55,12 +55,12 @@ const Editions = {
     return this.current;
   },
 
-  setEdition(tier) {
+  async setEdition(tier) {
     if (!this.tiers[tier]) { RQB.toast(`Edition "${tier}" not found`); return; }
     this.current = tier;
     if (!RQBBOX_DATA.config.system) RQBBOX_DATA.config.system = {};
     RQBBOX_DATA.config.system.edition = tier;
-    saveConfig();
+    await saveConfig();
     this.applyEditionGates();
     RQB.toast(`${this.tiers[tier].icon} Switched to ${this.tiers[tier].label}`);
   },

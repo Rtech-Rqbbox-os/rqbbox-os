@@ -41,6 +41,7 @@ const BrowserPage = {
         <iframe id="browser-frame" class="browser-frame" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-downloads" allow="autoplay; microphone; camera; geolocation"></iframe>
       </div>
       <div class="browser-status" id="browser-status">Ready</div>`;
+    document.removeEventListener('keydown', this._keyHandler);
     document.addEventListener('keydown', this._keyHandler);
     this.bindEvents();
     this.loadSpeedDials();

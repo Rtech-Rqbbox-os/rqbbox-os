@@ -143,7 +143,9 @@ const FilesPage = {
         const chunkSize = 32768;
         for (let i = 0; i < bytes.length; i += chunkSize) {
           const chunk = bytes.subarray(i, Math.min(i + chunkSize, bytes.length));
-          b64 += btoa(String.fromCharCode(...chunk));
+          let binary = '';
+          for (let j = 0; j < chunk.length; j++) binary += String.fromCharCode(chunk[j]);
+          b64 += btoa(binary);
         }
         await RQBApi.writeFileBase64(`${this.currentPath}/${file.name}`, b64);
       } catch (e) {

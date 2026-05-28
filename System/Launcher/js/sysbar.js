@@ -99,8 +99,9 @@ const SysBar = {
       }
     } catch { this.wifiConnected = navigator.onLine; }
     const label = this.wifiSSID ? this.wifiSSID.substring(0, 14) + (this.wifiSSID.length > 14 ? '…' : '') : (this.wifiConnected ? 'Online' : 'Offline');
-    const signalIcon = this.wifiSignal > 70 ? '📶' : this.wifiSignal > 30 ? '📶' : '📶';
-    el.textContent = `${signalIcon} ${label}`;
+    const bars = this.wifiSignal > 70 ? '█' : this.wifiSignal > 30 ? '▆' : '▃';
+    const signalIcon = `<span style="color:${this.wifiSignal > 50 ? '#00d4ff' : this.wifiSignal > 20 ? '#ffaa00' : '#ff6b6b'}">${bars}</span>`;
+    el.innerHTML = `${signalIcon} ${label}`;
     el.title = this.wifiSSID ? `WiFi: ${this.wifiSSID} (${this.wifiSignal}%)` : (this.wifiConnected ? 'Connected (wired)' : 'Offline');
     el.style.color = this.wifiConnected ? '#00d4ff' : '#ff6b6b';
   },

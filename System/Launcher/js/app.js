@@ -1,5 +1,6 @@
 /* RQBBOX OS - Main Application */
 document.addEventListener('DOMContentLoaded', async () => {
+  RQBAudio.init();
   Boot.setupAuth();
   Runtime.setup();
 
@@ -69,7 +70,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  RQBAudio.init();
   QuickGuide.init();
   SysBar.init();
   RQB.initController();

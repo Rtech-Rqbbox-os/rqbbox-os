@@ -157,7 +157,7 @@ const QuickGuide = {
     if (notifBadge) { notifBadge.textContent = unread; notifBadge.style.display = unread ? 'inline' : 'none'; }
 
     const friendBadge = document.getElementById('guide-friend-badge');
-    const requests = RQBBOX_DATA.profiles?.friendRequests?.length || 0;
+    const requests = RQB.state.currentUser?.friendRequests?.length || 0;
     if (friendBadge) { friendBadge.textContent = requests; friendBadge.style.display = requests ? 'inline' : 'none'; }
 
     const storage = document.getElementById('guide-storage');

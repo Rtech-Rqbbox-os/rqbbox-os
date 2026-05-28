@@ -403,18 +403,12 @@ const SettingsPage = {
 
   // --- Audio Test ---
   testAudio() {
-    try {
-      const ctx = new (window.AudioContext || window.webkitAudioContext)();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.frequency.value = 440;
-      gain.gain.value = 0.3;
-      osc.start();
-      osc.stop(ctx.currentTime + 0.5);
-      RQB.toast('🔊 Testing audio...');
-    } catch { RQB.toast('Audio test not available'); }
+    if (RQBAudio && RQBAudio._enabled) {
+      RQBAudio.select();
+      setTimeout(() => RQB.toast('🔊 Audio system working'), 200);
+    } else {
+      RQB.toast('Audio is disabled in settings');
+    }
   },
 
   // --- Re-run Setup ---

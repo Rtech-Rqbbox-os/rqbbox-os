@@ -34,9 +34,10 @@ function getBatteryInfo() {
       const lines = out.trim().split('\n').filter(l => l.includes(','));
       if (lines.length) {
         const parts = lines[0].split(',');
+        // WMIC CSV output: Node,EstimatedChargeRemaining,BatteryStatus
         return {
-          level: parseInt(parts[2] || '0'),
-          charging: parseInt(parts[1] || '1') === 2,
+          level: parseInt(parts[1] || '0'),
+          charging: parseInt(parts[2] || '1') === 2,
           present: true
         };
       }
@@ -127,7 +128,7 @@ async function getBatteryInfoAsync() {
       const lines = out.trim().split('\n').filter(l => l.includes(','));
       if (lines.length) {
         const parts = lines[0].split(',');
-        return { level: parseInt(parts[2] || '0'), charging: parseInt(parts[1] || '1') === 2, present: true };
+        return { level: parseInt(parts[1] || '0'), charging: parseInt(parts[2] || '1') === 2, present: true };
       }
     }
     if (os.platform() === 'darwin') {
@@ -355,10 +356,11 @@ function storageInfo() {
       const drive = ROOT[0];
       const exec = execSync(`wmic logicaldisk where DeviceID="${drive}:" get Size,FreeSpace /format:csv`, { timeout: 3000 }).toString();
       const lines = exec.trim().split('\n').filter(l => l.includes(drive));
+      // WMIC CSV: Node,Size,FreeSpace
       if (lines.length) {
         const parts = lines[0].split(',');
-        const free = BigInt(parts[1] || 0);
-        const total = BigInt(parts[2] || 0);
+        const total = BigInt(parts[1] || 0);
+        const free = BigInt(parts[2] || 0);
         info.freeBytes = Number(free);
         info.totalBytes = Number(total);
         info.freeGB = Math.round(Number(free) / 1073741824 * 100) / 100;
@@ -388,7 +390,12 @@ function copyRecursive(src, dst) {
 function launchBrowser(url) {
   const cmd = os.platform() === 'win32' ? 'start' :
     os.platform() === 'darwin' ? 'open' : 'xdg-open';
-  try { execSync(`${cmd} "${url}"`, { timeout: 2000 }); } catch {}
+  // Windows 'start' needs empty title before URL, otherwise URL is treated as title
+  if (os.platform() === 'win32') {
+    try { execSync(`start "" "${url}"`, { timeout: 2000 }); } catch {}
+  } else {
+    try { execSync(`${cmd} "${url}"`, { timeout: 2000 }); } catch {}
+  }
 }
 
 const server = http.createServer(async (req, res) => {
@@ -903,7 +910,7 @@ const server = http.createServer(async (req, res) => {
       }
 
       filePath = path.resolve(filePath);
-      const allowed = [path.resolve(ROOT), path.resolve(LAUNCHER), path.resolve(WEBSITE), path.resolve(ROOT, 'System', 'SDK'), path.resolve(ROOT, 'System', 'Bootloader')];
+      const allowed = [path.resolve(ROOT), path.resolve(LAUNCHER), path.resolve(WEBSITE), path.resolve(ROOT, 'System', 'SDK'), path.resolve(ROOT, 'System', 'Bootloader'), path.resolve(BRANDING)];
       if (!allowed.some(a => filePath.startsWith(a))) {
         send(403, '{"ok":false}'); return;
       }

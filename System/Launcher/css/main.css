@@ -57,6 +57,7 @@ html, body {
   transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out);
 }
 .boot-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.boot-complete .boot-screen { display: none; }
 
 .boot-logo {
   width: 160px; height: 160px;

@@ -77,12 +77,12 @@ const ProfilePage = {
           <div class="section-header" style="margin-bottom:8px;"><h3>Live Stats</h3></div>
           <div class="widget-row" style="grid-template-columns:repeat(4,1fr);margin-bottom:0;">
             <div class="widget compact"><div class="widget-value">${s?.sessions || 0}</div><div class="widget-label">Sessions</div></div>
-            <div class="widget compact"><div class="widget-value" id="stat-games">${s?.gamesLaunched || 0}</div><div class="widget-label">Games Launched</div></div>
-            <div class="widget compact"><div class="widget-value" id="stat-apps">${s?.appsLaunched || 0}</div><div class="widget-label">Apps Launched</div></div>
-            <div class="widget compact"><div class="widget-value" id="stat-achievements">${s?.achievements || 0}</div><div class="widget-label">Achievements</div></div>
+            <div class="widget compact"><div class="widget-value" id="profile-stat-games">${s?.gamesLaunched || 0}</div><div class="widget-label">Games Launched</div></div>
+            <div class="widget compact"><div class="widget-value" id="profile-stat-apps">${s?.appsLaunched || 0}</div><div class="widget-label">Apps Launched</div></div>
+            <div class="widget compact"><div class="widget-value" id="profile-stat-achievements">${s?.achievements || 0}</div><div class="widget-label">Achievements</div></div>
           </div>
           <div class="widget-row" style="grid-template-columns:repeat(4,1fr);margin-bottom:0;">
-            <div class="widget compact"><div class="widget-value" id="stat-minutes">${s ? Stats.formatTime(s.minutesActive) : '0m'}</div><div class="widget-label">Time Active</div></div>
+            <div class="widget compact"><div class="widget-value" id="profile-stat-minutes">${s ? Stats.formatTime(s.minutesActive) : '0m'}</div><div class="widget-label">Time Active</div></div>
             <div class="widget compact"><div class="widget-value">${s?.storeInstalls || 0}</div><div class="widget-label">Store Installs</div></div>
             <div class="widget compact"><div class="widget-value">${s?.aiImages || 0}</div><div class="widget-label">AI Images</div></div>
             <div class="widget compact"><div class="widget-value">${s?.screenshots || 0}</div><div class="widget-label">Screenshots</div></div>
