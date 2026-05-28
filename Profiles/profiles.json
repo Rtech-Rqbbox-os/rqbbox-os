@@ -18,7 +18,7 @@
       "achievements": 5,
       "playTime": "13m",
       "stats": {
-        "sessions": 12,
+        "sessions": 13,
         "minutesActive": 13,
         "gamesLaunched": 7,
         "appsLaunched": 0,
@@ -208,24 +208,26 @@
       "token": null,
       "theme": "neon-dark",
       "recentApps": [
+        "google-chrome",
         "neon-drift",
         "youtube"
       ],
-      "achievements": 3,
-      "playTime": "41m",
+      "achievements": 4,
+      "playTime": "1h 17m",
       "stats": {
-        "sessions": 4,
-        "minutesActive": 41,
-        "gamesLaunched": 1,
-        "appsLaunched": 1,
-        "achievements": 3,
-        "storeInstalls": 0,
+        "sessions": 6,
+        "minutesActive": 77,
+        "gamesLaunched": 2,
+        "appsLaunched": 2,
+        "achievements": 4,
+        "storeInstalls": 6,
         "screenshots": 1,
         "aiImages": 0,
         "_achNames": [
           "First Boot",
           "App Explorer",
-          "First Game"
+          "First Game",
+          "Collector"
         ]
       },
       "friends": [],
@@ -361,13 +363,23 @@
     "games": [
       "neon-drift",
       "void-craft",
-      "pixel-quest"
+      "pixel-quest",
+      "genshin-impact",
+      "roblox",
+      "minecraft"
     ],
     "apps": [
       "music-wave",
       "gmail",
       "google-drive",
-      "youtube"
+      "youtube",
+      "google-chrome",
+      "zarchiver",
+      "wikipedia",
+      "ai-chat",
+      "reddit",
+      "github",
+      "discord"
     ]
   },
   "downloads": [
@@ -419,9 +431,289 @@
       "title": "YouTube",
       "completedAt": "2026-05-25T09:05:23.759Z",
       "path": "Apps/youtube"
+    },
+    {
+      "id": "google-chrome",
+      "type": "app",
+      "title": "Google Chrome",
+      "completedAt": "2026-05-28T08:45:10.162Z",
+      "path": "Apps/google-chrome"
+    },
+    {
+      "id": "genshin-impact",
+      "type": "game",
+      "title": "Genshin Impact",
+      "completedAt": "2026-05-28T08:45:18.096Z",
+      "path": "Games/genshin-impact"
+    },
+    {
+      "id": "genshin-impact",
+      "type": "game",
+      "title": "Genshin Impact",
+      "completedAt": "2026-05-28T08:45:18.202Z",
+      "path": "Games/genshin-impact"
+    },
+    {
+      "id": "genshin-impact",
+      "type": "game",
+      "title": "Genshin Impact",
+      "completedAt": "2026-05-28T08:45:18.283Z",
+      "path": "Games/genshin-impact"
+    },
+    {
+      "id": "roblox",
+      "type": "game",
+      "title": "Roblox",
+      "completedAt": "2026-05-28T09:08:17.643Z",
+      "path": "Games/roblox"
+    },
+    {
+      "id": "zarchiver",
+      "type": "app",
+      "title": "ZArchiver",
+      "completedAt": "2026-05-28T09:08:46.689Z",
+      "path": "Apps/zarchiver"
+    },
+    {
+      "id": "zarchiver",
+      "type": "app",
+      "title": "ZArchiver",
+      "completedAt": "2026-05-28T09:08:46.783Z",
+      "path": "Apps/zarchiver"
+    },
+    {
+      "id": "minecraft",
+      "type": "game",
+      "title": "Minecraft",
+      "completedAt": "2026-05-28T09:09:01.720Z",
+      "path": "Games/minecraft"
+    },
+    {
+      "id": "minecraft",
+      "type": "game",
+      "title": "Minecraft",
+      "completedAt": "2026-05-28T09:09:01.815Z",
+      "path": "Games/minecraft"
+    },
+    {
+      "id": "minecraft",
+      "type": "game",
+      "title": "Minecraft",
+      "completedAt": "2026-05-28T09:09:01.907Z",
+      "path": "Games/minecraft"
+    },
+    {
+      "id": "wikipedia",
+      "type": "app",
+      "title": "Wikipedia",
+      "completedAt": "2026-05-28T09:23:18.423Z",
+      "path": "Apps/wikipedia"
+    },
+    {
+      "id": "ai-chat",
+      "type": "app",
+      "title": "RQB Assistant",
+      "completedAt": "2026-05-28T09:23:44.725Z",
+      "path": "Apps/ai-chat"
+    },
+    {
+      "id": "ai-chat",
+      "type": "app",
+      "title": "RQB Assistant",
+      "completedAt": "2026-05-28T09:23:45.306Z",
+      "path": "Apps/ai-chat"
+    },
+    {
+      "id": "discord",
+      "type": "app",
+      "title": "Discord",
+      "completedAt": "2026-05-28T09:26:20.535Z",
+      "path": "Apps/discord"
     }
   ],
   "notifications": [
+    {
+      "id": 1779960380562,
+      "title": "Install Complete",
+      "message": "Discord is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960380535,
+      "title": "Install Complete",
+      "message": "Discord installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960299002,
+      "title": "Install Complete",
+      "message": "GitHub is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960239886,
+      "title": "Install Complete",
+      "message": "Reddit is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960225485,
+      "title": "Install Complete",
+      "message": "RQB Assistant is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960225458,
+      "title": "Install Complete",
+      "message": "RQB Assistant is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960225306,
+      "title": "Install Complete",
+      "message": "RQB Assistant installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960224725,
+      "title": "Install Complete",
+      "message": "RQB Assistant installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960198952,
+      "title": "Install Complete",
+      "message": "Wikipedia is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779960198423,
+      "title": "Install Complete",
+      "message": "Wikipedia installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959342112,
+      "title": "Install Complete",
+      "message": "Minecraft is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959342057,
+      "title": "Install Complete",
+      "message": "Minecraft is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959341907,
+      "title": "Install Complete",
+      "message": "Minecraft installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959341815,
+      "title": "Install Complete",
+      "message": "Minecraft installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959341720,
+      "title": "Install Complete",
+      "message": "Minecraft installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959327004,
+      "title": "Install Complete",
+      "message": "ZArchiver is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959326966,
+      "title": "Install Complete",
+      "message": "ZArchiver is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959326783,
+      "title": "Install Complete",
+      "message": "ZArchiver installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959326689,
+      "title": "Install Complete",
+      "message": "ZArchiver installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959298112,
+      "title": "Install Complete",
+      "message": "Roblox is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959297688,
+      "title": "Install Complete",
+      "message": "Roblox is ready to launch.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779959297643,
+      "title": "Install Complete",
+      "message": "Roblox installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779957918283,
+      "title": "Install Complete",
+      "message": "Genshin Impact installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779957918202,
+      "title": "Install Complete",
+      "message": "Genshin Impact installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779957918096,
+      "title": "Install Complete",
+      "message": "Genshin Impact installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
+    {
+      "id": 1779957910162,
+      "title": "Install Complete",
+      "message": "Google Chrome installed to USB.",
+      "time": "Just now",
+      "read": false
+    },
     {
       "id": 1779699923785,
       "title": "Install Complete",
@@ -717,8 +1009,8 @@
     },
     {
       "id": "dev-wauuew34-mpjoak3k",
-      "userId": "user-1779620821415",
-      "name": "RQBBOX 0 (RQBBOX_RHYSTECH)",
+      "userId": "user-tdv6g29r",
+      "name": "RQBBOX 0 (RHYSTECH_RQBBOX)",
       "type": "USB Drive",
       "label": "RQBBOX 0",
       "totalGB": 0,
@@ -728,7 +1020,22 @@
       "screen": "1536x864",
       "token": "dev-wauuew34-mpjoak3k",
       "firstSeen": "2026-05-24T11:07:36.466Z",
-      "lastSeen": "2026-05-24T11:07:39.430Z"
+      "lastSeen": "2026-05-28T09:29:33.794Z"
+    },
+    {
+      "id": "dev-a02v51na-mppci01x",
+      "userId": "default",
+      "name": "RQBBOX 0 (Player One)",
+      "type": "USB Drive",
+      "label": "RQBBOX 0",
+      "totalGB": 0,
+      "freeGB": 0,
+      "platform": "Win32",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.",
+      "screen": "1920x1080",
+      "token": "dev-a02v51na-mppci01x",
+      "firstSeen": "2026-05-28T10:24:10.791Z",
+      "lastSeen": "2026-05-28T10:24:10.791Z"
     }
   ]
 }

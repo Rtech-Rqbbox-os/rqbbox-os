@@ -1,52 +1,21 @@
 {
   "system": {
     "name": "RQBBOX OS Portable USB",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "company": "RhysTech",
-    "tagline": "Plug In. Play Anywhere.",
-    "usbDrive": "H:",
-    "usbLabel": "RQBBOX 0",
-    "language": "en",
-    "region": "us",
+    "tagline": "Plug Into Gaming.",
     "edition": "lite"
   },
   "display": {
-    "fullscreen": true,
-    "theme": "cyber",
-    "wallpaper": "../System/Launcher/assets/wallpapers/default-banner.svg",
+    "theme": "neon-dark",
     "animations": true,
-    "performanceMode": true,
-    "showFps": true
+    "performanceMode": false,
+    "showFps": false
   },
   "audio": {
     "masterVolume": 0.8,
     "startupSound": true,
     "backgroundMusic": true,
     "uiSounds": true
-  },
-  "input": {
-    "controllerSupport": true,
-    "keyboardMouse": true,
-    "touchscreen": true,
-    "vibration": true,
-    "deadZone": 0.2
-  },
-  "storage": {
-    "profilesPath": "../Profiles",
-    "gamesPath": "../Games",
-    "appsPath": "../Apps",
-    "downloadsPath": "../Downloads",
-    "mediaPath": "../Media",
-    "aiPath": "../AI"
-  },
-  "store": {
-    "name": "RhysTech Store",
-    "cloudSync": true,
-    "autoUpdates": true
-  },
-  "boot": {
-    "skipSplash": false,
-    "splashDuration": 4000,
-    "rememberUser": true
   }
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Roblox</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050810;color:#e8f0ff;font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:24px;padding:40px;max-width:500px;width:90%;margin:20px;backdrop-filter:blur(12px);text-align:center}
+.icon{font-size:5rem;margin-bottom:16px}
+.name{font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,#00d4ff,#9d4edd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
+.category{font-size:.75rem;color:#00d4ff;text-transform:uppercase;letter-spacing:.15em;margin-bottom:12px}
+.desc{color:#8b9dc3;font-size:.9rem;line-height:1.7;margin-bottom:20px}
+.stars{color:#ffc107;font-size:1.1rem;margin-bottom:4px}
+.meta{color:#6b7d9e;font-size:.8rem;margin-bottom:20px}
+.play-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;background:#00d4ff;color:#000}
+.play-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,212,255,.3)}
+.ghost-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:14px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none;background:transparent;border:1px solid rgba(255,255,255,.1);color:#8b9dc3;margin-top:10px}
+.ghost-btn:hover{border-color:#00d4ff;color:#00d4ff}
+.top-bar{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:flex-end;padding:12px 16px;gap:10px}
+.top-bar a{color:#8b9dc3;font-size:.82rem;text-decoration:none;padding:6px 14px;border-radius:10px;background:rgba(5,8,16,.7);border:1px solid rgba(255,255,255,.06);transition:all .2s;cursor:pointer}
+.top-bar a:hover{color:#00d4ff;border-color:#00d4ff}
+.instructions{text-align:left;margin-top:20px;padding:16px;background:rgba(0,212,255,.04);border-radius:12px;border:1px solid rgba(0,212,255,.1)}
+.instructions h4{color:#00d4ff;font-size:.8rem;margin-bottom:8px}
+.instructions li{color:#8b9dc3;font-size:.78rem;padding:3px 0;list-style:none;padding-left:20px;position:relative}
+.instructions li:before{content:'\203A';position:absolute;left:0;color:#00d4ff;font-weight:700}
+</style>
+</head>
+<body>
+<div class="top-bar">
+<a onclick="window.open('https://play.google.com/store/apps/details?id=com.roblox.client','_blank')">↗ Open in Play Store</a>
+<a onclick="window.parent.postMessage('rqbbox-exit','*')">← Back</a>
+</div>
+<div class="card">
+<div class="icon">🔶</div>
+<div class="name">Roblox</div>
+<div class="category">Sandbox</div>
+<div class="desc">Millions of user-created games and experiences. Play, create, and socialize in an infinite virtual universe.</div>
+<div class="stars">★★★★☆ 4.4</div>
+<div class="meta">140M+ downloads &bull; 300 MB</div>
+<a class="play-btn" href="https://play.google.com/store/apps/details?id=com.roblox.client" target="_blank">📲 Get on Google Play</a>
+<a class="ghost-btn" onclick="window.open('https://play.google.com/store/apps/category/GAME','_blank')">🎮 Browse More Games</a>
+<div class="instructions">
+<h4>📱 Install on Your Phone</h4>
+<ul style="padding:0;margin-top:6px">
+<li>Open Google Play Store on your Android phone</li>
+<li>Search for "Roblox" or tap the button above</li>
+<li>Tap "Install" and wait for the download</li>
+<li>Launch from your app drawer or RQBBOX game library</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
