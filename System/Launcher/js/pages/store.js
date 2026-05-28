@@ -25,6 +25,14 @@ const StorePage = {
         <img src="/branding/rhytech-logo.svg" alt="RhysTech" style="height:32px;" onerror="this.src='../Branding/rhytech-logo.svg'">
         <div><h3 style="font-size:1.1rem;">RhysTech Store</h3><p style="font-size:0.8rem;color:var(--text-muted);">Real installs to USB · Offline ready</p></div>
       </div>
+      <div style="display:flex;gap:12px;align-items:center;padding:16px;background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(157,78,221,0.08));border:1px solid rgba(0,212,255,0.15);border-radius:16px;margin-bottom:20px;">
+        <div style="flex:1;">
+          <div style="font-weight:700;font-size:1rem;">🚀 RQBBOX OS v1.1.0</div>
+          <div style="font-size:.78rem;color:var(--text-secondary);margin-top:2px;">Portable USB gaming OS — free for all platforms</div>
+        </div>
+        <button class="btn btn-primary btn-sm" onclick="window.open('https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases/tag/v1.1.0-platforms','_blank')" style="white-space:nowrap;">⬇ Download</button>
+        <button class="btn btn-ghost btn-sm" onclick="RQBAudio.playStartupSound ? RQBAudio.boot() : RQBAudio?.boot?.()" title="Boot sound preview">🔊</button>
+      </div>
       <div class="category-pills" id="store-categories"></div>
       <div class="section-header"><h3>Games</h3></div>
       <div class="card-grid" id="store-games"></div>
