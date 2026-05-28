@@ -7,49 +7,49 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/website/os-info-card.html</loc>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/website/support.html</loc>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/support.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/website/dev.html</loc>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/dev.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/website/device.html</loc>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/device.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/bootloader/</loc>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Bootloader/index.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/website/embed.html</loc>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/embed.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/website/embed-card.html</loc>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/embed-card.html</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/website/embed-card.js</loc>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/embed-card.js</loc>
     <lastmod>2026-05-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
