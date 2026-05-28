@@ -100,37 +100,26 @@ const RQB = {
     const key = type === 'game' ? 'games' : 'apps';
     const installed = item.installed || RQBBOX_DATA.profiles?.installed?.[key]?.includes(item.id);
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card-ps5';
     card.dataset.id = item.id;
     card.dataset.type = type;
+    card.style.position = 'relative';
 
-    const banner = document.createElement('div');
-    banner.className = 'card-banner';
-    banner.textContent = item.banner || (type === 'game' ? '🎮' : '📱');
-
-    const body = document.createElement('div');
-    body.className = 'card-body';
-
-    const titleEl = document.createElement('div');
-    titleEl.className = 'card-title';
-    titleEl.textContent = item.title;
-
-    const descEl = document.createElement('div');
-    descEl.className = 'card-desc';
-    descEl.textContent = item.description || '';
-
-    const metaEl = document.createElement('div');
-    metaEl.className = 'card-meta';
-    metaEl.innerHTML = `<span class="card-rating">★ ${item.rating || '4.5'}</span><span>${item.category || item.size || ''}</span>${installed ? '<span style="color:var(--neon-cyan)">● Installed</span>' : ''}`;
+    card.innerHTML = `
+      <div class="card-art">${item.banner || (type === 'game' ? '🎮' : '📱')}</div>
+      <div class="card-info">
+        <div class="card-title">${item.title}</div>
+        <div class="card-sub">${item.category || item.size || ''}</div>
+        <div class="card-rating">★ ${item.rating || ''}</div>
+        ${installed ? '<div class="installed-badge">● Installed</div>' : ''}
+      </div>`;
 
     const qrBtn = document.createElement('button');
     qrBtn.className = 'card-qr-btn';
     qrBtn.textContent = '📱';
     qrBtn.title = 'Share QR Code';
     qrBtn.onclick = e => { e.stopPropagation(); QR.showShareOption(type, item.id, item.title); };
-
-    body.append(titleEl, descEl, metaEl, qrBtn);
-    card.append(banner, body);
+    card.appendChild(qrBtn);
     return card;
   },
 

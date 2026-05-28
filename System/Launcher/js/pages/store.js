@@ -35,9 +35,9 @@ const StorePage = {
       </div>
       <div class="category-pills" id="store-categories"></div>
       <div class="section-header"><h3>Games</h3></div>
-      <div class="card-grid" id="store-games"></div>
-      <div class="section-header" style="margin-top:28px;"><h3>Apps</h3></div>
-      <div class="card-grid" id="store-apps"></div>
+      <div class="horz-scroll" id="store-games"></div>
+      <div class="section-header" style="margin-top:8px;"><h3>Apps</h3></div>
+      <div class="horz-scroll" id="store-apps"></div>
       <div id="install-progress" style="display:none;margin-top:20px;padding:16px;background:var(--bg-card);border-radius:12px;">
         <strong id="install-title">Installing...</strong>
         <div class="download-progress" style="margin-top:8px;"><div class="download-progress-bar" id="install-bar" style="width:0%"></div></div>
