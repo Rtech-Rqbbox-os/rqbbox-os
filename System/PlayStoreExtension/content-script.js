@@ -222,19 +222,20 @@
     ];
     for (var i = 0; i < sels.length; i++) {
       var el = document.querySelector(sels[i]);
-      if (el && el.parentNode) return el;
+      if (el && el.parentNode) return { target: el, position: 'before' };
     }
+    // Fallback: top of body
+    if (document.body && document.body.firstChild) return { target: document.body.firstChild, position: 'before' };
     return null;
   }
 
   function inject() {
     if (document.getElementById(BTN_ID)) return true;
     injectCSS();
-    var target = findTarget();
-    if (!target) return false;
+    var found = findTarget();
+    if (!found) return false;
     var card = buildCard();
-    if (target.nextSibling) target.parentNode.insertBefore(card, target.nextSibling);
-    else target.parentNode.appendChild(card);
+    found.target.parentNode.insertBefore(card, found.target);
     return true;
   }
 

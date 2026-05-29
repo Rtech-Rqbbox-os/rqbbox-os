@@ -186,11 +186,7 @@ console.log('RQBBOX: Loaded (v2.1.0)');
     for (var i = 0; i < targets.length; i++) {
       var el = document.querySelector(targets[i]);
       if (el && el.parentNode) {
-        if (el.nextSibling) {
-          el.parentNode.insertBefore(card, el.nextSibling);
-        } else {
-          el.parentNode.appendChild(card);
-        }
+        el.parentNode.insertBefore(card, el);
         return;
       }
     }
