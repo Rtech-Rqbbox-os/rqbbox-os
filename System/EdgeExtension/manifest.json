@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "RQBBOX OS — Google Search Info Card",
+  "short_name": "RQBBOX OS",
+  "version": "1.2.0",
+  "description": "Shows the RQBBOX OS info card directly on Google Search results when you search for RQBBOX OS. Free and open source.",
+  "author": "RhysTech (rhyscotton20@gmail.com)",
+  "homepage_url": "https://github.com/Rtech-Rqbbox-os/rqbbox-os",
+
+  "icons": {
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  },
+
+  "action": {
+    "default_title": "RQBBOX OS Info Card",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.svg",
+      "128": "icons/icon-128.svg"
+    }
+  },
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://www.google.com/*",
+    "https://google.com/*",
+    "https://www.googlechrome.com/*",
+    "https://googlechrome.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/search*",
+        "https://google.com/search*",
+        "https://www.googlechrome.com/search*",
+        "https://googlechrome.com/search*"
+      ],
+      "js": ["content-script.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "offline_enabled": true,
+  "keywords": ["rqbbox", "gaming", "USB OS", "game launcher", "RhysTech"]
+}

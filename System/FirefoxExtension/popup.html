@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=420">
+  <title>RQBBOX OS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 420px; min-height: 500px; background: #0a0a0f; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .wrap { padding: 16px; }
+    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .logo { width: 44px; height: 44px; flex-shrink: 0; }
+    .title { font-size: 1.1rem; font-weight: 700; }
+    .sub { font-size: .7rem; color: rgba(255,255,255,.4); }
+    .badge { display: inline-block; background: rgba(0,212,255,.08); border: 1px solid rgba(0,212,255,.1); padding: 2px 8px; border-radius: 100px; font-size: .6rem; color: #00d4ff; text-transform: uppercase; letter-spacing: .3px; }
+    .banner {
+      background: linear-gradient(135deg, rgba(0,119,255,.1), rgba(0,212,255,.06));
+      border: 1px solid rgba(0,212,255,.12);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      font-size: .7rem;
+      color: #00d4ff;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .banner strong { font-size: .8rem; }
+    .desc { font-size: .78rem; line-height: 1.5; color: rgba(255,255,255,.5); margin-bottom: 12px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-bottom: 12px; }
+    .g { padding: 6px 8px; border-radius: 6px; background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.04); font-size: .68rem; color: rgba(255,255,255,.5); }
+    .g strong { color: rgba(255,255,255,.7); }
+    .actions { display: flex; flex-direction: column; gap: 4px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; font-size: .75rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+    .btn-primary { background: linear-gradient(135deg, #007bff, #00d4ff); color: #fff; }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-ghost { background: rgba(255,255,255,.04); color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.06); }
+    .btn-ghost:hover { background: rgba(255,255,255,.08); }
+    .btn-success { background: rgba(0,200,80,.12); color: #4cff88; border: 1px solid rgba(0,200,80,.15); }
+    .footer { margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.04); font-size: .6rem; color: rgba(255,255,255,.2); display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .steps { font-size: .68rem; color: rgba(255,255,255,.45); line-height: 1.6; padding: 8px 12px; background: rgba(255,255,255,.02); border-radius: 8px; border: 1px solid rgba(255,255,255,.04); }
+    .steps strong { color: rgba(255,255,255,.6); }
+    .steps code { background: rgba(0,0,0,.3); padding: 1px 5px; border-radius: 3px; font-size: .65rem; color: #a0d8ff; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <svg class="logo" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0a0e1a" stroke="url(#lg)" stroke-width="2"/><text x="50" y="66" text-anchor="middle" font-size="52" font-weight="800" fill="url(#lg)" font-family="Segoe UI">R</text><defs><linearGradient id="lg"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+    <div>
+      <div class="title">RQBBOX OS</div>
+      <div class="sub">Info Card on Google.com &bull; v1.2.0</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <strong>✅ WORKING ON GOOGLE.COM</strong><br>
+    Search <strong>"RQBBOX OS"</strong> on Google &mdash; the info card appears automatically.
+  </div>
+
+  <div style="display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap">
+    <span class="badge">Google Chrome</span>
+    <span class="badge">Works on Google.com</span>
+    <span class="badge">Free</span>
+  </div>
+
+  <div class="desc">
+    This extension injects the RQBBOX OS information card directly into Google Search results when you search for RQBBOX OS. No waiting for Google to index &mdash; the card appears instantly.
+  </div>
+
+  <div class="steps">
+    <strong>📋 How to use:</strong><br>
+    1. Go to <strong>google.com</strong><br>
+    2. Search <strong>"RQBBOX OS"</strong><br>
+    3. The info card appears on the right sidebar or top of results<br>
+    4. Click Download, GitHub, or Info Card buttons
+  </div>
+
+  <div style="margin-top:10px;margin-bottom:8px;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.4px">Quick Links</div>
+  <div class="actions">
+    <a class="btn btn-primary" href="https://google.com/search?q=RQBBOX+OS" target="_blank">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+      Search RQBBOX OS on Google
+    </a>
+    <a class="btn btn-ghost" href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html" target="_blank">Full Info Card</a>
+    <a class="btn btn-ghost" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases" target="_blank">⬇ Download OS</a>
+  </div>
+
+  <div style="margin-top:10px;margin-bottom:8px;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.4px">Share Info Card</div>
+  <div class="actions">
+    <a class="btn btn-ghost" href="mailto:?subject=RQBBOX%20OS%20%E2%80%94%20Portable%20USB%20Gaming%20Operating%20System&body=Check%20out%20RQBBOX%20OS%3A%20https%3A%2F%2Frtech-rqbbox-os.github.io%2Frqbbox-os%2FSystem%2FWebsite%2Fos-info-card.html" target="_blank">
+      📧 Share via Email
+    </a>
+  </div>
+
+  <div class="footer">
+    <span>&copy; 2026 RhysTech &bull; MIT</span>
+    <span><a href="mailto:rqbbox.support@groups.outlook.com" style="color:rgba(0,212,255,.4);text-decoration:none;font-size:.6rem;">Support</a></span>
+  </div>
+
+</div>
+</body>
+</html>
