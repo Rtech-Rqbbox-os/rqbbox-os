@@ -177,10 +177,10 @@
       '<div class="rqbbox-p-wrap">' +
         '<div class="rqbbox-p-head">' +
           '<div class="rqbbox-p-logo">R</div>' +
-          '<div><div class="rqbbox-p-title">' + APP.name + ' &mdash; Server Install</div>' +
+          '<div><div class="rqbbox-p-title">' + APP.name + ' &mdash; All 31 Apps &amp; Games</div>' +
           '<div class="rqbbox-p-sub">by ' + APP.author + ' &bull; ' + APP.version + ' &bull; ' + PKGS.length + ' packages</div></div>' +
         '</div>' +
-        '<div class="rqbbox-p-desc"><strong style="color:#00d4ff">' + appName + '</strong> &bull; Download APK to RQBBOX USB. Server saves app to Store/downloads/ then opens Play Store.</div>' +
+        '<div class="rqbbox-p-desc">Download APK to <strong style="color:#00d4ff">RQBBOX USB</strong>. All 31 apps &amp; games. Click install to save to Store/downloads/.</div>' +
         '<div class="rqbbox-p-badges">' +
           '<span class="rqbbox-p-badge">⚡ USB Install</span>' +
           '<span class="rqbbox-p-badge">🔓 Open Source</span>' +
