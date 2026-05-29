@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "RQBBOX OS — Portable USB Gaming OS",
+  "name": "RQBBOX OS — Info Card on Google.com",
   "short_name": "RQBBOX OS",
   "version": "1.2.0",
-  "description": "Launch RQBBOX OS — a portable USB gaming operating system with PS5 UI, pro audio, 43+ packages, and phone bootloader. By RhysTech.",
+  "description": "Shows the RQBBOX OS info card directly on Google Search results when you search for RQBBOX OS.",
   "author": "RhysTech",
   "homepage_url": "https://github.com/Rtech-Rqbbox-os/rqbbox-os",
   "minimum_chrome_version": "88",
@@ -14,7 +14,7 @@
   },
 
   "action": {
-    "default_title": "Open RQBBOX OS",
+    "default_title": "RQBBOX OS Info Card",
     "default_popup": "popup.html",
     "default_icon": {
       "48": "icons/icon-48.svg",
@@ -30,14 +30,18 @@
     "http://localhost:19777/*",
     "https://rtech-rqbbox-os.github.io/*",
     "https://www.google.com/*",
-    "https://google.com/*"
+    "https://google.com/*",
+    "https://www.googlechrome.com/*",
+    "https://googlechrome.com/*"
   ],
 
   "content_scripts": [
     {
       "matches": [
         "https://www.google.com/search*",
-        "https://google.com/search*"
+        "https://google.com/search*",
+        "https://www.googlechrome.com/search*",
+        "https://googlechrome.com/search*"
       ],
       "js": ["content-script.js"],
       "run_at": "document_end"
@@ -48,12 +52,6 @@
     "service_worker": "background.js"
   },
 
-  "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true
-  },
-
   "offline_enabled": true,
-
-  "keywords": ["gaming", "USB", "portable OS", "game launcher", "RhysTech"]
+  "keywords": ["rqbbox", "gaming", "USB OS", "game launcher", "RhysTech"]
 }

@@ -1,10 +1,11 @@
 // RQBBOX OS Chrome Extension — Service Worker
-chrome.runtime.onInstalled.addListener(({ reason }) => {
-  if (reason === 'install') {
-    chrome.tabs.create({ url: 'https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html' });
+chrome.runtime.onInstalled.addListener(function(details) {
+  if (details.reason === 'install') {
+    // Open Google Search for RQBBOX OS so they see the card
+    chrome.tabs.create({ url: 'https://google.com/search?q=RQBBOX+OS' });
   }
 });
 
-chrome.action.onClicked.addListener(() => {
-  chrome.tabs.create({ url: 'http://localhost:19777/' });
+chrome.action.onClicked.addListener(function() {
+  chrome.tabs.create({ url: 'https://google.com/search?q=RQBBOX+OS' });
 });

@@ -1,0 +1,20 @@
+HOW TO INSTALL RQBBOX OS CHROME EXTENSION
+===========================================
+(Works on google.com and googlechrome.com)
+
+Step 1: Open Chrome and go to: chrome://extensions/
+
+Step 2: Turn ON "Developer mode" (top-right toggle)
+
+Step 3: Unzip the extension package to a folder:
+   - Right-click rqbbox-os-chrome-extension.zip → Extract All
+   - Or drag the folder somewhere like your Desktop
+
+Step 4: Click "Load unpacked" button (top-left)
+   - Select the folder you just extracted
+   - The extension appears in your toolbar
+
+Step 5: Go to google.com and search: RQBBOX OS
+   - The info card appears on the right side or top of results
+
+Need help? Email: rhyscotton20@gmail.com
