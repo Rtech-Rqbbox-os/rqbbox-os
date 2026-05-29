@@ -144,23 +144,45 @@ console.log('RQBBOX: Loaded (v2.1.0)');
               }
               if (d.playStoreUrl) window.open(d.playStoreUrl, '_blank');
             } else {
-              btn.textContent = 'Downloading from APKPure...';
+              // Try APKPure download
+              var apkUrl = 'https://d.apkpure.com/b/APK/' + id + '?version=latest';
+              btn.textContent = 'Opening APKPure download...';
               btn.style.opacity = '0.6';
-              window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
-              setTimeout(function() { btn.textContent = 'APK downloading. Check browser downloads. Copy to H:\\Store\\downloads\\'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
+              window.open(apkUrl, '_blank');
+              setTimeout(function() {
+                btn.textContent = 'APK download started in new tab';
+                btn.style.background = 'rgba(0,200,80,0.15)';
+                btn.style.color = '#4cff88';
+                btn.style.opacity = '1';
+                btn.disabled = false;
+              }, 2000);
             }
           } catch(e) {
-            btn.textContent = 'Downloading from APKPure...';
+            var apkUrl = 'https://d.apkpure.com/b/APK/' + id + '?version=latest';
+            btn.textContent = 'Opening APKPure download...';
             btn.style.opacity = '0.6';
-            window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
-            setTimeout(function() { btn.textContent = 'APK downloading. Check browser downloads.'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
+            window.open(apkUrl, '_blank');
+            setTimeout(function() {
+              btn.textContent = 'APK download started in new tab';
+              btn.style.background = 'rgba(0,200,80,0.15)';
+              btn.style.color = '#4cff88';
+              btn.style.opacity = '1';
+              btn.disabled = false;
+            }, 2000);
           }
         };
         xhr.onerror = function() {
-          btn.textContent = 'Downloading from APKPure...';
+          var apkUrl = 'https://d.apkpure.com/b/APK/' + id + '?version=latest';
+          btn.textContent = 'Opening APKPure download...';
           btn.style.opacity = '0.6';
-          window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
-          setTimeout(function() { btn.textContent = 'APK downloading. Check browser downloads.'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
+          window.open(apkUrl, '_blank');
+          setTimeout(function() {
+            btn.textContent = 'APK download started in new tab';
+            btn.style.background = 'rgba(0,200,80,0.15)';
+            btn.style.color = '#4cff88';
+            btn.style.opacity = '1';
+            btn.disabled = false;
+          }, 2000);
         };
         xhr.send(JSON.stringify({ id: id }));
       });

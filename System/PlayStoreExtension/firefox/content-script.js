@@ -61,7 +61,7 @@
 
   function downloadDirect(pkgId, pkgName, btn) {
     if (!btn) return;
-    btn.textContent = 'Downloading APK from APKPure...';
+    btn.textContent = 'Downloading APK...';
     btn.style.opacity = '0.6';
     btn.disabled = true;
 
@@ -72,13 +72,18 @@
         btn.style.color = '#4cff88';
         btn.disabled = false;
         btn.style.opacity = '1';
-        if (resp.message) console.log('RQBBOX:', resp.message);
       } else {
-        btn.textContent = 'Download failed. Try again.';
-        btn.style.opacity = '1';
-        btn.style.background = 'rgba(255,100,50,.2)';
-        btn.style.color = '#ff6633';
-        btn.disabled = false;
+        // Last resort: open APKPure in new tab
+        btn.textContent = 'Opening APKPure download page...';
+        btn.style.opacity = '0.6';
+        window.open('https://d.apkpure.com/b/APK/' + pkgId + '?version=latest', '_blank');
+        setTimeout(function() {
+          btn.textContent = 'APK download started in new tab';
+          btn.style.background = 'rgba(0,200,80,.15)';
+          btn.style.color = '#4cff88';
+          btn.style.opacity = '1';
+          btn.disabled = false;
+        }, 2000);
       }
     });
   }

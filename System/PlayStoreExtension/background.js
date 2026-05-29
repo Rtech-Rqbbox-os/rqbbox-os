@@ -14,24 +14,38 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 });
 
 async function downloadAPK(pkgId, pkgName) {
-  try {
-    var apkUrl = 'https://d.apkpure.com/b/APK/' + pkgId + '?version=latest';
-    var resp = await fetch(apkUrl);
-    var finalUrl = resp.url || apkUrl;
-    var filename = pkgId.replace(/\./g, '-') + '.apk';
-    var dlId = await new Promise(function(resolve, reject) {
-      chrome.downloads.download({
-        url: finalUrl,
-        filename: filename,
-        conflictAction: 'overwrite',
-        saveAs: false
-      }, function(id) {
-        if (chrome.runtime.lastError) reject(chrome.runtime.lastError);
-        else resolve(id);
-      });
-    });
-    return { ok: true, message: pkgName + ' APK downloaded! Copy to H:\\RQBBOX_OS\\Store\\downloads\\' + pkgId + '\\app.apk' };
-  } catch(e) {
-    return { ok: false, error: e.message };
+  var urls = [
+    'https://d.apkpure.com/b/APK/' + pkgId + '?version=latest',
+    'https://d.apkpure.com/b/XAPK/' + pkgId + '?version=latest',
+    'https://en.uptodown.com/android/download/' + pkgId
+  ];
+
+  for (var i = 0; i < urls.length; i++) {
+    try {
+      var dlId = await tryDownload(urls[i], pkgId);
+      if (dlId !== null) {
+        return { ok: true, message: pkgName + ' APK downloaded! Copy to RQBBOX USB Store/downloads/' + pkgId + '/' };
+      }
+    } catch(e) {}
   }
+
+  // Last resort: open Play Store page
+  return { ok: false, error: 'All download sources failed. Open Play Store page instead.' };
+}
+
+function tryDownload(url, pkgId) {
+  return new Promise(function(resolve, reject) {
+    chrome.downloads.download({
+      url: url,
+      filename: pkgId.replace(/\./g, '-') + '.apk',
+      conflictAction: 'overwrite',
+      saveAs: false
+    }, function(id) {
+      if (chrome.runtime.lastError) {
+        resolve(null);
+      } else {
+        resolve(id);
+      }
+    });
+  });
 }
