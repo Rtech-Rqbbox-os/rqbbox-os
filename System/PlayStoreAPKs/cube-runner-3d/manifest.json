@@ -1,0 +1,32 @@
+{
+  "name": "Cube Runner 3D",
+  "short_name": "Cube Runner 3D",
+  "description": "Endless 3D runner with dynamic obstacles, power-ups, and leaderboard competition.",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": [
+    "GAME_ARCADE"
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.rqbbox.cube-runner-3d",
+      "id": "com.rqbbox.cube-runner-3d"
+    }
+  ]
+}

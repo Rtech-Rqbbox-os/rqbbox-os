@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RQBBOX OS — Google Play Store Apps & Games</title>
+  <meta name="description" content="All 31 RQBBOX-supported Google Play Store apps and games. Browse games, apps, and install them on your RQBBOX USB drive.">
+  <link rel="canonical" href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/play-store.html">
+  <meta property="og:title" content="RQBBOX OS — Google Play Store Apps & Games">
+  <meta property="og:description" content="All 31 RQBBOX-supported apps and games on Google Play Store.">
+  <meta name="robots" content="index, follow">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#0a0a0f; background-image:radial-gradient(ellipse at 50% 0%,rgba(0,212,255,.04) 0%,transparent 60%); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; padding:24px; color:#fff; min-height:100vh; }
+    .container { max-width:1000px; margin:0 auto; }
+    h1 { font-size:1.8rem; font-weight:700; margin-bottom:4px; }
+    .sub { color:rgba(255,255,255,.4); margin-bottom:8px; font-size:.9rem; }
+    .badge { display:inline-block; background:rgba(0,212,255,.08); border:1px solid rgba(0,212,255,.1); padding:3px 10px; border-radius:100px; font-size:.7rem; color:#00d4ff; text-transform:uppercase; letter-spacing:.3px; margin-right:4px; margin-bottom:4px; }
+    .stats { display:flex; gap:16px; margin-bottom:20px; font-size:.8rem; color:rgba(255,255,255,.5); }
+    .stats strong { color:rgba(255,255,255,.7); }
+    .filters { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+    .filter-btn { padding:6px 14px; border-radius:100px; font-size:.75rem; font-weight:600; cursor:pointer; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.04); color:rgba(255,255,255,.5); transition:all .2s; }
+    .filter-btn:hover { background:rgba(0,212,255,.08); border-color:rgba(0,212,255,.12); color:#fff; }
+    .filter-btn.active { background:rgba(0,212,255,.12); border-color:rgba(0,212,255,.2); color:#00d4ff; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .card {
+      display:flex; align-items:center; gap:10px;
+      background:rgba(20,22,28,.85); backdrop-filter:blur(24px) saturate(1.3);
+      border:1px solid rgba(255,255,255,.06); border-radius:12px;
+      padding:12px 14px; transition:border-color .2s; text-decoration:none; color:inherit;
+    }
+    .card:hover { border-color:rgba(0,212,255,.15); }
+    .card-icon { font-size:1.5rem; width:36px; text-align:center; flex-shrink:0; }
+    .card-info { flex:1; min-width:0; }
+    .card-title { font-size:.82rem; font-weight:600; color:rgba(255,255,255,.8); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .card-cat { font-size:.65rem; color:rgba(255,255,255,.35); }
+    .card-link { font-size:.6rem; color:rgba(0,212,255,.5); text-decoration:none; white-space:nowrap; padding:3px 8px; border-radius:6px; background:rgba(0,212,255,.06); flex-shrink:0; }
+    .card-link:hover { color:#00d4ff; background:rgba(0,212,255,.1); }
+    .footer { margin-top:24px; padding-top:16px; border-top:1px solid rgba(255,255,255,.04); text-align:center; font-size:.7rem; color:rgba(255,255,255,.2); }
+    .footer a { color:rgba(0,212,255,.4); text-decoration:none; }
+    @media (max-width:600px) { .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>RQBBOX OS <span style="color:#00d4ff">×</span> Google Play Store</h1>
+  <div class="sub">All 31 RQBBOX-supported apps & games — click to open on Google Play Store</div>
+  <div style="margin-bottom:12px">
+    <span class="badge">⚡ USB Portable</span>
+    <span class="badge">🔓 Open Source</span>
+    <span class="badge">⚙️ RQBBOX Kernel</span>
+    <span class="badge">🎮 12 Games</span>
+    <span class="badge">📱 19 Apps</span>
+    <span class="badge">🔌 Plugin SDK</span>
+  </div>
+  <div class="stats">
+    <span>Total: <strong id="total-count">31</strong> packages</span>
+    <span>Developer: <strong>RhysTech</strong></span>
+    <span><a href="mailto:rhyscotton20@gmail.com" style="color:rgba(0,212,255,.5)">📧 rhyscotton20@gmail.com</a></span>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="Game">🎮 Games</button>
+    <button class="filter-btn" data-filter="App">📱 Apps</button>
+    <button class="filter-btn" data-filter="FPS">🎯 FPS</button>
+    <button class="filter-btn" data-filter="Racing">🏎️ Racing</button>
+    <button class="filter-btn" data-filter="Social">💬 Social</button>
+    <button class="filter-btn" data-filter="Tool">🔧 Tools</button>
+  </div>
+
+  <div class="grid" id="packages-grid"></div>
+
+  <div class="footer">
+    <a href="index.html">Website</a> &bull;
+    <a href="os-info-card.html">Info Card</a> &bull;
+    <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os">GitHub</a> &bull;
+    <a href="https://www.youtube.com/@RQBBOX-REAL">YouTube</a> &bull;
+    <a href="support.html">Support</a> &bull;
+    RQBBOX OS &copy; 2026 RhysTech &bull; MIT
+  </div>
+</div>
+
+<script>
+var PACKAGES = [
+  { id:'com.activision.callofduty.shooter', title:'Call of Duty Mobile', cat:'FPS', icon:'🎯', type:'Game' },
+  { id:'com.miHoYo.GenshinImpact', title:'Genshin Impact', cat:'RPG', icon:'⚔️', type:'Game' },
+  { id:'com.tencent.ig', title:'PUBG Mobile', cat:'FPS', icon:'🎯', type:'Game' },
+  { id:'com.mojang.minecraftpe', title:'Minecraft', cat:'Sandbox', icon:'🏗️', type:'Game' },
+  { id:'com.gameloft.android.ANMP.GloftA9HM', title:'Asphalt 9', cat:'Racing', icon:'🏎️', type:'Game' },
+  { id:'com.roblox.client', title:'Roblox', cat:'Sandbox', icon:'🏗️', type:'Game' },
+  { id:'com.mobile.legends', title:'Mobile Legends', cat:'MOBA', icon:'⚔️', type:'Game' },
+  { id:'com.supercell.clashroyale', title:'Clash Royale', cat:'Strategy', icon:'🛡️', type:'Game' },
+  { id:'com.innersloth.spacemafia', title:'Among Us', cat:'Party', icon:'🎭', type:'Game' },
+  { id:'com.epicgames.fortnite', title:'Fortnite', cat:'FPS', icon:'🎯', type:'Game' },
+  { id:'com.riotgames.league.wildrift', title:'Wild Rift', cat:'MOBA', icon:'⚔️', type:'Game' },
+  { id:'com.kiloo.subwaysurf', title:'Subway Surfers', cat:'Arcade', icon:'🏃', type:'Game' },
+  { id:'com.android.chrome', title:'Google Chrome', cat:'Browser', icon:'🌐', type:'App' },
+  { id:'com.termux', title:'Termux', cat:'Tool', icon:'💻', type:'App' },
+  { id:'org.videolan.vlc', title:'VLC Media Player', cat:'Media', icon:'📺', type:'App' },
+  { id:'org.fdroid.fdroid', title:'F-Droid', cat:'Store', icon:'📦', type:'App' },
+  { id:'com.valvesoftware.steamlink', title:'Steam Link', cat:'Gaming', icon:'🎮', type:'App' },
+  { id:'com.limelight', title:'Moonlight', cat:'Gaming', icon:'🎮', type:'App' },
+  { id:'com.rarlab.rar', title:'ZArchiver', cat:'Tool', icon:'🗜️', type:'App' },
+  { id:'com.joaomgcd.autonotification', title:'Tasker', cat:'Tool', icon:'⚡', type:'App' },
+  { id:'com.google.android.apps.maps', title:'Google Maps', cat:'Navigation', icon:'🗺️', type:'App' },
+  { id:'com.whatsapp', title:'WhatsApp', cat:'Social', icon:'💬', type:'App' },
+  { id:'com.instagram.android', title:'Instagram', cat:'Social', icon:'📸', type:'App' },
+  { id:'com.snapchat.android', title:'Snapchat', cat:'Social', icon:'👻', type:'App' },
+  { id:'org.telegram.messenger', title:'Telegram', cat:'Social', icon:'✈️', type:'App' },
+  { id:'com.microsoft.office.outlook', title:'Outlook', cat:'Productivity', icon:'📧', type:'App' },
+  { id:'com.google.android.keep', title:'Google Keep', cat:'Productivity', icon:'📝', type:'App' },
+  { id:'com.microsoft.office.officehubrow', title:'Microsoft 365', cat:'Productivity', icon:'📊', type:'App' },
+  { id:'com.adobe.reader', title:'Adobe Reader', cat:'Productivity', icon:'📄', type:'App' },
+  { id:'com.google.android.apps.photos', title:'Google Photos', cat:'Media', icon:'🖼️', type:'App' },
+  { id:'com.zhiliaoapp.musically', title:'TikTok', cat:'Social', icon:'🎵', type:'App' }
+];
+
+function render(filter) {
+  var grid = document.getElementById('packages-grid');
+  var filtered = filter === 'all' ? PACKAGES : PACKAGES.filter(function(p) {
+    return p.cat === filter || p.type === filter;
+  });
+  grid.innerHTML = filtered.map(function(p) {
+    return '<a class="card" href="https://play.google.com/store/apps/details?id=' + p.id + '" target="_blank">' +
+      '<div class="card-icon">' + p.icon + '</div>' +
+      '<div class="card-info"><div class="card-title">' + p.title + '</div><div class="card-cat">' + p.cat + ' &bull; ' + p.type + '</div></div>' +
+      '<span class="card-link">Open →</span>' +
+    '</a>';
+  }).join('');
+}
+
+document.getElementById('filters').addEventListener('click', function(e) {
+  if (e.target.classList.contains('filter-btn')) {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    e.target.classList.add('active');
+    render(e.target.getAttribute('data-filter'));
+  }
+});
+
+render('all');
+</script>
+</body>
+</html>

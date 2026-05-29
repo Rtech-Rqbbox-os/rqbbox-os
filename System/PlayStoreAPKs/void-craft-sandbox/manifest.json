@@ -1,0 +1,32 @@
+{
+  "name": "Void Craft Sandbox",
+  "short_name": "Void Craft Sandbox",
+  "description": "Open-world sandbox builder. Create, explore, and survive in a procedurally generated void world.",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": [
+    "GAME_SANDBOX"
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.rqbbox.void-craft-sandbox",
+      "id": "com.rqbbox.void-craft-sandbox"
+    }
+  ]
+}

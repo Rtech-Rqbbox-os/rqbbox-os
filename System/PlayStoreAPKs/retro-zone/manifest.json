@@ -1,0 +1,32 @@
+{
+  "name": "Retro Zone",
+  "short_name": "Retro Zone",
+  "description": "Classic retro gaming collection. Multiple arcade classics in one package.",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": [
+    "GAME_ARCADE"
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.rqbbox.retro-zone",
+      "id": "com.rqbbox.retro-zone"
+    }
+  ]
+}

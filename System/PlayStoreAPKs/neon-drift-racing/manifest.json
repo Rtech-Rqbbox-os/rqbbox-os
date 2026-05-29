@@ -1,0 +1,32 @@
+{
+  "name": "Neon Drift Racing",
+  "short_name": "Neon Drift Racing",
+  "description": "High-speed neon racing game built for RQBBOX OS. Drift, boost, and compete for the best lap times.",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": [
+    "GAME_RACING"
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.rqbbox.neon-drift-racing",
+      "id": "com.rqbbox.neon-drift-racing"
+    }
+  ]
+}

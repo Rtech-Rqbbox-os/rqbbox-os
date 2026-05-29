@@ -1,0 +1,26 @@
+# Void Craft Sandbox — 🏗️
+## Google Play Store Listing
+
+**Package name:** com.rqbbox.void-craft-sandbox
+**Category:** GAME_SANDBOX
+**Description:**
+Open-world sandbox builder. Create, explore, and survive in a procedurally generated void world.
+
+**Screenshots:**
+- 2x phone screenshots (1080×1920)
+- 2x tablet screenshots (1920×1080)
+- 1x feature graphic (1024×500)
+- 1x icon (512×512)
+
+**Promo text:**
+Play Void Craft Sandbox on RQBBOX OS — the portable USB gaming operating system.
+
+**Tags:**
+rqbbox, gaming, void-craft-sandbox, RhysTech, portable USB
+
+**Developer:**
+RhysTech
+rhyscotton20@gmail.com
+
+---
+Powered by RQBBOX Kernel v1.2.0

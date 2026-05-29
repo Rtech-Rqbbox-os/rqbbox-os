@@ -1,0 +1,26 @@
+# Star Fighter X — 🚀
+## Google Play Store Listing
+
+**Package name:** com.rqbbox.star-fighter-x
+**Category:** GAME_ACTION
+**Description:**
+Space shooter with intense dogfights, power-ups, and boss battles across the galaxy.
+
+**Screenshots:**
+- 2x phone screenshots (1080×1920)
+- 2x tablet screenshots (1920×1080)
+- 1x feature graphic (1024×500)
+- 1x icon (512×512)
+
+**Promo text:**
+Play Star Fighter X on RQBBOX OS — the portable USB gaming operating system.
+
+**Tags:**
+rqbbox, gaming, star-fighter-x, RhysTech, portable USB
+
+**Developer:**
+RhysTech
+rhyscotton20@gmail.com
+
+---
+Powered by RQBBOX Kernel v1.2.0

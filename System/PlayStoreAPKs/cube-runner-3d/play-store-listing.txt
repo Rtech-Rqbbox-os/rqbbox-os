@@ -1,0 +1,26 @@
+# Cube Runner 3D — 🎲
+## Google Play Store Listing
+
+**Package name:** com.rqbbox.cube-runner-3d
+**Category:** GAME_ARCADE
+**Description:**
+Endless 3D runner with dynamic obstacles, power-ups, and leaderboard competition.
+
+**Screenshots:**
+- 2x phone screenshots (1080×1920)
+- 2x tablet screenshots (1920×1080)
+- 1x feature graphic (1024×500)
+- 1x icon (512×512)
+
+**Promo text:**
+Play Cube Runner 3D on RQBBOX OS — the portable USB gaming operating system.
+
+**Tags:**
+rqbbox, gaming, cube-runner-3d, RhysTech, portable USB
+
+**Developer:**
+RhysTech
+rhyscotton20@gmail.com
+
+---
+Powered by RQBBOX Kernel v1.2.0

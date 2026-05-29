@@ -1,0 +1,26 @@
+# Retro Zone — 🕹️
+## Google Play Store Listing
+
+**Package name:** com.rqbbox.retro-zone
+**Category:** GAME_ARCADE
+**Description:**
+Classic retro gaming collection. Multiple arcade classics in one package.
+
+**Screenshots:**
+- 2x phone screenshots (1080×1920)
+- 2x tablet screenshots (1920×1080)
+- 1x feature graphic (1024×500)
+- 1x icon (512×512)
+
+**Promo text:**
+Play Retro Zone on RQBBOX OS — the portable USB gaming operating system.
+
+**Tags:**
+rqbbox, gaming, retro-zone, RhysTech, portable USB
+
+**Developer:**
+RhysTech
+rhyscotton20@gmail.com
+
+---
+Powered by RQBBOX Kernel v1.2.0
