@@ -29,8 +29,14 @@ class RQBBOXServer
 
   static void Main()
   {
-    ROOT = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", ".."));
-    if (!Directory.Exists(ROOT)) ROOT = AppDomain.CurrentDomain.BaseDirectory;
+    ROOT = AppDomain.CurrentDomain.BaseDirectory;
+    // If RQBBOX.EXE is at root of USB, RQBBOX_OS is sibling
+    string rqbboxOs = Path.Combine(ROOT, "RQBBOX_OS");
+    if (Directory.Exists(rqbboxOs)) ROOT = rqbboxOs;
+    // If RQBBOX.EXE is in System/ subfolder, go up 2 levels
+    string parent = Path.GetFullPath(Path.Combine(ROOT, ".."));
+    string parentOs = Path.Combine(parent, "RQBBOX_OS");
+    if (Directory.Exists(parentOs)) ROOT = parentOs;
     DOWNLOADS_DIR = Path.Combine(ROOT, "Store", "downloads");
     INSTALLED_FILE = Path.Combine(ROOT, "Store", "catalog", "play-store-installed.json");
 
@@ -42,14 +48,13 @@ class RQBBOXServer
     Console.WriteLine("RQBBOX OS Server v1.0.0");
     Console.WriteLine("Root: " + ROOT);
     Console.WriteLine("USB Target: " + DOWNLOADS_DIR);
-    Console.WriteLine("Listening on http://0.0.0.0:" + PORT + "/");
-    Console.WriteLine("Open http://127.0.0.1:" + PORT + "/ in browser");
+    Console.WriteLine("Listening on http://127.0.0.1:" + PORT + "/");
     Console.WriteLine("---");
 
     try
     {
       HttpListener listener = new HttpListener();
-      listener.Prefixes.Add("http://+:" + PORT + "/");
+      listener.Prefixes.Add("http://127.0.0.1:" + PORT + "/");
       listener.Start();
 
       while (true)
@@ -60,11 +65,11 @@ class RQBBOXServer
     }
     catch (Exception)
     {
-      Console.WriteLine("Could not bind to port " + PORT + ". Trying 127.0.0.1 only...");
+      Console.WriteLine("127.0.0.1 failed. Trying +:" + PORT + " (may need admin)...");
       try
       {
         HttpListener listener = new HttpListener();
-        listener.Prefixes.Add("http://127.0.0.1:" + PORT + "/");
+        listener.Prefixes.Add("http://+:" + PORT + "/");
         listener.Start();
 
         while (true)
