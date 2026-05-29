@@ -41,3 +41,4 @@ Screenshots:
 Categories: Gaming, Developer Tools, Productivity
 Homepage: https://github.com/Rtech-Rqbbox-os/rqbbox-os
 Support: rqbbox.support@groups.outlook.com
+Developer: rhyscotton20@gmail.com

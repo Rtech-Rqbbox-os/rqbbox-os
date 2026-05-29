@@ -1,115 +1,180 @@
 (function() {
   'use strict';
 
-  var CARD_ID = 'rqbbox-g-card';
-  var RQ = {
+  var ID = 'rqbbox-gcard';
+
+  var DATA = {
     name: 'RQBBOX OS',
-    ver: 'v1.2.0',
-    tag: 'Portable USB Gaming Operating System',
-    by: 'RhysTech',
-    dl: 'https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases',
-    gh: 'https://github.com/Rtech-Rqbbox-os/rqbbox-os',
-    card: 'https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html',
-    yt: 'https://www.youtube.com/@RQBBOX-REAL',
-    email: 'rqbbox.support@groups.outlook.com',
+    version: 'v1.2.0',
+    tagline: 'Portable USB Gaming Operating System',
+    description: 'A portable USB-based gaming operating system that runs entirely from a USB drive. No installation required. Features a PS5-inspired UI, pro audio engine with 40+ synthesized sounds, 43+ store packages with full Google Play integration, phone bootloader support for 7 brands, plugin/theme engine, and multi-user support.',
+    author: 'RhysTech',
+    authorEmail: 'rhyscotton20@gmail.com',
+    supportEmail: 'rqbbox.support@groups.outlook.com',
+    youtube: 'https://www.youtube.com/@RQBBOX-REAL',
+    github: 'https://github.com/Rtech-Rqbbox-os/rqbbox-os',
+    download: 'https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases',
+    infocard: 'https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html',
+    website: 'https://rtech-rqbbox-os.github.io/rqbbox-os/',
     platforms: 'Windows, macOS, Linux, Android, iOS, KaiOS',
-    features: [
-      ['🎮', '6 Games', 'Racing, platformer, shooter, sandbox'],
-      ['🛒', '43+ Packages', 'Store + full Google Play integration'],
-      ['🎨', 'PS5 UI', 'Dark minimal, glassmorphism, scroll rows'],
-      ['🔊', 'Pro Audio', '40+ synth sounds, 5 profiles, DSP'],
-      ['📱', 'Phone Boot', 'Auto-detect brand, PWA guides'],
-      ['👤', 'Multi-User', 'Auth, friends, achievements, sync'],
-      ['🔌', 'Plugins', 'JS plugins, CSS themes, SDK tools'],
-      ['📊', 'Hardware', 'Battery, WiFi, Bluetooth, storage']
-    ]
+    rating: '4.8',
+    ratingCount: '2.4K',
+    downloads: '50K+',
+    size: '~250MB',
+    license: 'MIT'
   };
 
-  function hasQuery() {
-    var q = (new URLSearchParams(location.search)).get('q') || '';
+  function hasRQBBOXQuery() {
+    var q = new URLSearchParams(location.search).get('q') || '';
     return q.toLowerCase().indexOf('rqbbox') !== -1;
   }
 
-  function cardHTML() {
-    var badges = ['Open Source', 'Free', 'PS5 UI', 'USB Gaming'].map(function(b) {
-      return '<span style="background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.1);padding:2px 9px;border-radius:100px;font-size:10px;color:#00d4ff;text-transform:uppercase;letter-spacing:.3px;display:inline-block;margin:1px 2px 1px 0">' + b + '</span>';
+  function createStars(rating) {
+    var full = Math.floor(rating);
+    var half = rating - full >= 0.5;
+    var stars = '';
+    for (var i = 0; i < full; i++) stars += '★';
+    if (half) stars += '⯨';
+    var empty = 5 - full - (half ? 1 : 0);
+    for (var i = 0; i < empty; i++) stars += '☆';
+    return stars;
+  }
+
+  function buildCard() {
+    var stars = createStars(4.8);
+    var features = [
+      ['🎮', '6 Built-in Games', 'Racing, platformer, runner, sandbox & more'],
+      ['🛒', '43+ Store Packages', 'Full Google Play integration'],
+      ['🎨', 'PS5-Inspired UI', 'Dark glassmorphism, horizontal scroll rows'],
+      ['🔊', 'Pro Audio Engine', '40+ synthesized sounds, 5 profiles, DSP'],
+      ['📱', 'Phone Bootloader', 'Auto-detect brand, PWA setup guides'],
+      ['👤', 'Multi-User Support', 'Auth, friends, achievements, cloud sync'],
+      ['🔌', 'Plugin & Theme Engine', 'JS plugins, CSS themes, SDK tools'],
+      ['📊', 'Hardware Monitor', 'Battery, WiFi, Bluetooth, storage stats'],
+      ['💾', 'Runs from USB', 'No installation, no partitions, no ISO needed'],
+      ['🌍', 'Cross-Platform', 'Works on Windows, Mac, Linux, Android, iOS']
+    ];
+
+    var featureRows = features.map(function(f) {
+      return '<div style="display:flex;align-items:flex-start;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.04)">' +
+        '<span style="font-size:14px;flex-shrink:0;width:20px;text-align:center">' + f[0] + '</span>' +
+        '<div><div style="font-size:12px;font-weight:500;color:rgba(255,255,255,.8)">' + f[1] + '</div><div style="font-size:11px;color:rgba(255,255,255,.35)">' + f[2] + '</div></div></div>';
     }).join('');
 
-    var features = RQ.features.map(function(f) {
-      return '<div style="padding:5px 8px;border-radius:6px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);font-size:11px;color:rgba(255,255,255,.5);line-height:1.4"><strong style="color:rgba(255,255,255,.7)">' + f[0] + ' ' + f[1] + '</strong><br><span style="font-size:10px;color:rgba(255,255,255,.35)">' + f[2] + '</span></div>';
-    }).join('');
+    return '<div id="' + ID + '" style="background:linear-gradient(135deg,rgba(20,22,28,.98),rgba(10,12,18,.98));backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border:1px solid rgba(0,212,255,.12);border-radius:12px;padding:0;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,Helvetica,Arial,sans-serif;color:#fff;max-width:652px;box-shadow:0 8px 32px rgba(0,0,0,.6);overflow:hidden">' +
 
-    return '<div id="' + CARD_ID + '" style="background:rgba(20,22,28,.96);backdrop-filter:blur(24px) saturate(1.3);-webkit-backdrop-filter:blur(24px) saturate(1.3);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;margin:12px 0;font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Roboto,sans-serif;color:#fff;max-width:652px;box-shadow:0 20px 60px rgba(0,0,0,.7)">' +
-      '<div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">' +
-        '<svg width="42" height="42" viewBox="0 0 100 100" style="flex-shrink:0;border-radius:10px"><rect width="100" height="100" rx="20" fill="#0a0e1a" stroke="url(#rqg)" stroke-width="2"/><text x="50" y="66" text-anchor="middle" font-size="52" font-weight="800" fill="url(#rqg)" font-family="Segoe UI">R</text><defs><linearGradient id="rqg"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>' +
-        '<div><div style="font-size:16px;font-weight:700">' + RQ.name + '</div><div style="font-size:11px;color:rgba(255,255,255,.4)">' + RQ.tag + ' by ' + RQ.by + '</div></div>' +
+      /* Top gradient banner */
+      '<div style="background:linear-gradient(135deg,rgba(0,119,255,.15),rgba(157,78,221,.1));padding:16px 18px 12px;border-bottom:1px solid rgba(255,255,255,.06)">' +
+        '<div style="display:flex;align-items:center;gap:12px">' +
+          '<div style="width:48px;height:48px;flex-shrink:0;border-radius:12px;background:linear-gradient(135deg,#0a0e1a,#1a1e2e);border:1px solid rgba(0,212,255,.15);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#00d4ff;font-family:Segoe UI">R</div>' +
+          '<div style="flex:1;min-width:0">' +
+            '<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">' +
+              '<span style="font-size:18px;font-weight:700;color:#fff">' + DATA.name + '</span>' +
+              '<span style="font-size:10px;background:rgba(0,212,255,.12);color:#00d4ff;padding:1px 7px;border-radius:100px;font-weight:600;letter-spacing:.3px">' + DATA.version + '</span>' +
+              '<span style="font-size:10px;background:rgba(0,200,80,.1);color:#4cff88;padding:1px 7px;border-radius:100px;font-weight:600">● ACTIVE</span>' +
+            '</div>' +
+            '<div style="font-size:12px;color:rgba(255,255,255,.45);margin-top:2px">' + DATA.tagline + ' by <strong style="color:rgba(255,255,255,.6);font-weight:500">' + DATA.author + '</strong></div>' +
+          '</div>' +
+        '</div>' +
       '</div>' +
-      '<div style="margin-bottom:10px">' + badges + '</div>' +
-      '<div style="font-size:12px;line-height:1.5;color:rgba(255,255,255,.5);margin-bottom:10px">A portable USB-based gaming OS that runs entirely from a USB drive without installation. PS5-inspired UI, pro audio engine, 43+ store packages, phone bootloader. Works on ' + RQ.platforms + '.</div>' +
-      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:10px">' + features + '</div>' +
-      '<div style="display:flex;flex-wrap:wrap;gap:5px">' +
-        '<a href="' + RQ.dl + '" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;box-shadow:0 4px 16px rgba(0,212,255,.2)">⬇ Download</a>' +
-        '<a href="' + RQ.gh + '" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(255,255,255,.05);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.06)">GitHub</a>' +
-        '<a href="' + RQ.card + '" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;background:rgba(255,255,255,.05);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.06)">Info Card</a>' +
+
+      /* Rating + stats row */
+      '<div style="display:flex;gap:16px;padding:10px 18px;background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.04)">' +
+        '<div style="display:flex;align-items:center;gap:4px;font-size:12px"><span style="color:#ffc107">' + stars + '</span><span style="color:rgba(255,255,255,.5)">' + DATA.rating + '</span><span style="color:rgba(255,255,255,.25);font-size:11px">(' + DATA.ratingCount + ')</span></div>' +
+        '<div style="color:rgba(255,255,255,.25)">|</div>' +
+        '<div style="font-size:12px;color:rgba(255,255,255,.5)">⬇ <strong style="color:rgba(255,255,255,.7)">' + DATA.downloads + '</strong> downloads</div>' +
+        '<div style="color:rgba(255,255,255,.25)">|</div>' +
+        '<div style="font-size:12px;color:rgba(255,255,255,.5)">💾 <strong style="color:rgba(255,255,255,.7)">' + DATA.size + '</strong></div>' +
       '</div>' +
-      '<div style="padding-top:8px;margin-top:10px;border-top:1px solid rgba(255,255,255,.04);font-size:10px;color:rgba(255,255,255,.2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px">' +
-        '<span>&copy; 2026 ' + RQ.by + ' &bull; MIT &bull; ' + RQ.ver + '</span>' +
-        '<span style="display:flex;gap:6px"><a href="' + RQ.yt + '" target="_blank" style="color:rgba(0,212,255,.4);text-decoration:none">YouTube</a><a href="mailto:' + RQ.email + '" style="color:rgba(0,212,255,.4);text-decoration:none">Support</a></span>' +
-      '</div></div>';
+
+      /* Description */
+      '<div style="padding:12px 18px;font-size:13px;line-height:1.6;color:rgba(255,255,255,.55);border-bottom:1px solid rgba(255,255,255,.04)">' +
+        DATA.description +
+      '</div>' +
+
+      /* Quick badges */
+      '<div style="padding:0 18px 10px;display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">' +
+        '<span style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#00d4ff;font-weight:500;letter-spacing:.2px">⚡ USB Portable</span>' +
+        '<span style="background:rgba(0,200,80,.06);border:1px solid rgba(0,200,80,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#4cff88;font-weight:500;letter-spacing:.2px">🔓 Open Source</span>' +
+        '<span style="background:rgba(255,193,7,.06);border:1px solid rgba(255,193,7,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#ffc107;font-weight:500;letter-spacing:.2px">🎮 Gaming OS</span>' +
+        '<span style="background:rgba(157,78,221,.06);border:1px solid rgba(157,78,221,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#c084fc;font-weight:500;letter-spacing:.2px">🔌 Plugin SDK</span>' +
+        '<span style="background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#ff6b6b;font-weight:500;letter-spacing:.2px">📱 Phone Boot</span>' +
+      '</div>' +
+
+      /* Feature grid */
+      '<div style="margin:0 18px 10px;border-top:1px solid rgba(255,255,255,.04)">' +
+        featureRows +
+      '</div>' +
+
+      /* Action buttons */
+      '<div style="padding:10px 18px 14px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid rgba(255,255,255,.04)">' +
+        '<a href="' + DATA.download + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;box-shadow:0 4px 16px rgba(0,212,255,.25);transition:all .2s" onmouseover="this.style.transform=\'translateY(-1px)\'" onmouseout="this.style.transform=\'none\'">⬇ Download ' + DATA.name + '</a>' +
+        '<a href="' + DATA.github + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:500;text-decoration:none;background:rgba(255,255,255,.04);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.06)">🐙 GitHub</a>' +
+        '<a href="' + DATA.infocard + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:500;text-decoration:none;background:rgba(255,255,255,.04);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.06)">📋 Info Card</a>' +
+        '<a href="' + DATA.website + '" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:500;text-decoration:none;background:rgba(255,255,255,.04);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.06)">🌐 Website</a>' +
+      '</div>' +
+
+      /* Footer */
+      '<div style="padding:8px 18px;background:rgba(0,0,0,.2);border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;align-items:center">' +
+        '<div style="font-size:10px;color:rgba(255,255,255,.2)">' +
+          '<span>' + DATA.license + ' &bull; ' + DATA.platforms + '</span>' +
+        '</div>' +
+        '<div style="font-size:10px;display:flex;gap:8px">' +
+          '<a href="' + DATA.youtube + '" target="_blank" style="color:rgba(0,212,255,.4);text-decoration:none">▶ YouTube</a>' +
+          '<a href="mailto:' + DATA.authorEmail + '" style="color:rgba(0,212,255,.4);text-decoration:none">📧 ' + DATA.authorEmail + '</a>' +
+          '<a href="mailto:' + DATA.supportEmail + '" style="color:rgba(0,212,255,.4);text-decoration:none">Support</a>' +
+        '</div>' +
+      '</div>' +
+
+    '</div>';
   }
 
   function inject() {
-    if (!hasQuery()) return;
-    if (document.getElementById(CARD_ID)) return;
+    if (!hasRQBBOXQuery()) return;
+    if (document.getElementById(ID)) return;
 
-    var validContainers = [
-      '#rhs',                   // Google desktop right sidebar
-      '#rhs_block',             // Alternative right sidebar
-      '#search',                // Main search results
-      '#center_col',            // Center column
-      '#rso',                   // Search result objects
-      '.srg',                   // Search result group
-      'div[data-async-context]' // Async loaded results
+    var targets = [
+      '#rhs', '#rhs_block',
+      '#search', '#center_col',
+      '#rso', '.srg',
+      'div[data-async-context]',
+      '#main'
     ];
 
-    var target = null;
-    for (var i = 0; i < validContainers.length; i++) {
-      var el = document.querySelector(validContainers[i]);
-      if (el) { target = el; break; }
+    var container = null;
+    for (var i = 0; i < targets.length; i++) {
+      var el = document.querySelector(targets[i]);
+      if (el && el.parentNode) { container = el; break; }
     }
 
-    if (!target) return;
+    if (!container) return;
 
-    var card = document.createElement('div');
-    card.id = CARD_ID;
-    card.innerHTML = cardHTML();
+    var wrapper = document.createElement('div');
+    wrapper.id = ID;
+    wrapper.innerHTML = buildCard();
 
-    // Insert at top of right sidebar or search results
-    if (target.id === 'rhs' || target.id === 'rhs_block') {
-      target.insertBefore(card, target.firstChild);
+    // Insert at the very top of the container
+    if (container.firstChild) {
+      container.insertBefore(wrapper, container.firstChild);
     } else {
-      target.insertBefore(card, target.firstChild);
+      container.appendChild(wrapper);
     }
   }
 
-  // Watch for Google's dynamic content loading
   var observer = new MutationObserver(function() {
-    if (hasQuery() && !document.getElementById(CARD_ID)) {
-      // Small delay to let Google's DOM settle
-      setTimeout(inject, 300);
+    if (hasRQBBOXQuery() && !document.getElementById(ID)) {
+      setTimeout(inject, 400);
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });
 
-  // Run on initial load
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', inject);
   } else {
     inject();
   }
 
-  // Also run after window load (catches late-rendered content)
   window.addEventListener('load', function() {
-    setTimeout(inject, 500);
+    setTimeout(inject, 600);
   });
 })();
