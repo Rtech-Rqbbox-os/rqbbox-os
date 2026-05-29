@@ -51,22 +51,36 @@
         }
         if (data.playStoreUrl) window.open(data.playStoreUrl, '_blank');
       } else {
-        showServerNotRunning(pkgId, btn);
+        downloadDirect(pkgId, pkgName, btn);
       }
     })
     .catch(function() {
-      showServerNotRunning(pkgId, btn);
+      downloadDirect(pkgId, pkgName, btn);
     });
   }
 
-  function showServerNotRunning(pkgId, btn) {
+  function downloadDirect(pkgId, pkgName, btn) {
     if (!btn) return;
-    btn.textContent = 'RQBBOX server not found. Run RQBBOX.EXE from H:\\.';
-    btn.style.opacity = '1';
-    btn.style.background = 'rgba(255,100,50,.2)';
-    btn.style.color = '#ff6633';
-    btn.disabled = false;
-    btn.onclick = function() { window.open('https://github.com/Rtech-Rqbbox-os/rqbbox-os', '_blank'); };
+    btn.textContent = 'Downloading APK from APKPure...';
+    btn.style.opacity = '0.6';
+    btn.disabled = true;
+
+    chrome.runtime.sendMessage({ action: 'download-apk', pkgId: pkgId, pkgName: pkgName }, function(resp) {
+      if (resp && resp.ok) {
+        btn.textContent = 'APK downloaded! Check your Downloads folder.';
+        btn.style.background = 'rgba(0,200,80,.2)';
+        btn.style.color = '#4cff88';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        if (resp.message) console.log('RQBBOX:', resp.message);
+      } else {
+        btn.textContent = 'Download failed. Try again.';
+        btn.style.opacity = '1';
+        btn.style.background = 'rgba(255,100,50,.2)';
+        btn.style.color = '#ff6633';
+        btn.disabled = false;
+      }
+    });
   }
 
   function injectCSS() {
