@@ -23,7 +23,7 @@
     name: 'RQBBOX OS',
     version: 'v1.2.0',
     tagline: 'Portable USB Gaming Operating System',
-    description: 'A portable USB-based gaming operating system that runs entirely from a USB drive. No installation required. Features a PS5-inspired UI, pro audio engine with 40+ synthesized sounds, 43+ store packages with full Google Play integration, phone bootloader support for 7 brands, plugin/theme engine, and multi-user support.',
+    description: 'A portable USB-based gaming operating system that runs entirely from a USB drive. No installation required. Powered by the RQBBOX Kernel — a modular microkernel with process manager, memory manager, virtual file system, device drivers, and system call API. Features a PS5-inspired UI, pro audio engine with 40+ synthesized sounds, 43+ store packages with full Google Play integration, phone bootloader support for 7 brands, plugin/theme engine, and multi-user support.',
     author: 'RhysTech',
     authorEmail: 'rhyscotton20@gmail.com',
     supportEmail: 'rqbbox.support@groups.outlook.com',

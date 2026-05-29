@@ -69,7 +69,7 @@
     "applicationCategory": "OperatingSystem",
     "applicationSubCategory": "Gaming Platform",
     "operatingSystem": "Windows, macOS, Linux, Android, iOS, KaiOS",
-    "description": "RQBBOX OS is a portable USB-based gaming operating system developed by RhysTech. It runs entirely from a USB drive without requiring installation, emulation, or rebooting the host machine. Features a PS5-inspired UI, pro synthesized audio engine, 43+ store packages, phone bootloader, and Google Play Store integration.",
+    "description": "RQBBOX OS is a portable USB-based gaming operating system developed by RhysTech. It runs entirely from a USB drive without requiring installation, emulation, or rebooting the host machine. Powered by the RQBBOX Kernel — a modular microkernel with process manager, memory manager, virtual file system, device drivers, system call API, and PS5-inspired GUI. Features include pro synthesized audio engine, 43+ store packages, phone bootloader, and Google Play Store integration.",
     "url": "https://rtech-rqbbox-os.github.io/rqbbox-os/",
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -313,7 +313,7 @@
       <tr><td class="label">Update method</td><td class="value">Git pull / Download</td></tr>
       <tr><td class="label">Package manager</td><td class="value">RhysTech Store (43+ packages)</td></tr>
       <tr><td class="label">Platforms</td><td class="value">Windows, macOS, Linux, Android, iOS, KaiOS</td></tr>
-      <tr><td class="label">Kernel type</td><td class="value">Node.js (HTTP server)</td></tr>
+      <tr><td class="label">Kernel type</td><td class="value">RQBBOX Kernel (modular microkernel)</td></tr>
       <tr><td class="label">License</td><td class="value">MIT License</td></tr>
       <tr><td class="label">Website</td><td class="value"><a href="https://rtech-rqbbox-os.github.io/rqbbox-os/" target="_blank">rqbbox-os.github.io</a></td></tr>
       <tr><td class="label">Support</td><td class="value"><a href="mailto:rqbbox.support@groups.outlook.com">Contact</a></td></tr>
@@ -349,6 +349,8 @@
       <p>
         <strong>RQBBOX OS</strong> is a portable USB-based gaming operating system developed by <strong>RhysTech</strong>.
         It runs entirely from a USB drive without requiring installation, emulation, or rebooting the host machine.
+        At its core is the <strong>RQBBOX Kernel</strong> — a modular microkernel architecture with a built-in
+        process manager, memory manager, virtual file system, device drivers, and a system call API.
         The OS uses a Node.js HTTP server and full-screen browser-based launcher with a PS5-inspired interface,
         pro synthesized audio engine, and support for 43+ store packages including native games,
         web apps, and full Google Play Store integration.
@@ -372,6 +374,33 @@
         <div class="feature-item"><div class="fi-icon">🔌</div><div class="fi-title">Plugin & Theme Engine</div><div class="fi-desc">JavaScript plugins, CSS themes, SDK & developer tools</div></div>
         <div class="feature-item"><div class="fi-icon">📊</div><div class="fi-title">Hardware Monitoring</div><div class="fi-desc">Battery, WiFi, Bluetooth, controller, storage, system stats</div></div>
       </div>
+    </div>
+
+    <!-- Kernel Architecture -->
+    <div class="card">
+      <h2>Kernel Architecture — RQBBOX Kernel</h2>
+      <p style="margin-bottom:12px;">
+        <strong>RQBBOX Kernel</strong> is the core system engine that powers the entire operating system.
+        Built on a <strong>modular microkernel</strong> architecture, each subsystem runs independently
+        and communicates via the kernel's internal message bus. This design ensures stability —
+        if one component fails, the rest of the OS continues running.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-item"><div class="fi-icon">⚙️</div><div class="fi-title">Kernel (Core)</div><div class="fi-desc">Central orchestrator — manages boot sequence, inter-component messaging, service registry, and lifecycle of all subsystems</div></div>
+        <div class="feature-item"><div class="fi-icon">📋</div><div class="fi-title">Process Manager</div><div class="fi-desc">Handles game/app launch/stop/restart, PID allocation, resource limits, process isolation, and crash recovery</div></div>
+        <div class="feature-item"><div class="fi-icon">🧠</div><div class="fi-title">Memory Manager</div><div class="fi-desc">Tracks RAM usage per process, manages cache allocation, garbage collection triggers, and memory quota enforcement</div></div>
+        <div class="feature-item"><div class="fi-icon">💾</div><div class="fi-title">File System</div><div class="fi-desc">Virtual file system abstraction over USB storage — handles asset loading, user data persistence, store package installs, and config management</div></div>
+        <div class="feature-item"><div class="fi-icon">🔌</div><div class="fi-title">Device Drivers</div><div class="fi-desc">Hardware abstraction layer — Audio (Web Audio API), Controller (Gamepad API), Display (CSS/Canvas), Network (HTTP/WebSocket), Storage (File API)</div></div>
+        <div class="feature-item"><div class="fi-icon">📞</div><div class="fi-title">System Calls (API)</div><div class="fi-desc">RQBAudio (sound), RQBAuth (auth), RQBStore (packages), RQBFiles (storage), RQBProcess (process mgmt), RQBDevice (hardware), RQBNetwork (connectivity)</div></div>
+        <div class="feature-item"><div class="fi-icon">🖥️</div><div class="fi-title">User Interface</div><div class="fi-desc">PS5-inspired GUI launcher (primary) + server CLI terminal (secondary) — both access the same kernel services through the system call interface</div></div>
+      </div>
+      <p style="margin-top:12px;font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.6;padding:10px 12px;background:rgba(0,212,255,.04);border-radius:8px;border:1px solid rgba(0,212,255,.08);">
+        <strong style="color:rgba(255,255,255,.6);">Architecture:</strong> 
+        The RQBBOX Kernel runs as a Node.js HTTP server with in-process event bus. Each kernel module
+        registers with the service registry at boot. User applications (games, store apps) interact
+        exclusively through the system call API — they never access hardware directly.
+        The GUI (launcher) and CLI (server terminal) are both user-space interfaces built on top of the same kernel API.
+      </p>
     </div>
 
     <!-- Screenshots -->

@@ -17,6 +17,8 @@ const RQBBOX_OS = {
     { icon: '🔊', label: 'Pro Audio', desc: '40+ synth sounds, DSP' },
     { icon: '📱', label: 'Phone Boot', desc: 'Auto-detect + PWA' },
     { icon: '👤', label: 'Multi-User', desc: 'Auth, cloud sync' },
+    { icon: '⚙️', label: 'RQBBOX Kernel', desc: 'Modular microkernel, process mgr, memory mgr' },
+    { icon: '⚙️', label: 'System Calls', desc: 'VFS, device drivers, GUI + CLI API' },
   ],
   platforms: ['Windows', 'macOS', 'Linux', 'Android', 'iOS', 'KaiOS'],
 };
@@ -99,7 +101,7 @@ export const RQBBOXOSInfoCard = ({ compact = false }) => (
     </div>
 
     <div style={styles.badges}>
-      {['v' + RQBBOX_OS.version, 'Open Source', 'Free', 'PS5 UI'].map(tag => (
+      {['v' + RQBBOX_OS.version, 'Open Source', 'Free', 'PS5 UI', '⚙️ RQBBOX Kernel'].map(tag => (
         <span key={tag} style={styles.badge}>{tag}</span>
       ))}
     </div>
@@ -109,6 +111,7 @@ export const RQBBOXOSInfoCard = ({ compact = false }) => (
         <div style={styles.desc}>
           A portable USB-based gaming OS that runs entirely from a USB drive without installation.
           PS5-inspired UI, pro audio engine, 43+ store packages, phone bootloader.
+          Powered by the RQBBOX Kernel — a modular microkernel with process manager, memory manager, virtual file system, device drivers, and system call API.
           Works on {RQBBOX_OS.platforms.join(', ')}.
         </div>
         <div style={styles.grid}>

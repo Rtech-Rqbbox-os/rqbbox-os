@@ -30,13 +30,13 @@ function rqbbox_os_card_shortcode($atts) {
     $html .= '<div><div style="font-size:1.2rem;font-weight:700">RQBBOX OS</div><div style="font-size:.75rem;color:rgba(255,255,255,.4)">Portable USB Gaming OS by RhysTech</div></div></div>';
 
     $html .= '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px">';
-    foreach (['v' . RQBBOX_OS_VERSION, 'Open Source', 'Free', 'PS5 UI'] as $tag) {
+    foreach (['v' . RQBBOX_OS_VERSION, 'Open Source', 'Free', 'PS5 UI', '⚙️ RQBBOX Kernel'] as $tag) {
         $html .= '<span style="background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.1);padding:2px 8px;border-radius:100px;font-size:.65rem;color:#00d4ff;text-transform:uppercase">' . esc_html($tag) . '</span>';
     }
     $html .= '</div>';
 
     if (!$compact) {
-        $html .= '<div style="font-size:.82rem;line-height:1.6;color:rgba(255,255,255,.55);margin-bottom:14px">A portable USB-based gaming OS that runs entirely from a USB drive without installation. PS5-inspired UI, pro audio engine, 43+ store packages, phone bootloader. Works on Windows, macOS, Linux, Android, iOS, and KaiOS.</div>';
+        $html .= '<div style="font-size:.82rem;line-height:1.6;color:rgba(255,255,255,.55);margin-bottom:14px">A portable USB-based gaming OS that runs entirely from a USB drive without installation. PS5-inspired UI, pro audio engine, 43+ store packages, phone bootloader. Powered by the RQBBOX Kernel — a modular microkernel with process manager, memory manager, virtual file system, device drivers, and system call API. Works on Windows, macOS, Linux, Android, iOS, and KaiOS.</div>';
 
         $features = [
             ['🎮', '6 Games', 'HTML5 native titles'],
@@ -45,6 +45,8 @@ function rqbbox_os_card_shortcode($atts) {
             ['🔊', 'Pro Audio', '40+ synth sounds, DSP'],
             ['📱', 'Phone Boot', 'Auto-detect + PWA'],
             ['👤', 'Multi-User', 'Auth, cloud sync'],
+            ['⚙️', 'RQBBOX Kernel', 'Modular microkernel, process mgr, memory mgr'],
+            ['⚙️', 'System Calls', 'VFS, device drivers, GUI + CLI API'],
         ];
         $html .= '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:14px">';
         foreach ($features as $f) {

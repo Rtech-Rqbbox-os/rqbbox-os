@@ -208,6 +208,24 @@
   </div>
 </section>
 
+<!-- Kernel Architecture -->
+<section class="section" id="kernel" style="background:rgba(10,15,30,0.5);border-radius:var(--radius-xl) 0 0 var(--radius-xl)">
+  <div class="section-header reveal">
+    <div class="badge">Kernel</div>
+    <h2>RQBBOX Kernel Architecture</h2>
+    <p>Modular microkernel powering the entire operating system — process management, memory, file system, device drivers, and system call API.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal"><div class="feature-icon">⚙️</div><h3>Kernel (Core)</h3><p>Central orchestrator. Manages boot sequence, inter-component messaging via internal event bus, service registry, and lifecycle of all kernel subsystems. Each module registers at boot and runs independently.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">📋</div><h3>Process Manager</h3><p>Full game/app lifecycle — launch, stop, restart. PID allocation, resource limits, process isolation, crash recovery with auto-restart capability. Prevents a single crash from taking down the OS.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🧠</div><h3>Memory Manager</h3><p>Per-process RAM tracking, cache allocation, garbage collection scheduling, and memory quota enforcement. Ensures stable performance even with multiple apps and games running simultaneously.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">💾</div><h3>File System</h3><p>Virtual file system abstraction over USB storage. Handles asset loading, user data persistence, store package installation, configuration management, and save file synchronization.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🔌</div><h3>Device Drivers</h3><p>Hardware abstraction layer. Audio (Web Audio API), Controller (Gamepad API), Display (CSS/Canvas rendering), Network (HTTP/WebSocket), Storage (File API). All hardware accessed through standardized driver interfaces.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">📞</div><h3>System Calls (API)</h3><p>RQBAudio (sound engine), RQBAuth (authentication), RQBStore (packages), RQBFiles (storage), RQBProcess (process mgmt), RQBDevice (hardware), RQBNetwork (connectivity). User applications never access hardware directly.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">🖥️</div><h3>User Interface</h3><p>PS5-inspired GUI launcher (primary interface) + server CLI terminal (secondary). Both run in user-space and communicate with kernel services exclusively through the system call API.</p></div>
+  </div>
+</section>
+
 <!-- Games Categories -->
 <section class="section" id="games">
   <div class="section-header reveal">

@@ -21,8 +21,9 @@
 
 ## 🚀 Overview
 
-RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it into any PC, start the server, and instantly access your games, apps, settings, and saves — no installation required.
+RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it into any PC, start the server, and instantly access your games, apps, settings, and saves — no installation required. Powered by the **RQBBOX Kernel**, a modular microkernel with process management, memory management, virtual file system, device drivers, and system call API.
 
+**Developer:** RhysTech (📧 [rhyscotton20@gmail.com](mailto:rhyscotton20@gmail.com))
 **Website:** [rtech-rqbbox-os.github.io/rqbbox-os](https://rtech-rqbbox-os.github.io/rqbbox-os/)
 **GitHub:** [github.com/Rtech-Rqbbox-os/rqbbox-os](https://github.com/Rtech-Rqbbox-os/rqbbox-os)
 **Packages:** [github.com/Rtech-Rqbbox-os/rqbbox-os/packages](https://github.com/Rtech-Rqbbox-os/rqbbox-os/packages)
@@ -35,6 +36,7 @@ RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it i
 
 ## ✨ Features
 
+- **RQBBOX Kernel** — Modular microkernel: process manager, memory manager, virtual file system, device drivers, system call API, GUI + CLI interfaces
 - **6 Native Games** — Neon Drift Racing, Pixel Quest, Star Fighter X, Void Craft Sandbox, Retro Zone, Cube Runner 3D
 - **12 Web App Integrations** — YouTube, Netflix, Spotify, Twitch, Reddit, X/Twitter, Discord, Wikipedia, Gmail, Google Drive, GitHub, Stack Overflow
 - **Full Launcher Console** — Sidebar navigation, runtime overlay, notifications, search, dark/neon UI
@@ -51,6 +53,20 @@ RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it i
 - **Service Worker** — Offline PWA support
 - **Developer Hub** — SDK downloads, API reference, tutorials, Plugin API docs
 - **Marketing Website** — `/website/` with editions grid, store showcase, community, FAQ, auth
+
+## ⚙️ Kernel Architecture
+
+RQBBOX OS is powered by the **RQBBOX Kernel** — a modular microkernel running as a Node.js HTTP server with an in-process event bus. Each subsystem runs independently and communicates through the kernel's message bus, ensuring stability (one component failure never brings down the entire OS).
+
+| Component | Description |
+|-----------|-------------|
+| **Kernel (Core)** | Central orchestrator — boot sequence, inter-component messaging, service registry, subsystem lifecycle |
+| **Process Manager** | Game/app lifecycle (launch/stop/restart), PID allocation, resource limits, crash recovery |
+| **Memory Manager** | Per-process RAM tracking, cache allocation, garbage collection scheduling, memory quotas |
+| **File System** | Virtual file system over USB — asset loading, user data, package installs, config management |
+| **Device Drivers** | Hardware abstraction — Audio (Web Audio API), Controller (Gamepad API), Display (CSS/Canvas), Network (HTTP/WebSocket), Storage (File API) |
+| **System Calls (API)** | RQBAudio, RQBAuth, RQBStore, RQBFiles, RQBProcess, RQBDevice, RQBNetwork — apps never access hardware directly |
+| **User Interface** | PS5-inspired GUI (primary) + CLI terminal (secondary) — both call kernel services through the same API |
 
 ---
 

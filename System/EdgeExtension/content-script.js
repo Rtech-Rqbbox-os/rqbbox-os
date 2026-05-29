@@ -7,7 +7,7 @@
     name: 'RQBBOX OS',
     version: 'v1.2.0',
     tagline: 'Portable USB Gaming Operating System',
-    description: 'A portable USB-based gaming operating system that runs entirely from a USB drive. No installation required. Features a PS5-inspired UI, pro audio engine with 40+ synthesized sounds, 43+ store packages with full Google Play integration, phone bootloader support for 7 brands, plugin/theme engine, and multi-user support.',
+    description: 'A portable USB-based gaming operating system that runs entirely from a USB drive. No installation required. Powered by the RQBBOX Kernel — a modular microkernel with process manager, memory manager, virtual file system, device drivers, and system call API. Features a PS5-inspired UI, pro audio engine with 40+ synthesized sounds, 43+ store packages with full Google Play integration, phone bootloader support for 7 brands, plugin/theme engine, and multi-user support.',
     author: 'RhysTech',
     authorEmail: 'rhyscotton20@gmail.com',
     supportEmail: 'rqbbox.support@groups.outlook.com',
@@ -43,6 +43,7 @@
   function buildCard() {
     var stars = createStars(4.8);
     var features = [
+      ['⚙️', 'RQBBOX Kernel', 'Modular microkernel — process mgmt, memory, file system, drivers, syscalls'],
       ['🎮', '6 Built-in Games', 'Racing, platformer, runner, sandbox & more'],
       ['🛒', '43+ Store Packages', 'Full Google Play integration'],
       ['🎨', 'PS5-Inspired UI', 'Dark glassmorphism, horizontal scroll rows'],
@@ -51,8 +52,7 @@
       ['👤', 'Multi-User Support', 'Auth, friends, achievements, cloud sync'],
       ['🔌', 'Plugin & Theme Engine', 'JS plugins, CSS themes, SDK tools'],
       ['📊', 'Hardware Monitor', 'Battery, WiFi, Bluetooth, storage stats'],
-      ['💾', 'Runs from USB', 'No installation, no partitions, no ISO needed'],
-      ['🌍', 'Cross-Platform', 'Works on Windows, Mac, Linux, Android, iOS']
+      ['💾', 'Runs from USB', 'No installation, no partitions, no ISO needed']
     ];
 
     var featureRows = features.map(function(f) {
@@ -96,9 +96,10 @@
       '<div style="padding:0 18px 10px;display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">' +
         '<span style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#00d4ff;font-weight:500;letter-spacing:.2px">⚡ USB Portable</span>' +
         '<span style="background:rgba(0,200,80,.06);border:1px solid rgba(0,200,80,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#4cff88;font-weight:500;letter-spacing:.2px">🔓 Open Source</span>' +
-        '<span style="background:rgba(255,193,7,.06);border:1px solid rgba(255,193,7,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#ffc107;font-weight:500;letter-spacing:.2px">🎮 Gaming OS</span>' +
+        '<span style="background:rgba(255,193,7,.06);border:1px solid rgba(255,193,7,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#ffc107;font-weight:500;letter-spacing:.2px">⚙️ RQBBOX Kernel</span>' +
         '<span style="background:rgba(157,78,221,.06);border:1px solid rgba(157,78,221,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#c084fc;font-weight:500;letter-spacing:.2px">🔌 Plugin SDK</span>' +
         '<span style="background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#ff6b6b;font-weight:500;letter-spacing:.2px">📱 Phone Boot</span>' +
+        '<span style="background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.08);padding:2px 10px;border-radius:100px;font-size:10px;color:#00d4ff;font-weight:500;letter-spacing:.2px">🎮 Gaming OS</span>' +
       '</div>' +
 
       /* Feature grid */

@@ -2,97 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/#kernel</loc>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/support.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/dev.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/device.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Bootloader/index.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/embed.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/embed-card.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/embed-card.js</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/platforms.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Platforms/wordpress/rqbbox-os-card.php</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Platforms/react/index.js</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Platforms/discord/discord-bot.js</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Platforms/email/index.html</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Platforms/shopify/rqbbox-os-card.liquid</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rtech-rqbbox-os.github.io/rqbbox-os/System/Platforms/badge/badge.svg</loc>
-    <lastmod>2026-05-28T20:00:00+00:00</lastmod>
+    <lastmod>2026-05-29T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

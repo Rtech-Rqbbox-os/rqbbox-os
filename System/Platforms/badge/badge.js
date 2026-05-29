@@ -1,6 +1,7 @@
 // RQBBOX OS — Dynamic Badge Generator
 // Run with: node badge.js [version]
 // Generates a shields.io-style SVG badge for GitHub README
+// Badge displays RQBBOX OS info including version; OS is powered by the RQBBOX Kernel
 
 const fs = require('fs');
 const version = process.argv[2] || 'v1.2.0';
@@ -25,7 +26,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="240" height="28" vie
   <!-- Version -->
   <text x="120" y="18" font-size="11" fill="#00d4ff" font-family="Arial,sans-serif" font-weight="700">${version}</text>
   <!-- Status -->
-  <text x="180" y="18" font-size="11" fill="#4cff88" font-family="Arial,sans-serif" font-weight="500">USB GAMING OS</text>
+  <text x="180" y="18" font-size="11" fill="#4cff88" font-family="Arial,sans-serif" font-weight="500">RQBBOX KERNEL</text>
 </svg>`;
 
 fs.writeFileSync('badge.svg', svg);

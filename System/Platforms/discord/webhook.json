@@ -8,7 +8,7 @@
       "fields": [
         {
           "name": "🎮 Features",
-          "value": "6 Native Games · 43+ Packages · PS5 UI · Pro Audio · Phone Bootloader · Multi-User · Plugin Engine",
+          "value": "6 Native Games · 43+ Packages · PS5 UI · Pro Audio · Phone Bootloader · Multi-User · Plugin Engine · ⚙️ RQBBOX Kernel (modular microkernel, process/memory mgr, VFS, drivers, syscall API)",
           "inline": false
         },
         {
