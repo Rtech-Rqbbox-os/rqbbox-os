@@ -18,8 +18,10 @@
 
   "permissions": [
     "storage",
+    "downloads",
     "https://play.google.com/*",
-    "https://www.play.google.com/*"
+    "https://www.play.google.com/*",
+    "https://d.apkpure.com/*"
   ],
 
   "content_scripts": [{

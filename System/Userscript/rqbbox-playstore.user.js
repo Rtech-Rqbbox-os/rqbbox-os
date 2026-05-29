@@ -144,21 +144,23 @@ console.log('RQBBOX: Loaded (v2.1.0)');
               }
               if (d.playStoreUrl) window.open(d.playStoreUrl, '_blank');
             } else {
-              btn.textContent = 'Download RQBBOX OS';
-              btn.style.opacity = '1';
-              window.open(APP.github + '/releases', '_blank');
+              btn.textContent = 'Downloading from APKPure...';
+              btn.style.opacity = '0.6';
+              window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
+              setTimeout(function() { btn.textContent = 'APK should be downloading. Check your browser downloads.'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
             }
           } catch(e) {
-            btn.textContent = 'Download RQBBOX OS';
-            btn.style.opacity = '1';
-            window.open(APP.github + '/releases', '_blank');
+            btn.textContent = 'Downloading from APKPure...';
+            btn.style.opacity = '0.6';
+            window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
+            setTimeout(function() { btn.textContent = 'APK should be downloading. Check your browser downloads.'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
           }
         };
         xhr.onerror = function() {
-          btn.textContent = 'Download RQBBOX OS';
-          btn.style.opacity = '1';
-          btn.disabled = false;
-          window.open(APP.github + '/releases', '_blank');
+          btn.textContent = 'Downloading from APKPure...';
+          btn.style.opacity = '0.6';
+          window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
+          setTimeout(function() { btn.textContent = 'APK should be downloading. Check your browser downloads.'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
         };
         xhr.send(JSON.stringify({ id: id }));
       });

@@ -22,7 +22,7 @@
 
   function installToRQBBOX(pkgId, pkgName) {
     var btn = document.getElementById('rqbbox-install-btn');
-    if (btn) { btn.textContent = '⏳ Installing...'; btn.style.opacity = '0.6'; btn.disabled = true; }
+    if (btn) { btn.textContent = 'Connecting to RQBBOX server...'; btn.style.opacity = '0.6'; btn.disabled = true; }
 
     fetch(SERVER_URL + '/api/play-store/install', {
       method: 'POST',
@@ -34,16 +34,15 @@
       if (data.ok) {
         if (btn) {
           if (data.downloaded) {
-            btn.textContent = '✅ Downloaded to RQBBOX USB!';
+            btn.textContent = 'APK saved to RQBBOX USB!';
             btn.style.background = 'rgba(0,200,80,.2)';
             btn.style.color = '#4cff88';
-            btn.style.border = '1px solid rgba(0,200,80,.3)';
           } else if (data.alreadyInstalled) {
-            btn.textContent = '✅ Already on RQBBOX USB';
+            btn.textContent = 'Already on RQBBOX USB';
             btn.style.background = 'rgba(0,200,80,.15)';
             btn.style.color = '#4cff88';
           } else {
-            btn.textContent = '✅ Added to RQBBOX';
+            btn.textContent = 'Added to RQBBOX';
             btn.style.background = 'rgba(0,200,80,.2)';
             btn.style.color = '#4cff88';
           }
@@ -52,14 +51,44 @@
         }
         if (data.playStoreUrl) window.open(data.playStoreUrl, '_blank');
       } else {
-        if (btn) { btn.textContent = '⬇ Get RQBBOX OS'; btn.style.opacity = '1'; btn.disabled = false; }
-        window.open(APP.github, '_blank');
+        downloadDirect(pkgId, pkgName, btn);
       }
     })
     .catch(function() {
-      if (btn) { btn.textContent = '⬇ Get RQBBOX OS'; btn.style.opacity = '1'; btn.disabled = false; }
-      window.open(APP.github, '_blank');
+      downloadDirect(pkgId, pkgName, btn);
     });
+  }
+
+  function downloadDirect(pkgId, pkgName, btn) {
+    if (!btn) return;
+    btn.textContent = 'Downloading APK from APKPure...';
+    btn.style.opacity = '0.6';
+    btn.disabled = true;
+
+    // Try background script download via chrome.downloads API
+    if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+      chrome.runtime.sendMessage({ action: 'download-apk', pkgId: pkgId, pkgName: pkgName }, function(resp) {
+        if (resp && resp.ok) {
+          btn.textContent = 'APK downloaded! Check Downloads folder.';
+          btn.style.background = 'rgba(0,200,80,.2)';
+          btn.style.color = '#4cff88';
+          btn.disabled = false;
+          btn.style.opacity = '1';
+        } else {
+          btn.textContent = 'Download failed. Tap to retry.';
+          btn.style.opacity = '1';
+          btn.disabled = false;
+          btn.onclick = function() { installToRQBBOX(pkgId, pkgName); };
+        }
+        if (resp && resp.message) console.log('RQBBOX:', resp.message);
+      });
+    } else {
+      // Direct fallback: open APKPure URL
+      window.open('https://d.apkpure.com/b/APK/' + pkgId + '?version=latest', '_blank');
+      btn.textContent = 'APK download started in new tab';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+    }
   }
 
   function injectCSS() {
