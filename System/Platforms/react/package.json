@@ -1,0 +1,18 @@
+{
+  "name": "rqbbox-os-info-card",
+  "version": "1.2.0",
+  "description": "RQBBOX OS Info Card React component - embed the OS info anywhere in your React/Next.js app",
+  "main": "index.js",
+  "module": "index.js",
+  "files": ["index.js", "index.d.ts"],
+  "license": "MIT",
+  "keywords": ["rqbbox-os", "gaming", "usb", "info-card", "react-component"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rtech-Rqbbox-os/rqbbox-os"
+  },
+  "homepage": "https://rtech-rqbbox-os.github.io/rqbbox-os/System/Platforms/react/",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}

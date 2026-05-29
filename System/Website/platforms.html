@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RQBBOX OS — Platform Integrations</title>
+  <meta name="description" content="RQBBOX OS info card integrations for all major platforms: WordPress, Shopify, React, Discord, Email, and more.">
+  <link rel="canonical" href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/platforms.html">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a0f; background-image: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,.04) 0%, transparent 60%); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 24px; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    .container { max-width: 900px; width: 100%; }
+    h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; }
+    .sub { color: rgba(255,255,255,.4); margin-bottom: 28px; font-size: .9rem; }
+    h2 { font-size: 1rem; font-weight: 600; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .4px; margin: 24px 0 12px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .platform {
+      background: rgba(20,22,28,.85); backdrop-filter: blur(24px) saturate(1.3); border: 1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.5); transition: border-color .2s;
+    }
+    .platform:hover { border-color: rgba(0,212,255,.15); }
+    .plat-icon { font-size: 1.8rem; margin-bottom: 6px; }
+    .plat-name { font-size: .9rem; font-weight: 600; color: rgba(255,255,255,.7); margin-bottom: 2px; }
+    .plat-desc { font-size: .72rem; color: rgba(255,255,255,.4); line-height: 1.5; margin-bottom: 8px; }
+    .plat-link { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; font-size: .7rem; text-decoration: none; background: rgba(0,212,255,.08); color: #00d4ff; border: 1px solid rgba(0,212,255,.1); }
+    .plat-link:hover { background: rgba(0,212,255,.15); }
+    .back { display: inline-flex; align-items: center; gap: 4px; color: rgba(255,255,255,.3); font-size: .8rem; margin-bottom: 20px; text-decoration: none; }
+    .back:hover { color: rgba(255,255,255,.6); }
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } body { padding: 12px; } }
+  </style>
+</head>
+<body>
+<div class="container">
+  <a class="back" href="index.html">&larr; Back to Website</a>
+  <h1>Platform Integrations</h1>
+  <div class="sub">Embed the RQBBOX OS info card on any platform — ready-made for every major CMS, framework, and channel.</div>
+
+  <h2>🌐 Websites &amp; CMS</h2>
+  <div class="grid">
+    <div class="platform">
+      <div class="plat-icon">📄</div>
+      <div class="plat-name">WordPress</div>
+      <div class="plat-desc">Full plugin with shortcode, widget, Gutenberg block, and TinyMCE button. Just install and use <code>[rqbbox_os_card]</code>.</div>
+      <a class="plat-link" href="../Platforms/wordpress/rqbbox-os-card.php">Download Plugin</a>
+    </div>
+    <div class="platform">
+      <div class="plat-icon">🛍️</div>
+      <div class="plat-name">Shopify</div>
+      <div class="plat-desc">Liquid snippet for any Shopify store. Place in <code>snippets/</code> and render with <code>{% render 'rqbbox-os-card' %}</code>.</div>
+      <a class="plat-link" href="../Platforms/shopify/rqbbox-os-card.liquid">Get Snippet</a>
+    </div>
+    <div class="platform">
+      <div class="plat-icon">⚛️</div>
+      <div class="plat-name">React / Next.js</div>
+      <div class="plat-desc">npm-ready React component. Import <code>RQBBOXOSInfoCard</code> and use <code>&lt;RQBBOXOSInfoCard compact /&gt;</code> anywhere.</div>
+      <a class="plat-link" href="../Platforms/react/index.js">React Component</a>
+    </div>
+    <div class="platform">
+      <div class="plat-icon">🔌</div>
+      <div class="plat-name">Any HTML Site</div>
+      <div class="plat-desc">One-line script embed or iframe. Works on Wix, Squarespace, Weebly, Jekyll, Hugo, Ghost, and plain HTML.</div>
+      <a class="plat-link" href="embed.html">Embed Options</a>
+    </div>
+  </div>
+
+  <h2>💬 Chat &amp; Social</h2>
+  <div class="grid">
+    <div class="platform">
+      <div class="plat-icon">🤖</div>
+      <div class="plat-name">Discord Bot</div>
+      <div class="plat-desc">Full Discord bot with <code>/rqbbox</code> slash command. Shows rich embed with logo, features, platforms, and buttons.</div>
+      <a class="plat-link" href="../Platforms/discord/discord-bot.js">Bot Code</a>
+      <a class="plat-link" href="../Platforms/discord/webhook.json">Webhook JSON</a>
+    </div>
+    <div class="platform">
+      <div class="plat-icon">💬</div>
+      <div class="plat-name">Discord Webhook</div>
+      <div class="plat-desc">Pre-built JSON payload for Discord webhooks. Post the OS info card to any Discord channel instantly.</div>
+      <a class="plat-link" href="../Platforms/discord/webhook.json">Webhook JSON</a>
+    </div>
+  </div>
+
+  <h2>📧 Email &amp; Newsletters</h2>
+  <div class="grid">
+    <div class="platform">
+      <div class="plat-icon">📧</div>
+      <div class="plat-name">Email Template</div>
+      <div class="plat-desc">Responsive HTML email template tested on Gmail, Outlook, Apple Mail, Yahoo, ProtonMail. Table-based layout.</div>
+      <a class="plat-link" href="../Platforms/email/index.html">Email Template</a>
+    </div>
+  </div>
+
+  <h2>📊 GitHub &amp; README</h2>
+  <div class="grid">
+    <div class="platform">
+      <div class="plat-icon">🏷️</div>
+      <div class="plat-name">GitHub Badge</div>
+      <div class="plat-desc">Styled SVG badge for GitHub README. Shows RQBBOX OS version and status. Regenerate with <code>node badge.js v1.2.0</code>.</div>
+      <a class="plat-link" href="../Platforms/badge/badge.svg">View Badge</a>
+      <a class="plat-link" href="../Platforms/badge/badge.js">Generator</a>
+    </div>
+    <div class="platform">
+      <div class="plat-icon">📋</div>
+      <div class="plat-name">Markdown / README</div>
+      <div class="plat-desc">Copy-paste markdown for GitHub, GitLab, Gitea. Rich link card with logo and all important links.</div>
+      <a class="plat-link" href="embed.html">Markdown Code</a>
+    </div>
+  </div>
+
+  <h2>🔧 Chrome Extension</h2>
+  <div class="grid">
+    <div class="platform">
+      <div class="plat-icon">🌐</div>
+      <div class="plat-name">Chrome Extension</div>
+      <div class="plat-desc">Packaged extension for Chrome Web Store. Injects OS info card directly into Google Search results. Install in developer mode.</div>
+      <a class="plat-link" href="../ChromeExtension/rqbbox-os-chrome-extension.zip">Download ZIP</a>
+      <a class="plat-link" href="../ChromeExtension/store-listing.txt">Store Listing</a>
+    </div>
+    <div class="platform">
+      <div class="plat-icon">📱</div>
+      <div class="plat-name">Phone Bootloader</div>
+      <div class="plat-desc">PWA-based phone bootloader that auto-detects brand and shows setup guides. Works on all phone brands.</div>
+      <a class="plat-link" href="../Bootloader/index.html">Bootloader</a>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:20px;color:rgba(255,255,255,.2);font-size:.75rem;margin-top:20px">
+    <a href="index.html" style="color:rgba(0,212,255,.4);text-decoration:none">Website</a> &bull;
+    <a href="os-info-card.html" style="color:rgba(0,212,255,.4);text-decoration:none">Full Info Card</a> &bull;
+    <a href="support.html" style="color:rgba(0,212,255,.4);text-decoration:none">Support</a> &bull;
+    <a href="../Platforms/wordpress/rqbbox-os-card.php" style="color:rgba(0,212,255,.4);text-decoration:none">WordPress</a> &bull;
+    <a href="../Platforms/react/index.js" style="color:rgba(0,212,255,.4);text-decoration:none">React</a> &bull;
+    <a href="../Platforms/discord/discord-bot.js" style="color:rgba(0,212,255,.4);text-decoration:none">Discord</a>
+  </div>
+</div>
+</body>
+</html>

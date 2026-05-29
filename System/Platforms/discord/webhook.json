@@ -1,0 +1,42 @@
+{
+  "content": [
+    {
+      "title": "RQBBOX OS — Portable USB Gaming Operating System",
+      "description": "A portable USB-based gaming OS by RhysTech. PS5-inspired UI, pro audio engine, 43+ store packages, phone bootloader. Runs on Windows, macOS, Linux, Android, iOS, KaiOS.",
+      "url": "https://rtech-rqbbox-os.github.io/rqbbox-os/",
+      "color": 37266,
+      "fields": [
+        {
+          "name": "🎮 Features",
+          "value": "6 Native Games · 43+ Packages · PS5 UI · Pro Audio · Phone Bootloader · Multi-User · Plugin Engine",
+          "inline": false
+        },
+        {
+          "name": "📱 Platforms",
+          "value": "Windows · macOS · Linux · Android · iOS · KaiOS",
+          "inline": true
+        },
+        {
+          "name": "📦 Latest Version",
+          "value": "v1.2.0 — MIT License — Free",
+          "inline": true
+        },
+        {
+          "name": "⬇ Downloads",
+          "value": "[Download RQBBOX OS](https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases)",
+          "inline": false
+        }
+      ],
+      "thumbnail": {
+        "url": "https://rtech-rqbbox-os.github.io/rqbbox-os/System/Branding/rqbbox-logo.svg"
+      },
+      "footer": {
+        "text": "RhysTech · rqbbox.support@groups.outlook.com",
+        "icon_url": "https://rtech-rqbbox-os.github.io/rqbbox-os/System/Branding/rqbbox-logo.svg"
+      }
+    }
+  ],
+  "embeds": null,
+  "username": "RQBBOX OS",
+  "avatar_url": "https://rtech-rqbbox-os.github.io/rqbbox-os/System/Branding/rqbbox-logo.svg"
+}
