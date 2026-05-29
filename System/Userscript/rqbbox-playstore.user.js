@@ -187,15 +187,34 @@ console.log('RQBBOX: Loaded (v2.1.0)');
       var el = document.querySelector(targets[i]);
       if (el && el.parentNode) {
         el.parentNode.insertBefore(card, el);
+        injectXRBadge();
         return;
       }
     }
 
     if (document.body && document.body.firstChild) {
       document.body.insertBefore(card, document.body.firstChild);
+      injectXRBadge();
     } else if (document.body) {
       document.body.appendChild(card);
+      injectXRBadge();
     }
+  }
+
+  function injectXRBadge() {
+    if (document.getElementById('rqbbox-xr-badge')) return;
+    var xrSels = ['img[alt*="VR" i]','img[alt*="headset" i]','img[alt*="XR" i]','[aria-label*="VR" i]','[aria-label*="headset" i]','[aria-label*="XR" i]'];
+    var xrEl = null;
+    for (var i = 0; i < xrSels.length; i++) { xrEl = document.querySelector(xrSels[i]); if (xrEl) break; }
+    if (!xrEl) return;
+    var badge = document.createElement('span');
+    badge.id = 'rqbbox-xr-badge';
+    badge.style.cssText = 'display:inline-flex;align-items:center;gap:4px;margin-left:4px;padding:2px 6px;border-radius:4px;font-size:9px;font-weight:700;background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;cursor:pointer';
+    badge.title = 'Install on RQBBOX OS USB';
+    badge.textContent = 'RQBBOX';
+    badge.onclick = function() { var b = document.getElementById('rqbbox-install-us'); if (b) b.click(); };
+    if (xrEl.nextSibling) xrEl.parentNode.insertBefore(badge, xrEl.nextSibling);
+    else xrEl.parentNode.appendChild(badge);
   }
 
   inject();
@@ -209,6 +228,7 @@ console.log('RQBBOX: Loaded (v2.1.0)');
 
   var obs = new MutationObserver(function() {
     if (!document.getElementById(BTN_ID)) inject();
+    else if (!document.getElementById('rqbbox-xr-badge')) injectXRBadge();
   });
   setTimeout(function() {
     if (document.body) {
