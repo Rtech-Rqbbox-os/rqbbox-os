@@ -15,7 +15,7 @@
     website: 'https://rtech-rqbbox-os.github.io/rqbbox-os/',
     github: 'https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases',
     infocard: 'https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html',
-    version: 'v1.2.0'
+    version: 'v2.0.0'
   };
 
   var currentAppId = (location.pathname.match(/\/store\/(?:apps|games)\/details\?id=([^&]+)/) || [])[1] || new URLSearchParams(location.search).get('id') || '';

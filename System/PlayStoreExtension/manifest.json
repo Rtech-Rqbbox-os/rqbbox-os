@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "RQBBOX OS — Download on Google Play Store",
   "short_name": "RQBBOX Play",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Adds an 'Available on RQBBOX OS' download button to every app and game on Google Play Store (play.google.com). One-click install to your RQBBOX USB drive.",
   "author": "RhysTech (rhyscotton20@gmail.com)",
   "homepage_url": "https://github.com/Rtech-Rqbbox-os/rqbbox-os",
