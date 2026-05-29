@@ -4,68 +4,45 @@
   var BTN_ID = 'rqbbox-play-inject';
   var STYLE_ID = 'rqbbox-play-css';
   var MAX_RETRIES = 10;
+  var SERVER_URL = 'http://127.0.0.1:19777';
 
   var APP = {
     name: 'RQBBOX OS',
     tagline: 'Portable USB Gaming Operating System',
     author: 'RhysTech',
     email: 'rhyscotton20@gmail.com',
-    download: 'https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases',
+    download: SERVER_URL + '/api/play-store/install',
     website: 'https://rtech-rqbbox-os.github.io/rqbbox-os/',
+    github: 'https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases',
     infocard: 'https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html',
-    github: 'https://github.com/Rtech-Rqbbox-os/rqbbox-os',
     version: 'v1.2.0'
   };
 
-  // ALL RQBBOX-supported Google Play packages
-  var PLAY_PACKAGES = [
-    { id: 'com.activision.callofduty.shooter', title: 'Call of Duty Mobile', cat: 'FPS', icon: '🎯' },
-    { id: 'com.miHoYo.GenshinImpact', title: 'Genshin Impact', cat: 'RPG', icon: '⚔️' },
-    { id: 'com.tencent.ig', title: 'PUBG Mobile', cat: 'FPS', icon: '🎯' },
-    { id: 'com.mojang.minecraftpe', title: 'Minecraft', cat: 'Sandbox', icon: '🏗️' },
-    { id: 'com.gameloft.android.ANMP.GloftA9HM', title: 'Asphalt 9', cat: 'Racing', icon: '🏎️' },
-    { id: 'com.roblox.client', title: 'Roblox', cat: 'Sandbox', icon: '🏗️' },
-    { id: 'com.mobile.legends', title: 'Mobile Legends', cat: 'MOBA', icon: '⚔️' },
-    { id: 'com.supercell.clashroyale', title: 'Clash Royale', cat: 'Strategy', icon: '🛡️' },
-    { id: 'com.innersloth.spacemafia', title: 'Among Us', cat: 'Party', icon: '🎭' },
-    { id: 'com.epicgames.fortnite', title: 'Fortnite', cat: 'FPS', icon: '🎯' },
-    { id: 'com.riotgames.league.wildrift', title: 'Wild Rift', cat: 'MOBA', icon: '⚔️' },
-    { id: 'com.kiloo.subwaysurf', title: 'Subway Surfers', cat: 'Arcade', icon: '🏃' },
-    { id: 'com.android.chrome', title: 'Google Chrome', cat: 'Browser', icon: '🌐' },
-    { id: 'com.termux', title: 'Termux', cat: 'Tool', icon: '💻' },
-    { id: 'org.videolan.vlc', title: 'VLC Media Player', cat: 'Media', icon: '📺' },
-    { id: 'org.fdroid.fdroid', title: 'F-Droid', cat: 'Store', icon: '📦' },
-    { id: 'com.valvesoftware.steamlink', title: 'Steam Link', cat: 'Gaming', icon: '🎮' },
-    { id: 'com.limelight', title: 'Moonlight', cat: 'Gaming', icon: '🎮' },
-    { id: 'com.rarlab.rar', title: 'ZArchiver', cat: 'Tool', icon: '🗜️' },
-    { id: 'com.joaomgcd.autonotification', title: 'Tasker', cat: 'Tool', icon: '⚡' },
-    { id: 'com.google.android.apps.maps', title: 'Google Maps', cat: 'Navigation', icon: '🗺️' },
-    { id: 'com.whatsapp', title: 'WhatsApp', cat: 'Social', icon: '💬' },
-    { id: 'com.instagram.android', title: 'Instagram', cat: 'Social', icon: '📸' },
-    { id: 'com.snapchat.android', title: 'Snapchat', cat: 'Social', icon: '👻' },
-    { id: 'org.telegram.messenger', title: 'Telegram', cat: 'Social', icon: '✈️' },
-    { id: 'com.microsoft.office.outlook', title: 'Outlook', cat: 'Productivity', icon: '📧' },
-    { id: 'com.google.android.keep', title: 'Google Keep', cat: 'Productivity', icon: '📝' },
-    { id: 'com.microsoft.office.officehubrow', title: 'Microsoft 365', cat: 'Productivity', icon: '📊' },
-    { id: 'com.adobe.reader', title: 'Adobe Reader', cat: 'Productivity', icon: '📄' },
-    { id: 'com.google.android.apps.photos', title: 'Google Photos', cat: 'Media', icon: '🖼️' },
-    { id: 'com.zhiliaoapp.musically', title: 'TikTok', cat: 'Social', icon: '🎵' }
-  ];
+  var currentAppId = (location.pathname.match(/\/store\/(?:apps|games)\/details\?id=([^&]+)/) || [])[1] || new URLSearchParams(location.search).get('id') || '';
 
-  var currentAppId = '';
-  (function() {
-    var m = location.pathname.match(/\/store\/(?:apps|games)\/details\?id=([^&]+)/);
-    if (m) currentAppId = m[1];
-    else currentAppId = new URLSearchParams(location.search).get('id') || '';
-  })();
+  function installToRQBBOX(pkgId, pkgName) {
+    var btn = document.getElementById('rqbbox-install-btn');
+    if (btn) { btn.textContent = '⏳ Installing...'; btn.style.opacity = '0.6'; }
 
-  function getAppName() {
-    var sels = ['h1[itemprop="name"]','h1[aria-label]','.Fd93Bb h1','.qmmlRd','h1 span','[data-g-name]','h1'];
-    for (var i = 0; i < sels.length; i++) {
-      var el = document.querySelector(sels[i]);
-      if (el && el.textContent.trim()) return el.textContent.trim();
-    }
-    return 'this app';
+    fetch(SERVER_URL + '/api/play-store/install', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: pkgId })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.ok) {
+        if (btn) { btn.textContent = '✅ Installed to RQBBOX OS'; btn.style.background = 'rgba(0,200,80,.2)'; btn.style.color = '#4cff88'; btn.style.border = '1px solid rgba(0,200,80,.3)'; }
+        if (data.playStoreUrl) window.open(data.playStoreUrl, '_blank');
+      } else {
+        if (btn) { btn.textContent = '⬇ Download RQBBOX OS'; btn.style.opacity = '1'; }
+        window.open(APP.github, '_blank');
+      }
+    })
+    .catch(function() {
+      if (btn) { btn.textContent = '⬇ Download RQBBOX OS'; btn.style.opacity = '1'; }
+      window.open(APP.github, '_blank');
+    });
   }
 
   function injectCSS() {
@@ -75,14 +52,7 @@
     css.textContent = [
       '#' + BTN_ID + ' { all:initial;display:block;margin:16px 0!important;max-width:100%!important;clear:both; }',
       '#' + BTN_ID + ' * { all:revert; }',
-      '#' + BTN_ID + ' .rqbbox-p-wrap {',
-      '  background:linear-gradient(135deg,rgba(10,12,18,.97),rgba(20,22,28,.95));',
-      '  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);',
-      '  border:1px solid rgba(0,212,255,.15);border-radius:12px;padding:16px 18px;',
-      '  box-shadow:0 8px 32px rgba(0,0,0,.5);',
-      '  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif!important;',
-      '  color:#fff!important;line-height:1.4!important;box-sizing:border-box!important;',
-      '}',
+      '#' + BTN_ID + ' .rqbbox-p-wrap { background:linear-gradient(135deg,rgba(10,12,18,.97),rgba(20,22,28,.95));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(0,212,255,.15);border-radius:12px;padding:16px 18px;box-shadow:0 8px 32px rgba(0,0,0,.5);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif!important;color:#fff!important;line-height:1.4!important;box-sizing:border-box!important; }',
       '#' + BTN_ID + ' .rqbbox-p-head { display:flex;align-items:center;gap:12px;margin-bottom:12px; }',
       '#' + BTN_ID + ' .rqbbox-p-logo { width:40px;height:40px;flex-shrink:0;border-radius:10px;background:linear-gradient(135deg,#0a0e1a,#1a1e2e);border:1px solid rgba(0,212,255,.15);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#00d4ff; }',
       '#' + BTN_ID + ' .rqbbox-p-title { font-size:15px;font-weight:700;color:#fff; }',
@@ -91,18 +61,18 @@
       '#' + BTN_ID + ' .rqbbox-p-desc strong { color:#00d4ff; }',
       '#' + BTN_ID + ' .rqbbox-p-badges { display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px; }',
       '#' + BTN_ID + ' .rqbbox-p-badge { display:inline-block;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.1);padding:2px 8px;border-radius:100px;font-size:9px;color:#00d4ff;text-transform:uppercase;letter-spacing:.3px;font-weight:600; }',
-      '#' + BTN_ID + ' .rqbbox-p-grid { display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:12px;max-height:240px;overflow-y:auto; }',
+      '#' + BTN_ID + ' .rqbbox-p-grid { display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:12px;max-height:200px;overflow-y:auto; }',
       '#' + BTN_ID + ' .rqbbox-p-grid::-webkit-scrollbar { width:4px; }',
       '#' + BTN_ID + ' .rqbbox-p-grid::-webkit-scrollbar-track { background:rgba(255,255,255,.03);border-radius:4px; }',
       '#' + BTN_ID + ' .rqbbox-p-grid::-webkit-scrollbar-thumb { background:rgba(255,255,255,.1);border-radius:4px; }',
-      '#' + BTN_ID + ' .rqbbox-p-item { display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:6px;font-size:10px;color:rgba(255,255,255,.55);text-decoration:none;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);transition:all .2s; }',
+      '#' + BTN_ID + ' .rqbbox-p-item { display:flex;align-items:center;gap:6px;padding:4px 8px;border-radius:6px;font-size:10px;color:rgba(255,255,255,.55);text-decoration:none;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.04);transition:all .2s; }',
       '#' + BTN_ID + ' .rqbbox-p-item:hover { background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.15);color:#fff; }',
-      '#' + BTN_ID + ' .rqbbox-p-item-active { background:rgba(0,212,255,.12)!important;border-color:rgba(0,212,255,.2)!important;color:#00d4ff!important; }',
-      '#' + BTN_ID + ' .rqbbox-p-actions { display:flex;flex-wrap:wrap;gap:6px; }',
-      '#' + BTN_ID + ' .rqbbox-p-btn { display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:8px;font-size:11px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .2s;line-height:1; }',
-      '#' + BTN_ID + ' .rqbbox-p-btn-primary { background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;box-shadow:0 4px 16px rgba(0,212,255,.25); }',
-      '#' + BTN_ID + ' .rqbbox-p-btn-primary:hover { transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,212,255,.35); }',
-      '#' + BTN_ID + ' .rqbbox-p-btn-ghost { background:rgba(255,255,255,.04);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.06); }',
+      '#' + BTN_ID + ' .rqbbox-p-current { background:rgba(0,212,255,.12)!important;border-color:rgba(0,212,255,.2)!important;color:#00d4ff!important; }',
+      '#' + BTN_ID + ' .rqbbox-p-install-btn { display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px 16px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .2s;line-height:1;background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;box-shadow:0 4px 16px rgba(0,212,255,.25);font-family:inherit; }',
+      '#' + BTN_ID + ' .rqbbox-p-install-btn:hover { transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,212,255,.35); }',
+      '#' + BTN_ID + ' .rqbbox-p-actions { display:flex;flex-wrap:wrap;gap:6px;margin-top:8px; }',
+      '#' + BTN_ID + ' .rqbbox-p-btn { display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:6px;font-size:10px;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .2s;line-height:1; }',
+      '#' + BTN_ID + ' .rqbbox-p-btn-ghost { background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.06); }',
       '#' + BTN_ID + ' .rqbbox-p-btn-ghost:hover { background:rgba(255,255,255,.08); }',
       '#' + BTN_ID + ' .rqbbox-p-footer { margin-top:8px;padding-top:6px;border-top:1px solid rgba(255,255,255,.04);font-size:9px;color:rgba(255,255,255,.25);display:flex;justify-content:space-between;flex-wrap:wrap; }',
       '#' + BTN_ID + ' .rqbbox-p-footer a { color:rgba(0,212,255,.5);text-decoration:none; }',
@@ -112,46 +82,96 @@
     document.head.appendChild(css);
   }
 
-  function buildCard() {
-    var appName = getAppName();
-    var w = document.createElement('div');
-    w.id = BTN_ID;
+  var PKGS = [
+    ['com.activision.callofduty.shooter','Call of Duty Mobile','FPS','🎯'],
+    ['com.miHoYo.GenshinImpact','Genshin Impact','RPG','⚔️'],
+    ['com.tencent.ig','PUBG Mobile','FPS','🎯'],
+    ['com.mojang.minecraftpe','Minecraft','Sandbox','🏗️'],
+    ['com.gameloft.android.ANMP.GloftA9HM','Asphalt 9','Racing','🏎️'],
+    ['com.roblox.client','Roblox','Sandbox','🏗️'],
+    ['com.mobile.legends','Mobile Legends','MOBA','⚔️'],
+    ['com.supercell.clashroyale','Clash Royale','Strategy','🛡️'],
+    ['com.innersloth.spacemafia','Among Us','Party','🎭'],
+    ['com.epicgames.fortnite','Fortnite','FPS','🎯'],
+    ['com.riotgames.league.wildrift','Wild Rift','MOBA','⚔️'],
+    ['com.kiloo.subwaysurf','Subway Surfers','Arcade','🏃'],
+    ['com.android.chrome','Google Chrome','Browser','🌐'],
+    ['com.termux','Termux','Tool','💻'],
+    ['org.videolan.vlc','VLC Media Player','Media','📺'],
+    ['org.fdroid.fdroid','F-Droid','Store','📦'],
+    ['com.valvesoftware.steamlink','Steam Link','Gaming','🎮'],
+    ['com.limelight','Moonlight','Gaming','🎮'],
+    ['com.rarlab.rar','ZArchiver','Tool','🗜️'],
+    ['com.joaomgcd.autonotification','Tasker','Tool','⚡'],
+    ['com.google.android.apps.maps','Google Maps','Navigation','🗺️'],
+    ['com.whatsapp','WhatsApp','Social','💬'],
+    ['com.instagram.android','Instagram','Social','📸'],
+    ['com.snapchat.android','Snapchat','Social','👻'],
+    ['org.telegram.messenger','Telegram','Social','✈️'],
+    ['com.microsoft.office.outlook','Outlook','Productivity','📧'],
+    ['com.google.android.keep','Google Keep','Productivity','📝'],
+    ['com.microsoft.office.officehubrow','Microsoft 365','Productivity','📊'],
+    ['com.adobe.reader','Adobe Reader','Productivity','📄'],
+    ['com.google.android.apps.photos','Google Photos','Media','🖼️'],
+    ['com.zhiliaoapp.musically','TikTok','Social','🎵']
+  ];
 
-    var packageList = PLAY_PACKAGES.map(function(p) {
-      var active = (p.id === currentAppId) ? ' rqbbox-p-item-active' : '';
-      var badge = (p.id === currentAppId) ? ' ● VIEWING' : '';
-      return '<a class="rqbbox-p-item' + active + '" href="https://play.google.com/store/apps/details?id=' + p.id + '" target="_blank">' +
-        '<span>' + p.icon + '</span>' +
-        '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + p.title + '</span>' +
-        '<span style="color:rgba(255,255,255,.25);font-size:8px">' + p.cat + badge + '</span>' +
-        '</a>';
+  function buildCard() {
+    var appName = 'this app';
+    var sels = ['h1[itemprop="name"]','h1[aria-label]','.Fd93Bb h1','.qmmlRd','h1 span','[data-g-name]','h1'];
+    for (var i = 0; i < sels.length; i++) {
+      var el = document.querySelector(sels[i]);
+      if (el && el.textContent.trim()) { appName = el.textContent.trim(); break; }
+    }
+
+    var items = PKGS.map(function(p) {
+      var cls = (p[0] === currentAppId) ? ' rqbbox-p-current' : '';
+      var tag = (p[0] === currentAppId) ? ' ●' : '';
+      return '<a class="rqbbox-p-item' + cls + '" href="https://play.google.com/store/apps/details?id=' + p[0] + '" target="_blank">' +
+        '<span>' + p[3] + '</span>' +
+        '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + p[1] + '</span>' +
+        '<span style="color:rgba(255,255,255,.2);font-size:8px">' + p[2] + tag + '</span></a>';
     }).join('');
 
+    var w = document.createElement('div');
+    w.id = BTN_ID;
     w.innerHTML =
       '<div class="rqbbox-p-wrap">' +
         '<div class="rqbbox-p-head">' +
           '<div class="rqbbox-p-logo">R</div>' +
-          '<div><div class="rqbbox-p-title">' + APP.name + ' &mdash; All Apps & Games</div>' +
-          '<div class="rqbbox-p-sub">' + APP.tagline + ' by ' + APP.author + ' &bull; ' + APP.version + ' &bull; ' + PLAY_PACKAGES.length + ' packages</div></div>' +
+          '<div><div class="rqbbox-p-title">' + APP.name + ' &mdash; Server Install</div>' +
+          '<div class="rqbbox-p-sub">by ' + APP.author + ' &bull; ' + APP.version + ' &bull; ' + PKGS.length + ' packages</div></div>' +
         '</div>' +
-        '<div class="rqbbox-p-desc">Browse all <strong>' + PLAY_PACKAGES.length + ' RQBBOX-supported apps & games</strong> on Google Play. <strong>' + appName + '</strong> is highlighted below. Each app can be installed on your RQBBOX USB drive.</div>' +
+        '<div class="rqbbox-p-desc"><strong style="color:#00d4ff">' + appName + '</strong> &bull; Click "Install to RQBBOX OS" to download this app to your USB drive via the RQBBOX server <strong style="color:rgba(255,255,255,.4)">(' + SERVER_URL + ')</strong></div>' +
         '<div class="rqbbox-p-badges">' +
-          '<span class="rqbbox-p-badge">⚡ USB Portable</span>' +
+          '<span class="rqbbox-p-badge">⚡ USB Install</span>' +
           '<span class="rqbbox-p-badge">🔓 Open Source</span>' +
           '<span class="rqbbox-p-badge">⚙️ RQBBOX Kernel</span>' +
-          '<span class="rqbbox-p-badge">🎮 ' + PLAY_PACKAGES.length + ' Apps</span>' +
+          '<span class="rqbbox-p-badge">🎮 ' + PKGS.length + ' Apps</span>' +
         '</div>' +
-        '<div class="rqbbox-p-grid">' + packageList + '</div>' +
+        '<button id="rqbbox-install-btn" class="rqbbox-p-install-btn" data-pkg="' + currentAppId + '" data-name="' + appName + '">⬇ Install to RQBBOX OS via Server</button>' +
+        '<div class="rqbbox-p-grid">' + items + '</div>' +
         '<div class="rqbbox-p-actions">' +
-          '<a class="rqbbox-p-btn rqbbox-p-btn-primary" href="' + APP.download + '" target="_blank">⬇ Download RQBBOX OS</a>' +
           '<a class="rqbbox-p-btn rqbbox-p-btn-ghost" href="' + APP.website + '" target="_blank">🌐 Website</a>' +
-          '<a class="rqbbox-p-btn rqbbox-p-btn-ghost" href="' + APP.infocard + '" target="_blank">📋 Info Card</a>' +
+          '<a class="rqbbox-p-btn rqbbox-p-btn-ghost" href="' + APP.github + '" target="_blank">⬇ GitHub Download</a>' +
+          '<a class="rqbbox-p-btn rqbbox-p-btn-ghost" href="' + APP.infocard + '" target="_blank">📋 Info</a>' +
         '</div>' +
         '<div class="rqbbox-p-footer">' +
-          '<span>by ' + APP.author + ' &bull; MIT &bull; ' + APP.version + '</span>' +
-          '<span><a href="mailto:' + APP.email + '">📧 ' + APP.email + '</a></span>' +
+          '<span>by ' + APP.author + ' &bull; MIT</span>' +
+          '<span><a href="mailto:rhyscotton20@gmail.com">📧 rhyscotton20@gmail.com</a></span>' +
         '</div>' +
       '</div>';
+
+    // Attach install handler after element is in DOM
+    setTimeout(function() {
+      var btn = document.getElementById('rqbbox-install-btn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          installToRQBBOX(btn.getAttribute('data-pkg'), btn.getAttribute('data-name'));
+        });
+      }
+    }, 50);
+
     return w;
   }
 

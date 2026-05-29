@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         RQBBOX OS — All Apps & Games on Google Play
 // @namespace    https://github.com/Rtech-Rqbbox-os/rqbbox-os
-// @version      2.0.0
+// @version     2.1.0
 // @description  Shows ALL 31 RQBBOX OS apps & games on every Google Play Store page. Browse, click, and download. Free.
 // @author       RhysTech (rhyscotton20@gmail.com)
 // @include      https://play.google.com/*
@@ -18,6 +18,7 @@ console.log('RQBBOX: Loaded (v2.0.0)');
   'use strict';
 
   var BTN_ID = 'rqbbox-play-us';
+  var SRV = 'http://127.0.0.1:19777';
   var APP = {
     name: 'RQBBOX OS', tagline: 'Portable USB Gaming Operating System',
     author: 'RhysTech', email: 'rhyscotton20@gmail.com',
@@ -81,20 +82,50 @@ console.log('RQBBOX: Loaded (v2.0.0)');
           '<div style="width:36px;height:36px;flex-shrink:0;border-radius:8px;background:linear-gradient(135deg,#0a0e1a,#1a1e2e);border:1px solid rgba(0,212,255,.15);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#00d4ff">R</div>' +
           '<div><div style="font-size:13px;font-weight:700;color:#fff">' + APP.name + ' &mdash; All Apps & Games</div><div style="font-size:10px;color:rgba(255,255,255,.4)">' + PKGS.length + ' RQBBOX-supported packages &bull; by ' + APP.author + '</div></div>' +
         '</div>' +
-        '<div style="font-size:11px;line-height:1.4;color:rgba(255,255,255,.5);margin-bottom:8px">Browse all <strong style="color:#00d4ff">' + PKGS.length + ' RQBBOX-supported apps & games</strong> below. Your current app is highlighted. Each app can run on your RQBBOX USB drive.</div>' +
+        '<div style="font-size:11px;line-height:1.4;color:rgba(255,255,255,.5);margin-bottom:8px">Browse <strong style="color:#00d4ff">' + PKGS.length + ' RQBBOX-supported apps</strong>. Click <strong style="color:#00d4ff">Install to RQBBOX OS</strong> to add to your USB via local server <strong style="color:rgba(255,255,255,.3)">(127.0.0.1:19777)</strong> or open on Play Store.</div>' +
+        '<button id="rqbbox-install-us" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:8px 14px;border-radius:8px;font-size:11px;font-weight:700;border:none;cursor:pointer;background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;box-shadow:0 4px 16px rgba(0,212,255,.25);font-family:inherit;margin-bottom:8px" data-pkg="' + currId + '">⬇ Install to RQBBOX OS via Server</button>' +
         '<div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:8px;max-height:200px;overflow-y:auto">' + items + '</div>' +
         '<div style="display:flex;flex-wrap:wrap;gap:4px">' +
-          '<a href="' + APP.download + '" style="display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:8px;font-size:10px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;box-shadow:0 4px 16px rgba(0,212,255,.25)">⬇ Download RQBBOX OS</a>' +
+          '<a href="' + APP.github + '" style="display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:8px;font-size:10px;font-weight:600;text-decoration:none;background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.06)">⬇ GitHub Download</a>' +
           '<a href="' + APP.website + '" style="display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:8px;font-size:10px;font-weight:600;text-decoration:none;background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.06)">🌐 Website</a>' +
           '<a href="' + APP.infocard + '" style="display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:8px;font-size:10px;font-weight:600;text-decoration:none;background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.06)">📋 Info</a>' +
         '</div>' +
         '<div style="margin-top:6px;padding-top:4px;border-top:1px solid rgba(255,255,255,.04);font-size:8px;color:rgba(255,255,255,.2);display:flex;justify-content:space-between">' +
           '<span>' + APP.author + ' &bull; MIT</span>' +
-          '<span><a href="mailto:' + APP.email + '" style="color:rgba(0,212,255,.4);text-decoration:none">📧 ' + APP.email + '</a></span>' +
+          '<span><a href="mailto:rhyscotton20@gmail.com" style="color:rgba(0,212,255,.4);text-decoration:none">📧 rhyscotton20@gmail.com</a></span>' +
         '</div>' +
       '</div>';
 
-    // Try to insert after description or main content
+  // Attach install handler for the button
+  setTimeout(function() {
+    var btn = document.getElementById('rqbbox-install-us');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        var id = btn.getAttribute('data-pkg');
+        if (!id) return;
+        btn.textContent = '⏳ Installing to RQBBOX...';
+        btn.style.opacity = '0.6';
+        fetch('http://127.0.0.1:19777/api/play-store/install', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: id })
+        }).then(function(r) { return r.json(); }).then(function(d) {
+          if (d.ok) {
+            btn.textContent = '✅ Installed! Opening Play Store...';
+            btn.style.background = 'rgba(0,200,80,.2)'; btn.style.color = '#4cff88';
+            if (d.playStoreUrl) window.open(d.playStoreUrl, '_blank');
+          } else {
+            btn.textContent = '⬇ Install to RQBBOX OS via Server';
+            btn.style.opacity = '1'; window.open('https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases', '_blank');
+          }
+        }).catch(function() {
+          btn.textContent = '⬇ Install to RQBBOX OS via Server';
+          btn.style.opacity = '1'; window.open('https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases', '_blank');
+        });
+      });
+    }
+  }, 200);
+
+  // Try to insert after description or main content
     var targets = ['div[itemprop="description"]','[data-g-id="description"]','.bGZUbe','.SfzRHd','.hAyfc','.JHTxub','.fnfR6c','#detailInfo','#play-app-details','[data-testid="play-app-details"]','.T4LgNb','#main-content','main','article','#fcxH9b','.N4Qw3'];
     for (var i = 0; i < targets.length; i++) {
       var el = document.querySelector(targets[i]);

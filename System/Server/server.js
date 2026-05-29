@@ -5,6 +5,7 @@ const { execSync, exec, spawn } = require('child_process');
 const os = require('os');
 const crypto = require('crypto');
 const email = require('./email.js');
+const playStore = require('./play-store.js');
 
 const PORT = 19777;
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -872,6 +873,27 @@ const server = http.createServer(async (req, res) => {
       } catch (e) {
         send(500, JSON.stringify({ ok: false, error: e.message }));
       }
+    }
+    else if (pathname === '/api/play-store/packages') {
+      const result = playStore.handleListPackages();
+      send(200, JSON.stringify(result.body));
+    }
+    else if (pathname === '/api/play-store/installed') {
+      const result = playStore.handleListInstalled();
+      send(200, JSON.stringify(result.body));
+    }
+    else if (pathname === '/api/play-store/install' && method === 'POST') {
+      const b = await body(req);
+      const result = playStore.handleInstall(b);
+      send(result.status || 200, JSON.stringify(result.body));
+      if (result.body && result.body.playStoreUrl) {
+        try { exec('start "" "' + result.body.playStoreUrl + '"'); } catch {}
+      }
+    }
+    else if (pathname === '/api/play-store/app') {
+      const id = parsedUrl.searchParams ? parsedUrl.searchParams.get('id') : '';
+      const result = await playStore.handleAppLookup({ query: { id } });
+      send(result.status || 200, JSON.stringify(result.body));
     }
     else {
       // Static file serving
