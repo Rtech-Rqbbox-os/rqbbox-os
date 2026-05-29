@@ -99,8 +99,8 @@ console.log('RQBBOX: Loaded (v2.1.0)');
         + '<div style="width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#0a0e1a,#1a1e2e);border:1px solid rgba(0,212,255,0.15);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#00d4ff">R</div>'
         + '<div><div style="font-size:13px;font-weight:700;color:#fff">' + APP.name + ' - All Apps and Games</div><div style="font-size:10px;color:rgba(255,255,255,0.4)">' + PKGS.length + ' supported packages by ' + APP.author + '</div></div>'
       + '</div>'
-      + '<div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:8px">Click Install to add to your RQBBOX USB via local server (127.0.0.1:19777) or open on Play Store.</div>'
-      + '<button id="rqbbox-install-us" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:8px 14px;border-radius:8px;font-size:11px;font-weight:700;border:none;cursor:pointer;background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;font-family:inherit;margin-bottom:8px" data-pkg="' + currId + '">Install to RQBBOX OS via Server</button>'
+      + '<div style="font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:8px">Download APK to RQBBOX USB. Server saves app to Store/downloads/ then opens Play Store.</div>'
+      + '<button id="rqbbox-install-us" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:8px 14px;border-radius:8px;font-size:11px;font-weight:700;border:none;cursor:pointer;background:linear-gradient(135deg,#007bff,#00d4ff);color:#fff;font-family:inherit;margin-bottom:8px" data-pkg="' + currId + '">Download APK to RQBBOX USB</button>'
       + '<div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:8px;max-height:200px;overflow-y:auto">' + itemsHtml + '</div>'
       + '<div style="display:flex;flex-wrap:wrap;gap:4px">'
         + '<a href="' + APP.github + '" style="display:inline-flex;align-items:center;gap:4px;padding:6px 14px;border-radius:8px;font-size:10px;font-weight:600;text-decoration:none;background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.06)">GitHub</a>'
@@ -120,32 +120,44 @@ console.log('RQBBOX: Loaded (v2.1.0)');
         if (!id) { window.open(APP.github + '/releases', '_blank'); return; }
         btn.textContent = 'Installing...';
         btn.style.opacity = '0.6';
+        btn.disabled = true;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', SRV + '/api/play-store/install', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = function() {
+          btn.disabled = false;
           try {
             var d = JSON.parse(xhr.responseText);
             if (d.ok) {
-              btn.textContent = 'Installed! Opening Play Store...';
-              btn.style.background = 'rgba(0,200,80,0.2)';
-              btn.style.color = '#4cff88';
-              btn.style.border = 'none';
+              if (d.downloaded) {
+                btn.textContent = 'APK saved to RQBBOX USB!';
+                btn.style.background = 'rgba(0,200,80,0.2)';
+                btn.style.color = '#4cff88';
+              } else if (d.alreadyInstalled) {
+                btn.textContent = 'Already on RQBBOX USB';
+                btn.style.background = 'rgba(0,200,80,0.15)';
+                btn.style.color = '#4cff88';
+              } else {
+                btn.textContent = 'Added to RQBBOX';
+                btn.style.background = 'rgba(0,200,80,0.2)';
+                btn.style.color = '#4cff88';
+              }
               if (d.playStoreUrl) window.open(d.playStoreUrl, '_blank');
             } else {
-              btn.textContent = 'Install to RQBBOX OS via Server';
+              btn.textContent = 'Download RQBBOX OS';
               btn.style.opacity = '1';
               window.open(APP.github + '/releases', '_blank');
             }
           } catch(e) {
-            btn.textContent = 'Install to RQBBOX OS via Server';
+            btn.textContent = 'Download RQBBOX OS';
             btn.style.opacity = '1';
             window.open(APP.github + '/releases', '_blank');
           }
         };
         xhr.onerror = function() {
-          btn.textContent = 'Install to RQBBOX OS via Server';
+          btn.textContent = 'Download RQBBOX OS';
           btn.style.opacity = '1';
+          btn.disabled = false;
           window.open(APP.github + '/releases', '_blank');
         };
         xhr.send(JSON.stringify({ id: id }));

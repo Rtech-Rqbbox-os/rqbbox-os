@@ -882,6 +882,10 @@ const server = http.createServer(async (req, res) => {
       const result = playStore.handleListInstalled();
       send(200, JSON.stringify(result.body));
     }
+    else if (pathname === '/api/play-store/downloads') {
+      const result = playStore.handleDownloadsIndex();
+      send(200, JSON.stringify(result.body));
+    }
     else if (pathname === '/api/play-store/install' && method === 'POST') {
       const b = await body(req);
       const result = playStore.handleInstall(b);

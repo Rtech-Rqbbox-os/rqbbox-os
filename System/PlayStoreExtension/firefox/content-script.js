@@ -22,7 +22,7 @@
 
   function installToRQBBOX(pkgId, pkgName) {
     var btn = document.getElementById('rqbbox-install-btn');
-    if (btn) { btn.textContent = '⏳ Installing...'; btn.style.opacity = '0.6'; }
+    if (btn) { btn.textContent = '⏳ Installing...'; btn.style.opacity = '0.6'; btn.disabled = true; }
 
     fetch(SERVER_URL + '/api/play-store/install', {
       method: 'POST',
@@ -32,15 +32,32 @@
     .then(function(r) { return r.json(); })
     .then(function(data) {
       if (data.ok) {
-        if (btn) { btn.textContent = '✅ Installed to RQBBOX OS'; btn.style.background = 'rgba(0,200,80,.2)'; btn.style.color = '#4cff88'; btn.style.border = '1px solid rgba(0,200,80,.3)'; }
+        if (btn) {
+          if (data.downloaded) {
+            btn.textContent = '✅ Downloaded to RQBBOX USB!';
+            btn.style.background = 'rgba(0,200,80,.2)';
+            btn.style.color = '#4cff88';
+            btn.style.border = '1px solid rgba(0,200,80,.3)';
+          } else if (data.alreadyInstalled) {
+            btn.textContent = '✅ Already on RQBBOX USB';
+            btn.style.background = 'rgba(0,200,80,.15)';
+            btn.style.color = '#4cff88';
+          } else {
+            btn.textContent = '✅ Added to RQBBOX';
+            btn.style.background = 'rgba(0,200,80,.2)';
+            btn.style.color = '#4cff88';
+          }
+          btn.disabled = false;
+          btn.style.opacity = '1';
+        }
         if (data.playStoreUrl) window.open(data.playStoreUrl, '_blank');
       } else {
-        if (btn) { btn.textContent = '⬇ Download RQBBOX OS'; btn.style.opacity = '1'; }
+        if (btn) { btn.textContent = '⬇ Get RQBBOX OS'; btn.style.opacity = '1'; btn.disabled = false; }
         window.open(APP.github, '_blank');
       }
     })
     .catch(function() {
-      if (btn) { btn.textContent = '⬇ Download RQBBOX OS'; btn.style.opacity = '1'; }
+      if (btn) { btn.textContent = '⬇ Get RQBBOX OS'; btn.style.opacity = '1'; btn.disabled = false; }
       window.open(APP.github, '_blank');
     });
   }
@@ -142,14 +159,14 @@
           '<div><div class="rqbbox-p-title">' + APP.name + ' &mdash; Server Install</div>' +
           '<div class="rqbbox-p-sub">by ' + APP.author + ' &bull; ' + APP.version + ' &bull; ' + PKGS.length + ' packages</div></div>' +
         '</div>' +
-        '<div class="rqbbox-p-desc"><strong style="color:#00d4ff">' + appName + '</strong> &bull; Click "Install to RQBBOX OS" to download this app to your USB drive via the RQBBOX server <strong style="color:rgba(255,255,255,.4)">(' + SERVER_URL + ')</strong></div>' +
+        '<div class="rqbbox-p-desc"><strong style="color:#00d4ff">' + appName + '</strong> &bull; Download APK to RQBBOX USB. Server saves app to Store/downloads/ then opens Play Store.</div>' +
         '<div class="rqbbox-p-badges">' +
           '<span class="rqbbox-p-badge">⚡ USB Install</span>' +
           '<span class="rqbbox-p-badge">🔓 Open Source</span>' +
           '<span class="rqbbox-p-badge">⚙️ RQBBOX Kernel</span>' +
           '<span class="rqbbox-p-badge">🎮 ' + PKGS.length + ' Apps</span>' +
         '</div>' +
-        '<button id="rqbbox-install-btn" class="rqbbox-p-install-btn" data-pkg="' + currentAppId + '" data-name="' + appName + '">⬇ Install to RQBBOX OS via Server</button>' +
+        '<button id="rqbbox-install-btn" class="rqbbox-p-install-btn" data-pkg="' + currentAppId + '" data-name="' + appName + '">⬇ Download APK to RQBBOX USB</button>' +
         '<div class="rqbbox-p-grid">' + items + '</div>' +
         '<div class="rqbbox-p-actions">' +
           '<a class="rqbbox-p-btn rqbbox-p-btn-ghost" href="' + APP.website + '" target="_blank">🌐 Website</a>' +
