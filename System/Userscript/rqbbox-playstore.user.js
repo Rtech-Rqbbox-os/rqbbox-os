@@ -12,7 +12,7 @@
 // @license      MIT
 // ==/UserScript==
 
-console.log('RQBBOX: Loaded (v2.0.0)');
+console.log('RQBBOX: Loaded (v2.1.0)');
 
 (function() {
   'use strict';
