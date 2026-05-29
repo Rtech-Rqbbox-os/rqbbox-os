@@ -144,23 +144,22 @@ console.log('RQBBOX: Loaded (v2.1.0)');
               }
               if (d.playStoreUrl) window.open(d.playStoreUrl, '_blank');
             } else {
-              btn.textContent = 'Downloading from APKPure...';
-              btn.style.opacity = '0.6';
-              window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
-              setTimeout(function() { btn.textContent = 'APK should be downloading. Check your browser downloads.'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
+              btn.textContent = 'Start RQBBOX.EXE from H:\\. Then reload page.';
+              btn.style.opacity = '1';
+              btn.style.background = 'rgba(255,100,50,0.15)';
+              btn.style.color = '#ff6633';
             }
           } catch(e) {
-            btn.textContent = 'Downloading from APKPure...';
-            btn.style.opacity = '0.6';
-            window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
-            setTimeout(function() { btn.textContent = 'APK should be downloading. Check your browser downloads.'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
+            btn.textContent = 'Start RQBBOX.EXE from H:\\. Then reload page.';
+            btn.style.opacity = '1';
           }
         };
         xhr.onerror = function() {
-          btn.textContent = 'Downloading from APKPure...';
-          btn.style.opacity = '0.6';
-          window.open('https://d.apkpure.com/b/APK/' + id + '?version=latest', '_blank');
-          setTimeout(function() { btn.textContent = 'APK should be downloading. Check your browser downloads.'; btn.style.opacity = '1'; btn.disabled = false; }, 2000);
+          btn.textContent = 'Start RQBBOX.EXE from H:\\. Then reload page.';
+          btn.style.opacity = '1';
+          btn.style.background = 'rgba(255,100,50,0.15)';
+          btn.style.color = '#ff6633';
+          btn.disabled = false;
         };
         xhr.send(JSON.stringify({ id: id }));
       });

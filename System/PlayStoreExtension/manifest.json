@@ -22,14 +22,12 @@
   },
 
   "permissions": [
-    "storage",
-    "downloads"
+    "storage"
   ],
 
   "host_permissions": [
     "https://play.google.com/*",
-    "https://www.play.google.com/*",
-    "https://d.apkpure.com/*"
+    "https://www.play.google.com/*"
   ],
 
   "content_scripts": [
