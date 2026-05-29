@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "RQBBOX OS — Download on Google Play Store",
+  "short_name": "RQBBOX Play",
+  "version": "1.0.0",
+  "description": "Adds an 'Available on RQBBOX OS' download button to every app and game on Google Play Store (play.google.com). One-click install to your RQBBOX USB drive.",
+  "author": "RhysTech (rhyscotton20@gmail.com)",
+  "homepage_url": "https://github.com/Rtech-Rqbbox-os/rqbbox-os",
+
+  "icons": {
+    "48": "icons/icon-48.svg",
+    "128": "icons/icon-128.svg"
+  },
+
+  "action": {
+    "default_title": "RQBBOX OS — Get Apps on Play Store",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.svg",
+      "128": "icons/icon-128.svg"
+    }
+  },
+
+  "permissions": [
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://play.google.com/*",
+    "https://www.play.google.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://play.google.com/store/apps/details*",
+        "https://play.google.com/store/games/details*",
+        "https://www.play.google.com/store/apps/details*",
+        "https://www.play.google.com/store/games/details*"
+      ],
+      "js": ["content-script.js"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "offline_enabled": true,
+  "keywords": ["rqbbox", "google play", "download", "gaming OS", "USB", "RhysTech"]
+}

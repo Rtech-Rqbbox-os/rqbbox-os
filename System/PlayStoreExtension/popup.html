@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=380">
+  <title>RQBBOX OS — Play Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 380px; min-height: 400px; background: #0a0a0f; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .wrap { padding: 16px; }
+    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .logo { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: linear-gradient(135deg,#0a0e1a,#1a1e2e); border: 1px solid rgba(0,212,255,.15); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 800; color: #00d4ff; font-family: Segoe UI; }
+    .title { font-size: 1rem; font-weight: 700; }
+    .sub { font-size: .65rem; color: rgba(255,255,255,.4); }
+    .banner {
+      background: linear-gradient(135deg, rgba(0,119,255,.1), rgba(0,212,255,.06));
+      border: 1px solid rgba(0,212,255,.12);
+      border-radius: 10px; padding: 10px 12px; margin-bottom: 12px;
+      font-size: .68rem; color: #00d4ff; text-align: center; line-height: 1.5;
+    }
+    .banner strong { font-size: .75rem; }
+    .desc { font-size: .72rem; line-height: 1.5; color: rgba(255,255,255,.5); margin-bottom: 12px; }
+    .actions { display: flex; flex-direction: column; gap: 4px; }
+    .btn { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; font-size: .72rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+    .btn-primary { background: linear-gradient(135deg, #007bff, #00d4ff); color: #fff; }
+    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-ghost { background: rgba(255,255,255,.04); color: rgba(255,255,255,.6); border: 1px solid rgba(255,255,255,.06); }
+    .steps { font-size: .65rem; color: rgba(255,255,255,.45); line-height: 1.6; padding: 8px 12px; background: rgba(255,255,255,.02); border-radius: 8px; border: 1px solid rgba(255,255,255,.04); margin-bottom: 12px; }
+    .steps strong { color: rgba(255,255,255,.6); }
+    .footer { margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.04); font-size: .6rem; color: rgba(255,255,255,.2); display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .badge { display: inline-block; background: rgba(0,212,255,.08); border: 1px solid rgba(0,212,255,.1); padding: 2px 7px; border-radius: 100px; font-size: .58rem; color: #00d4ff; text-transform: uppercase; letter-spacing: .3px; margin: 0 2px 2px 0; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header">
+    <div class="logo">R</div>
+    <div>
+      <div class="title">RQBBOX OS</div>
+      <div class="sub">Play Store Download Button &bull; v1.0.0</div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <strong>✅ ACTIVE ON PLAY.GOOGLE.COM</strong><br>
+    Every app and game page now shows an RQBBOX OS download button.
+  </div>
+
+  <div style="margin-bottom:10px">
+    <span class="badge">Google Play</span>
+    <span class="badge">RQBBOX Kernel</span>
+    <span class="badge">Free</span>
+    <span class="badge">USB Gaming</span>
+  </div>
+
+  <div class="desc">
+    This extension adds an "Available on RQBBOX OS" card to every app and game page on the Google Play Store. Browse any app and see the RQBBOX download button instantly.
+  </div>
+
+  <div class="steps">
+    <strong>📋 How it works:</strong><br>
+    1. Go to <strong>play.google.com</strong><br>
+    2. Open any app or game page<br>
+    3. The RQBBOX OS card appears near the app description<br>
+    4. Click "Download RQBBOX OS" to get the full OS<br>
+    5. Install apps on your RQBBOX USB drive
+  </div>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.activision.callofduty.shooter" target="_blank">
+      🎮 Try on any App Page
+    </a>
+    <a class="btn btn-ghost" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases" target="_blank">⬇ Download RQBBOX OS</a>
+    <a class="btn btn-ghost" href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html" target="_blank">📋 Full Info Card</a>
+  </div>
+
+  <div class="footer">
+    <span>&copy; 2026 RhysTech &bull; MIT</span>
+    <span><a href="mailto:rhyscotton20@gmail.com" style="color:rgba(0,212,255,.4);text-decoration:none;font-size:.6rem;">rhyscotton20@gmail.com</a></span>
+  </div>
+</div>
+</body>
+</html>

@@ -107,7 +107,7 @@
   </div>
 
   <h2>🔧 Browser Extensions — Google Search Info Card</h2>
-  <div class="grid">
+  <div class="grid" style="grid-template-columns:1fr 1fr 1fr">
     <div class="platform">
       <div class="plat-icon">🌐</div>
       <div class="plat-name">Google Chrome (📋 ZIP)</div>
@@ -134,6 +134,23 @@
       <div class="plat-name">Phone Bootloader</div>
       <div class="plat-desc">PWA-based phone bootloader that auto-detects brand and shows setup guides. Works on all phone brands.</div>
       <a class="plat-link" href="../Bootloader/index.html">Bootloader</a>
+    </div>
+  </div>
+
+  <h2>🛒 Google Play Store Integration</h2>
+  <div class="grid">
+    <div class="platform">
+      <div class="plat-icon">🛍️</div>
+      <div class="plat-name">Play Store Browser Extension</div>
+      <div class="plat-desc">Adds an "Available on RQBBOX OS" button to every app and game on play.google.com. Injects a download card with RQBBOX branding on every app details page.</div>
+      <a class="plat-link" href="../PlayStoreExtension/rqbbox-os-playstore-extension.zip">Download Chrome ZIP</a>
+      <a class="plat-link" href="../Userscript/rqbbox-playstore.user.js">Userscript Install</a>
+    </div>
+    <div class="platform">
+      <div class="plat-icon">📡</div>
+      <div class="plat-name">Play Store API Module</div>
+      <div class="plat-desc">Server-side module at /api/play-store/app?id=package.name — fetches live Play Store data (rating, downloads, description) with 1-hour cache. Merged with RQBBOX package metadata.</div>
+      <a class="plat-link" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os/blob/main/System/Server/play-store.js">Source Code</a>
     </div>
   </div>
   <div style="text-align:center;padding:20px;color:rgba(255,255,255,.2);font-size:.75rem;margin-top:20px">
