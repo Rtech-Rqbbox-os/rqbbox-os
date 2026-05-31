@@ -1,170 +1,180 @@
-.rqbbox-card {
+.rqbbox-kp {
   all: initial;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: 'Google Sans', 'Segoe UI', Roboto, Arial, sans-serif;
   display: block;
   width: 100%;
   max-width: 692px;
   margin: 0 auto 20px;
-  background: #0a0a0f;
-  background-image: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,.06) 0%, transparent 60%);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 16px;
-  padding: 22px 26px;
-  box-shadow: 0 16px 48px rgba(0,0,0,.6);
-  color: #fff;
+  background: #1e1f22;
+  border-radius: 20px;
+  padding: 28px 30px 24px;
+  color: #e8eaed;
   position: relative;
   z-index: 1;
 }
 
-.rqbbox-card * {
+.rqbbox-kp * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.rqbbox-card .rc-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 14px;
+.rqbbox-kp .kp-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #e8eaed;
+  line-height: 1.2;
+  margin-bottom: 4px;
 }
 
-.rqbbox-card .rc-logo {
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(0,212,255,.12);
+.rqbbox-kp .kp-category {
+  font-size: .85rem;
+  color: #9aa0a6;
+  margin-bottom: 16px;
+}
+
+.rqbbox-kp .kp-images {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 140px 100px;
+  gap: 4px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.rqbbox-kp .kp-img {
+  background: #0a0e1a;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 
-.rqbbox-card .rc-logo svg {
-  width: 36px;
-  height: 36px;
+.rqbbox-kp .kp-img svg {
+  width: 70%;
+  height: 70%;
 }
 
-.rqbbox-card .rc-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
+.rqbbox-kp .kp-img:first-child {
+  grid-row: 1 / 3;
 }
 
-.rqbbox-card .rc-sub {
-  font-size: .72rem;
-  color: rgba(255,255,255,.4);
-  margin-top: 2px;
+.rqbbox-kp .kp-img-placeholder {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1e2e 100%);
+  border: 1px solid rgba(0,212,255,.08);
 }
 
-.rqbbox-card .rc-about {
-  font-size: .82rem;
+.rqbbox-kp .kp-img-1 {
+  background: linear-gradient(135deg, #0a0e1a, #0d1117);
+}
+
+.rqbbox-kp .kp-img-2 {
+  background: linear-gradient(135deg, #0d1117, #161b22);
+}
+
+.rqbbox-kp .kp-img-3 {
+  background: linear-gradient(135deg, #161b22, #1a1e2e);
+}
+
+.rqbbox-kp .kp-desc {
+  font-size: .88rem;
   line-height: 1.65;
-  color: rgba(255,255,255,.55);
+  color: #bdc1c6;
   margin-bottom: 14px;
 }
 
-.rqbbox-card .rc-about strong {
-  color: rgba(255,255,255,.8);
+.rqbbox-kp .kp-desc strong {
+  color: #e8eaed;
 }
 
-.rqbbox-card .rc-badges {
+.rqbbox-kp .kp-source {
+  font-size: .78rem;
+  color: #9aa0a6;
+  margin-bottom: 18px;
+}
+
+.rqbbox-kp .kp-source a {
+  color: #8ab4f8;
+  text-decoration: none;
+}
+
+.rqbbox-kp .kp-source a:hover {
+  text-decoration: underline;
+}
+
+.rqbbox-kp .kp-info {
+  background: #292a2d;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+
+.rqbbox-kp .kp-info-row {
+  display: flex;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.rqbbox-kp .kp-info-row:last-child {
+  border-bottom: none;
+}
+
+.rqbbox-kp .kp-info-label {
+  font-size: .78rem;
+  color: #9aa0a6;
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.rqbbox-kp .kp-info-value {
+  font-size: .78rem;
+  color: #e8eaed;
+}
+
+.rqbbox-kp .kp-info-value a {
+  color: #8ab4f8;
+  text-decoration: none;
+}
+
+.rqbbox-kp .kp-info-value a:hover {
+  text-decoration: underline;
+}
+
+.rqbbox-kp .kp-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 14px;
+  gap: 8px;
+  margin-top: 14px;
 }
 
-.rqbbox-card .rc-badge {
-  display: inline-block;
-  background: rgba(0,212,255,.08);
-  border: 1px solid rgba(0,212,255,.1);
-  padding: 2px 10px;
-  border-radius: 100px;
-  font-size: .62rem;
-  color: #00d4ff;
-  text-transform: uppercase;
-  letter-spacing: .3px;
-}
-
-.rqbbox-card .rc-features {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 6px;
-  margin-bottom: 14px;
-}
-
-.rqbbox-card .rc-feat {
-  padding: 8px 10px;
-  border-radius: 8px;
-  background: rgba(255,255,255,.02);
-  border: 1px solid rgba(255,255,255,.04);
-}
-
-.rqbbox-card .rc-feat-icon {
-  font-size: .9rem;
-  margin-bottom: 2px;
-}
-
-.rqbbox-card .rc-feat-title {
-  font-size: .7rem;
-  font-weight: 600;
-  color: rgba(255,255,255,.7);
-}
-
-.rqbbox-card .rc-feat-desc {
-  font-size: .63rem;
-  color: rgba(255,255,255,.4);
-  line-height: 1.3;
-}
-
-.rqbbox-card .rc-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.rqbbox-card .rc-link {
+.rqbbox-kp .kp-link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 6px 14px;
+  gap: 5px;
+  padding: 7px 16px;
   border-radius: 100px;
-  font-size: .72rem;
-  font-weight: 600;
+  font-size: .75rem;
+  font-weight: 500;
   text-decoration: none;
-  transition: all .2s;
+  transition: all .15s;
+  background: #292a2d;
+  color: #e8eaed;
+  border: 1px solid rgba(255,255,255,.08);
 }
 
-.rqbbox-card .rc-link-primary {
-  background: linear-gradient(135deg, #007bff, #00d4ff);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(0,212,255,.2);
+.rqbbox-kp .kp-link:hover {
+  background: #35363a;
+  border-color: rgba(255,255,255,.15);
 }
 
-.rqbbox-card .rc-link-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(0,212,255,.3);
+.rqbbox-kp .kp-link-primary {
+  background: #8ab4f8;
+  color: #202124;
+  border-color: transparent;
 }
 
-.rqbbox-card .rc-link-ghost {
-  background: rgba(255,255,255,.05);
-  color: rgba(255,255,255,.65);
-  border: 1px solid rgba(255,255,255,.06);
-}
-
-.rqbbox-card .rc-link-ghost:hover {
-  background: rgba(255,255,255,.08);
-  color: #fff;
-}
-
-.rqbbox-card .rc-footer {
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,.04);
-  font-size: .6rem;
-  color: rgba(255,255,255,.15);
-  display: flex;
-  justify-content: space-between;
+.rqbbox-kp .kp-link-primary:hover {
+  background: #aecbfa;
 }

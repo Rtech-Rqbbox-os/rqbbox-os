@@ -1,80 +1,74 @@
 (() => {
   const q = new URLSearchParams(window.location.search).get('q') || '';
-  if (!q.toLowerCase().includes('rqbbox') && !q.toLowerCase().includes('rqbbox os')) return;
+  if (!q.toLowerCase().includes('rqbbox')) return;
+
+  const logoSvg = `<svg viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0a0e1a" stroke="url(#g)" stroke-width="2"/><text x="50" y="66" text-anchor="middle" font-size="52" font-weight="800" fill="url(#g)" font-family="Segoe UI, sans-serif">R</text><defs><linearGradient id="g"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>`;
 
   const card = document.createElement('div');
-  card.className = 'rqbbox-card';
+  card.className = 'rqbbox-kp';
   card.innerHTML = `
-    <div class="rc-header">
-      <div class="rc-logo">
-        <svg viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0a0e1a" stroke="url(#lg)" stroke-width="2"/><text x="50" y="66" text-anchor="middle" font-size="52" font-weight="800" fill="url(#lg)" font-family="Segoe UI, sans-serif">R</text><defs><linearGradient id="lg"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#9d4edd"/></linearGradient></defs></svg>
+    <div class="kp-title">RQBBOX OS</div>
+    <div class="kp-category">Operating system</div>
+
+    <div class="kp-images">
+      <div class="kp-img kp-img-1">${logoSvg}</div>
+      <div class="kp-img kp-img-2">
+        <svg viewBox="0 0 200 100"><rect width="200" height="100" rx="8" fill="#0d1117"/><rect x="10" y="10" width="180" height="60" rx="4" fill="#161b22" stroke="#00d4ff" stroke-width=".5" opacity=".4"/><text x="100" y="48" text-anchor="middle" font-size="14" fill="#00d4ff" font-family="Segoe UI" opacity=".6">Play Store</text><text x="100" y="82" text-anchor="middle" font-size="9" fill="#9aa0a6" font-family="Segoe UI">Chrome Extension</text></svg>
       </div>
-      <div>
-        <div class="rc-title">RQBBOX OS</div>
-        <div class="rc-sub">Portable USB Gaming Operating System by RhysTech</div>
+      <div class="kp-img kp-img-3">
+        <svg viewBox="0 0 200 100"><rect width="200" height="100" rx="8" fill="#161b22"/><rect x="10" y="10" width="180" height="60" rx="4" fill="#1a1e2e" stroke="#9d4edd" stroke-width=".5" opacity=".4"/><text x="100" y="48" text-anchor="middle" font-size="14" fill="#9d4edd" font-family="Segoe UI" opacity=".6">RQBBOX.EXE</text><text x="100" y="82" text-anchor="middle" font-size="9" fill="#9aa0a6" font-family="Segoe UI">22KB Standalone Server</text></svg>
       </div>
     </div>
 
-    <div class="rc-about">
-      <strong>RQBBOX OS</strong> is a portable USB-based gaming operating system that runs entirely from a USB drive. No installation, no emulation, no rebooting. Plug in any USB drive, launch the server, and your gaming world is ready on any PC. Slogans: <strong>"Plug Into Gaming."</strong> · <strong>"Portable Power Anywhere."</strong> · <strong>"Built For Gamers."</strong>
+    <div class="kp-desc">
+      <strong>RQBBOX OS</strong> is a portable USB-based gaming operating system developed by <strong>RhysTech</strong>. It runs entirely from a USB drive without installation, emulation, or rebooting. The system includes Google Play Store integration via browser extensions, a standalone 22KB C# HTTP server (RQBBOX.EXE), XR headset support, and access to 31+ store packages. It is available in three editions: Lite, Pro, and Creator.
     </div>
 
-    <div class="rc-badges">
-      <span class="rc-badge">v2.0</span>
-      <span class="rc-badge">USB Portable</span>
-      <span class="rc-badge">Open Source</span>
-      <span class="rc-badge">MIT License</span>
-      <span class="rc-badge">Chrome Extension</span>
-      <span class="rc-badge">Firefox Add-on</span>
-      <span class="rc-badge">XR Headsets</span>
-    </div>
+    <div class="kp-source">Source: <a href="https://github.com/Rtech-Rqbbox-os/rqbbox-os" target="_blank">GitHub</a></div>
 
-    <div class="rc-features">
-      <div class="rc-feat">
-        <div class="rc-feat-icon">⚡</div>
-        <div class="rc-feat-title">RQBBOX.EXE Server</div>
-        <div class="rc-feat-desc">22KB C# standalone HTTP server. No Node.js, no Python. Just run.</div>
+    <div class="kp-info">
+      <div class="kp-info-row">
+        <div class="kp-info-label">Initial release date</div>
+        <div class="kp-info-value">2026</div>
       </div>
-      <div class="rc-feat">
-        <div class="rc-feat-icon">🛍️</div>
-        <div class="rc-feat-title">Play Store Integration</div>
-        <div class="rc-feat-desc">Chrome + Firefox + Userscript. Install APKs from any Play Store page.</div>
+      <div class="kp-info-row">
+        <div class="kp-info-label">Latest release</div>
+        <div class="kp-info-value">v2.0 / May 2026</div>
       </div>
-      <div class="rc-feat">
-        <div class="rc-feat-icon">📦</div>
-        <div class="rc-feat-title">31+ Store Packages</div>
-        <div class="rc-feat-desc">Games and apps via Play Store. All free, one-click download.</div>
+      <div class="kp-info-row">
+        <div class="kp-info-label">Developer</div>
+        <div class="kp-info-value">RhysTech</div>
       </div>
-      <div class="rc-feat">
-        <div class="rc-feat-icon">🥽</div>
-        <div class="rc-feat-title">XR Headset Support</div>
-        <div class="rc-feat-desc">Auto-detects VR apps. One-click install for Quest, Pico.</div>
+      <div class="kp-info-row">
+        <div class="kp-info-label">Written in</div>
+        <div class="kp-info-value">JavaScript, C#, PowerShell</div>
       </div>
-      <div class="rc-feat">
-        <div class="rc-feat-icon">🎨</div>
-        <div class="rc-feat-title">PS5-Inspired UI</div>
-        <div class="rc-feat-desc">Dark minimal, horizontal scroll, glassmorphism, cyan accents.</div>
+      <div class="kp-info-row">
+        <div class="kp-info-label">OS family</div>
+        <div class="kp-info-value">RQBBOX</div>
       </div>
-      <div class="rc-feat">
-        <div class="rc-feat-icon">👤</div>
-        <div class="rc-feat-title">Multi-Profile</div>
-        <div class="rc-feat-desc">Auth, friends, achievements, cloud sync, PIN protection.</div>
+      <div class="kp-info-row">
+        <div class="kp-info-label">Platforms</div>
+        <div class="kp-info-value">Windows, macOS, Linux, Android, iOS</div>
+      </div>
+      <div class="kp-info-row">
+        <div class="kp-info-label">License</div>
+        <div class="kp-info-value"><a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a></div>
+      </div>
+      <div class="kp-info-row">
+        <div class="kp-info-label">Website</div>
+        <div class="kp-info-value"><a href="https://rtech-rqbbox-os.github.io/rqbbox-os/" target="_blank">rtech-rqbbox-os.github.io</a></div>
       </div>
     </div>
 
-    <div class="rc-links">
-      <a class="rc-link rc-link-primary" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os" target="_blank">View on GitHub</a>
-      <a class="rc-link rc-link-ghost" href="https://rtech-rqbbox-os.github.io/rqbbox-os/" target="_blank">Website</a>
-      <a class="rc-link rc-link-ghost" href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html" target="_blank">Full Info Card</a>
-      <a class="rc-link rc-link-ghost" href="https://www.youtube.com/@RQBBOX-REAL" target="_blank">YouTube</a>
-    </div>
-
-    <div class="rc-footer">
-      <span>RQBBOX OS v2.0 &copy; 2026 RhysTech &bull; MIT License</span>
-      <span>rqbbox-os.github.io</span>
+    <div class="kp-links">
+      <a class="kp-link kp-link-primary" href="https://github.com/Rtech-Rqbbox-os/rqbbox-os" target="_blank">View on GitHub</a>
+      <a class="kp-link" href="https://rtech-rqbbox-os.github.io/rqbbox-os/" target="_blank">Website</a>
+      <a class="kp-link" href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html" target="_blank">Info Card</a>
+      <a class="kp-link" href="https://www.youtube.com/@RQBBOX-REAL" target="_blank">YouTube</a>
     </div>
   `;
 
-  const first = document.getElementById('search') || document.getElementById('rso') || document.querySelector('#main');
-  if (first) first.insertBefore(card, first.firstChild);
+  const rso = document.getElementById('rso') || document.getElementById('search') || document.querySelector('#main');
+  if (rso) rso.insertBefore(card, rso.firstChild);
 })();
