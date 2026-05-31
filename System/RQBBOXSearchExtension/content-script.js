@@ -57,7 +57,7 @@
       </div>
       <div class="kp-info-row">
         <div class="kp-info-label">Website</div>
-        <div class="kp-info-value"><a href="https://rtech-rqbbox-os.github.io/rqbbox-os/" target="_blank">rtech-rqbbox-os.github.io</a></div>
+        <div class="kp-info-value"><a href="https://rtech-rqbbox-os.github.io/rqbbox-os/" target="_blank">rqbbox-os.github.io</a></div>
       </div>
     </div>
 
@@ -69,6 +69,14 @@
     </div>
   `;
 
-  const rso = document.getElementById('rso') || document.getElementById('search') || document.querySelector('#main');
-  if (rso) rso.insertBefore(card, rso.firstChild);
+  // Google: insert into #rso or #search or #main
+  // Bing: insert into #b_results or #b_content
+  const googleRso = document.getElementById('rso');
+  const googleSearch = document.getElementById('search');
+  const googleMain = document.querySelector('#main');
+  const bingResults = document.getElementById('b_results');
+  const bingContent = document.getElementById('b_content');
+
+  const target = googleRso || bingResults || googleSearch || bingContent || googleMain;
+  if (target) target.insertBefore(card, target.firstChild);
 })();
