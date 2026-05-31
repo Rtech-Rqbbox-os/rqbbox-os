@@ -1,0 +1,170 @@
+.rqbbox-card {
+  all: initial;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  display: block;
+  width: 100%;
+  max-width: 692px;
+  margin: 0 auto 20px;
+  background: #0a0a0f;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,.06) 0%, transparent 60%);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  padding: 22px 26px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.6);
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.rqbbox-card * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.rqbbox-card .rc-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.rqbbox-card .rc-logo {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(0,212,255,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rqbbox-card .rc-logo svg {
+  width: 36px;
+  height: 36px;
+}
+
+.rqbbox-card .rc-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.rqbbox-card .rc-sub {
+  font-size: .72rem;
+  color: rgba(255,255,255,.4);
+  margin-top: 2px;
+}
+
+.rqbbox-card .rc-about {
+  font-size: .82rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 14px;
+}
+
+.rqbbox-card .rc-about strong {
+  color: rgba(255,255,255,.8);
+}
+
+.rqbbox-card .rc-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.rqbbox-card .rc-badge {
+  display: inline-block;
+  background: rgba(0,212,255,.08);
+  border: 1px solid rgba(0,212,255,.1);
+  padding: 2px 10px;
+  border-radius: 100px;
+  font-size: .62rem;
+  color: #00d4ff;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+
+.rqbbox-card .rc-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.rqbbox-card .rc-feat {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.04);
+}
+
+.rqbbox-card .rc-feat-icon {
+  font-size: .9rem;
+  margin-bottom: 2px;
+}
+
+.rqbbox-card .rc-feat-title {
+  font-size: .7rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.7);
+}
+
+.rqbbox-card .rc-feat-desc {
+  font-size: .63rem;
+  color: rgba(255,255,255,.4);
+  line-height: 1.3;
+}
+
+.rqbbox-card .rc-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rqbbox-card .rc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: .72rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.rqbbox-card .rc-link-primary {
+  background: linear-gradient(135deg, #007bff, #00d4ff);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,212,255,.2);
+}
+
+.rqbbox-card .rc-link-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0,212,255,.3);
+}
+
+.rqbbox-card .rc-link-ghost {
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.65);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.rqbbox-card .rc-link-ghost:hover {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+
+.rqbbox-card .rc-footer {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.04);
+  font-size: .6rem;
+  color: rgba(255,255,255,.15);
+  display: flex;
+  justify-content: space-between;
+}

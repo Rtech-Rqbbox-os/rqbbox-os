@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "RQBBOX OS — Google Search Card",
+  "description": "Shows an RQBBOX OS info card when you search for RQBBOX OS on Google",
+  "version": "1.0.0",
+  "icons": {
+    "48": "icon-48.svg",
+    "128": "icon-128.svg"
+  },
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/search*", "https://google.com/search*"],
+      "js": ["content-script.js"],
+      "css": ["card.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
