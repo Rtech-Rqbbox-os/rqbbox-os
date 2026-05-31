@@ -10,18 +10,19 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.1.0-00d4ff?style=flat-square"/>
+  <img src="https://img.shields.io/badge/version-2.0-00d4ff?style=flat-square"/>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Android%20%7C%20iOS-9d4edd?style=flat-square"/>
   <img src="https://img.shields.io/badge/license-MIT-00d4ff?style=flat-square"/>
   <img src="https://img.shields.io/badge/PWA-ready-00ffc8?style=flat-square"/>
   <img src="https://img.shields.io/badge/GitHub_Packages-npm-00d4ff?style=flat-square&logo=npm"/>
+  <a href="https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html"><img src="https://img.shields.io/badge/Google_Knowledge_Panel-View-00d4ff?style=flat-square&logo=google"/></a>
 </p>
 
 ---
 
 ## 🚀 Overview
 
-RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it into any PC, start the server, and instantly access your games, apps, settings, and saves — no installation required. Powered by the **RQBBOX Kernel**, a modular microkernel with process management, memory management, virtual file system, device drivers, and system call API.
+RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it into any PC, start the server, and instantly access your games, apps, settings, and saves — no installation required. Powered by the **RQBBOX Kernel**, a modular microkernel with process management, memory management, virtual file system, device drivers, and system call API. View the [RQBBOX OS Knowledge Panel info card](https://rtech-rqbbox-os.github.io/rqbbox-os/System/Website/os-info-card.html) for structured details.
 
 **Developer:** RhysTech (📧 [rhyscotton20@gmail.com](mailto:rhyscotton20@gmail.com))
 **Website:** [rtech-rqbbox-os.github.io/rqbbox-os](https://rtech-rqbbox-os.github.io/rqbbox-os/)
