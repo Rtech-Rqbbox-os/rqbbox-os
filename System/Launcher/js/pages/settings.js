@@ -51,6 +51,11 @@ const SettingsPage = {
 
       audio: `
         <h3 style="margin-bottom:20px;">Audio</h3>
+        <div class="setting-row"><div><div class="setting-label">Sound Profile</div><div class="setting-desc">Audio identity for UI sounds</div></div>
+          <select id="audio-profile-select" style="padding:8px 12px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,212,255,0.2);border-radius:10px;color:var(--text-primary);outline:none;font-family:inherit;" onchange="SettingsPage.setAudioProfile(this.value)">
+            ${Object.entries(RQBAudio.profiles).map(([key, p]) => `<option value="${key}" ${(cfg.audio?.profile || 'rqbbox') === key ? 'selected' : ''}>${p.label}</option>`).join('')}
+          </select>
+        </div>
         ${SettingsPage.row('Startup Sound', 'Play on boot', 'startupSound', cfg.audio?.startupSound !== false)}
         ${SettingsPage.row('UI Sounds', 'Click sounds', 'uiSounds', cfg.audio?.uiSounds !== false)}
         ${SettingsPage.row('Background Music', 'Ambient music', 'bgMusic', cfg.audio?.backgroundMusic !== false)}
@@ -399,6 +404,17 @@ const SettingsPage = {
         } else list.innerHTML = '<p style="color:var(--text-muted);font-size:0.85rem;">No devices registered yet. Log in to register this USB drive.</p>';
       } catch { list.innerHTML = '<p style="color:var(--text-muted);">Could not load devices</p>'; }
     } else list.innerHTML = '<p style="color:var(--text-muted);">Server offline</p>';
+  },
+
+  // --- Audio Profile ---
+  setAudioProfile(profile) {
+    if (RQBAudio && RQBAudio.profiles[profile]) {
+      RQBAudio.setProfile(profile);
+      if (!RQBBOX_DATA.config.audio) RQBBOX_DATA.config.audio = {};
+      RQBBOX_DATA.config.audio.profile = profile;
+      saveConfig();
+      RQB.toast(`Sound profile: ${RQBAudio.profiles[profile].label}`);
+    }
   },
 
   // --- Audio Test ---

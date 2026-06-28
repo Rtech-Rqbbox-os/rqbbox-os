@@ -98,18 +98,27 @@ const SetupWizard = {
               ${this.accentSwatches()}
             </div></div>`
       },
-      6: {
+       6: {
         icon: '🔊', title: 'Audio & Display', subtitle: 'Tune your sensory experience',
         content: `
           <div style="text-align:center;margin-bottom:12px;">
             <div style="font-size:3rem;margin-bottom:4px;">🔊</div>
+          </div>
+          <div class="setting-row"><div><div class="setting-label">Sound Profile</div><div class="setting-desc">Audio identity — RQBBOX Native selected by default</div></div>
+            <select id="setup-audio-profile" style="padding:8px 12px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,212,255,0.2);border-radius:10px;color:var(--text-primary);outline:none;font-family:inherit;">
+              <option value="rqbbox">RQBBOX Native</option>
+              <option value="xbox">Xbox Style</option>
+              <option value="playstation">PlayStation Style</option>
+              <option value="nintendo">Nintendo Style</option>
+              <option value="retro">Retro 8-bit</option>
+            </select>
           </div>
           <div class="setting-row"><div><div class="setting-label">Startup Sound</div><div class="setting-desc">Play audio on boot</div></div><button class="toggle on" id="setup-startup-sound" onclick="this.classList.toggle('on')"></button></div>
           <div class="setting-row"><div><div class="setting-label">UI Sounds</div><div class="setting-desc">Click & hover sounds</div></div><button class="toggle on" id="setup-ui-sounds" onclick="this.classList.toggle('on')"></button></div>
           <div class="setting-row"><div><div class="setting-label">UI Animations</div><div class="setting-desc">Smooth page transitions</div></div><button class="toggle on" id="setup-animations" onclick="this.classList.toggle('on')"></button></div>
           <div class="setting-row"><div><div class="setting-label">Performance Mode</div><div class="setting-desc">Reduce effects on low-end PCs</div></div><button class="toggle" id="setup-perf" onclick="this.classList.toggle('on')"></button></div>
           <div class="setting-row"><div><div class="setting-label">Fullscreen on Launch</div><div class="setting-desc">Auto fullscreen when opening games</div></div><button class="toggle on" id="setup-fullscreen" onclick="this.classList.toggle('on')"></button></div>`
-      },
+       },
       7: {
         icon: '📦', title: 'Quick Install', subtitle: 'Pre-load some starter content',
         content: `
@@ -252,6 +261,7 @@ const SetupWizard = {
       this.data.accent = this.data.accent || '#00d4ff';
     }
     if (this.step === 6) {
+      this.data.audioProfile = RQB.$('#setup-audio-profile')?.value || 'rqbbox';
       this.data.startupSound = RQB.$('#setup-startup-sound')?.classList.contains('on') ?? true;
       this.data.uiSounds = RQB.$('#setup-ui-sounds')?.classList.contains('on') ?? true;
       this.data.animations = RQB.$('#setup-animations')?.classList.contains('on') ?? true;
@@ -343,6 +353,7 @@ const SetupWizard = {
     cfg.display.animations = this.data.animations ?? true;
     cfg.display.performanceMode = this.data.performanceMode ?? false;
     cfg.display.fullscreen = this.data.fullscreen ?? true;
+    cfg.audio.profile = this.data.audioProfile || 'rqbbox';
     cfg.audio.startupSound = this.data.startupSound ?? true;
     cfg.audio.uiSounds = this.data.uiSounds ?? true;
     cfg.network = cfg.network || {};

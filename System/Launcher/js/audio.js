@@ -3,13 +3,14 @@ const RQBAudio = {
   _enabled: true,
   _volume: { master: 0.8, ui: 0.7, effects: 0.8, music: 0.4, voice: 0.6, ambient: 0.3 },
   _initialized: false,
-  _profile: 'xbox',
+  _profile: 'rqbbox',
   _analyser: null,
   _analyserData: null,
   _bgNode: null,
   _bgGain: null,
 
   profiles: {
+    rqbbox: { label: 'RQBBOX Native', bootFreqs: [98.00, 196.00, 392.00, 587.33, 784.00], navType: 'sine', selectFreq: 440, confirmFreq: 880, backFreq: 330, theme: 'premium' },
     xbox: { label: 'Xbox Style', bootFreqs: [130.81, 261.63, 311.13, 392.00, 523.25], navType: 'square', selectFreq: 400, confirmFreq: 800, backFreq: 600, theme: 'bold' },
     playstation: { label: 'PlayStation Style', bootFreqs: [220, 277.18, 329.63, 440, 554.37], navType: 'sine', selectFreq: 500, confirmFreq: 1000, backFreq: 500, theme: 'clean' },
     nintendo: { label: 'Nintendo Style', bootFreqs: [392, 523.25, 659.25, 783.99, 1046.5], navType: 'triangle', selectFreq: 660, confirmFreq: 880, backFreq: 440, theme: 'bright' },
@@ -32,7 +33,7 @@ const RQBAudio = {
       this._volume.effects = cfg.effectsVolume ?? 0.8;
       this._volume.music = cfg.musicVolume ?? 0.4;
       this._volume.voice = cfg.voiceVolume ?? 0.6;
-      this._profile = cfg.profile || 'xbox';
+      this._profile = cfg.profile || 'rqbbox';
       if (cfg.uiSounds === false) this._enabled = false;
     }
 
