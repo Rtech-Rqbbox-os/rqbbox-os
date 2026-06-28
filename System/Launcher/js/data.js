@@ -3,7 +3,7 @@ const RQBBOX_DATA = {
   store: null,
   profiles: null,
   config: {
-    system: { name: 'RQBBOX OS Portable USB', version: '1.1.0', company: 'RhysTech', tagline: 'Plug Into Gaming.', edition: 'lite' },
+    system: { name: 'RQBBOX OS Portable USB', version: '3.1.0', company: 'RhysTech', tagline: 'Plug Into Gaming.', edition: 'lite' },
     display: { theme: 'neon-dark', animations: true, performanceMode: false, showFps: false },
     audio: { masterVolume: 0.8, startupSound: true, backgroundMusic: true, uiSounds: true }
   },

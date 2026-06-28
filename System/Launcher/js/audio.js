@@ -12,9 +12,6 @@ const RQBAudio = {
   profiles: {
     rqbbox: { label: 'RQBBOX Native', bootFreqs: [98.00, 196.00, 392.00, 587.33, 784.00], navType: 'sine', selectFreq: 440, confirmFreq: 880, backFreq: 330, theme: 'premium' },
     xbox: { label: 'Xbox Style', bootFreqs: [130.81, 261.63, 311.13, 392.00, 523.25], navType: 'square', selectFreq: 400, confirmFreq: 800, backFreq: 600, theme: 'bold' },
-    playstation: { label: 'PlayStation Style', bootFreqs: [220, 277.18, 329.63, 440, 554.37], navType: 'sine', selectFreq: 500, confirmFreq: 1000, backFreq: 500, theme: 'clean' },
-    nintendo: { label: 'Nintendo Style', bootFreqs: [392, 523.25, 659.25, 783.99, 1046.5], navType: 'triangle', selectFreq: 660, confirmFreq: 880, backFreq: 440, theme: 'bright' },
-    retro: { label: 'Retro 8-bit', bootFreqs: [262, 330, 392, 523, 659], navType: 'square', selectFreq: 440, confirmFreq: 660, backFreq: 330, theme: 'chiptune' },
   },
 
   init() {

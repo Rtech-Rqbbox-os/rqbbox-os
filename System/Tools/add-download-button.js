@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PKG_DIR = 'Store/packages';
-const RELEASE_URL = 'https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases/tag/v1.1.0-platforms';
+const RELEASE_URL = 'https://github.com/Rtech-Rqbbox-os/rqbbox-os/releases/tag/v3.1.0-platforms';
 const BUTTON_HTML = '<a onclick="window.open(\'' + RELEASE_URL + '\',\'_blank\')">⬇ Download RQBBOX OS</a>';
 
 const dirs = fs.readdirSync(PKG_DIR).filter(d => fs.statSync(path.join(PKG_DIR, d)).isDirectory());

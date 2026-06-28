@@ -47,7 +47,8 @@ const SettingsPage = {
         <h3 style="margin-bottom:20px;">Display</h3>
         ${SettingsPage.row('Animations', 'Smooth UI transitions', 'animations', cfg.display?.animations !== false)}
         ${SettingsPage.row('Performance Mode', 'Reduce effects for low-end PCs', 'performance', cfg.display?.performanceMode || false)}
-        ${SettingsPage.row('FPS Monitor', 'Show frame rate overlay', 'fps', cfg.display?.showFps || false)}`,
+        ${SettingsPage.row('FPS Monitor', 'Show frame rate overlay', 'fps', cfg.display?.showFps || false)}
+        <div class="setting-row"><div><div class="setting-label">Fullscreen Mode</div><div class="setting-desc">Console-style gaming overlay with controller navigation</div></div><button class="btn btn-primary btn-sm" onclick="RQBoxFullscreen.toggle()">${RQBoxFullscreen.active ? 'Exit' : 'Enter'} Fullscreen</button></div>`,
 
       audio: `
         <h3 style="margin-bottom:20px;">Audio</h3>
@@ -115,7 +116,7 @@ const SettingsPage = {
 
       system: `
         <h3 style="margin-bottom:20px;">System</h3>
-        <div class="setting-row"><div><div class="setting-label">Version</div><div class="setting-desc">RQBBOX OS Portable USB</div></div><span>v1.1.0</span></div>
+        <div class="setting-row"><div><div class="setting-label">Version</div><div class="setting-desc">RQBBOX OS Portable USB</div></div><span>v3.1.0</span></div>
         <div class="setting-row"><div><div class="setting-label">API Server</div><div class="setting-desc">Local USB backend</div></div><span>${RQBApi.online ? '🟢 Online' : '🔴 Offline'}</span></div>
         <div class="setting-row"><div><div class="setting-label">USB Label</div></div><span style="font-size:0.85rem;color:var(--text-muted);">RQBBOX 0</span></div>
         <div class="setting-row"><div><div class="setting-label">Updates</div></div><button class="btn btn-primary btn-sm" onclick="SettingsPage.checkUpdate()">Check</button></div>
@@ -449,7 +450,7 @@ const SettingsPage = {
   },
 
   checkUpdate() {
-    RQB.toast('RQBBOX OS v1.1.0 — You are up to date!');
+    RQB.toast('RQBBOX OS v3.1.0 — You are up to date!');
   },
 
   // --- Database Management ---

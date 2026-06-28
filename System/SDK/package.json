@@ -1,6 +1,6 @@
 {
   "name": "@rtech-rqbbox-os/rqbbox-sdk",
-  "version": "1.1.0",
+  "version": "3.1.0",
   "description": "RQBBOX OS Developer SDK — API reference, plugin docs, theme editor docs, and tutorials for building on RQBBOX.",
   "main": "index.html",
   "private": false,

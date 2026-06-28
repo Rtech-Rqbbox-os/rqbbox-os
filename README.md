@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0-00d4ff?style=flat-square"/>
+  <img src="https://img.shields.io/badge/version-3.1-00d4ff?style=flat-square"/>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Android%20%7C%20iOS-9d4edd?style=flat-square"/>
   <img src="https://img.shields.io/badge/license-MIT-00d4ff?style=flat-square"/>
   <img src="https://img.shields.io/badge/PWA-ready-00ffc8?style=flat-square"/>
@@ -41,6 +41,7 @@ RQBBOX OS is a portable gaming OS that runs entirely from a USB drive. Plug it i
 - **6 Native Games** — Neon Drift Racing, Pixel Quest, Star Fighter X, Void Craft Sandbox, Retro Zone, Cube Runner 3D
 - **12 Web App Integrations** — YouTube, Netflix, Spotify, Twitch, Reddit, X/Twitter, Discord, Wikipedia, Gmail, Google Drive, GitHub, Stack Overflow
 - **Full Launcher Console** — Sidebar navigation, runtime overlay, notifications, search, dark/neon UI
+- **Fullscreen Mode** — Console-style gaming overlay with controller navigation, performance mode, and quick toggle (Ctrl+Shift+F)
 - **RhysTech Store** — Browse, install, and launch games/apps directly to USB
 - **Plugin & Theme Engine** — Extend with JavaScript plugins, customize with CSS themes
 - **Editions System** — Lite / Pro / Creator with feature gating
@@ -119,7 +120,7 @@ RQBBOX_OS/
 │   └── cube-runner/
 ├── Store/
 │   ├── catalog/store.json   # Store manifest
-│   └── packages/            # 24 installable packages
+│   └── packages/            # 55 installable packages
 ├── System/
 │   ├── Launcher/            # Main OS console (HTML/CSS/JS)
 │   │   ├── index.html

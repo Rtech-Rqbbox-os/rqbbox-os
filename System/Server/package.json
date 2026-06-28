@@ -1,6 +1,6 @@
 {
   "name": "@rtech-rqbbox-os/rqbbox-server",
-  "version": "1.1.0",
+  "version": "3.1.0",
   "description": "RQBBOX OS — Local USB HTTP server (Node.js). Serves the launcher, handles auth, file management, and hardware monitoring.",
   "main": "server.js",
   "private": false,

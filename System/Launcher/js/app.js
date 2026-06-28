@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   QuickGuide.init();
   SysBar.init();
+  RQBoxFullscreen.init();
   RQB.initController();
   RQB.initTouch();
   RQB.initFpsMonitor();

@@ -108,9 +108,6 @@ const SetupWizard = {
             <select id="setup-audio-profile" style="padding:8px 12px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,212,255,0.2);border-radius:10px;color:var(--text-primary);outline:none;font-family:inherit;">
               <option value="rqbbox">RQBBOX Native</option>
               <option value="xbox">Xbox Style</option>
-              <option value="playstation">PlayStation Style</option>
-              <option value="nintendo">Nintendo Style</option>
-              <option value="retro">Retro 8-bit</option>
             </select>
           </div>
           <div class="setting-row"><div><div class="setting-label">Startup Sound</div><div class="setting-desc">Play audio on boot</div></div><button class="toggle on" id="setup-startup-sound" onclick="this.classList.toggle('on')"></button></div>

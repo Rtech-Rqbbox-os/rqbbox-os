@@ -21,6 +21,7 @@ const QuickGuide = {
           <button class="guide-btn" data-action="achievements"><span>🏆</span> Achievements</button>
           <button class="guide-btn" data-action="screenshots"><span>📷</span> Screenshots</button>
           <button class="guide-btn" data-action="browser"><span>🌐</span> Web Browser</button>
+          <button class="guide-btn" data-action="fullscreen"><span>🖥️</span> Fullscreen Mode</button>
           <button class="guide-btn" data-action="settings"><span>⚙️</span> Settings</button>
           <button class="guide-btn" data-action="devices"><span>💻</span> Devices</button>
           <button class="guide-btn" data-action="storage"><span>💾</span> Storage</button>
@@ -28,7 +29,7 @@ const QuickGuide = {
         <div class="guide-footer">
           <div class="guide-footer-info">
             <span id="guide-storage">USB: -- GB free</span>
-            <span id="guide-version">v1.0.0</span>
+            <span id="guide-version">v3.1.0</span>
           </div>
           <button class="guide-btn guide-btn-power" data-action="power"><span>⏻</span> Exit RQBBOX</button>
         </div>
@@ -48,6 +49,7 @@ const QuickGuide = {
           case 'achievements': RQB.navigate('profile'); break;
           case 'screenshots': RQB.navigate('media'); if (MediaPage.showScreenshots) MediaPage.showScreenshots(); break;
           case 'browser': RQB.navigate('browser'); break;
+          case 'fullscreen': RQBoxFullscreen.toggle(); break;
           case 'settings': RQB.navigate('settings'); break;
           case 'devices': RQB.navigate('settings'); SettingsPage.section = 'device'; SettingsPage.renderPanel(); break;
           case 'storage': RQB.navigate('settings'); SettingsPage.section = 'storage'; SettingsPage.renderPanel(); break;
@@ -106,6 +108,7 @@ const QuickGuide = {
             <div class="shortcut-row"><kbd>Ctrl+F</kbd><span>Smart search</span></div>
             <div class="shortcut-row"><kbd>Ctrl+Shift+Q</kbd><span>Exit RQBBOX</span></div>
             <div class="shortcut-row"><kbd>Alt+N</kbd><span>Toggle notifications</span></div>
+            <div class="shortcut-row"><kbd>Ctrl+Shift+F</kbd><span>Fullscreen Mode</span></div>
           </div>
           <div class="shortcut-group">
             <div class="shortcut-group-title">Pages</div>
