@@ -109,6 +109,8 @@ const QuickGuide = {
             <div class="shortcut-row"><kbd>Ctrl+Shift+Q</kbd><span>Exit RQBBOX</span></div>
             <div class="shortcut-row"><kbd>Alt+N</kbd><span>Toggle notifications</span></div>
             <div class="shortcut-row"><kbd>Ctrl+Shift+F</kbd><span>Fullscreen Mode</span></div>
+            <div class="shortcut-row"><kbd>PrtScn</kbd><span>Screenshot</span></div>
+            <div class="shortcut-row"><kbd>Ctrl+Shift+S</kbd><span>Screenshot</span></div>
           </div>
           <div class="shortcut-group">
             <div class="shortcut-group-title">Pages</div>

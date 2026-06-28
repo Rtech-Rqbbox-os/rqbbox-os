@@ -40,11 +40,12 @@ const Stats = {
     switch (event) {
       case 'session': s.sessions += amount; Stats.grantAchievement('First Boot', s.sessions >= 1); break;
       case 'minute': s.minutesActive += amount; break;
-      case 'gameLaunch': s.gamesLaunched += amount; Stats.grantAchievement('First Game', s.gamesLaunched >= 1); Stats.grantAchievement('Gamer', s.gamesLaunched >= 5); break;
-      case 'appLaunch': s.appsLaunched += amount; Stats.grantAchievement('App Explorer', s.appsLaunched >= 1); break;
-      case 'storeInstall': s.storeInstalls += amount; Stats.grantAchievement('Collector', s.storeInstalls >= 3); break;
-      case 'screenshot': s.screenshots += amount; break;
-      case 'aiImage': s.aiImages += amount; Stats.grantAchievement('AI Artist', s.aiImages >= 1); break;
+      case 'gameLaunch': s.gamesLaunched += amount; Stats.grantAchievement('First Game', s.gamesLaunched >= 1); Stats.grantAchievement('Gamer', s.gamesLaunched >= 5); Stats.grantAchievement('Game Master', s.gamesLaunched >= 25); break;
+      case 'appLaunch': s.appsLaunched += amount; Stats.grantAchievement('App Explorer', s.appsLaunched >= 1); Stats.grantAchievement('Power User', s.appsLaunched >= 10); break;
+      case 'storeInstall': s.storeInstalls += amount; Stats.grantAchievement('Collector', s.storeInstalls >= 3); Stats.grantAchievement('Store Addict', s.storeInstalls >= 15); break;
+      case 'screenshot': s.screenshots += amount; Stats.grantAchievement('Photographer', s.screenshots >= 1); Stats.grantAchievement('Screenshot King', s.screenshots >= 25); break;
+      case 'aiImage': s.aiImages += amount; Stats.grantAchievement('AI Artist', s.aiImages >= 1); Stats.grantAchievement('AI Master', s.aiImages >= 10); break;
+      case 'friendAdd': Stats.grantAchievement('Social', amount >= 1); break;
       case 'navigate': break;
     }
 

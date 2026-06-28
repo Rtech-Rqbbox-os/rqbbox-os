@@ -31,14 +31,13 @@ function execAsync(cmd, timeout = 3000) {
 function getBatteryInfo() {
   try {
     if (os.platform() === 'win32') {
-      const out = execSync('WMIC Path Win32_Battery Get EstimatedChargeRemaining, BatteryStatus /Format:csv', { timeout: 3000, encoding: 'utf-8' });
-      const lines = out.trim().split('\n').filter(l => l.includes(','));
+      const out = execSync('powershell -NoProfile -Command "Get-CimInstance Win32_Battery | Select-Object EstimatedChargeRemaining, BatteryStatus | ConvertTo-Csv -NoTypeInformation"', { timeout: 3000, encoding: 'utf-8' });
+      const lines = out.trim().split('\n').filter(l => l.includes(',') && !l.includes('EstimatedChargeRemaining'));
       if (lines.length) {
         const parts = lines[0].split(',');
-        // WMIC CSV output: Node,EstimatedChargeRemaining,BatteryStatus
         return {
-          level: parseInt(parts[1] || '0'),
-          charging: parseInt(parts[2] || '1') === 2,
+          level: parseInt(parts[0] || '0'),
+          charging: parseInt(parts[1] || '1') === 2,
           present: true
         };
       }
@@ -125,11 +124,11 @@ function getControllerInfo() {
 async function getBatteryInfoAsync() {
   try {
     if (os.platform() === 'win32') {
-      const out = await execAsync('WMIC Path Win32_Battery Get EstimatedChargeRemaining, BatteryStatus /Format:csv', 3000);
-      const lines = out.trim().split('\n').filter(l => l.includes(','));
+      const out = await execAsync('powershell -NoProfile -Command "Get-CimInstance Win32_Battery | Select-Object EstimatedChargeRemaining, BatteryStatus | ConvertTo-Csv -NoTypeInformation"', 3000);
+      const lines = out.trim().split('\n').filter(l => l.includes(',') && !l.includes('EstimatedChargeRemaining'));
       if (lines.length) {
         const parts = lines[0].split(',');
-        return { level: parseInt(parts[1] || '0'), charging: parseInt(parts[2] || '1') === 2, present: true };
+        return { level: parseInt(parts[0] || '0'), charging: parseInt(parts[1] || '1') === 2, present: true };
       }
     }
     if (os.platform() === 'darwin') {
@@ -354,13 +353,11 @@ function storageInfo() {
     const info = {};
     if (os.platform() === 'win32') {
       const drive = ROOT[0];
-      const exec = execSync(`wmic logicaldisk where DeviceID="${drive}:" get Size,FreeSpace /format:csv`, { timeout: 3000 }).toString();
-      const lines = exec.trim().split('\n').filter(l => l.includes(drive));
-      // WMIC CSV: Node,Size,FreeSpace
-      if (lines.length) {
-        const parts = lines[0].split(',');
-        const total = BigInt(parts[1] || 0);
-        const free = BigInt(parts[2] || 0);
+      const out = execSync(`powershell -NoProfile -Command "$disk = Get-CimInstance Win32_LogicalDisk -Filter 'DeviceID=\\"${drive}:\\"'; Write-Output \\"$($disk.Size),$($disk.FreeSpace)\\""`, { timeout: 3000, encoding: 'utf-8' });
+      const parts = out.trim().split(',');
+      if (parts.length >= 2) {
+        const total = BigInt(parts[0] || 0);
+        const free = BigInt(parts[1] || 0);
         info.freeBytes = Number(free);
         info.totalBytes = Number(total);
         info.freeGB = Math.round(Number(free) / 1073741824 * 100) / 100;
@@ -897,6 +894,14 @@ const server = http.createServer(async (req, res) => {
       const id = url.searchParams ? url.searchParams.get('id') : '';
       const result = await playStore.handleAppLookup({ query: { id } });
       send(result.status || 200, JSON.stringify(result.body));
+    }
+    else if (pathname === '/favicon.ico') {
+      const icoPath = path.join(BRANDING, 'rqbbox-logo.svg');
+      if (fs.existsSync(icoPath)) {
+        const stat = fs.statSync(icoPath);
+        res.writeHead(200, { 'Content-Type': 'image/svg+xml', 'Content-Length': stat.size, 'Cache-Control': 'public, max-age=86400', 'Access-Control-Allow-Origin': '*' });
+        fs.createReadStream(icoPath).pipe(res);
+      } else { send(204, ''); }
     }
     else {
       // Static file serving

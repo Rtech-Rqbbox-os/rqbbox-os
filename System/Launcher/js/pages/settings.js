@@ -6,6 +6,9 @@ const SettingsPage = {
     el.innerHTML = `
       <div class="settings-grid">
         <div class="settings-nav">
+          <div class="settings-search">
+            <input type="text" id="settings-search-input" placeholder="Search settings..." style="width:100%;padding:8px 12px;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);border-radius:8px;color:var(--text-primary);outline:none;font-family:inherit;font-size:.75rem;">
+          </div>
           <button class="settings-nav-item active" data-sec="general">General</button>
           <button class="settings-nav-item" data-sec="display">Display</button>
           <button class="settings-nav-item" data-sec="audio">Audio</button>
@@ -26,9 +29,26 @@ const SettingsPage = {
         el.querySelectorAll('.settings-nav-item').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         SettingsPage.section = btn.dataset.sec;
+        RQB.$('#settings-search-input').value = '';
         SettingsPage.renderPanel();
       };
     });
+    RQB.$('#settings-search-input').oninput = (e) => {
+      const q = e.target.value.toLowerCase();
+      el.querySelectorAll('.settings-nav-item').forEach(b => {
+        const match = b.textContent.toLowerCase().includes(q);
+        b.style.display = match ? '' : 'none';
+      });
+      if (q) {
+        const visible = [...el.querySelectorAll('.settings-nav-item')].filter(b => b.style.display !== 'none');
+        if (visible.length === 1) {
+          el.querySelectorAll('.settings-nav-item').forEach(b => b.classList.remove('active'));
+          visible[0].classList.add('active');
+          SettingsPage.section = visible[0].dataset.sec;
+          SettingsPage.renderPanel();
+        }
+      }
+    };
     SettingsPage.renderPanel();
   },
 
@@ -42,6 +62,14 @@ const SettingsPage = {
         ${SettingsPage.row('RQBBOX Mode', 'Enable RQBBOX native theme, audio & fullscreen features', 'rqbboxMode', cfg.display?.rqbboxMode !== false)}
         ${SettingsPage.row('Offline Mode', 'All data stored on USB', 'offline', true)}
         ${SettingsPage.row('Cloud Sync', 'RhysTech Store sync', 'cloudSync', true)}
+        <div class="setting-row"><div><div class="setting-label">Language</div><div class="setting-desc">UI language</div></div>
+          <select id="lang-select" style="padding:8px 12px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,212,255,0.2);border-radius:10px;color:var(--text-primary);outline:none;font-family:inherit;" onchange="I18n.setLang(this.value)">
+            <option value="en" ${I18n.lang === 'en' ? 'selected' : ''}>English</option>
+            <option value="es" ${I18n.lang === 'es' ? 'selected' : ''}>Español</option>
+            <option value="fr" ${I18n.lang === 'fr' ? 'selected' : ''}>Français</option>
+            <option value="ja" ${I18n.lang === 'ja' ? 'selected' : ''}>日本語</option>
+          </select>
+        </div>
         <div class="setting-row"><div><div class="setting-label">Run Setup Again</div><div class="setting-desc">Re-run the console setup wizard</div></div><button class="btn btn-ghost btn-sm" onclick="SettingsPage.runSetupAgain()">Open Setup</button></div>`,
 
       display: `
@@ -121,6 +149,7 @@ const SettingsPage = {
         <div class="setting-row"><div><div class="setting-label">API Server</div><div class="setting-desc">Local USB backend</div></div><span>${RQBApi.online ? '🟢 Online' : '🔴 Offline'}</span></div>
         <div class="setting-row"><div><div class="setting-label">USB Label</div></div><span style="font-size:0.85rem;color:var(--text-muted);">RQBBOX 0</span></div>
         <div class="setting-row"><div><div class="setting-label">Updates</div></div><button class="btn btn-primary btn-sm" onclick="SettingsPage.checkUpdate()">Check</button></div>
+        <div class="setting-row"><div><div class="setting-label">Windows Game Mode</div><div class="setting-desc">Optimize Windows gaming settings for RQBBOX (High Performance, Game Mode ON, background apps OFF)</div></div><button class="btn btn-ghost btn-sm" onclick="SettingsPage.toggleWindowsGameMode()">🎮 Toggle</button></div>
         <div class="setting-row" style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;">
           <div><div class="setting-label">Database Backup</div><div class="setting-desc">Create a backup of all profiles and settings</div></div>
           <button class="btn btn-ghost btn-sm" onclick="SettingsPage.backupDB()">💾 Backup</button>
@@ -463,6 +492,23 @@ const SettingsPage = {
 
   checkUpdate() {
     RQB.toast('RQBBOX OS v3.1.0 — You are up to date!');
+  },
+
+  toggleWindowsGameMode() {
+    if (os.platform && os.platform() !== 'win32') {
+      RQB.toast('Windows Game Mode is only available on Windows');
+      return;
+    }
+    try {
+      const { execSync } = require('child_process');
+      const modePath = path.join(ROOT, 'System', 'Tools', 'Enable-RQBBOXMode.ps1');
+      if (fs.existsSync(modePath)) {
+        execSync(`powershell -NoProfile -ExecutionPolicy Bypass -File "${modePath}"`, { timeout: 10000 });
+        RQB.toast('Windows Game Mode toggled — restart recommended');
+      }
+    } catch {
+      RQB.toast('Run System/Tools/Enable-RQBBOXMode.ps1 as Admin on Windows');
+    }
   },
 
   // --- Database Management ---

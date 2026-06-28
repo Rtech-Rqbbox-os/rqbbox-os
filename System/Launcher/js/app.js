@@ -1,6 +1,7 @@
 /* RQBBOX OS - Main Application */
 document.addEventListener('DOMContentLoaded', async () => {
   RQBAudio.init();
+  await I18n.init();
   Boot.setupAuth();
   Runtime.setup();
 
@@ -62,6 +63,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (e.key === 'n' && e.altKey) { e.preventDefault(); RQB.$('#btn-notifications')?.click(); }
     if (e.key === 'p' && e.ctrlKey) { e.preventDefault(); RQB.navigate('profile'); }
     if (e.key === 'Home' && e.ctrlKey) { e.preventDefault(); RQB.navigate('home'); }
+    if (e.key === 'PrintScreen' || (e.key === 's' && e.ctrlKey && e.shiftKey)) {
+      e.preventDefault();
+      RQB.$('#btn-screenshot')?.click();
+      RQB.toast('Screenshot captured');
+    }
     const pageIdx = parseInt(e.key);
     if (e.ctrlKey && pageIdx >= 1 && pageIdx <= 9) {
       e.preventDefault();
@@ -85,4 +91,32 @@ document.addEventListener('DOMContentLoaded', async () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
   }
+
+  // PWA install prompt
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const pwaBtn = document.getElementById('btn-pwa-install') || (() => {
+      const btn = document.createElement('button');
+      btn.id = 'btn-pwa-install';
+      btn.className = 'icon-btn';
+      btn.title = 'Install RQBBOX OS';
+      btn.textContent = '📲';
+      btn.style.cssText = 'animation:pulse 2s infinite;';
+      document.querySelector('.top-icons')?.appendChild(btn);
+      return btn;
+    })();
+    pwaBtn.onclick = async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      const result = await deferredPrompt.userChoice;
+      if (result.outcome === 'accepted') {
+        RQB.toast('RQBBOX OS installed! Launch from home screen.');
+        Stats.track('appLaunch', 0);
+      }
+      deferredPrompt = null;
+      pwaBtn.remove();
+    };
+  });
 });
