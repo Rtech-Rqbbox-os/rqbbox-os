@@ -15,6 +15,7 @@ const SettingsPage = {
           <button class="settings-nav-item" data-sec="input">Input</button>
           <button class="settings-nav-item" data-sec="controller">🎮 Controller</button>
           <button class="settings-nav-item" data-sec="storage">💾 Storage</button>
+          <button class="settings-nav-item" data-sec="gaming">🎮 Gaming</button>
           <button class="settings-nav-item" data-sec="device">📱 Devices</button>
           <button class="settings-nav-item" data-sec="system">System</button>
           <button class="settings-nav-item" data-sec="themes">Themes</button>
@@ -143,13 +144,28 @@ const SettingsPage = {
         <div class="setting-row"><div><div class="setting-label">Clear Download Cache</div><div class="setting-desc">Remove temporary download files</div></div><button class="btn btn-ghost btn-sm" onclick="SettingsPage.clearDownloads()">🗑️ Clear</button></div>
         <div class="setting-row"><div><div class="setting-label">Reset All Profiles</div><div class="setting-desc">Remove all user profiles and data</div></div><button class="btn btn-ghost btn-sm" style="color:var(--neon-pink);border-color:rgba(255,0,170,0.3);" onclick="SettingsPage.resetProfiles()">⚠️ Reset</button></div>`,
 
+      gaming: `
+        <h3 style="margin-bottom:20px;">🎮 RQBBOX Gaming Mode</h3>
+        <div style="padding:16px;background:rgba(0,200,255,0.04);border:1px solid rgba(0,200,255,0.1);border-radius:14px;margin-bottom:20px;">
+          <div style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px;">RQBBOX Gaming Mode optimizes Windows for gaming — High Performance power plan, Windows Game Mode, GPU priority, background app disable, auto-start on logon, and Game Bar registration.</div>
+          <button class="btn btn-primary btn-sm" onclick="SettingsPage.runWindowsGameMode()" style="width:100%;padding:10px;font-size:.85rem;">🎮 Enable RQBBOX Gaming Mode</button>
+        </div>
+        <div class="setting-row"><div><div class="setting-label">Auto-start on Windows Logon</div><div class="setting-desc">Launch RQBBOX server automatically when you sign in</div></div><button class="toggle ${localStorage.getItem('rqbbox_autostart') === 'true' ? 'on' : ''}" data-key="autostart"></button></div>
+        <div class="setting-row"><div><div class="setting-label">Windows Game Bar</div><div class="setting-desc">Press Win+G while RQBBOX is running to access screen capture, recording, and performance widgets</div></div><span style="font-size:1.1rem;">🎮</span></div>
+        <div style="margin-top:20px;padding:16px;background:rgba(0,0,0,0.3);border-radius:14px;">
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <span style="font-size:.75rem;color:var(--text-muted);background:rgba(255,255,255,0.04);padding:6px 14px;border-radius:8px;">⚡ Power: <strong style="color:var(--neon-cyan);">High Perf</strong></span>
+            <span style="font-size:.75rem;color:var(--text-muted);background:rgba(255,255,255,0.04);padding:6px 14px;border-radius:8px;">🎮 Game Mode: <strong style="color:var(--neon-cyan);" id="gaming-mode-status">Checking...</strong></span>
+            <span style="font-size:.75rem;color:var(--text-muted);background:rgba(255,255,255,0.04);padding:6px 14px;border-radius:8px;">🚀 Auto-start: <strong style="color:var(--neon-cyan);">${localStorage.getItem('rqbbox_autostart') === 'true' ? 'ON' : 'OFF'}</strong></span>
+          </div>
+        </div>`,
+
       system: `
         <h3 style="margin-bottom:20px;">System</h3>
         <div class="setting-row"><div><div class="setting-label">Version</div><div class="setting-desc">RQBBOX OS Portable USB</div></div><span>v3.1.0</span></div>
         <div class="setting-row"><div><div class="setting-label">API Server</div><div class="setting-desc">Local USB backend</div></div><span>${RQBApi.online ? '🟢 Online' : '🔴 Offline'}</span></div>
         <div class="setting-row"><div><div class="setting-label">USB Label</div></div><span style="font-size:0.85rem;color:var(--text-muted);">RQBBOX 0</span></div>
         <div class="setting-row"><div><div class="setting-label">Updates</div></div><button class="btn btn-primary btn-sm" onclick="SettingsPage.checkUpdate()">Check</button></div>
-        <div class="setting-row"><div><div class="setting-label">Windows Game Mode</div><div class="setting-desc">Optimize Windows gaming settings for RQBBOX (High Performance, Game Mode ON, background apps OFF)</div></div><button class="btn btn-ghost btn-sm" onclick="SettingsPage.toggleWindowsGameMode()">🎮 Toggle</button></div>
         <div class="setting-row" style="margin-top:16px;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;">
           <div><div class="setting-label">Database Backup</div><div class="setting-desc">Create a backup of all profiles and settings</div></div>
           <button class="btn btn-ghost btn-sm" onclick="SettingsPage.backupDB()">💾 Backup</button>
@@ -251,6 +267,9 @@ const SettingsPage = {
     if (this.section === 'device') {
       this.refreshDevices();
     }
+    if (this.section === 'gaming') {
+      this.refreshGamingStatus();
+    }
   },
 
   row(label, desc, key, on) {
@@ -261,6 +280,15 @@ const SettingsPage = {
     const cfg = RQBBOX_DATA.config;
     if (!cfg.display) cfg.display = {};
     if (!cfg.audio) cfg.audio = {};
+    if (key === 'autostart') {
+      localStorage.setItem('rqbbox_autostart', value);
+      if (value) {
+        RQB.toast('Run System/Tools/Enable-RQBBOXMode.ps1 -AutoStart as Admin to enable auto-start');
+      } else {
+        RQB.toast('Run System/Tools/Enable-RQBBOXMode.ps1 -Revert to disable auto-start');
+      }
+      return;
+    }
     if (key === 'rqbboxMode') {
       cfg.display.rqbboxMode = value;
       if (value) {
@@ -494,21 +522,24 @@ const SettingsPage = {
     RQB.toast('RQBBOX OS v3.1.0 — You are up to date!');
   },
 
-  toggleWindowsGameMode() {
-    if (os.platform && os.platform() !== 'win32') {
-      RQB.toast('Windows Game Mode is only available on Windows');
-      return;
-    }
+  runWindowsGameMode() {
+    const isWin = navigator.platform?.includes('Win') || navigator.userAgent?.includes('Windows');
+    if (!isWin) { RQB.toast('RQBBOX Gaming Mode is Windows-only'); return; }
     try {
-      const { execSync } = require('child_process');
-      const modePath = path.join(ROOT, 'System', 'Tools', 'Enable-RQBBOXMode.ps1');
-      if (fs.existsSync(modePath)) {
-        execSync(`powershell -NoProfile -ExecutionPolicy Bypass -File "${modePath}"`, { timeout: 10000 });
-        RQB.toast('Windows Game Mode toggled — restart recommended');
-      }
+      const link = document.createElement('a');
+      link.href = '../System/Tools/Enable-RQBBOXMode.ps1';
+      link.download = 'Enable-RQBBOXMode.ps1';
+      link.click();
+      RQB.toast('Open the downloaded script in PowerShell as Administrator');
     } catch {
-      RQB.toast('Run System/Tools/Enable-RQBBOXMode.ps1 as Admin on Windows');
+      RQB.toast('Run System/Tools/Enable-RQBBOXMode.ps1 as Administrator on Windows');
     }
+  },
+
+  refreshGamingStatus() {
+    const el = RQB.$('#gaming-mode-status');
+    if (!el) return;
+    el.textContent = localStorage.getItem('rqbbox_autostart') === 'true' ? 'ON' : 'OFF';
   },
 
   // --- Database Management ---
