@@ -17,7 +17,7 @@ const PluginEngine = {
   },
 
   async loadPlugins() {
-    const pluginPaths = ['Plugins', '../../Plugins', '../../../Plugins'];
+    const pluginPaths = RQBApi.online ? ['Plugins'] : ['Plugins', '../../Plugins', '../../../Plugins'];
     for (const base of pluginPaths) {
       try {
         if (RQBApi.online) {
@@ -45,6 +45,7 @@ const PluginEngine = {
 
   async loadPlugin(folder) {
     try {
+      if (!RQBApi.online) return;
       const manifestRes = await RQBApi.get(`/api/file/read?path=${encodeURIComponent(folder + '/plugin.json')}`);
       if (!manifestRes.ok) return;
       let manifest;
@@ -144,7 +145,7 @@ const PluginEngine = {
   },
 
   async loadThemes() {
-    const themePaths = ['Themes', '../../Themes', '../../../Themes'];
+    const themePaths = RQBApi.online ? ['Themes'] : ['Themes', '../../Themes', '../../../Themes'];
     for (const base of themePaths) {
       try {
         if (RQBApi.online) {
@@ -170,6 +171,7 @@ const PluginEngine = {
 
   async loadTheme(folder) {
     try {
+      if (!RQBApi.online) return;
       const manifestRes = await RQBApi.get(`/api/file/read?path=${encodeURIComponent(folder + '/theme.json')}`);
       if (!manifestRes.ok) return;
       let manifest;
