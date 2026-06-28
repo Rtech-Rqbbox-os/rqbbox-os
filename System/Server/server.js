@@ -276,7 +276,6 @@ function sysInfo() {
 function safePath(rel) {
   if (!rel) return ROOT;
   rel = rel.replace(/\\/g, '/').replace(/^\/+/, '');
-  if (rel.includes('..')) throw new Error('Invalid path');
   const full = path.resolve(ROOT, rel);
   if (!full.startsWith(path.resolve(ROOT))) throw new Error('Path outside root');
   return full;
