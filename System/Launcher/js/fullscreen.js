@@ -151,14 +151,6 @@ const RQBoxFullscreen = {
       .fs-card { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
       .fs-card:hover, .fs-card.fs-focused { background: rgba(0,0,0,0.04); border-color: rgba(0,100,200,0.2); }
     }
-    @media (prefers-color-scheme: light) {
-      .fs-overlay { background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 50%, #f0f4ff 100%); color: #000; }
-      .fs-header { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.06); }
-      .fs-logo { color: rgba(0,0,0,0.6); }
-      .fs-hero { background: linear-gradient(180deg, rgba(0,100,200,0.04) 0%, transparent 100%); }
-      .fs-card { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
-      .fs-card:hover, .fs-card.fs-focused { background: rgba(0,0,0,0.04); border-color: rgba(0,100,200,0.2); }
-    }
     `;
     const style = document.createElement('style');
     style.textContent = css;
