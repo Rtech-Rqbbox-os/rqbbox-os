@@ -895,7 +895,7 @@ const server = http.createServer(async (req, res) => {
       }
     }
     else if (pathname === '/api/play-store/app') {
-      const id = parsedUrl.searchParams ? parsedUrl.searchParams.get('id') : '';
+      const id = url.searchParams ? url.searchParams.get('id') : '';
       const result = await playStore.handleAppLookup({ query: { id } });
       send(result.status || 200, JSON.stringify(result.body));
     }
@@ -959,7 +959,7 @@ const server = http.createServer(async (req, res) => {
       fs.createReadStream(filePath).pipe(res);
     }
   } catch (err) {
-    log(`Error: ${err.message}`);
+    log(`Error: ${err.message} [${req.method} ${pathname}]`);
     send(500, JSON.stringify({ ok: false, error: err.message }));
   }
 });

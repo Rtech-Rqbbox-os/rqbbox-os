@@ -39,6 +39,7 @@ const SettingsPage = {
     const sections = {
       general: `
         <h3 style="margin-bottom:20px;">General</h3>
+        ${SettingsPage.row('RQBBOX Mode', 'Enable RQBBOX native theme, audio & fullscreen features', 'rqbboxMode', cfg.display?.rqbboxMode !== false)}
         ${SettingsPage.row('Offline Mode', 'All data stored on USB', 'offline', true)}
         ${SettingsPage.row('Cloud Sync', 'RhysTech Store sync', 'cloudSync', true)}
         <div class="setting-row"><div><div class="setting-label">Run Setup Again</div><div class="setting-desc">Re-run the console setup wizard</div></div><button class="btn btn-ghost btn-sm" onclick="SettingsPage.runSetupAgain()">Open Setup</button></div>`,
@@ -48,7 +49,7 @@ const SettingsPage = {
         ${SettingsPage.row('Animations', 'Smooth UI transitions', 'animations', cfg.display?.animations !== false)}
         ${SettingsPage.row('Performance Mode', 'Reduce effects for low-end PCs', 'performance', cfg.display?.performanceMode || false)}
         ${SettingsPage.row('FPS Monitor', 'Show frame rate overlay', 'fps', cfg.display?.showFps || false)}
-        <div class="setting-row"><div><div class="setting-label">Fullscreen Mode</div><div class="setting-desc">Console-style gaming overlay with controller navigation</div></div><button class="btn btn-primary btn-sm" onclick="RQBoxFullscreen.toggle()">${RQBoxFullscreen.active ? 'Exit' : 'Enter'} Fullscreen</button></div>`,
+        <div class="setting-row"><div><div class="setting-label">Fullscreen Mode</div><div class="setting-desc">Console-style gaming overlay with controller navigation</div></div><button class="btn btn-primary btn-sm" onclick="RQBoxFullscreen.toggle()" id="fs-settings-btn">${RQBoxFullscreen.active ? 'Exit' : 'Enter'} Fullscreen</button></div>`,
 
       audio: `
         <h3 style="margin-bottom:20px;">Audio</h3>
@@ -231,6 +232,17 @@ const SettingsPage = {
     const cfg = RQBBOX_DATA.config;
     if (!cfg.display) cfg.display = {};
     if (!cfg.audio) cfg.audio = {};
+    if (key === 'rqbboxMode') {
+      cfg.display.rqbboxMode = value;
+      if (value) {
+        if (RQBAudio && RQBAudio.profiles.rqbbox) RQBAudio.setProfile('rqbbox');
+        document.body.classList.add('rqbbox-mode');
+      } else {
+        if (RQBAudio && RQBAudio.profiles.xbox) RQBAudio.setProfile('xbox');
+        document.body.classList.remove('rqbbox-mode');
+      }
+      RQB.toast(value ? 'RQBBOX Mode ON — Native audio & features enabled' : 'RQBBOX Mode OFF — Xbox fallback');
+    }
     if (key === 'performance') { cfg.display.performanceMode = value; document.body.classList.toggle('performance-mode', value); }
     if (key === 'fps') cfg.display.showFps = value;
     if (key === 'animations') cfg.display.animations = value;

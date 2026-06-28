@@ -4,8 +4,8 @@ const RQBBOX_DATA = {
   profiles: null,
   config: {
     system: { name: 'RQBBOX OS Portable USB', version: '3.1.0', company: 'RhysTech', tagline: 'Plug Into Gaming.', edition: 'lite' },
-    display: { theme: 'neon-dark', animations: true, performanceMode: false, showFps: false },
-    audio: { masterVolume: 0.8, startupSound: true, backgroundMusic: true, uiSounds: true }
+    display: { theme: 'neon-dark', animations: true, performanceMode: false, showFps: false, rqbboxMode: true },
+    audio: { masterVolume: 0.8, startupSound: true, backgroundMusic: true, uiSounds: true, profile: 'rqbbox' }
   },
   nav: [
     { id: 'home', icon: '🏠', label: 'Home' },

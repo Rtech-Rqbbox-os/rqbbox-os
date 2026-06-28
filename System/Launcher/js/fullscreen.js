@@ -158,7 +158,13 @@ const RQBoxFullscreen = {
     document.head.appendChild(style);
   },
 
+  /* Only toggle if RQBBOX Mode is enabled */
   toggle() {
+    const cfg = RQBBOX_DATA.config;
+    if (!this.active && cfg.display?.rqbboxMode === false) {
+      RQB.toast('Enable RQBBOX Mode in Settings to use Fullscreen Mode');
+      return;
+    }
     this.active ? this.exit() : this.enter();
   },
 

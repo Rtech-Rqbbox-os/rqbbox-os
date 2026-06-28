@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await Boot.run();
   await PluginEngine.init();
   await Editions.init();
+  if (RQBBOX_DATA.config.display?.rqbboxMode !== false) document.body.classList.add('rqbbox-mode');
   document.body.classList.add('boot-complete');
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(() => {});
