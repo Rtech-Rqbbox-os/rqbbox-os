@@ -21,7 +21,31 @@ const Boot = {
       if (step.pct === 70) await loadExternalData();
       await this.delay(step.pct === 100 ? 500 : 350);
     }
+    await this.finishBoot();
+  },
 
+  delay(ms) {
+    if (this._skipRequested) return Promise.resolve();
+    return new Promise(r => {
+      this._skipResolve = r;
+      const tid = setTimeout(() => { this._skipResolve = null; r(); }, ms);
+      this._skipTimer = tid;
+    });
+  },
+
+  skipBoot() {
+    this._skipRequested = true;
+    if (this._skipTimer) clearTimeout(this._skipTimer);
+    if (this._skipResolve) this._skipResolve();
+    const bar = RQB.$('#boot-bar');
+    const status = RQB.$('#boot-status');
+    if (bar) bar.style.width = '100%';
+    if (status) status.textContent = 'RQBBOX OS ready.';
+    setTimeout(() => this.finishBoot(), 300);
+  },
+
+  async finishBoot() {
+    const bootScreen = RQB.$('#boot-screen');
     RQB.playStartupSound();
     bootScreen.classList.add('hidden');
 
@@ -32,7 +56,6 @@ const Boot = {
         const pu = RQBBOX_DATA.profiles?.users?.find(u => u.id === RQB.state.currentUser.id);
         if (pu) {
           RQB.state.currentUser = pu;
-          // Restore session from server if online (validates token still works)
           if (RQBApi.online && pu.token) {
             const me = await RQBApi.me(pu.token);
             if (me.ok) RQB.state.currentUser = me.user;
@@ -45,13 +68,10 @@ const Boot = {
         localStorage.removeItem('rqbbox_user');
       } catch { /* welcome */ }
     }
-    // First boot? Launch setup wizard
     if (!this.checkFirstBoot()) {
       RQB.showScreen('welcome-screen');
     }
   },
-
-  delay(ms) { return new Promise(r => setTimeout(r, ms)); },
 
   launchShell() {
     RQB.hideAllAuth();
@@ -71,6 +91,7 @@ const Boot = {
   },
 
   setupAuth() {
+    RQB.$('#boot-skip').onclick = () => { if (RQBAudio && RQBAudio.select) RQBAudio.select(); Boot.skipBoot(); };
     RQB.$('#btn-get-started').onclick = () => { if (RQBAudio && RQBAudio.select) RQBAudio.select(); Boot.showProfiles(); };
     RQB.$('#link-signin').onclick = () => { if (RQBAudio && RQBAudio.select) RQBAudio.select(); RQB.showScreen('signin-screen'); };
     RQB.$('#link-signup').onclick = () => { if (RQBAudio && RQBAudio.select) RQBAudio.select(); RQB.showScreen('signup-screen'); };

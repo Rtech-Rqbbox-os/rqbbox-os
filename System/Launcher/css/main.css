@@ -472,6 +472,92 @@ html, body {
 .media-icon { font-size: 2rem; margin-bottom: 8px; }
 .media-name { font-size: .78rem; }
 
+/* BOOT SKIP */
+.boot-skip {
+  position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4); padding: 8px 24px; border-radius: 20px;
+  font-size: 0.75rem; font-family: inherit; cursor: pointer;
+  transition: all 0.2s; z-index: 10001; letter-spacing: 1px;
+}
+.boot-skip:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.boot-screen.hidden .boot-skip { display: none; }
+
+/* RESPONSIVE — fit any screen */
+@media (max-width: 900px) {
+  :root { --sidebar-width: 48px; --header-height: 44px; }
+  .auth-panel { width: 90%; max-width: 400px; padding: 32px 24px; }
+  .settings-grid { grid-template-columns: 1fr; }
+  .settings-nav { display: flex; gap: 4px; overflow-x: auto; padding: 8px 16px; }
+  .settings-nav-item { white-space: nowrap; font-size: 0.7rem; padding: 6px 12px; }
+  .settings-panel { padding: 16px; }
+  .settings-nav { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+  .page { padding: 0 16px; }
+  .top-bar { padding: 0 12px; }
+  .top-bar .search-box { display: none; }
+  .top-icons .icon-btn { width: 32px; height: 32px; font-size: 0.85rem; }
+  .user-pill { padding: 2px 8px; }
+  .user-pill-name { display: none; }
+  .widget-grid { grid-template-columns: 1fr 1fr; }
+  .store-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .profile-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+  .settings-section h3 { font-size: 0.9rem; }
+  .storage-dashboard { flex-direction: column; }
+  .storage-dashboard-label { font-size: 0.7rem; }
+  .guide-panel { width: 90% !important; max-width: 400px; }
+  .shortcut-group { font-size: 0.75rem; }
+  .shortcut-row kbd { font-size: 0.65rem; padding: 2px 6px; }
+  .fs-hero { padding: 24px 16px; }
+  .fs-hero-text h2 { font-size: 1.3rem; }
+  .fs-section { padding: 8px 16px 16px; }
+  .fs-header { padding: 10px 16px; }
+  .fs-card { width: 140px; }
+  .media-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); padding: 0 16px 16px; }
+}
+
+@media (max-width: 600px) {
+  :root { --sidebar-width: 0px; --header-height: 40px; }
+  .sidebar { display: none; }
+  .top-bar .search-box { display: none; }
+  .auth-panel { width: 95%; padding: 24px 16px; }
+  .widget-grid { grid-template-columns: 1fr; }
+  .store-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
+  .guide-panel { width: 95% !important; }
+  .settings-tabs { padding: 0 16px 12px; gap: 2px; }
+  .settings-tab { font-size: 0.7rem; padding: 6px 10px; }
+  .boot-title { font-size: 1rem; letter-spacing: 4px; }
+  .boot-logo { width: 48px; height: 48px; }
+  .boot-loader { width: 160px; }
+  .boot-skip { bottom: 24px; font-size: 0.65rem; padding: 6px 16px; }
+  .notif-panel { width: 100% !important; }
+  .fs-hero-text h2 { font-size: 1.1rem; }
+  .fs-card { width: 120px; }
+  .fs-footer { flex-direction: column; gap: 4px; align-items: center; font-size: 0.6rem; }
+  .media-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 6px; }
+  .page-content { margin-left: 0; }
+}
+
+@media (min-width: 1400px) {
+  :root { --sidebar-width: 72px; }
+  .auth-panel { width: 480px; padding: 56px 48px; }
+  .widget-grid { grid-template-columns: repeat(4, 1fr); }
+  .store-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .card-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  .page { padding: 0 48px; }
+  .fs-card { width: 220px; }
+  .fs-hero { padding: 64px 48px 40px; }
+}
+
+@media (min-width: 1900px) {
+  :root { --sidebar-width: 80px; --header-height: 56px; }
+  html { font-size: 18px; }
+  .page { padding: 0 64px; }
+  .auth-panel { width: 520px; }
+  .widget-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
 /* ANIMATIONS */
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
